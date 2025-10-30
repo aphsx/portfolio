@@ -1,0 +1,1 @@
+export { useLocalizedData } from './useLocalizedData'
