@@ -21,25 +21,101 @@ export const usesData: UsesCategory[] = [
   {
     category: { en: "Development", th: "การพัฒนา" },
     items: [
+      // Languages / Frameworks
       {
-        name: { en: "Visual Studio Code", th: "Visual Studio Code" },
-        image: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg"
+        name: { en: "Javascript", th: "Javascript" },
+        image: "https://img.shields.io/badge/Javascript-F0DB4F?style=for-the-badge&labelColor=black&logo=javascript&logoColor=F0DB4F"
       },
       {
-        name: { en: "Git & GitHub", th: "Git & GitHub" },
-        image: "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+        name: { en: "Typescript", th: "Typescript" },
+        image: "https://img.shields.io/badge/Typescript-007acc?style=for-the-badge&labelColor=black&logo=typescript&logoColor=007acc"
       },
       {
-        name: { en: "Docker Desktop", th: "Docker Desktop" },
-        image: "https://www.docker.com/wp-content/uploads/2022/03/vertical-logo-monochromatic.png"
+        name: { en: "HTML", th: "HTML" },
+        image: "https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"
+      },
+      {
+        name: { en: "CSS3", th: "CSS3" },
+        image: "https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"
+      },
+      {
+        name: { en: "React", th: "React" },
+        image: "https://img.shields.io/badge/-React-61DBFB?style=for-the-badge&labelColor=black&logo=react&logoColor=61DBFB"
+      },
+      {
+        name: { en: "Next.js", th: "Next.js" },
+        image: "https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white"
+      },
+      {
+        name: { en: "Redux", th: "Redux" },
+        image: "https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white"
+      },
+      {
+        name: { en: "Tailwind", th: "Tailwind" },
+        image: "https://img.shields.io/badge/Tailwind_CSS-092749?style=for-the-badge&logo=tailwindcss&logoColor=06B6D4&labelColor=000000"
+      },
+      {
+        name: { en: "Bootstrap", th: "Bootstrap" },
+        image: "https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white"
       },
       {
         name: { en: "Node.js", th: "Node.js" },
-        image: "https://nodejs.org/static/images/logo.svg"
+        image: "https://img.shields.io/badge/Nodejs-3C873A?style=for-the-badge&labelColor=black&logo=node.js&logoColor=3C873A"
       },
       {
-        name: { en: "React DevTools", th: "React DevTools" },
-        image: "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"
+        name: { en: "Electron", th: "Electron" },
+        image: "https://img.shields.io/badge/Electron-47848F?style=for-the-badge&logo=electron&logoColor=white"
+      },
+      {
+        name: { en: "Vite", th: "Vite" },
+        image: "https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white"
+      },
+      // Database (SQL)
+      {
+        name: { en: "MySQL", th: "MySQL" },
+        image: "https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white"
+      },
+      {
+        name: { en: "SQLite", th: "SQLite" },
+        image: "https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white"
+      },
+      {
+        name: { en: "PostgreSQL", th: "PostgreSQL" },
+        image: "https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white"
+      },
+      // ORM / Tools
+      {
+        name: { en: "Prisma", th: "Prisma" },
+        image: "https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white"
+      },
+      {
+        name: { en: "Docker", th: "Docker" },
+        image: "https://img.shields.io/badge/Docker-0db7ed?style=for-the-badge&logo=docker&logoColor=white&labelColor=000000"
+      },
+      {
+        name: { en: "Postman", th: "Postman" },
+        image: "https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white&labelColor=000000"
+      },
+      {
+        name: { en: "Git", th: "Git" },
+        image: "https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white"
+      },
+      {
+        name: { en: "GitHub", th: "GitHub" },
+        image: "https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"
+      },
+      // GUI Tools
+      {
+        name: { en: "phpMyAdmin", th: "phpMyAdmin" },
+        image: "https://www.phpmyadmin.net/static/images/logo.png"
+      },
+      {
+        name: { en: "DB Browser for SQLite", th: "DB Browser for SQLite" },
+        image: "https://sqlitebrowser.org/images/sqlitebrowser-logo.svg"
+      },
+      {
+        name: { en: "VSCode", th: "VSCode" },
+        image: "https://img.shields.io/badge/Visual_Studio_Code-0078d7?style=for-the-badge&logo=visualstudiocode&logoColor=white"
       }
     ]
   },
@@ -48,7 +124,7 @@ export const usesData: UsesCategory[] = [
     items: [
       {
         name: { en: "Figma", th: "Figma" },
-        image: "https://cdn.worldvectorlogo.com/logos/figma-1.svg"
+        image: "https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white"
       },
       {
         name: { en: "Notion", th: "Notion" },
