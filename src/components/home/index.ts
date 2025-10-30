@@ -1,0 +1,7 @@
+export { default as HeroSection } from './HeroSection'
+export { default as AboutWorkSection } from './AboutWorkSection'
+export { default as BioSection } from './BioSection'
+export { default as SkillsSection } from './SkillsSection'
+export { default as SocialLinksSection } from './SocialLinksSection'
+export { default as ContactSection } from './ContactSection'
+export { default as FeaturedProjectsSection } from './FeaturedProjectsSection'
