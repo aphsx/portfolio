@@ -101,11 +101,10 @@ const ProjectDetail = () => {
               rel={project.link ? "noopener noreferrer" : ""}
               whileHover={{ scale: project.link ? 1.05 : 1 }}
               whileTap={{ scale: project.link ? 0.95 : 1 }}
-              className={`inline-flex items-center gap-2 px-5 py-2 rounded-lg text-sm font-medium transition-colors ${
-                project.link
+              className={`inline-flex items-center gap-2 px-5 py-2 rounded-lg text-sm font-medium transition-colors ${project.link
                   ? "bg-teal-500 hover:bg-teal-600 text-white"
                   : "bg-gray-300 dark:bg-gray-700 text-gray-500 cursor-not-allowed"
-              }`}
+                }`}
               onClick={(e) => {
                 if (!project.link) e.preventDefault();
               }}
@@ -120,11 +119,10 @@ const ProjectDetail = () => {
               rel={project.github ? "noopener noreferrer" : ""}
               whileHover={{ scale: project.github ? 1.05 : 1 }}
               whileTap={{ scale: project.github ? 0.95 : 1 }}
-              className={`inline-flex items-center gap-2 px-5 py-2 rounded-lg text-sm font-medium transition-colors border ${
-                project.github
+              className={`inline-flex items-center gap-2 px-5 py-2 rounded-lg text-sm font-medium transition-colors border ${project.github
                   ? "bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600"
                   : "bg-gray-300 dark:bg-gray-700 text-gray-500 cursor-not-allowed border-gray-400 dark:border-gray-600"
-              }`}
+                }`}
               onClick={(e) => {
                 if (!project.github) e.preventDefault();
               }}
@@ -165,19 +163,31 @@ const ProjectDetail = () => {
               {t('project.gallery')}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {project.images.map((image, index) => (
-                <div
-                  key={index}
-                  className="aspect-video rounded-lg overflow-hidden bg-white dark:bg-gray-800"
-                >
-                  <img
-                    src={image}
-                    alt={`${getLocalized(project.title)} - Image ${index + 1}`}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
-              ))}
+              {project.images.map((image, index) => {
+                const imageUrl = typeof image === 'string' ? image : image.url;
+                const imageCaption = typeof image === 'string' ? undefined : image.caption;
+
+                return (
+                  <div
+                    key={index}
+                    className="flex flex-col gap-3"
+                  >
+                    <div className="aspect-video rounded-lg overflow-hidden bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-800 shadow-sm">
+                      <img
+                        src={imageUrl}
+                        alt={imageCaption || `${getLocalized(project.title)} - Image ${index + 1}`}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                    {imageCaption && (
+                      <p className="text-sm text-gray-500 dark:text-gray-400 font-medium px-1">
+                        {imageCaption}
+                      </p>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </motion.div>
         )}
