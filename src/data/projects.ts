@@ -131,33 +131,31 @@ export const projects: Project[] = [
   },
   {
     id: '6',
-    title: createLocalizedText('3D Fire Control System & Ballistic Computer', 'ระบบคำนวณและควบคุมการยิงปืนใหญ่แบบ 3 มิติ'),
+    title: createLocalizedText('3D Trajectory Control Computer', 'ระบบคำนวณและควบคุมวิถีเคลื่อนที่แบบ 3 มิติ'),
     description: createLocalizedText(
-      'A high-precision ballistic computing system for artillery that integrates real-time environmental data, terrain analysis, and 3D visualization to provide accurate firing solutions.',
-      'ระบบคำนวณทางขีปนาวุธความแม่นยำสูงสำหรับการยิงปืนใหญ่ ซึ่งรวบรวมข้อมูลสภาพแวดล้อมแบบเรียลไทม์ การวิเคราะห์ภูมิประเทศ และการแสดงผล 3 มิติเพื่อให้ได้แนวทางวางตับการยิงที่แม่นยำที่สุด'
+      'A high-precision modular computing system that integrates real-time environmental data, terrain analysis, and 3D visualization to provide accurate operational solutions.',
+      'ระบบคำนวณความแม่นยำสูงสำหรับการเคลื่อนที่ของวิถี ซึ่งรวบรวมข้อมูลสภาพแวดล้อมแบบเรียลไทม์ การวิเคราะห์ภูมิประเทศ และการแสดงผล 3 มิติเพื่อกำหนดแนวทางวิถีที่แม่นยำที่สุด'
     ),
     shortDescription: createLocalizedText(
-      'Advanced 3D ballistic computer for field artillery with environmental corrections and terrain mapping.',
-      'คอมพิวเตอร์คำนวณทางขีปนาวุธ 3 มิติขั้นสูง พร้อมระบบแก้ค่าสภาพอากาศและแผนที่ภูมิประเทศ'
+      'Advanced 3D computing system for field operations with environmental corrections and terrain mapping.',
+      'คอมพิวเตอร์คำนวณ 3 มิติขั้นสูง พร้อมระบบแก้ค่าสภาพอากาศและแผนที่ภูมิประเทศ'
     ),
     descriptionLong: createLocalizedText(
-      `An advanced tactical software suite designed to modernize field artillery operations. The system automates complex ballistic calculations by integrating data from firing tables with real-time environmental factors.
+      `An advanced tactical software suite designed to modernize field operations. The system automates complex calculations by integrating data from reference tables with real-time environmental factors.
 
 ### Key Technical Details:
-1. **Computational Engine**: Implemented a multi-step ballistic pipeline (11 steps) that calculates trajectory based on weapon type, charge, projectile weight, and meteorological data (wind, air density, temperature).
-2. **3D Visualization**: Built using a custom 3D rendering engine to visualize projectile trajectories, impact points, and terrain elevations, allowing operators to see "mountain height" impacts and potential obstructions.
-3. **Dynamic Corrections**: Integrates complex table lookups (Table B, C, F, G, H) to apply corrections for Earth rotation, crosswind, and altitude deviations.
-4. **Refinement & Adjustment**: Developed an intelligent adjustment system that records observed impacts and re-calculates firing solutions iteratively to close the gap between intended and actual impact points.
-5. **Data Management**: Robust system for handling weapon registries, munition databases, and mission saving/loading using React hooks and Electron-based storage.`,
+1. **Computational Engine**: Implemented a multi-step processing pipeline (11 steps) that calculates trajectories based on equipment types, parameters, and meteorological data (wind, air density, temperature).
+2. **3D Visualization**: Built using a custom 3D rendering engine to visualize trajectories, impact points, and terrain elevations, allowing operators to see potential obstructions and terrain impacts.
+3. **Intelligent Refinement**: Developed an adjustment system that records observed results and re-calculates solutions iteratively to close the gap between intended and actual outcomes.
+4. **Data Management**: Robust system for handling registries, databases, and session management using React hooks and Electron-based storage.`,
 
-      `ซอฟต์แวร์ยุทธวิธีขั้นสูงที่ออกแบบมาเพื่อยกระดับการปฏิบัติการของปืนใหญ่สนาม ระบบนี้ช่วยเปลี่ยนการคำนวณด้วยแรงงานคนให้เป็นระบบอัตโนมัติที่ซับซ้อน โดยรวมข้อมูลจากตารางยิง (Firing Tables) เข้ากับปัจจัยสภาพแวดล้อมแบบ Real-time
+      `ซอฟต์แวร์ทางเทคนิคขั้นสูงที่ออกแบบมาเพื่อยกระดับการปฏิบัติการของการเคลื่อนที่ของวิถีสนาม ระบบนี้ช่วยเปลี่ยนการคำนวณด้วยแรงงานคนให้เป็นระบบอัตโนมัติที่ซับซ้อน โดยรวมข้อมูลจากตารางอ้างอิง (Reference Tables) เข้ากับปัจจัยสภาพแวดล้อมแบบ Real-time
 
 ### รายละเอียดทางเทคนิคที่สำคัญ:
-1. **กลไกการคำนวณ (Computational Engine)**: พัฒนาระบบประมวลผลขีปนาวุธ 11 ขั้นตอน (Step-by-step pipeline) ที่คำนวณวิถีกระสุนตามประเภทอาวุธ, ส่วนบรรจุ, น้ำหนักกระสุน และข้อมูลอุตุนิยมวิทยา (ลม, ความหนาแน่นอากาศ, อุณหภูมิ)
-2. **การแสดงผล 3 มิติ**: สร้างเอนจินการแสดงผลแบบ 3 มิติเพื่อจำลองวิถีกระสุน, จุดตก และความสูงต่ำของภูมิประเทศ ช่วยให้ผู้ปฏิบัติงานเห็นภาพการตกกระทบของภูเขาและสิ่งกีดขวาง
-3. **การแก้ค่าแบบไดนามิก**: ผสมผสานการค้นหาข้อมูลจากตารางคำนวณมาตรฐาน (Table B, C, F, G, H) เพื่อแก้ค่าปัจจัยต่างๆ เช่น การหมุนของโลก (Earth Rotation), ลมขวาง (Crosswind) และความคลาดเคลื่อนจากระดับความสูง
-4. **ระบบปรับแก้การยิง (Adjustment System)**: พัฒนาระบบอัจฉริยะที่บันทึกจุดตกที่ตรวจการณ์ได้ และคำนวณวิธีแก้การยิงซ้ำแบบวนซ้ำ (Iterative) เพื่อลดระยะห่างระหว่างจุดที่ตั้งใจยิงกับจุดตกจริง
-5. **การจัดการข้อมูล**: ระบบการจัดการทะเบียนอาวุธ, ฐานข้อมูลกระสุน และระบบการบันทึก/โหลดภารกิจที่แข็งแกร่งด้วย React Hooks และระบบจัดเก็บข้อมูลบน Electron`
+1. **กลไกการคำนวณ (Computational Engine)**: พัฒนาระบบประมวลผล 11 ขั้นตอน (Step-by-step pipeline) ที่คำนวณวิถีตามประเภท, น้ำหนัก และข้อมูลอุตุนิยมวิทยา (ลม, ความหนาแน่นอากาศ, อุณหภูมิ)
+2. **การแสดงผล 3 มิติ**: สร้างเอนจินการแสดงผลแบบ 3 มิติเพื่อจำลองวิถี จุดตก และความสูงต่ำของภูมิประเทศ ช่วยให้ผู้ปฏิบัติงานเห็นภาพสิ่งกีดขวางและผลกระทบของภูมิประเทศ
+3. **ระบบปรับแก้การเคลื่อนที่ (Adjustment System)**: พัฒนาระบบอัจฉริยะที่บันทึกผลลัพธ์ที่ตรวจการณ์ได้ และคำนวณวิธีแก้ซ้ำแบบวนซ้ำ (Iterative) เพื่อลดระยะห่างระหว่างแนวทางที่ตั้งใจกับผลลัพธ์จริง
+4. **การจัดการข้อมูล**: ระบบการจัดการ, ฐานข้อมูล และระบบการบันทึก/โหลดภารกิจที่แข็งแกร่งด้วย React Hooks และระบบจัดเก็บข้อมูลบน Electron`
     ),
     image: '/images/project/3FCD.png',
     images: [
@@ -166,8 +164,8 @@ export const projects: Project[] = [
     link: '',
     github: '',
     tags: createLocalizedText(
-      ['React', 'TypeScript', 'Electron', '3D Graphics', 'Ballistics', 'Data Analytics', 'Military Tech', 'Mathematical Modeling'],
-      ['React', 'TypeScript', 'Electron', 'กราฟิก 3 มิติ', 'คำนวณขีปนาวุธ', 'ตรรกะคณิตศาสตร์ขั้นสูง', 'เทคโนโลยีทางการทหาร', 'การจัดการข้อมูลเชิงลึก']
+      ['React', 'TypeScript', 'Electron', '3D Graphics', 'Data Analytics', 'Mathematical Modeling'],
+      ['React', 'TypeScript', 'Electron', 'กราฟิก 3 มิติ', 'ตรรกะคณิตศาสตร์ขั้นสูง', ' การจัดการข้อมูลเชิงลึก']
     ),
     category: 'works'
   },
