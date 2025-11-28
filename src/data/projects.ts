@@ -169,6 +169,50 @@ export const projects: Project[] = [
     ),
     category: 'works'
   },
+    {
+    id: '7', // เปลี่ยนหมายเลข ID ตามลำดับโปรเจคของคุณ
+    title: createLocalizedText(
+      'TradingClaw: Market Microstructure Scanner', 
+      'TradingClaw: ระบบสแกนและวิเคราะห์โครงสร้างจุลภาคดัชนีตลาด'
+    ),
+    description: createLocalizedText(
+      'A high-performance cryptocurrency scanning system built in Rust to analyze real-time Limit Order Book (LOB) and trade data for strategy validation.',
+      'ระบบสแกนคริปโทเคอร์เรนซีประสิทธิภาพสูงที่พัฒนาด้วย Rust เพื่อวิเคราะห์ Limit Order Book (LOB) และข้อมูลการซื้อขายแบบเรียลไทม์สำหรับการทดสอบกลยุทธ์'
+    ),
+    shortDescription: createLocalizedText(
+      'Rust-based high-frequency crypto market scanner and cross-correlation analysis engine.',
+      'เอนจินสแกนตลาดคริปโตความถี่สูงและวิเคราะห์ความสัมพันธ์ข้ามศูนย์ซื้อขายด้วยภาษา Rust'
+    ),
+    descriptionLong: createLocalizedText(
+      `A robust and modular quantitative trading analysis system designed to validate market microstructure strategies before live execution. The system connects to major cryptocurrency exchanges via WebSockets to process high-frequency data streams.
+
+### Key Technical Details:
+1. **High-Performance Architecture**: Developed entirely in Rust using the \`tokio\` async runtime to handle massive concurrency and minimize data processing latency.
+2. **Real-time Data Pipeline**: Implemented WebSocket clients connecting to Binance and Bybit for continuous Limit Order Book (LOB) updates and aggregated trade streams.
+3. **Advanced Quantitative Signals**: Engineered highly optimized calculators for complex high-frequency trading signals, including Multi-Level Order Flow Imbalance (MLOFI), Volume Adjusted Mid Price (VAMP), and cross-exchange lead-lag correlation.
+4. **Strategy Validation Engine**: Built a Composite Opportunity Score (COS) system to dynamically evaluate, rank, and generate comprehensive reports on coin viability for execution strategies.`,
+
+      `ระบบวิเคราะห์การเทรดเชิงปริมาณที่มีความแม่นยำและเสถียรภาพ ออกแบบมาเพื่อตรวจสอบความถดถอยของกลยุทธ์ระดับโครงสร้างจุลภาคของตลาดก่อนการเทรดจริง ระบบถูกเชื่อมต่อกับกระดานเทรดชั้นนำผ่าน WebSockets เพื่อประมวลผลกระแสข้อมูลความถี่สูง
+
+### รายละเอียดทางเทคนิคที่สำคัญ:
+1. **สถาปัตยกรรมประสิทธิภาพสูง**: พัฒนาด้วยภาษา Rust ทั้งระบบ โดยใช้แพลตฟอร์ม \`tokio\` (Async runtime) เพื่อรองรับการทำงานพร้อมกันจำนวนมหาศาลและลดความหน่วง (Latency) ในการประมวลผลข้อมูลให้เหลือน้อยที่สุด
+2. **ระบบท่อส่งข้อมูลแบบเรียลไทม์**: พัฒนา WebSocket ไคลเอนต์เชื่อมต่อโดยตรงกับ Binance และ Bybit เพื่อดึงข้อมูล Limit Order Book (LOB) และคำสั่งซื้อขายรวมแบบรวดเร็วที่สุด
+3. **สัญญาณเชิงปริมาณขั้นสูง (Quant Signals)**: สร้างระบบคำนวณแบบรีดประสิทธิภาพสำหรับหาตัวชี้วัดความถี่สูงที่ซับซ้อน เช่น Multi-Level Order Flow Imbalance (MLOFI), Volume Adjusted Mid Price (VAMP) และ Lead-lag correlation ระหว่างกระดานเทรด
+4. **เอนจินประเมินผลกลยุทธ์**: สร้างระบบวิเคราะห์โอกาสแบบผสมผสาน (Composite Opportunity Score - COS) เพื่อให้คะแนน ตัดสิน จัดอันดับ และออกรายงานความเหมาะสมของเหรียญต่างๆ สำหรับกลยุทธ์การเทรดขั้นสูง`
+    ),
+    image: '/images/project/tradingclaw.png',
+    images: [
+      { url: '/images/project/tradingclaw.png', caption: 'Real-time LOB Analysis & Opportunity Scoring' },
+    ],
+    link: '',
+    github: 'https://github.com/aphsx/TradingClaw', // ลบออกหรือใส่ลิงก์จริงได้
+    tags: createLocalizedText(
+      ['Rust', 'WebSocket', 'High-Frequency Trading', 'Data Analytics', 'Quantitative Finance', 'Async Programming'],
+      ['Rust', 'WebSocket', 'High-Frequency Trading', 'การวิเคราะห์ข้อมูลความต้านทาน', 'การเงินเชิงปริมาณ', 'Async Programming']
+    ),
+    category: 'works' // หรือ 'personal' 
+  },
+
 
 
 
