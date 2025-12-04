@@ -200,9 +200,9 @@ export const projects: Project[] = [
 3. **สัญญาณเชิงปริมาณขั้นสูง (Quant Signals)**: สร้างระบบคำนวณแบบรีดประสิทธิภาพสำหรับหาตัวชี้วัดความถี่สูงที่ซับซ้อน เช่น Multi-Level Order Flow Imbalance (MLOFI), Volume Adjusted Mid Price (VAMP) และ Lead-lag correlation ระหว่างกระดานเทรด
 4. **เอนจินประเมินผลกลยุทธ์**: สร้างระบบวิเคราะห์โอกาสแบบผสมผสาน (Composite Opportunity Score - COS) เพื่อให้คะแนน ตัดสิน จัดอันดับ และออกรายงานความเหมาะสมของเหรียญต่างๆ สำหรับกลยุทธ์การเทรดขั้นสูง`
     ),
-    image: '/images/project/tradingclaw.png',
+    image: '/images/project/Scanner.png',
     images: [
-      { url: '/images/project/tradingclaw.png', caption: 'Real-time LOB Analysis & Opportunity Scoring' },
+      { url: '/images/project/Scanner.png', caption: 'Real-time LOB Analysis & Opportunity Scoring' },
     ],
     link: '',
     github: 'https://github.com/aphsx/TradingClaw', // ลบออกหรือใส่ลิงก์จริงได้
