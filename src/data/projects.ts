@@ -300,8 +300,8 @@ export const projects: Project[] = [
   {
     id: '8', // ลำดับโปรเจค VORTEX-7
     title: createLocalizedText(
-      'VORTEX-7: Intelligent Futures Scalping Engine',
-      'VORTEX-7: เอนจินเทรดฟิวเจอร์สอัจฉริยะความถี่สูง'
+      'Trading Short Term Futures Scalping and Backtesting',
+      'Trading Short Term Futures Scalping and Backtesting'
     ),
     description: createLocalizedText(
       'A sophisticated multi-engine trading bot for Binance Futures, utilizing order flow, tick momentum, and sentiment analysis to execute high-probability scalping strategies.',
@@ -312,7 +312,7 @@ export const projects: Project[] = [
       'ระบบเทรดอัตโนมัติแบบ Multi-engine พร้อมการจัดการความเสี่ยงอัจฉริยะและการกรองสภาวะตลาดแบบเรียลไทม์'
     ),
     descriptionLong: createLocalizedText(
-      `VORTEX-7 is a high-performance trading engine designed for the high-volatility environment of Binance Perpetual Futures. It operates on a modular "5-Engine" architecture to decode market microstructure and execute trades with sub-10ms logic latency.
+      `a high-performance trading engine designed for the high-volatility environment of Binance Perpetual Futures. It operates on a modular "5-Engine" architecture to decode market microstructure and execute trades with sub-10ms logic latency.
 
 ### Key Technical Pillars:
 1. **Multi-Engine Analysis Core**:
@@ -338,9 +338,10 @@ export const projects: Project[] = [
 3. **ระบบประมวลผลความเร็วสูง**: พัฒนาด้วย Python \`asyncio\` และ \`ccxt.pro\` เพื่อเชื่อมต่อ WebSocket แบบเรียลไทม์ ทำให้ระบบสามารถตอบสนองต่อตลาดได้รวดเร็วทันท่วงที
 4. **การจัดเก็บข้อมูลเชิงลึก**: เชื่อมต่อกับ Supabase เพื่อบันทึกข้อมูลการเทรดอย่างละเอียด รวมถึงค่าความหน่วงของ API (Latency) และประสิทธิภาพของแต่ละกลยุทธ์เพื่อการพัฒนาอย่างต่อเนื่อง`
     ),
-    image: '/images/project/Futures Scalping Engine.png',
+    image: '/images/project/FutureScalping.png',
     images: [
-      { url: '/images/project/Futures Scalping Engine', caption: 'VORTEX-7 Dashboard & Multi-Engine Signal Processing' },
+      { url: '/images/project/FutureScalping1.png', caption: 'VORTEX-7 Dashboard & Multi-Engine Signal Processing' },
+      { url: '/images/project/FutureScalping.png', caption: 'Future Scalping result' },
     ],
     link: '',
     github: 'https://github.com/aphsx/TradingShortTerm',
