@@ -340,7 +340,7 @@ export const projects: Project[] = [
     ),
     image: '/images/project/FutureScalping.png',
     images: [
-      { url: '/images/project/FutureScalping1.png', caption: 'VORTEX-7 Dashboard & Multi-Engine Signal Processing' },
+      { url: '/images/project/FutureScalping1.png', caption: 'Multi-Engine Signal Processing' },
       { url: '/images/project/FutureScalping.png', caption: 'Future Scalping result' },
     ],
     link: '',
