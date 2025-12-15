@@ -1,49 +1,31 @@
+// ============================================================
+// Core Localization
+// ============================================================
+
 export interface LocalizedText {
-  en: string | string[]
-  th?: string | string[]
+  en: string
+  th?: string
 }
 
-export interface ProjectImage {
-  url: string
-  caption?: string
+export interface LocalizedStringArray {
+  en: string[]
+  th?: string[]
 }
 
-export interface Project {
+// ============================================================
+// Shared Base Fields (mirrors what a DB table would have)
+// ============================================================
+
+export interface BaseEntity {
   id: string
-  title: LocalizedText
-  description: LocalizedText
-  shortDescription?: LocalizedText
-  descriptionLong?: LocalizedText
-  image: string
-  images?: (string | ProjectImage)[]
-  link?: string
-  github?: string
-  tags: LocalizedText
-  category: ProjectCategory
-  featured?: boolean
+  order?: number
+  isActive: boolean
+  createdAt?: string // ISO 8601 date string
 }
 
-export type ProjectCategory = 'works' | 'collaborations' | 'old'
-
-export interface BioTimelineItem {
-  year: string
-  event: LocalizedText
-}
-
-export interface Skill {
-  name: string
-  color: string
-  icon?: React.ComponentType<{ size?: number }>
-  category?: string
-}
-
-export interface SocialLink {
-  name: string
-  icon: React.ComponentType<{ size?: number }>
-  url: string
-  handle: string
-  description?: string
-}
+// ============================================================
+// Personal Info
+// ============================================================
 
 export interface PersonalInfo {
   name: LocalizedText
@@ -53,16 +35,91 @@ export interface PersonalInfo {
   email: string
   phone?: string
   location?: LocalizedText
+  bio?: LocalizedText
 }
 
-export interface UsesTool {
+export interface BioTimelineItem extends BaseEntity {
+  year: string
+  event: LocalizedText
+}
+
+// ============================================================
+// Projects
+// ============================================================
+
+export type ProjectCategory = 'works' | 'collaborations' | 'old'
+export type ProjectStatus = 'completed' | 'in-progress' | 'archived'
+
+export interface ProjectImage {
+  url: string
+  caption?: LocalizedText
+  isPrimary?: boolean
+}
+
+export interface Project extends BaseEntity {
+  slug: string
+  title: LocalizedText
+  description: LocalizedText
+  shortDescription?: LocalizedText
+  descriptionLong?: LocalizedText
+  image: string
+  images?: ProjectImage[]
+  link?: string
+  github?: string
+  tags: string[]          // Plain string array — localized tags go in translations
+  tagsLocalized?: LocalizedStringArray
+  category: ProjectCategory
+  status?: ProjectStatus
+  featured?: boolean
+  year?: number
+}
+
+// ============================================================
+// Skills
+// ============================================================
+
+export type SkillLevel = 'beginner' | 'intermediate' | 'advanced' | 'expert'
+
+export interface Skill extends BaseEntity {
+  name: string
+  color: string
+  icon?: React.ComponentType<{ size?: number }>
+  category: string
+  level?: SkillLevel
+}
+
+export interface SkillCategory extends BaseEntity {
+  name: LocalizedText
+  skills: Skill[]
+}
+
+// ============================================================
+// Social Links
+// ============================================================
+
+export type SocialPlatform = 'github' | 'instagram' | 'linkedin' | 'twitter' | 'youtube' | 'portfolio' | 'other'
+
+export interface SocialLink extends BaseEntity {
+  platform: SocialPlatform
+  name: string
+  icon: React.ComponentType<{ size?: number }>
+  url: string
+  handle: string
+  description?: LocalizedText
+}
+
+// ============================================================
+// Uses / Gear
+// ============================================================
+
+export interface UsesTool extends BaseEntity {
   name: LocalizedText
   image: string
   description?: LocalizedText
   url?: string
 }
 
-export interface UsesCategory {
-  category: LocalizedText
+export interface UsesCategory extends BaseEntity {
+  name: LocalizedText
   items: UsesTool[]
 }
