@@ -1,36 +1,68 @@
-import { LocalizedText } from '../types'
+import { LocalizedText, LocalizedStringArray } from '../types'
 
+/**
+ * Returns the localized string for the current language.
+ * Falls back to English if the requested language is not available.
+ */
 export const getLocalizedText = (
-  text: LocalizedText | LocalizedText | string | string[],
+  text: LocalizedText | string,
   language: 'en' | 'th'
-): string | string[] => {
+): string => {
   if (typeof text === 'string') {
     return text
   }
 
-  if (Array.isArray(text)) {
-    return text
-  }
-
   if (typeof text === 'object' && text !== null && 'en' in text) {
-    const localizedObj = text as LocalizedText
-    if (language === 'th' && localizedObj.th) {
-      return Array.isArray(localizedObj.th) ? localizedObj.th : localizedObj.th
+    const localized = text as LocalizedText
+    if (language === 'th' && localized.th) {
+      return localized.th
     }
-    return Array.isArray(localizedObj.en) ? localizedObj.en : localizedObj.en
+    return localized.en
   }
 
-  return text
+  return ''
 }
 
+/**
+ * Returns the localized string array for the current language.
+ * Falls back to English if the requested language is not available.
+ */
+export const getLocalizedArray = (
+  items: LocalizedStringArray | string[],
+  language: 'en' | 'th'
+): string[] => {
+  if (Array.isArray(items)) {
+    return items
+  }
+
+  if (typeof items === 'object' && items !== null && 'en' in items) {
+    const localized = items as LocalizedStringArray
+    if (language === 'th' && localized.th) {
+      return localized.th
+    }
+    return localized.en
+  }
+
+  return []
+}
+
+/**
+ * Helper to build a LocalizedText object.
+ */
 export const createLocalizedText = (
-  en: string | string[],
-  th?: string | string[]
+  en: string,
+  th?: string
 ): LocalizedText => ({
   en,
-  ...(th && { th })
+  ...(th && { th }),
 })
 
 export const isLocalizedText = (value: unknown): value is LocalizedText => {
-  return Boolean(value && typeof value === 'object' && value !== null && 'en' in value && ((value as LocalizedText).en !== undefined))
+  return Boolean(
+    value &&
+    typeof value === 'object' &&
+    value !== null &&
+    'en' in value &&
+    typeof (value as LocalizedText).en === 'string'
+  )
 }

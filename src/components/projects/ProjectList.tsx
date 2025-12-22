@@ -10,7 +10,7 @@ interface WorkSectionProps {
 }
 
 const WorkSection = ({ title, projects, showDivider = false }: WorkSectionProps) => {
-  const { getLocalized, getLocalizedArray } = useLocalizedData()
+  const { getLocalized } = useLocalizedData()
   // กำหนด default image
   const defaultImage = '/images/CSI00138.jpg'
 
@@ -66,7 +66,7 @@ const WorkSection = ({ title, projects, showDivider = false }: WorkSectionProps)
                     {getLocalized(project.shortDescription || project.description)}
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {getLocalizedArray(project.tags).slice(0, 3).map((tag, tagIndex) => (
+                    {project.tags.slice(0, 3).map((tag, tagIndex) => (
                       <span
                         key={tagIndex}
                         className="px-2 py-1 bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 text-xs rounded-full"
@@ -74,9 +74,9 @@ const WorkSection = ({ title, projects, showDivider = false }: WorkSectionProps)
                         {tag}
                       </span>
                     ))}
-                    {getLocalizedArray(project.tags).length > 3 && (
+                    {project.tags.length > 3 && (
                       <span className="px-2 py-1 bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-slate-300 text-xs rounded-full">
-                        +{getLocalizedArray(project.tags).length - 3} more
+                        +{project.tags.length - 3} more
                       </span>
                     )}
                   </div>

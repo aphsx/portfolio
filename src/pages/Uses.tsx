@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { usesData } from "../data";
+import { UsesRepository } from '../data';
 import { useLanguage } from '../contexts';
 import { getLocalizedText } from '../utils';
 
@@ -8,6 +8,7 @@ import { getLocalizedText } from '../utils';
 const Uses = () => {
   const { t, language } = useLanguage()
   const defaultImage = '/images/CSI00139.jpg'
+  const usesCategories = UsesRepository.getAll()
   return (
     <div
       className="min-h-screen bg-gray-50 dark:bg-gray-900"
@@ -32,9 +33,9 @@ const Uses = () => {
 
         {/* Uses Sections */}
         <div className="space-y-8">
-          {usesData.map((section, sectionIndex) => (
+          {usesCategories.map((section, sectionIndex) => (
             <motion.section
-              key={getLocalizedText(section.category, language) as string}
+              key={section.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 + sectionIndex * 0.1, duration: 0.6 }}
@@ -42,7 +43,7 @@ const Uses = () => {
             >
               <div className="flex items-center gap-3 mb-6">
                 <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100">
-                  {getLocalizedText(section.category, language)}
+                  {getLocalizedText(section.name, language)}
                 </h2>
               </div>
 

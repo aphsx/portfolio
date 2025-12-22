@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { personalInfo } from '../../data'
+import { PersonalRepository } from '../../data'
 import { useLanguage } from '../../contexts'
 import { useLocalizedData } from '../../hooks'
 
 const HeroSection = () => {
   const { t } = useLanguage()
   const { getLocalized } = useLocalizedData()
+  const personalInfo = PersonalRepository.getPersonalInfo()
   const [typewriterText, setTypewriterText] = useState('')
   const targetText = t('home.greeting')
 

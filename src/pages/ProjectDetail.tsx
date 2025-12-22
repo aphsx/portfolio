@@ -4,7 +4,7 @@ import { HiArrowLeft, HiExternalLink, HiX } from "react-icons/hi";
 import { FiGithub } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { projects } from "../data";
+import { ProjectRepository } from "../data";
 import { useLanguage } from '../contexts';
 import { useLocalizedData } from '../hooks';
 import MarkdownRenderer from '../components/common/MarkdownRenderer';
@@ -12,10 +12,10 @@ import MarkdownRenderer from '../components/common/MarkdownRenderer';
 const ProjectDetail = () => {
   const { projectId } = useParams();
   const { t } = useLanguage();
-  const { getLocalized, getLocalizedArray } = useLocalizedData();
+  const { getLocalized } = useLocalizedData();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  const project = projects.find((p) => p.id === projectId);
+  const project = ProjectRepository.getById(projectId ?? '');
 
   if (!project) {
     return <Navigate to="/projects" replace />;
@@ -87,13 +87,13 @@ const ProjectDetail = () => {
           className="mb-10"
         >
           {/* Tags */}
-          {getLocalizedArray(project.tags).length > 0 && (
+          {project.tags.length > 0 && (
             <div className="mb-8">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
                 {t('project.technologies')}
               </h3>
               <div className="flex flex-wrap gap-2">
-                {getLocalizedArray(project.tags).map((tag) => (
+                {project.tags.map((tag) => (
                   <span
                     key={tag}
                     className="px-3 py-1 text-sm bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-md"
@@ -173,35 +173,30 @@ const ProjectDetail = () => {
               {t('project.gallery')}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {project.images.map((image, index) => {
-                const imageUrl = typeof image === 'string' ? image : image.url;
-                const imageCaption = typeof image === 'string' ? undefined : image.caption;
-
-                return (
+              {project.images.map((image, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col gap-3"
+                >
                   <div
-                    key={index}
-                    className="flex flex-col gap-3"
+                    className="aspect-video rounded-lg overflow-hidden bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-800 shadow-sm cursor-zoom-in group relative"
+                    onClick={() => setSelectedImage(image.url)}
                   >
-                    <div
-                      className="aspect-video rounded-lg overflow-hidden bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-800 shadow-sm cursor-zoom-in group relative"
-                      onClick={() => setSelectedImage(imageUrl)}
-                    >
-                      <img
-                        src={imageUrl}
-                        alt={imageCaption || `${getLocalized(project.title)} - Image ${index + 1}`}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
-                    </div>
-                    {imageCaption && (
-                      <p className="text-sm text-gray-500 dark:text-gray-400 font-medium px-1">
-                        {imageCaption}
-                      </p>
-                    )}
+                    <img
+                      src={image.url}
+                      alt={image.caption ? getLocalized(image.caption) : `${getLocalized(project.title)} - Image ${index + 1}`}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
                   </div>
-                );
-              })}
+                  {image.caption && (
+                    <p className="text-sm text-gray-500 dark:text-gray-400 font-medium px-1">
+                      {getLocalized(image.caption)}
+                    </p>
+                  )}
+                </div>
+              ))}
             </div>
           </motion.div>
         )}

@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion'
 import { ProjectList } from '../components/projects'
-import { projects } from '../data'
+import { ProjectRepository } from '../data'
 import { useLanguage } from '../contexts'
 
 const Projects = () => {
   const { t } = useLanguage()
-  const workProjects = projects.filter(project => project.category === 'works')
-  const collaborationProjects = projects.filter(project => project.category === 'collaborations')
-  const oldProjects = projects.filter(project => project.category === 'old')
+  const workProjects = ProjectRepository.getByCategory('works')
+  const collaborationProjects = ProjectRepository.getByCategory('collaborations')
+  const oldProjects = ProjectRepository.getByCategory('old')
 
   return (
     <div
