@@ -2,10 +2,10 @@ import { motion } from 'framer-motion'
 import { PiGlobeBold } from 'react-icons/pi'
 import { Section } from '../ui'
 import { SocialRepository } from '../../data'
-import { useLanguage } from '../../contexts'
+import { useTranslation } from 'react-i18next'
 
 const SocialLinksSection = () => {
-  const { t } = useLanguage()
+  const { t } = useTranslation()
   const socialLinks = SocialRepository.getAll()
 
   return (

@@ -1,9 +1,9 @@
 import { MdOutlineWork } from 'react-icons/md'
 import { Section } from '../ui'
-import { useLanguage } from '../../contexts'
+import { useTranslation } from 'react-i18next'
 
 const AboutWorkSection = () => {
-  const { t } = useLanguage()
+  const { t } = useTranslation()
 
   return (
     <Section

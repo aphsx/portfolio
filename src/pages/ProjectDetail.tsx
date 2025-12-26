@@ -5,14 +5,14 @@ import { FiGithub } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { ProjectRepository } from "../data";
-import { useLanguage } from '../contexts';
+import { useTranslation } from 'react-i18next';
 import { useLocalizedData } from '../hooks';
 import MarkdownRenderer from '../components/common/MarkdownRenderer';
 
 const ProjectDetail = () => {
   const { projectId } = useParams();
-  const { t } = useLanguage();
-  const { getLocalized } = useLocalizedData();
+  const { t } = useTranslation();
+  const { getLocalized, language } = useLocalizedData();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const project = ProjectRepository.getById(projectId ?? '');
@@ -32,7 +32,7 @@ const ProjectDetail = () => {
           className="mb-8"
         >
           <Link
-            to="/projects"
+            to={`/${language}/projects`}
             className="inline-flex items-center gap-2 text-teal-500 hover:text-teal-600 transition-colors text-sm"
           >
             <HiArrowLeft size={16} />

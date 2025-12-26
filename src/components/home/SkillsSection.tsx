@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { MdElectricBolt } from 'react-icons/md'
 import { Section } from '../ui'
 import { SkillRepository } from '../../data'
-import { useLanguage } from '../../contexts'
+import { useTranslation } from 'react-i18next'
 import { useLocalizedData } from '../../hooks'
 
 interface SkillItemProps {
@@ -52,7 +52,7 @@ const SkillItem = ({ skill, index }: SkillItemProps) => (
 )
 
 const SkillsSection = () => {
-  const { t } = useLanguage()
+  const { t } = useTranslation()
   const { getLocalized } = useLocalizedData()
   const skillCategories = SkillRepository.getAll()
 

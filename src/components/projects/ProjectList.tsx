@@ -10,7 +10,7 @@ interface WorkSectionProps {
 }
 
 const WorkSection = ({ title, projects, showDivider = false }: WorkSectionProps) => {
-  const { getLocalized } = useLocalizedData()
+  const { getLocalized, language } = useLocalizedData()
   // กำหนด default image
   const defaultImage = '/images/CSI00138.jpg'
 
@@ -46,7 +46,7 @@ const WorkSection = ({ title, projects, showDivider = false }: WorkSectionProps)
               className={`flex flex-col sm:flex-row ${index % 2 === 0 ? 'sm:flex-row' : 'sm:flex-row-reverse'} gap-4 sm:gap-8`}
             >
               <Link
-                to={`/projects/${project.id}`}
+                to={`/${language}/projects/${project.id}`}
                 className="flex-1 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 rounded-xl p-4 sm:p-6 transition-colors duration-300 "
               >
                 <div className="flex-shrink-0 w-full sm:w-48 h-48 sm:h-32 relative overflow-hidden rounded-lg">

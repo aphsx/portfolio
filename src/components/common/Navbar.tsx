@@ -1,19 +1,31 @@
 import { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { HiMenu, HiX } from 'react-icons/hi'
 import { FiGithub, FiMoon, FiSun, FiGlobe } from 'react-icons/fi'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useTheme, useLanguage } from '../../contexts'
+import { useTheme } from '../../contexts'
+import { useTranslation } from 'react-i18next'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const { isDark, toggleTheme } = useTheme()
-  const { language, setLanguage, t } = useLanguage()
+  const { t, i18n } = useTranslation()
+  const navigate = useNavigate()
   const location = useLocation()
 
+  const language = i18n.language?.split('-')[0] || 'en'
+
+  const setLanguage = (newLang: string) => {
+    // Replace current language in URL with new language
+    const pathParts = location.pathname.split('/')
+    pathParts[1] = newLang // Assuming /:lang is the first part
+    const newPath = pathParts.join('/')
+    navigate(newPath)
+  }
+
   const navItems = [
-    { name: t('nav.projects'), path: '/projects' },
-    { name: t('nav.uses'), path: '/uses' },
+    { name: t('nav.projects'), path: `/${language}/projects` },
+    { name: t('nav.uses'), path: `/${language}/uses` },
   ]
 
   const isActive = (path: string) => location.pathname === path
@@ -23,7 +35,7 @@ const Navbar = () => {
       <div className="max-w-2xl mx-auto px-6">
         <div className="flex justify-between items-center h-16">
           <Link
-            to="/"
+            to={`/${language}`}
             className="text-xl font-bold text-gray-900 dark:text-gray-100 hover:text-teal-500 transition-colors"
           >
             <span className="bg-gradient-to-r from-teal-500 to-cyan-400 bg-clip-text text-transparent">
@@ -37,11 +49,10 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`text-sm font-medium transition-colors duration-200 ${
-                  isActive(item.path)
-                    ? 'text-teal-500'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-teal-500'
-                }`}
+                className={`text-sm font-medium transition-colors duration-200 ${isActive(item.path)
+                  ? 'text-teal-500'
+                  : 'text-gray-700 dark:text-gray-300 hover:text-teal-500'
+                  }`}
               >
                 {item.name}
               </Link>
@@ -106,11 +117,10 @@ const Navbar = () => {
                   key={item.name}
                   to={item.path}
                   onClick={() => setIsOpen(false)}
-                  className={`block text-sm font-medium transition-colors duration-200 ${
-                    isActive(item.path)
-                      ? 'text-teal-500'
-                      : 'text-gray-700 dark:text-gray-300 hover:text-teal-500'
-                  }`}
+                  className={`block text-sm font-medium transition-colors duration-200 ${isActive(item.path)
+                    ? 'text-teal-500'
+                    : 'text-gray-700 dark:text-gray-300 hover:text-teal-500'
+                    }`}
                 >
                   {item.name}
                 </Link>

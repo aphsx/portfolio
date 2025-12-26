@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { ProjectList } from '../components/projects'
 import { ProjectRepository } from '../data'
-import { useLanguage } from '../contexts'
 
 const Projects = () => {
-  const { t } = useLanguage()
+  const { t } = useTranslation()
   const workProjects = ProjectRepository.getByCategory('works')
   const collaborationProjects = ProjectRepository.getByCategory('collaborations')
   const oldProjects = ProjectRepository.getByCategory('old')

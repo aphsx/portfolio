@@ -2,12 +2,12 @@ import { useState } from 'react'
 import { MdEmail } from 'react-icons/md'
 import { FiUser, FiMail, FiFileText } from 'react-icons/fi'
 import { Section } from '../ui'
-import { useLanguage } from '../../contexts'
+import { useTranslation } from 'react-i18next'
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001'
 
 const ContactSection = () => {
-  const { t } = useLanguage()
+  const { t } = useTranslation()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -158,11 +158,10 @@ const ContactSection = () => {
               onChange={handleInputChange}
               onBlur={handleBlur}
               placeholder="You Name"
-              className={`w-full pl-10 pr-3 py-2.5 bg-white dark:bg-gray-800 border rounded-md text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none transition-colors ${
-                touched.name && errors.name
+              className={`w-full pl-10 pr-3 py-2.5 bg-white dark:bg-gray-800 border rounded-md text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none transition-colors ${touched.name && errors.name
                   ? 'border-red-500 focus:border-red-500'
                   : 'border-gray-300 dark:border-gray-600 focus:border-teal-500'
-              }`}
+                }`}
             />
           </div>
           {touched.name && errors.name && (
@@ -181,11 +180,10 @@ const ContactSection = () => {
               onChange={handleInputChange}
               onBlur={handleBlur}
               placeholder="your.email@example.com"
-              className={`w-full pl-10 pr-3 py-2.5 bg-white dark:bg-gray-800 border rounded-md text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none transition-colors ${
-                touched.email && errors.email
+              className={`w-full pl-10 pr-3 py-2.5 bg-white dark:bg-gray-800 border rounded-md text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none transition-colors ${touched.email && errors.email
                   ? 'border-red-500 focus:border-red-500'
                   : 'border-gray-300 dark:border-gray-600 focus:border-teal-500'
-              }`}
+                }`}
             />
           </div>
           {touched.email && errors.email && (
@@ -204,11 +202,10 @@ const ContactSection = () => {
               onChange={handleInputChange}
               onBlur={handleBlur}
               placeholder="Subject/Title"
-              className={`w-full pl-10 pr-3 py-2.5 bg-white dark:bg-gray-800 border rounded-md text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none transition-colors ${
-                touched.title && errors.title
+              className={`w-full pl-10 pr-3 py-2.5 bg-white dark:bg-gray-800 border rounded-md text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none transition-colors ${touched.title && errors.title
                   ? 'border-red-500 focus:border-red-500'
                   : 'border-gray-300 dark:border-gray-600 focus:border-teal-500'
-              }`}
+                }`}
             />
           </div>
           {touched.title && errors.title && (
@@ -224,11 +221,10 @@ const ContactSection = () => {
             onChange={handleInputChange}
             onBlur={handleBlur}
             placeholder="Message"
-            className={`w-full px-3 py-2.5 bg-white dark:bg-gray-800 border rounded-md text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none transition-colors resize-none ${
-              touched.message && errors.message
+            className={`w-full px-3 py-2.5 bg-white dark:bg-gray-800 border rounded-md text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none transition-colors resize-none ${touched.message && errors.message
                 ? 'border-red-500 focus:border-red-500'
                 : 'border-gray-300 dark:border-gray-600 focus:border-teal-500'
-            }`}
+              }`}
             rows={5}
           />
           {touched.message && errors.message && (
