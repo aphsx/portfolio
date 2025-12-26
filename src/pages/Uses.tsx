@@ -1,18 +1,18 @@
-import { motion } from "framer-motion";
-import { UsesRepository } from '../data';
-import { useLanguage } from '../contexts';
-import { getLocalizedText } from '../utils';
-
-
+import { motion } from 'framer-motion'
+import { UsesRepository } from '../data'
+import { useLanguage } from '../contexts'
+import { useLocalizedData } from '../hooks'
 
 const Uses = () => {
-  const { t, language } = useLanguage()
+  const { t } = useLanguage()
+  const { getLocalized } = useLocalizedData()
   const defaultImage = '/images/CSI00139.jpg'
   const usesCategories = UsesRepository.getAll()
+
   return (
     <div
       className="min-h-screen bg-gray-50 dark:bg-gray-900"
-      style={{ paddingTop: "100px" }}
+      style={{ paddingTop: '100px' }}
     >
       <div className="max-w-2xl mx-auto px-6">
         {/* Header */}
@@ -43,14 +43,14 @@ const Uses = () => {
             >
               <div className="flex items-center gap-3 mb-6">
                 <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100">
-                  {getLocalizedText(section.name, language)}
+                  {getLocalized(section.name)}
                 </h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {section.items.map((item, itemIndex) => (
                   <motion.div
-                    key={itemIndex}
+                    key={item.id}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{
@@ -63,22 +63,22 @@ const Uses = () => {
                       {item.image ? (
                         <img
                           src={item.image}
-                          alt={getLocalizedText(item.name, language) as string}
+                          alt={getLocalized(item.name)}
                           className="w-full h-full object-cover"
                           onError={(e) => {
-                            e.currentTarget.src = defaultImage;
+                            e.currentTarget.src = defaultImage
                           }}
                         />
                       ) : (
                         <div className="w-full h-full bg-gradient-to-br from-teal-500/20 to-cyan-500/20 dark:from-teal-600/30 dark:to-cyan-600/30 flex items-center justify-center rounded-lg">
                           <span className="text-lg font-bold text-teal-600 dark:text-teal-400">
-                            {(getLocalizedText(item.name, language) as string).charAt(0)}
+                            {getLocalized(item.name).charAt(0)}
                           </span>
                         </div>
                       )}
                     </div>
                     <h3 className="text-gray-900 dark:text-gray-100 font-medium">
-                      {getLocalizedText(item.name, language)}
+                      {getLocalized(item.name)}
                     </h3>
                   </motion.div>
                 ))}
@@ -86,10 +86,9 @@ const Uses = () => {
             </motion.section>
           ))}
         </div>
-
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Uses;
+export default Uses
