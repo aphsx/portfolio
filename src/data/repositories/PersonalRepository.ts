@@ -1,5 +1,5 @@
 import { PersonalInfo, BioTimelineItem } from '../../types'
-import { personalInfoSeed, bioTimelineSeed } from '../seed/personal'
+import { personalInfoSeed, bioTimelineSeed } from '../seed/Personal'
 
 // ---------------------------------------------------------------------------
 // PersonalRepository

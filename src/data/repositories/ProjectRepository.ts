@@ -1,5 +1,5 @@
 import { Project, ProjectCategory } from '../../types'
-import { projectsSeed } from '../seed/projects'
+import { projectsSeed } from '../seed/Projects'
 
 // ---------------------------------------------------------------------------
 // ProjectRepository
