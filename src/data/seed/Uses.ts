@@ -5,8 +5,8 @@ import {
     SiSpotify,
     SiDiscord,
 } from 'react-icons/si'
-import { MdPhoneIphone } from 'react-icons/md'
-import { FaMicrophone, FaKeyboard, FaDesktop } from 'react-icons/fa'
+import { MdPhoneIphone, MdChair } from 'react-icons/md'
+import { FaMicrophone, FaKeyboard, FaDesktop, FaMouse, FaHeadset } from 'react-icons/fa'
 import { UsesCategory } from '../../types'
 
 // ---------------------------------------------------------------------------
@@ -35,11 +35,39 @@ export const usesCategoriesSeed: UsesCategory[] = [
                 order: 2,
             },
             {
+                id: 'uses-keyboard-ganss',
+                name: { en: 'Ganss G61 MAG Wired Mechanical Keyboard', th: 'คีย์บอร์ด Ganss G61 MAG' },
+                icon: FaKeyboard,
+                isActive: true,
+                order: 3,
+            },
+            {
+                id: 'uses-mouse-kysona',
+                name: { en: 'Kysona Mercury Wireless Gaming Mouse', th: 'เมาส์ Kysona Mercury' },
+                icon: FaMouse,
+                isActive: true,
+                order: 4,
+            },
+            {
+                id: 'uses-headset-atk',
+                name: { en: 'ATK Neptune N9 Pro Wireless Gaming Headset', th: 'หูฟัง ATK Neptune N9 Pro' },
+                icon: FaHeadset,
+                isActive: true,
+                order: 5,
+            },
+            {
                 id: 'uses-monitor-acer',
                 name: { en: 'ACER Nitro QG241Y Monitor', th: 'จอมอนิเตอร์ ACER Nitro QG241Y' },
                 icon: FaDesktop,
                 isActive: true,
-                order: 3,
+                order: 6,
+            },
+            {
+                id: 'uses-chair-xpanse',
+                name: { en: 'Xpanse X-Flex Ergonomic Gaming Chair', th: 'เก้าอี้ Xpanse X-Flex' },
+                icon: MdChair,
+                isActive: true,
+                order: 7,
             },
         ],
     },
