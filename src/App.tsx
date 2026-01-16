@@ -15,8 +15,8 @@ function App() {
             <Navbar />
             <main className="flex-1">
               <Routes>
-                {/* Redirect root to /en or /th */}
-                <Route path="/" element={<Navigate to="/en" replace />} />
+                {/* Redirect root to /th or /th */}
+                <Route path="/" element={<Navigate to="/th" replace />} />
 
                 {/* Localized routes */}
                 <Route path="/:lang" element={<LanguageWrapper />}>
@@ -27,7 +27,7 @@ function App() {
                 </Route>
 
                 {/* Fallback for unknown routes */}
-                <Route path="*" element={<Navigate to="/en" replace />} />
+                <Route path="*" element={<Navigate to="/th" replace />} />
               </Routes>
             </main>
             <Footer />

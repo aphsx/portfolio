@@ -1,5 +1,4 @@
 import {
-    SiVisualstudiocode,
     SiFigma,
     SiNotion,
     SiSpotify,
@@ -12,6 +11,7 @@ import {
     SiRust,
     SiUbuntu,
 } from 'react-icons/si'
+import { VscVscode } from 'react-icons/vsc'
 import { MdPhoneIphone, MdChair } from 'react-icons/md'
 import { FaMicrophone, FaKeyboard, FaDesktop, FaMouse, FaHeadset, FaBox, FaDatabase } from 'react-icons/fa'
 import { UsesCategory } from '../../types'
@@ -84,7 +84,7 @@ export const usesCategoriesSeed: UsesCategory[] = [
         isActive: true,
         order: 2,
         items: [
-            { id: 'uses-vscode', name: { en: 'VSCode' }, icon: SiVisualstudiocode, isActive: true, order: 1 },
+            { id: 'uses-vscode', name: { en: 'VSCode' }, icon: VscVscode, isActive: true, order: 1 },
             { id: 'uses-docker', name: { en: 'Docker' }, icon: SiDocker, isActive: true, order: 2 },
             { id: 'uses-rust', name: { en: 'Rust', th: 'ภาษา Rust' }, icon: SiRust, isActive: true, order: 3 },
             { id: 'uses-cargo', name: { en: 'Cargo', th: 'Cargo (Rust PM)' }, icon: FaBox, isActive: true, order: 4 },
