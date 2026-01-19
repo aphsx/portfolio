@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { HiMenu, HiX } from 'react-icons/hi'
-import { FiGithub, FiMoon, FiSun, FiGlobe } from 'react-icons/fi'
+import { FiGithub, FiMoon, FiSun } from 'react-icons/fi'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTheme } from '../../contexts'
 import { useTranslation } from 'react-i18next'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const [isLangOpen, setIsLangOpen] = useState(false)
   const { isDark, toggleTheme } = useTheme()
   const { t, i18n } = useTranslation()
   const navigate = useNavigate()
@@ -15,12 +16,21 @@ const Navbar = () => {
 
   const language = i18n.language?.split('-')[0] || 'en'
 
+  const languages = [
+    { code: 'en', name: 'EN', fullName: 'English', flag: '🇺🇸' },
+    { code: 'th', name: 'TH', fullName: 'ไทย', flag: '🇹🇭' },
+    { code: 'ja', name: 'JA', fullName: '日本語', flag: '🇯🇵' },
+  ]
+
+  const currentLang = languages.find(l => l.code === language) || languages[0]
+
   const setLanguage = (newLang: string) => {
     // Replace current language in URL with new language
     const pathParts = location.pathname.split('/')
     pathParts[1] = newLang // Assuming /:lang is the first part
     const newPath = pathParts.join('/')
     navigate(newPath)
+    setIsLangOpen(false)
   }
 
   const navItems = [
@@ -44,42 +54,86 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.path}
-                className={`text-sm font-medium transition-colors duration-200 ${isActive(item.path)
-                  ? 'text-teal-500'
-                  : 'text-gray-700 dark:text-gray-300 hover:text-teal-500'
-                  }`}
+          <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
+            <div className="flex items-center space-x-6 lg:space-x-8">
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  className={`text-sm font-medium transition-colors duration-200 ${isActive(item.path)
+                    ? 'text-teal-500'
+                    : 'text-gray-700 dark:text-gray-300 hover:text-teal-500'
+                    }`}
+                >
+                  {item.name}
+                </Link>
+              ))}
+              <a
+                href="https://github.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors duration-200"
               >
-                {item.name}
-              </Link>
-            ))}
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1 text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors duration-200"
-            >
-              <FiGithub size={16} />
-              <span className="text-sm">{t('nav.github')}</span>
-            </a>
-            <button
-              onClick={() => setLanguage(language === 'en' ? 'th' : 'en')}
-              className="text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors duration-200 p-2 flex items-center gap-1"
-              title={language === 'en' ? 'เปลี่ยนเป็นภาษาไทย' : 'Switch to English'}
-            >
-              <FiGlobe size={16} />
-              <span className="text-xs font-medium uppercase">{language}</span>
-            </button>
-            <button
-              onClick={toggleTheme}
-              className="text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors duration-200 p-2"
-            >
-              {isDark ? <FiSun size={20} /> : <FiMoon size={20} />}
-            </button>
+                <FiGithub size={16} />
+                <span className="text-sm">{t('nav.github')}</span>
+              </a>
+            </div>
+
+            <div className="h-4 w-[1px] bg-gray-200 dark:bg-gray-700 mx-2" />
+
+            <div className="flex items-center space-x-2">
+              <div className="relative">
+                <button
+                  onClick={() => setIsLangOpen(!isLangOpen)}
+                  className="text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors duration-200 p-2 flex items-center gap-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+                  title="Select Language"
+                >
+                  <span className="text-base leading-none">{currentLang.flag}</span>
+                  <span className="text-xs font-bold uppercase tracking-wider">{currentLang.name}</span>
+                </button>
+
+                <AnimatePresence>
+                  {isLangOpen && (
+                    <>
+                      <div
+                        className="fixed inset-0 z-10"
+                        onClick={() => setIsLangOpen(false)}
+                      />
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.95, y: 10 }}
+                        className="absolute right-0 mt-2 w-40 py-2 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700 z-20 overflow-hidden"
+                      >
+                        <div className="px-3 py-1 mb-1">
+                          <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Select Language</span>
+                        </div>
+                        {languages.map((lang) => (
+                          <button
+                            key={lang.code}
+                            onClick={() => setLanguage(lang.code)}
+                            className={`w-full px-4 py-2.5 flex items-center gap-3 transition-colors text-sm
+                              ${language === lang.code
+                                ? 'text-teal-500 bg-teal-50/50 dark:bg-teal-900/20'
+                                : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50'
+                              }`}
+                          >
+                            <span className="text-base">{lang.flag}</span>
+                            <span className="font-medium">{lang.fullName}</span>
+                          </button>
+                        ))}
+                      </motion.div>
+                    </>
+                  )}
+                </AnimatePresence>
+              </div>
+              <button
+                onClick={toggleTheme}
+                className="text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors duration-200 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+              >
+                {isDark ? <FiSun size={18} /> : <FiMoon size={18} />}
+              </button>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -102,16 +156,30 @@ const Navbar = () => {
             className="md:hidden backdrop-blur-md bg-white/90 dark:bg-gray-900/90 border-b border-gray-200 dark:border-gray-700"
           >
             <div className="px-4 py-4 space-y-4">
-              <button
-                onClick={() => {
-                  setLanguage(language === 'en' ? 'th' : 'en')
-                  setIsOpen(false)
-                }}
-                className="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors duration-200"
-              >
-                <FiGlobe size={20} />
-                <span className="text-sm font-medium">{language === 'en' ? 'ไทย' : 'English'}</span>
-              </button>
+              <div className="space-y-2">
+                <p className="text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest pl-1">
+                  Language
+                </p>
+                <div className="grid grid-cols-3 gap-2">
+                  {languages.map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => {
+                        setLanguage(lang.code)
+                        setIsOpen(false)
+                      }}
+                      className={`flex flex-col items-center justify-center p-3 rounded-xl border transition-all
+                        ${language === lang.code
+                          ? 'bg-teal-50 dark:bg-teal-900/20 border-teal-200 dark:border-teal-800 text-teal-600 dark:text-teal-400'
+                          : 'bg-gray-50 dark:bg-gray-800/50 border-gray-100 dark:border-gray-700 text-gray-600 dark:text-gray-400'
+                        }`}
+                    >
+                      <span className="text-xl mb-1">{lang.flag}</span>
+                      <span className="text-[10px] font-bold">{lang.name}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
               {navItems.map((item) => (
                 <Link
                   key={item.name}

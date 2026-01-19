@@ -18,10 +18,12 @@ export const projectsSeed: Project[] = [
         title: {
             en: 'Enterprise Resource Planning System',
             th: 'ระบบการวางแผนจัดการการผลิต',
+            ja: '企業資源計画（ERP）システム',
         },
         description: {
             en: 'A comprehensive ERP system for military manufacturing that handles inventory management, production scheduling, and resource allocation.',
             th: 'ระบบ ERP ที่ครอบคลุมที่ออกแบบสำหรับการดำเนินงานการผลิตทางทหาร มีการจัดการสินค้าคงคลังขั้นสูงและความสามารถในการวางแผนการผลิต',
+            ja: '軍事製造向けの包括的なERPシステム。在庫管理、生産スケジューリング、リソース割り当てを処理します。',
         },
         shortDescription: {
             en: 'Planning system for military manufacturing with inventory management and production planning.',
@@ -49,6 +51,7 @@ export const projectsSeed: Project[] = [
         title: {
             en: 'Medical E-Learning Platform',
             th: 'แพลตฟอร์มอีเลิร์นนิงทางการแพทย์',
+            ja: '医療用Eラーニングプラットフォーム',
         },
         description: {
             en: 'An interactive e-learning platform designed for medical students specializing in radiology, featuring comprehensive case studies and assessment tools.',
@@ -80,6 +83,7 @@ export const projectsSeed: Project[] = [
         title: {
             en: 'Center of Social Innovation Website',
             th: 'เว็บไซต์ศูนย์นวัตกรรมเฉพาะทาง',
+            ja: '社会イノベーションセンターウェブサイト',
         },
         description: {
             en: 'A modern, responsive website for the Center of Social Innovation Lab, showcasing research projects, events, and community impact initiatives.',
@@ -111,6 +115,7 @@ export const projectsSeed: Project[] = [
         title: {
             en: 'Personal Portfolio Website',
             th: 'เว็บไซต์ผลงานส่วนตัว',
+            ja: '個人ポートフォリオウェブサイト',
         },
         description: {
             en: 'A personal portfolio website to showcase projects, skills, and experience.',
@@ -142,6 +147,7 @@ export const projectsSeed: Project[] = [
         title: {
             en: 'Tourism Website',
             th: 'เว็บไซต์ท่องเที่ยว',
+            ja: '観光ウェブサイト',
         },
         description: {
             en: 'A vibrant tourism website promoting local attractions, events, and travel guides, built with Next.js and styled with Tailwind CSS.',
@@ -173,6 +179,7 @@ export const projectsSeed: Project[] = [
         title: {
             en: '3D Trajectory Control Computer',
             th: 'ระบบคำนวณและควบคุมวิถีเคลื่อนที่แบบ 3 มิติ',
+            ja: '3D Trajectory Control Computer',
         },
         description: {
             en: 'A high-precision modular computing system that integrates real-time environmental data, terrain analysis, and 3D visualization to provide accurate operational solutions.',
@@ -222,6 +229,7 @@ export const projectsSeed: Project[] = [
         title: {
             en: 'TradingClaw: Market Microstructure Scanner',
             th: 'TradingClaw: ระบบสแกนและวิเคราะห์โครงสร้างจุลภาคดัชนีตลาด',
+            ja: 'TradingClaw: Market Microstructure Scanner',
         },
         description: {
             en: 'A high-performance cryptocurrency scanning system built in Rust to analyze real-time Limit Order Book (LOB) and trade data for strategy validation.',
@@ -271,6 +279,7 @@ export const projectsSeed: Project[] = [
         title: {
             en: 'Trading Short Term Futures Scalping and Backtesting',
             th: 'Trading Short Term Futures Scalping and Backtesting',
+            ja: '短期先物スキャルピング ＆ バックテストシステム',
         },
         description: {
             en: 'A sophisticated multi-engine trading bot for Binance Futures, utilizing order flow, tick momentum, and sentiment analysis to execute high-probability scalping strategies.',

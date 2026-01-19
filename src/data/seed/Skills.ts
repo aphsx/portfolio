@@ -27,7 +27,7 @@ import { SkillCategory } from '../../types'
 export const skillCategoriesSeed: SkillCategory[] = [
     {
         id: 'cat-lang-frameworks',
-        name: { en: 'Languages & Frameworks', th: 'ภาษาและเฟรมเวิร์ก' },
+        name: { en: 'Languages & Frameworks', th: 'ภาษาและเฟรมเวิร์ก', ja: '言語 ＆ フレームワーク' },
         isActive: true,
         order: 1,
         skills: [
@@ -46,7 +46,7 @@ export const skillCategoriesSeed: SkillCategory[] = [
     },
     {
         id: 'cat-tools-design',
-        name: { en: 'Tools & Design', th: 'เครื่องมือและดีไซน์' },
+        name: { en: 'Tools & Design', th: 'เครื่องมือและดีไซน์', ja: 'ツール ＆ デザイン' },
         isActive: true,
         order: 2,
         skills: [
@@ -59,7 +59,7 @@ export const skillCategoriesSeed: SkillCategory[] = [
     },
     {
         id: 'cat-database',
-        name: { en: 'Database', th: 'ฐานข้อมูล' },
+        name: { en: 'Database', th: 'ฐานข้อมูล', ja: 'データベース' },
         isActive: true,
         order: 3,
         skills: [
