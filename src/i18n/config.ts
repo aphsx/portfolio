@@ -26,6 +26,7 @@ i18n
         translation: jaTranslations,
       },
     },
+    supportedLngs: ['en', 'th', 'ja'],
     fallbackLng: 'th',
     debug: false,
     interpolation: {
