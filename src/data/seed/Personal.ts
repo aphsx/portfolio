@@ -6,12 +6,12 @@ import { BioTimelineItem, PersonalInfo } from '../../types'
 // ---------------------------------------------------------------------------
 
 export const personalInfoSeed: PersonalInfo = {
-    name: { en: 'Aphisit Danchaodang', th: 'อภิสิทธิ์ ด่านเจ้าแดง', ja: 'Aphisit Danchaodang' },
-    title: { en: 'FullStack Developer', th: 'นักพัฒนา FullStack', ja: 'フルスタック開発者' },
+    name: { en: '', th: 'อภิสิทธิ์ ด่านเจ้าแดง', ja: '' },
+    title: { en: '', th: 'นักพัฒนา FullStack', ja: '' },
     greeting: {
-        en: 'Hi, I am Aphisit Danchaodang',
+        en: '',
         th: 'สวัสดีครับ ผมนาย อภิสิทธิ์ ด่านเจ้าแดง',
-        ja: 'こんにちは、Aphisit Danchaodang です',
+        ja: '',
     },
     profileImage: '/images/CSI00139.jpg',
     email: 'aphisit.danchaodang@example.com',
@@ -57,9 +57,9 @@ export const bioTimelineSeed: BioTimelineItem[] = [
         isActive: true,
         order: 4,
         event: {
-            en: 'Successfully completed secondary education at Matthayomwatmaikrongtong School (Grade 7-12)',
+            en: '',
             th: 'จบการศึกษาระดับมัธยมศึกษาตอนปลายจากโรงเรียนมัธยมวัดใหม่กรองทอง (ม.1-6)',
-            ja: 'Matthayomwatmaikrongtong 学校にて中等教育を修了 (第7-12学年)',
+            ja: '',
         },
     },
     {
@@ -68,9 +68,9 @@ export const bioTimelineSeed: BioTimelineItem[] = [
         isActive: true,
         order: 5,
         event: {
-            en: 'Completed lower secondary education at Banthaicharoen School (Grade 1-6)',
+            en: '',
             th: 'จบการศึกษาระดับประถมศึกษาจากโรงเรียนบ้านไทยเจริญ (ป.1-6)',
-            ja: 'Banthaicharoen 学校にて初等教育を修了 (第1-6学年)',
+            ja: '',
         },
     },
 ]
