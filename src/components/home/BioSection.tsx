@@ -18,7 +18,7 @@ const BioSection = () => {
       <div className="space-y-2">
         {bioTimeline.map((item, index) => (
           <div key={index} className="flex gap-4">
-            <span className="text-teal-500 font-semibold text-sm min-w-[70px]">
+            <span className="text-teal-500 font-semibold text-sm w-[110px] shrink-0">
               {item.year}
             </span>
             <span className="text-gray-600 dark:text-gray-300 text-sm">

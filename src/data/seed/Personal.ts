@@ -7,7 +7,7 @@ import { BioTimelineItem, PersonalInfo } from '../../types'
 
 export const personalInfoSeed: PersonalInfo = {
     name: { en: 'Aphisit Danchaodang', th: 'อภิสิทธิ์ ด่านเจ้าแดง', ja: 'Aphisit Danchaodang' },
-    title: { en: 'FullStack Web Developer', th: 'นักพัฒนา Full-Stack', ja: 'フルスタックウェブデベロッパー' },
+    title: { en: 'FullStack Developer', th: 'นักพัฒนา FullStack', ja: 'フルスタック開発者' },
     greeting: {
         en: 'Hi, I am Aphisit Danchaodang',
         th: 'สวัสดีครับ ผมนาย อภิสิทธิ์ ด่านเจ้าแดง',
@@ -20,13 +20,13 @@ export const personalInfoSeed: PersonalInfo = {
 export const bioTimelineSeed: BioTimelineItem[] = [
     {
         id: 'bio-2025',
-        year: '2025',
+        year: '2025 - Present',
         isActive: true,
         order: 1,
         event: {
-            en: 'Work as a FullStack developer at the Center of Specialty Innovation (CoSI) - research lab under Bangkok University',
-            th: 'ทำงานเป็นนักพัฒนา FullStack ที่ศูนย์นวัตกรรมเฉพาะทาง (CoSI) - ห้องปฏิบัติการวิจัยภายใต้มหาวิทยาลัยกรุงเทพ',
-            ja: 'バンコク大学傘下の研究室であるセンター・オブ・スペシャライズド・イノベーション (CoSI) でフルスタックデベロッパーとして勤務',
+            en: '',
+            th: 'ทำงานเป็นนักพัฒนา FullStack ที่ศูนย์นวัตกรรมเฉพาะทาง Center of Specialty Innovation (CoSI) ได้ร่วมพัฒนาและมีผลงานหลากหลายผลงาน จนถึงปัจจุบัน',
+            ja: '',
         },
     },
     {
@@ -35,9 +35,9 @@ export const bioTimelineSeed: BioTimelineItem[] = [
         isActive: true,
         order: 2,
         event: {
-            en: 'Joined the Center of Specialty Innovation (CoSI) - research lab under Bangkok University',
-            th: 'เข้าร่วมศูนย์นวัตกรรมเฉพาะทาง (CoSI) - ห้องปฏิบัติการวิจัยภายใต้มหาวิทยาลัยกรุงเทพ',
-            ja: 'バンコク大学傘下の研究室であるセンター・オブ・スペシャライズド・イノベーション (CoSI) に加入',
+            en: '',
+            th: 'เข้าร่วมเป็นนักศึกษาฝึกงานที่ Center of Specialty Innovation (CoSI) - ห้องปฏิบัติการวิจัยภายใต้มหาวิทยาลัยกรุงเทพ',
+            ja: '',
         },
     },
     {
@@ -46,9 +46,9 @@ export const bioTimelineSeed: BioTimelineItem[] = [
         isActive: true,
         order: 3,
         event: {
-            en: 'Currently studying Computer Science at Bangkok University',
-            th: 'กำลังศึกษาวิทยาการคอมพิวเตอร์ที่มหาวิทยาลัยกรุงเทพ',
-            ja: '現在、バンコク大学でコンピュータサイエンスを専攻中',
+            en: '',
+            th: 'เข้าศึกษาในสาขาวิชาวิทยาการคอมพิวเตอร์ที่มหาวิทยาลัยกรุงเทพ',
+            ja: '',
         },
     },
     {
