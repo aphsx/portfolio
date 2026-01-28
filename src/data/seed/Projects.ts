@@ -208,7 +208,7 @@ export const projectsSeed: Project[] = [
         images: [
             {
                 url: '/images/project/3FCD.png',
-                caption: { en: '3D Trajectory Visualization', th: 'การแสดงผลวิถี 3 มิติ' },
+                caption: { en: '', th: 'การแสดงผลวิถี 3 มิติ' },
                 isPrimary: true,
             },
         ],
@@ -253,7 +253,7 @@ export const projectsSeed: Project[] = [
         images: [
             {
                 url: '/images/project/Scanner.png',
-                caption: { en: 'Real-time LOB Analysis & Opportunity Scoring', th: 'การวิเคราะห์ LOB แบบเรียลไทม์' },
+                caption: { en: '', th: 'การวิเคราะห์ LOB แบบเรียลไทม์' },
                 isPrimary: true,
             },
         ],
@@ -301,8 +301,8 @@ export const projectsSeed: Project[] = [
         },
         image: '/images/project/FutureScalping.png',
         images: [
-            { url: '/images/project/FutureScalping1.png', caption: { en: 'Multi-Engine Signal Processing', th: 'ระบบประมวลผล Multi-Engine' } },
-            { url: '/images/project/FutureScalping.png', caption: { en: 'Future Scalping Result', th: 'ผลการ Scalping' }, isPrimary: true },
+            { url: '/images/project/FutureScalping1.png', caption: { en: '', th: 'ระบบประมวลผล Multi-Engine' } },
+            { url: '/images/project/FutureScalping.png', caption: { en: '', th: 'ผลการ Scalping' }, isPrimary: true },
         ],
         link: '',
         github: 'https://github.com/aphsx/TradingShortTerm',
