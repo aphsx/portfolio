@@ -1,10 +1,11 @@
+"use client";
 import { useState } from 'react'
 import { MdEmail } from 'react-icons/md'
 import { FiUser, FiMail, FiFileText } from 'react-icons/fi'
 import { Section, Button } from '../ui'
 import { useTranslation } from 'react-i18next'
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001'
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001'
 
 const ContactSection = () => {
   const { t } = useTranslation()

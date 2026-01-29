@@ -1,5 +1,7 @@
 import { useState } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+"use client";
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 import { HiMenu, HiX } from 'react-icons/hi'
 import { FiCheck, FiGithub, FiMoon, FiSun } from 'react-icons/fi'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -17,8 +19,8 @@ const Navbar = () => {
   const [isLangOpen, setIsLangOpen] = useState(false)
   const { isDark, toggleTheme } = useTheme()
   const { t, i18n } = useTranslation()
-  const navigate = useNavigate()
-  const location = useLocation()
+  const navigate = useRouter();
+  const pathname = usePathname();
 
   // Normalize language code (e.g., ja-JP -> ja, ja_JP -> ja)
   const language = (i18n.language || 'en').split(/[-_]/)[0].toLowerCase()
@@ -27,7 +29,7 @@ const Navbar = () => {
 
   const setLanguage = (newLang: string) => {
     // Replace current language in URL with new language
-    const pathParts = location.pathname.split('/')
+    const pathParts = pathname.split('/')
     if (pathParts[1] && languages.some(l => l.code === pathParts[1])) {
       pathParts[1] = newLang
     } else {
@@ -35,7 +37,7 @@ const Navbar = () => {
       pathParts.splice(1, 0, newLang)
     }
     const newPath = pathParts.join('/')
-    navigate(newPath)
+    navigate.push(newPath)
     setIsLangOpen(false)
   }
 
@@ -44,14 +46,14 @@ const Navbar = () => {
     { name: t('nav.uses'), path: `/${language}/uses` },
   ]
 
-  const isActive = (path: string) => location.pathname === path
+  const isActive = (path: string) => pathname === path
 
   return (
     <nav className="fixed top-0 w-full z-50 backdrop-blur-md bg-gray-50 dark:bg-gray-900/80  ">
       <div className="max-w-2xl mx-auto px-6">
         <div className="flex justify-between items-center h-16">
           <Link
-            to={`/${language}`}
+            href={`/${language}`}
             className="text-xl font-bold text-gray-900 dark:text-gray-100 hover:text-teal-500 transition-colors"
           >
             <span className="bg-gradient-to-r from-teal-500 to-cyan-400 bg-clip-text text-transparent">
@@ -65,7 +67,7 @@ const Navbar = () => {
               {navItems.map((item) => (
                 <Link
                   key={item.name}
-                  to={item.path}
+                  href={item.path}
                   className={`text-sm font-medium transition-colors duration-200 ${isActive(item.path)
                     ? 'text-teal-500'
                     : 'text-gray-700 dark:text-gray-300 hover:text-teal-500'
@@ -198,7 +200,7 @@ const Navbar = () => {
               {navItems.map((item) => (
                 <Link
                   key={item.name}
-                  to={item.path}
+                  href={item.path}
                   onClick={() => setIsOpen(false)}
                   className={`block text-sm font-medium transition-colors duration-200 ${isActive(item.path)
                     ? 'text-teal-500'
