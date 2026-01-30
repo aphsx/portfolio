@@ -11,10 +11,14 @@ const LanguageWrapper = ({ children }: { children: React.ReactNode }) => {
     const { i18n } = useTranslation()
     const router = useRouter()
     const pathname = usePathname()
+    const supportedLangs = SITE_CONFIG.supportedLanguages
+
+    const currentI18nLang = (i18n.language || '').split(/[-_]/)[0].toLowerCase()
+    if (lang && supportedLangs.includes(lang as any) && lang !== currentI18nLang) {
+        i18n.changeLanguage(lang)
+    }
 
     useEffect(() => {
-        const supportedLangs = SITE_CONFIG.supportedLanguages
-
         // If no lang prefix, or invalid lang prefix, redirect to detected language or default
         if (!lang || !supportedLangs.includes(lang as any)) {
             const detectedLang = i18n.language?.split('-')[0] || SITE_CONFIG.defaultLanguage
@@ -23,13 +27,7 @@ const LanguageWrapper = ({ children }: { children: React.ReactNode }) => {
             router.replace(newPath)
             return
         }
-
-        // Update i18n if language changed in URL
-        const currentI18nLang = (i18n.language || '').split(/[-_]/)[0].toLowerCase()
-        if (lang !== currentI18nLang) {
-            i18n.changeLanguage(lang)
-        }
-    }, [lang, i18n, router, pathname])
+    }, [lang, i18n, router, pathname, supportedLangs])
 
     return <>{children}</>
 }

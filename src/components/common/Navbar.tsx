@@ -7,6 +7,7 @@ import { FiCheck, FiGithub, FiMoon, FiSun } from 'react-icons/fi'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTheme } from '../../contexts'
 import { useTranslation } from 'react-i18next'
+import { useLocalizedData } from '../../hooks'
 
 const languages = [
   { code: 'en', name: 'EN', fullName: 'English', flag: '🇺🇸' },
@@ -19,11 +20,9 @@ const Navbar = () => {
   const [isLangOpen, setIsLangOpen] = useState(false)
   const { isDark, toggleTheme } = useTheme()
   const { t, i18n } = useTranslation()
+  const { language } = useLocalizedData()
   const navigate = useRouter();
   const pathname = usePathname();
-
-  // Normalize language code (e.g., ja-JP -> ja, ja_JP -> ja)
-  const language = (i18n.language || 'en').split(/[-_]/)[0].toLowerCase()
 
   const currentLang = languages.find(l => l.code === language) || languages.find(l => l.code === 'th') || languages[0]
 

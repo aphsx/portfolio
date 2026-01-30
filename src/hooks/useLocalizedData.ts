@@ -1,10 +1,14 @@
 import { useTranslation } from 'react-i18next'
+import { useParams } from 'next/navigation'
 import { LocalizedText, LocalizedStringArray } from '../types'
 import { getLocalizedText, getLocalizedArray as getLocalizedArrayUtil } from '../utils/localization'
 
 export const useLocalizedData = () => {
   const { t, i18n } = useTranslation()
-  const language = (i18n.language?.split('-')[0] || 'en') as 'en' | 'th' | 'ja'
+  const params = useParams()
+  const langParam = params?.lang as string
+
+  const language = (langParam || i18n.language?.split('-')[0] || 'en') as 'en' | 'th' | 'ja'
 
   /**
    * Returns a localized string.
