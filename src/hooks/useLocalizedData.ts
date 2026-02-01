@@ -8,7 +8,7 @@ export const useLocalizedData = () => {
   const params = useParams()
   const langParam = params?.lang as string
 
-  const language = (langParam || i18n.language?.split('-')[0] || 'en') as 'en' | 'th' | 'ja'
+  const language = (langParam || i18n.language?.split('-')[0] || 'en') as 'en' | 'th'
 
   /**
    * Returns a localized string.

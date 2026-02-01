@@ -5,13 +5,11 @@
 export interface LocalizedText {
   en: string
   th?: string
-  ja?: string
 }
 
 export interface LocalizedStringArray {
   en: string[]
   th?: string[]
-  ja?: string[]
 }
 
 // ============================================================

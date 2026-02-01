@@ -18,9 +18,6 @@ export const getLocalizedText = (
     if (language === 'th' && localized.th) {
       return localized.th
     }
-    if (language === 'ja' && localized.ja) {
-      return localized.ja
-    }
     return localized.en
   }
 
@@ -43,9 +40,6 @@ export const getLocalizedArray = (
     const localized = items as LocalizedStringArray
     if (language === 'th' && localized.th) {
       return localized.th
-    }
-    if (language === 'ja' && localized.ja) {
-      return localized.ja
     }
     return localized.en
   }

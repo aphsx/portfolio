@@ -12,7 +12,6 @@ import { useLocalizedData } from '../../hooks'
 const languages = [
   { code: 'en', name: 'EN', fullName: 'English', flag: '🇺🇸' },
   { code: 'th', name: 'TH', fullName: 'ไทย', flag: '🇹🇭' },
-  { code: 'ja', name: 'JA', fullName: '日本語', flag: '🇯🇵' },
 ]
 
 const Navbar = () => {
@@ -76,7 +75,7 @@ const Navbar = () => {
                 </Link>
               ))}
               <a
-                href="https://github.com"
+                href="https://github.com/aphsx"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-1 text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors duration-200"

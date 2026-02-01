@@ -18,12 +18,10 @@ export const projectsSeed: Project[] = [
         title: {
             en: '',
             th: 'ระบบการวางแผนจัดการการผลิต',
-            ja: '',
         },
         description: {
             en: '',
             th: 'ระบบ ERP ที่ครอบคลุมที่ออกแบบสำหรับการดำเนินงานการผลิตทางทหาร มีการจัดการสินค้าคงคลังขั้นสูงและความสามารถในการวางแผนการผลิต',
-            ja: '',
         },
         shortDescription: {
             en: '',
@@ -51,12 +49,10 @@ export const projectsSeed: Project[] = [
         title: {
             en: '',
             th: 'แพลตฟอร์มอีเลิร์นนิงทางการแพทย์',
-            ja: '',
         },
         description: {
             en: '',
             th: 'แพลตฟอร์มอีเลิร์นนิงแบบโต้ตอบที่ออกแบบสำหรับนักศึกษาแพทย์ มีกรณีศึกษาที่ครอบคลุมและเครื่องมือประเมิน',
-            ja: '',
         },
         shortDescription: {
             en: '',
@@ -84,12 +80,10 @@ export const projectsSeed: Project[] = [
         title: {
             en: '',
             th: 'เว็บไซต์ศูนย์นวัตกรรมเฉพาะทาง',
-            ja: '',
         },
         description: {
             en: '',
             th: 'เว็บไซต์ที่ทันสมัยและตอบสนองสำหรับห้องปฏิบัติการศูนย์นวัตกรรมเฉพาะทาง แสดงโครงการวิจัย กิจกรรม และโครงการส่งผลกระทบต่อชุมชน',
-            ja: '',
         },
         shortDescription: {
             en: '',
@@ -117,12 +111,10 @@ export const projectsSeed: Project[] = [
         title: {
             en: '',
             th: 'เว็บไซต์ผลงานส่วนตัว',
-            ja: '',
         },
         description: {
             en: '',
             th: 'เว็บไซต์ผลงานส่วนตัวเพื่อแสดงโปรเจค ทักษะ และประสบการณ์',
-            ja: '',
         },
         shortDescription: {
             en: '',
@@ -150,12 +142,10 @@ export const projectsSeed: Project[] = [
         title: {
             en: '',
             th: 'เว็บไซต์ท่องเที่ยว',
-            ja: '',
         },
         description: {
             en: '',
             th: 'เว็บไซต์ท่องเที่ยวที่มีชีวิตชีวาเพื่อส่งเสริมสถานที่ท่องเที่ยวในท้องถิ่น กิจกรรม และคู่มือการเดินทาง สร้างด้วย Next.js และจัดแต่งด้วย Tailwind CSS',
-            ja: '',
         },
         shortDescription: {
             en: '',
@@ -183,12 +173,10 @@ export const projectsSeed: Project[] = [
         title: {
             en: '',
             th: 'ระบบคำนวณและควบคุมวิถีเคลื่อนที่แบบ 3 มิติ',
-            ja: '',
         },
         description: {
             en: '',
             th: 'ระบบคำนวณความแม่นยำสูงสำหรับการเคลื่อนที่ของวิถี ซึ่งรวบรวมข้อมูลสภาพแวดล้อมแบบเรียลไทม์ การวิเคราะห์ภูมิประเทศ และการแสดงผล 3 มิติเพื่อกำหนดแนวทางวิถีที่แม่นยำที่สุด',
-            ja: '',
         },
         shortDescription: {
             en: '',
@@ -228,12 +216,10 @@ export const projectsSeed: Project[] = [
         title: {
             en: '',
             th: 'TradingClaw: ระบบสแกนและวิเคราะห์โครงสร้างจุลภาคดัชนีตลาด',
-            ja: '',
         },
         description: {
             en: '',
             th: 'ระบบสแกนคริปโทเคอร์เรนซีประสิทธิภาพสูงที่พัฒนาด้วย Rust เพื่อวิเคราะห์ Limit Order Book (LOB) และข้อมูลการซื้อขายแบบเรียลไทม์สำหรับการทดสอบกลยุทธ์',
-            ja: '',
         },
         shortDescription: {
             en: '',
@@ -273,12 +259,10 @@ export const projectsSeed: Project[] = [
         title: {
             en: '',
             th: 'Trading Short Term Futures Scalping and Backtesting',
-            ja: '',
         },
         description: {
             en: '',
             th: 'บอทเทรดอัจฉริยะสำหรับ Binance Futures ที่ใช้ระบบวิเคราะห์ 5 เอนจินขนานกัน ทั้งแรงซื้อขายจริง โมเมนตัม และอารมณ์ตลาด เพื่อทำกำไรในระยะสั้นอย่างแม่นยำ',
-            ja: '',
         },
         shortDescription: {
             en: '',

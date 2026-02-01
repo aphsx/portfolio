@@ -4,7 +4,6 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 
 import enTranslations from './locales/en/translation.json';
 import thTranslations from './locales/th/translation.json';
-import jaTranslations from './locales/ja/translation.json';
 
 i18n
   // detect user language
@@ -22,11 +21,8 @@ i18n
       th: {
         translation: thTranslations,
       },
-      ja: {
-        translation: jaTranslations,
-      },
     },
-    supportedLngs: ['en', 'th', 'ja'],
+    supportedLngs: ['en', 'th'],
     fallbackLng: 'th',
     debug: false,
     interpolation: {

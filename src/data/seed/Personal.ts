@@ -6,12 +6,11 @@ import { BioTimelineItem, PersonalInfo } from '../../types'
 // ---------------------------------------------------------------------------
 
 export const personalInfoSeed: PersonalInfo = {
-    name: { en: '', th: 'อภิสิทธิ์ ด่านเจ้าแดง', ja: '' },
-    title: { en: '', th: 'นักพัฒนา FullStack', ja: '' },
+    name: { en: 'Aphisit Danchaodang', th: 'อภิสิทธิ์ ด่านเจ้าแดง' },
+    title: { en: 'FullStack Developer', th: 'นักพัฒนา FullStack' },
     greeting: {
-        en: '',
+        en: 'Hello, I\'m Mr. Aphisit Danchaodang',
         th: 'สวัสดีครับ ผมนาย อภิสิทธิ์ ด่านเจ้าแดง',
-        ja: '',
     },
     profileImage: 'https://res.cloudinary.com/dw5zfbigt/image/upload/v1772253337/CSI00138Crop_c0g98s.jpg',
     email: 'aphisit.danchaodang@example.com',
@@ -24,9 +23,8 @@ export const bioTimelineSeed: BioTimelineItem[] = [
         isActive: true,
         order: 1,
         event: {
-            en: '',
+            en: 'Working as a FullStack Developer at Center of Specialty Innovation (CoSI), collaborating on development and delivering diverse projects.',
             th: 'ทำงานเป็นนักพัฒนา FullStack ที่ศูนย์นวัตกรรมเฉพาะทาง Center of Specialty Innovation (CoSI) ได้ร่วมพัฒนาและมีผลงานหลากหลายผลงาน จนถึงปัจจุบัน',
-            ja: '',
         },
     },
     {
@@ -35,9 +33,8 @@ export const bioTimelineSeed: BioTimelineItem[] = [
         isActive: true,
         order: 2,
         event: {
-            en: '',
+            en: 'Joined as an intern at Center of Specialty Innovation (CoSI) - a research laboratory under Bangkok University.',
             th: 'เข้าร่วมเป็นนักศึกษาฝึกงานที่ Center of Specialty Innovation (CoSI) - ห้องปฏิบัติการวิจัยภายใต้มหาวิทยาลัยกรุงเทพ',
-            ja: '',
         },
     },
     {
@@ -46,9 +43,8 @@ export const bioTimelineSeed: BioTimelineItem[] = [
         isActive: true,
         order: 3,
         event: {
-            en: '',
+            en: 'Enrolled in Computer Science at Bangkok University.',
             th: 'เข้าศึกษาในสาขาวิชาวิทยาการคอมพิวเตอร์ที่มหาวิทยาลัยกรุงเทพ',
-            ja: '',
         },
     },
     {
@@ -57,9 +53,8 @@ export const bioTimelineSeed: BioTimelineItem[] = [
         isActive: true,
         order: 4,
         event: {
-            en: '',
+            en: 'Graduated from Mattayom Wat Mai Krong Thong School (Grade 7-12).',
             th: 'จบการศึกษาระดับมัธยมศึกษาตอนปลายจากโรงเรียนมัธยมวัดใหม่กรองทอง (ม.1-6)',
-            ja: '',
         },
     },
     {
@@ -68,9 +63,8 @@ export const bioTimelineSeed: BioTimelineItem[] = [
         isActive: true,
         order: 5,
         event: {
-            en: '',
+            en: 'Graduated from Ban Thai Charoen School (Grade 1-6).',
             th: 'จบการศึกษาระดับประถมศึกษาจากโรงเรียนบ้านไทยเจริญ (ป.1-6)',
-            ja: '',
         },
     },
 ]
