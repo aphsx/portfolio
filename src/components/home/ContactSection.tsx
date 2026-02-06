@@ -237,7 +237,7 @@ const ContactSection = () => {
         {status === 'success' && (
           <div className="p-3 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-md">
             <p className="text-green-700 dark:text-green-400 text-sm">
-              ✅ Email sent successfully! We'll get back to you soon.
+              ✅ Email sent successfully! We&apos;ll get back to you soon.
             </p>
           </div>
         )}

@@ -11,12 +11,11 @@ import {
     SiGit,
     SiDocker,
     SiFigma,
-    SiAdobephotoshop,
     SiMysql,
     SiPostman,
     SiRust,
 } from 'react-icons/si'
-import { FaJava } from 'react-icons/fa'
+import { FaJava, FaPaintBrush } from 'react-icons/fa'
 import { SkillCategory } from '../../types'
 
 // ---------------------------------------------------------------------------
@@ -54,7 +53,7 @@ export const skillCategoriesSeed: SkillCategory[] = [
             { id: 'skill-docker', name: 'Docker', color: 'bg-gradient-to-br from-teal-600 to-cyan-700', icon: SiDocker, category: 'Tools & Design', isActive: true, order: 2 },
             { id: 'skill-postman', name: 'Postman', color: 'bg-gradient-to-br from-teal-400 to-cyan-500', icon: SiPostman, category: 'Tools & Design', isActive: true, order: 3 },
             { id: 'skill-figma', name: 'Figma', color: 'bg-gradient-to-br from-teal-500 to-cyan-600', icon: SiFigma, category: 'Tools & Design', isActive: true, order: 4 },
-            { id: 'skill-photoshop', name: 'Photoshop', color: 'bg-gradient-to-br from-teal-600 to-cyan-700', icon: SiAdobephotoshop, category: 'Tools & Design', isActive: true, order: 5 },
+            { id: 'skill-photoshop', name: 'Photoshop', color: 'bg-gradient-to-br from-teal-600 to-cyan-700', icon: FaPaintBrush, category: 'Tools & Design', isActive: true, order: 5 },
         ],
     },
     {
