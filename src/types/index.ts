@@ -43,6 +43,13 @@ export interface BioTimelineItem extends BaseEntity {
   event: LocalizedText
 }
 
+export interface Certificate extends BaseEntity {
+  title: LocalizedText
+  issuer?: LocalizedText
+  issuedAt?: string
+  fileUrl: string
+}
+
 // ============================================================
 // Projects
 // ============================================================
