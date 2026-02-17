@@ -7,6 +7,38 @@ import { Project } from '../../types'
 
 export const projectsSeed: Project[] = [
     {
+        id: 'cert-hkt-ntu',
+        slug: 'hkt-ntu-certificate',
+        isActive: true,
+        order: 1,
+        category: 'certi',
+        status: 'completed',
+        featured: false,
+        year: 2026,
+        title: {
+            en: 'HKT Certificate — NTU',
+            th: 'ใบประกาศนียบัตร HKT — NTU',
+        },
+        description: {
+            en: 'Certificate of participation from the HKT program at Nanyang Technological University (NTU).',
+            th: 'ใบประกาศนียบัตรจากโปรแกรม HKT ณ Nanyang Technological University (NTU)',
+        },
+        shortDescription: {
+            en: 'Certificate of participation from the HKT program at NTU.',
+            th: 'ใบประกาศนียบัตรจากโปรแกรม HKT ณ NTU',
+        },
+        descriptionLong: {
+            en: 'Awarded for participation in the HKT program hosted by Nanyang Technological University (NTU), Singapore.',
+            th: 'ได้รับใบประกาศนียบัตรจากการเข้าร่วมโปรแกรม HKT จัดโดย Nanyang Technological University (NTU) ประเทศสิงคโปร์',
+        },
+        image: '/certificates/certi-hkt-ntu-thumb.jpg',
+        images: [],
+        link: '',
+        github: '',
+        fileUrl: '/certificates/certi-hkt-ntu.pdf',
+        tags: ['NTU', 'HKT', '2026'],
+    },
+    {
         id: 'proj-001',
         slug: 'enterprise-resource-planning',
         isActive: true,

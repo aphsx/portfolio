@@ -43,22 +43,11 @@ export interface BioTimelineItem extends BaseEntity {
   event: LocalizedText
 }
 
-export interface Certificate extends BaseEntity {
-  title: LocalizedText
-  description?: LocalizedText
-  descriptionLong?: LocalizedText
-  issuer?: LocalizedText
-  issuedAt?: string
-  image?: string
-  tags?: string[]
-  fileUrl: string
-}
-
 // ============================================================
 // Projects
 // ============================================================
 
-export type ProjectCategory = 'works' | 'collaborations' | 'old'
+export type ProjectCategory = 'certi' | 'works' | 'collaborations' | 'old'
 export type ProjectStatus = 'completed' | 'in-progress' | 'archived'
 
 export interface ProjectImage {
@@ -77,6 +66,7 @@ export interface Project extends BaseEntity {
   images?: ProjectImage[]
   link?: string
   github?: string
+  fileUrl?: string
   tags: string[]          // Plain string array — localized tags go in translations
   tagsLocalized?: LocalizedStringArray
   category: ProjectCategory

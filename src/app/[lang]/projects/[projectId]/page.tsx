@@ -30,6 +30,8 @@ const ProjectDetail = () => {
     return null;
   }
 
+  const isDocument = Boolean(project.fileUrl);
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900" style={{ paddingTop: "100px" }}>
       <div className="max-w-2xl mx-auto px-6">
@@ -116,41 +118,57 @@ const ProjectDetail = () => {
 
           {/* Action Links */}
           <div className="flex flex-wrap gap-4">
-            <motion.a
-              href={project.link || "#"}
-              target={project.link ? "_blank" : "_self"}
-              rel={project.link ? "noopener noreferrer" : ""}
-              whileHover={{ scale: project.link ? 1.05 : 1 }}
-              whileTap={{ scale: project.link ? 0.95 : 1 }}
-              className={`inline-flex items-center gap-2 px-5 py-2 rounded-lg text-sm font-medium transition-colors ${project.link
-                ? "bg-teal-500 hover:bg-teal-600 text-white"
-                : "bg-gray-300 dark:bg-gray-700 text-gray-500 cursor-not-allowed"
-                }`}
-              onClick={(e) => {
-                if (!project.link) e.preventDefault();
-              }}
-            >
-              <HiExternalLink size={16} />
-              {project.link ? t('project.visit') : t('project.coming_soon')}
-            </motion.a>
+            {isDocument ? (
+              <motion.a
+                href={project.fileUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center gap-2 px-5 py-2 rounded-lg text-sm font-medium transition-colors bg-teal-500 hover:bg-teal-600 text-white"
+              >
+                <HiExternalLink size={16} />
+                {t('project.viewPdf')}
+              </motion.a>
+            ) : (
+              <>
+                <motion.a
+                  href={project.link || "#"}
+                  target={project.link ? "_blank" : "_self"}
+                  rel={project.link ? "noopener noreferrer" : ""}
+                  whileHover={{ scale: project.link ? 1.05 : 1 }}
+                  whileTap={{ scale: project.link ? 0.95 : 1 }}
+                  className={`inline-flex items-center gap-2 px-5 py-2 rounded-lg text-sm font-medium transition-colors ${project.link
+                    ? "bg-teal-500 hover:bg-teal-600 text-white"
+                    : "bg-gray-300 dark:bg-gray-700 text-gray-500 cursor-not-allowed"
+                    }`}
+                  onClick={(e) => {
+                    if (!project.link) e.preventDefault();
+                  }}
+                >
+                  <HiExternalLink size={16} />
+                  {project.link ? t('project.visit') : t('project.coming_soon')}
+                </motion.a>
 
-            <motion.a
-              href={project.github || "#"}
-              target={project.github ? "_blank" : "_self"}
-              rel={project.github ? "noopener noreferrer" : ""}
-              whileHover={{ scale: project.github ? 1.05 : 1 }}
-              whileTap={{ scale: project.github ? 0.95 : 1 }}
-              className={`inline-flex items-center gap-2 px-5 py-2 rounded-lg text-sm font-medium transition-colors border ${project.github
-                ? "bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600"
-                : "bg-gray-300 dark:bg-gray-700 text-gray-500 cursor-not-allowed border-gray-400 dark:border-gray-600"
-                }`}
-              onClick={(e) => {
-                if (!project.github) e.preventDefault();
-              }}
-            >
-              <FiGithub size={16} />
-              {project.github ? t('project.code') : t('project.private')}
-            </motion.a>
+                <motion.a
+                  href={project.github || "#"}
+                  target={project.github ? "_blank" : "_self"}
+                  rel={project.github ? "noopener noreferrer" : ""}
+                  whileHover={{ scale: project.github ? 1.05 : 1 }}
+                  whileTap={{ scale: project.github ? 0.95 : 1 }}
+                  className={`inline-flex items-center gap-2 px-5 py-2 rounded-lg text-sm font-medium transition-colors border ${project.github
+                    ? "bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600"
+                    : "bg-gray-300 dark:bg-gray-700 text-gray-500 cursor-not-allowed border-gray-400 dark:border-gray-600"
+                    }`}
+                  onClick={(e) => {
+                    if (!project.github) e.preventDefault();
+                  }}
+                >
+                  <FiGithub size={16} />
+                  {project.github ? t('project.code') : t('project.private')}
+                </motion.a>
+              </>
+            )}
           </div>
 
         </motion.div>
@@ -169,6 +187,26 @@ const ProjectDetail = () => {
             content={getLocalized(project.descriptionLong || project.description)}
           />
         </motion.div>
+
+        {project.fileUrl && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
+            className="mb-16"
+          >
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-6">
+              {t('project.document')}
+            </h3>
+            <div className="aspect-[3/4] sm:aspect-video rounded-lg overflow-hidden bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-800 shadow-sm">
+              <iframe
+                src={project.fileUrl}
+                title={getLocalized(project.title)}
+                className="h-full w-full"
+              />
+            </div>
+          </motion.div>
+        )}
 
         {/* Additional Images Gallery */}
         {project.images && project.images.length > 0 && (
