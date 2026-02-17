@@ -8,6 +8,22 @@
   --color-secondary: #06b6d4;
 }
 
+/* Contribution graph color scale - site green/teal theme (light / dark). */
+:root {
+  --gh-level-0: #ebedf0;
+  --gh-level-1: #ccfbf1;
+  --gh-level-2: #5eead4;
+  --gh-level-3: #14b8a6;
+  --gh-level-4: #0f766e;
+}
+.dark {
+  --gh-level-0: #1f2937;
+  --gh-level-1: #134e4a;
+  --gh-level-2: #0f766e;
+  --gh-level-3: #14b8a6;
+  --gh-level-4: #5eead4;
+}
+
 @layer base {
   html {
     font-family: var(--font-rounded);
