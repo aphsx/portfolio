@@ -141,21 +141,23 @@ export const projects: Project[] = [
       'คอมพิวเตอร์คำนวณทางขีปนาวุธ 3 มิติขั้นสูง พร้อมระบบแก้ค่าสภาพอากาศและแผนที่ภูมิประเทศ'
     ),
     descriptionLong: createLocalizedText(
-      'An advanced tactical software suite designed to modernize field artillery operations. The system automates complex ballistic calculations by integrating data from firing tables with real-time environmental factors. \\n\\n' +
-      'Key Technical Details: \\n' +
-      '1. **Computational Engine**: Implemented a multi-step ballistic pipeline (11 steps) that calculates trajectory based on weapon type, charge, projectile weight, and meteorological data (wind, air density, temperature). \\n' +
-      '2. **3D Visualization**: Built using a custom 3D rendering engine to visualize projectile trajectories, impact points, and terrain elevations, allowing operators to see "mountain height" impacts and potential obstructions. \\n' +
-      '3. **Dynamic Corrections**: Integrates complex table lookups (Table B, C, F, G, H) to apply corrections for Earth rotation, crosswind, and altitude deviations. \\n' +
-      '4. **Refinement & Adjustment**: Developed an intelligent adjustment system that records observed impacts and re-calculates firing solutions iteratively to close the gap between intended and actual impact points. \\n' +
-      '5. **Data Management**: Robust system for handling weapon registries, munition databases, and mission saving/loading using React hooks and Electron-based storage.',
+      `An advanced tactical software suite designed to modernize field artillery operations. The system automates complex ballistic calculations by integrating data from firing tables with real-time environmental factors.
 
-      'ซอฟต์แวร์ยุทธวิธีขั้นสูงที่ออกแบบมาเพื่อยกระดับการปฏิบัติการของปืนใหญ่สนาม ระบบนี้ช่วยเปลี่ยนการคำนวณด้วยแรงงานคนให้เป็นระบบอัตโนมัติที่ซับซ้อน โดยรวมข้อมูลจากตารางยิง (Firing Tables) เข้ากับปัจจัยสภาพแวดล้อมแบบ Real-time \\n\\n' +
-      'รายละเอียดทางเทคนิคที่สำคัญ: \\n' +
-      '1. **กลไกการคำนวณ (Computational Engine)**: พัฒนาระบบประมวลผลขีปนาวุธ 11 ขั้นตอน (Step-by-step pipeline) ที่คำนวณวิถีกระสุนตามประเภทอาวุธ, ส่วนบรรจุ, น้ำหนักกระสุน และข้อมูลอุตุนิยมวิทยา (ลม, ความหนาแน่นอากาศ, อุณหภูมิ) \\n' +
-      '2. **การแสดงผล 3 มิติ**: สร้างเอนจินการแสดงผลแบบ 3 มิติเพื่อจำลองวิถีกระสุน, จุดตก และความสูงต่ำของภูมิประเทศ ช่วยให้ผู้ปฏิบัติงานเห็นภาพการตกกระทบของภูเขาและสิ่งกีดขวาง \\n' +
-      '3. **การแก้ค่าแบบไดนามิก**: ผสมผสานการค้นหาข้อมูลจากตารางคำนวณมาตรฐาน (Table B, C, F, G, H) เพื่อแก้ค่าปัจจัยต่างๆ เช่น การหมุนของโลก (Earth Rotation), ลมขวาง (Crosswind) และความคลาดเคลื่อนจากระดับความสูง \\n' +
-      '4. **ระบบปรับแก้การยิง (Adjustment System)**: พัฒนาระบบอัจฉริยะที่บันทึกจุดตกที่ตรวจการณ์ได้ และคำนวณวิธีแก้การยิงซ้ำแบบวนซ้ำ (Iterative) เพื่อลดระยะห่างระหว่างจุดที่ตั้งใจยิงกับจุดตกจริง \\n' +
-      '5. **การจัดการข้อมูล**: ระบบการจัดการทะเบียนอาวุธ, ฐานข้อมูลกระสุน และระบบการบันทึก/โหลดภารกิจที่แข็งแกร่งด้วย React Hooks และระบบจัดเก็บข้อมูลบน Electron'
+### Key Technical Details:
+1. **Computational Engine**: Implemented a multi-step ballistic pipeline (11 steps) that calculates trajectory based on weapon type, charge, projectile weight, and meteorological data (wind, air density, temperature).
+2. **3D Visualization**: Built using a custom 3D rendering engine to visualize projectile trajectories, impact points, and terrain elevations, allowing operators to see "mountain height" impacts and potential obstructions.
+3. **Dynamic Corrections**: Integrates complex table lookups (Table B, C, F, G, H) to apply corrections for Earth rotation, crosswind, and altitude deviations.
+4. **Refinement & Adjustment**: Developed an intelligent adjustment system that records observed impacts and re-calculates firing solutions iteratively to close the gap between intended and actual impact points.
+5. **Data Management**: Robust system for handling weapon registries, munition databases, and mission saving/loading using React hooks and Electron-based storage.`,
+
+      `ซอฟต์แวร์ยุทธวิธีขั้นสูงที่ออกแบบมาเพื่อยกระดับการปฏิบัติการของปืนใหญ่สนาม ระบบนี้ช่วยเปลี่ยนการคำนวณด้วยแรงงานคนให้เป็นระบบอัตโนมัติที่ซับซ้อน โดยรวมข้อมูลจากตารางยิง (Firing Tables) เข้ากับปัจจัยสภาพแวดล้อมแบบ Real-time
+
+### รายละเอียดทางเทคนิคที่สำคัญ:
+1. **กลไกการคำนวณ (Computational Engine)**: พัฒนาระบบประมวลผลขีปนาวุธ 11 ขั้นตอน (Step-by-step pipeline) ที่คำนวณวิถีกระสุนตามประเภทอาวุธ, ส่วนบรรจุ, น้ำหนักกระสุน และข้อมูลอุตุนิยมวิทยา (ลม, ความหนาแน่นอากาศ, อุณหภูมิ)
+2. **การแสดงผล 3 มิติ**: สร้างเอนจินการแสดงผลแบบ 3 มิติเพื่อจำลองวิถีกระสุน, จุดตก และความสูงต่ำของภูมิประเทศ ช่วยให้ผู้ปฏิบัติงานเห็นภาพการตกกระทบของภูเขาและสิ่งกีดขวาง
+3. **การแก้ค่าแบบไดนามิก**: ผสมผสานการค้นหาข้อมูลจากตารางคำนวณมาตรฐาน (Table B, C, F, G, H) เพื่อแก้ค่าปัจจัยต่างๆ เช่น การหมุนของโลก (Earth Rotation), ลมขวาง (Crosswind) และความคลาดเคลื่อนจากระดับความสูง
+4. **ระบบปรับแก้การยิง (Adjustment System)**: พัฒนาระบบอัจฉริยะที่บันทึกจุดตกที่ตรวจการณ์ได้ และคำนวณวิธีแก้การยิงซ้ำแบบวนซ้ำ (Iterative) เพื่อลดระยะห่างระหว่างจุดที่ตั้งใจยิงกับจุดตกจริง
+5. **การจัดการข้อมูล**: ระบบการจัดการทะเบียนอาวุธ, ฐานข้อมูลกระสุน และระบบการบันทึก/โหลดภารกิจที่แข็งแกร่งด้วย React Hooks และระบบจัดเก็บข้อมูลบน Electron`
     ),
     image: '/images/project/3FCD.png',
     images: [

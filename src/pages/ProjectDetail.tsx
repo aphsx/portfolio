@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { projects } from "../data";
 import { useLanguage } from '../contexts';
 import { useLocalizedData } from '../hooks';
+import MarkdownRenderer from '../components/common/MarkdownRenderer';
 
 const ProjectDetail = () => {
   const { projectId } = useParams();
@@ -102,8 +103,8 @@ const ProjectDetail = () => {
               whileHover={{ scale: project.link ? 1.05 : 1 }}
               whileTap={{ scale: project.link ? 0.95 : 1 }}
               className={`inline-flex items-center gap-2 px-5 py-2 rounded-lg text-sm font-medium transition-colors ${project.link
-                  ? "bg-teal-500 hover:bg-teal-600 text-white"
-                  : "bg-gray-300 dark:bg-gray-700 text-gray-500 cursor-not-allowed"
+                ? "bg-teal-500 hover:bg-teal-600 text-white"
+                : "bg-gray-300 dark:bg-gray-700 text-gray-500 cursor-not-allowed"
                 }`}
               onClick={(e) => {
                 if (!project.link) e.preventDefault();
@@ -120,8 +121,8 @@ const ProjectDetail = () => {
               whileHover={{ scale: project.github ? 1.05 : 1 }}
               whileTap={{ scale: project.github ? 0.95 : 1 }}
               className={`inline-flex items-center gap-2 px-5 py-2 rounded-lg text-sm font-medium transition-colors border ${project.github
-                  ? "bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600"
-                  : "bg-gray-300 dark:bg-gray-700 text-gray-500 cursor-not-allowed border-gray-400 dark:border-gray-600"
+                ? "bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600"
+                : "bg-gray-300 dark:bg-gray-700 text-gray-500 cursor-not-allowed border-gray-400 dark:border-gray-600"
                 }`}
               onClick={(e) => {
                 if (!project.github) e.preventDefault();
@@ -144,11 +145,9 @@ const ProjectDetail = () => {
           <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-6">
             {t('project.about')}
           </h3>
-          <div className="prose prose-gray dark:prose-invert max-w-none">
-            <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-base">
-              {getLocalized(project.descriptionLong || project.description)}
-            </p>
-          </div>
+          <MarkdownRenderer
+            content={getLocalized(project.descriptionLong || project.description)}
+          />
         </motion.div>
 
         {/* Additional Images Gallery */}
