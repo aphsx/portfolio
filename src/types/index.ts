@@ -3,6 +3,11 @@ export interface LocalizedText {
   th?: string | string[]
 }
 
+export interface ProjectImage {
+  url: string
+  caption?: string
+}
+
 export interface Project {
   id: string
   title: LocalizedText
@@ -10,7 +15,7 @@ export interface Project {
   shortDescription?: LocalizedText
   descriptionLong?: LocalizedText
   image: string
-  images?: string[]
+  images?: (string | ProjectImage)[]
   link?: string
   github?: string
   tags: LocalizedText
