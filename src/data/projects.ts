@@ -298,21 +298,21 @@ export const projects: Project[] = [
     category: "works", // หรือ 'personal'
   },
   {
-    id: "8", // ลำดับโปรเจค VORTEX-7
-    title: createLocalizedText(
-      "VORTEX-7: Intelligent Futures Scalping Engine",
-      "VORTEX-7: เอนจินเทรดฟิวเจอร์สอัจฉริยะความถี่สูง",
-    ),
-    description: createLocalizedText(
-      "A sophisticated multi-engine trading bot for Binance Futures, utilizing order flow, tick momentum, and sentiment analysis to execute high-probability scalping strategies.",
-      "บอทเทรดอัจฉริยะสำหรับ Binance Futures ที่ใช้ระบบวิเคราะห์ 5 เอนจินขนานกัน ทั้งแรงซื้อขายจริง โมเมนตัม และอารมณ์ตลาด เพื่อทำกำไรในระยะสั้นอย่างแม่นยำ",
-    ),
-    shortDescription: createLocalizedText(
-      "Multi-engine async trading system with dynamic risk management and real-time market regime filtering.",
-      "ระบบเทรดอัตโนมัติแบบ Multi-engine พร้อมการจัดการความเสี่ยงอัจฉริยะและการกรองสภาวะตลาดแบบเรียลไทม์",
-    ),
-    descriptionLong: createLocalizedText(
-      `VORTEX-7 is a high-performance trading engine designed for the high-volatility environment of Binance Perpetual Futures. It operates on a modular "5-Engine" architecture to decode market microstructure and execute trades with sub-10ms logic latency.
+  id: '8', // ลำดับโปรเจค VORTEX-7
+  title: createLocalizedText(
+    'VORTEX-7: Intelligent Futures Scalping Engine', 
+    'VORTEX-7: เอนจินเทรดฟิวเจอร์สอัจฉริยะความถี่สูง'
+  ),
+  description: createLocalizedText(
+    'A sophisticated multi-engine trading bot for Binance Futures, utilizing order flow, tick momentum, and sentiment analysis to execute high-probability scalping strategies.',
+    'บอทเทรดอัจฉริยะสำหรับ Binance Futures ที่ใช้ระบบวิเคราะห์ 5 เอนจินขนานกัน ทั้งแรงซื้อขายจริง โมเมนตัม และอารมณ์ตลาด เพื่อทำกำไรในระยะสั้นอย่างแม่นยำ'
+  ),
+  shortDescription: createLocalizedText(
+    'Multi-engine async trading system with dynamic risk management and real-time market regime filtering.',
+    'ระบบเทรดอัตโนมัติแบบ Multi-engine พร้อมการจัดการความเสี่ยงอัจฉริยะและการกรองสภาวะตลาดแบบเรียลไทม์'
+  ),
+  descriptionLong: createLocalizedText(
+    `VORTEX-7 is a high-performance trading engine designed for the high-volatility environment of Binance Perpetual Futures. It operates on a modular "5-Engine" architecture to decode market microstructure and execute trades with sub-10ms logic latency.
 
 ### Key Technical Pillars:
 1. **Multi-Engine Analysis Core**:
@@ -325,7 +325,7 @@ export const projects: Project[] = [
 3. **Low-Latency Pipeline**: Built with Python's \`asyncio\` and \`ccxt.pro\` for continuous WebSocket streams, ensuring the system reacts to market shifts in milliseconds.
 4. **Data Analytics Integration**: Full integration with Supabase for granular logging of every execution, including API latency, slippage, and strategy performance metrics.`,
 
-      `VORTEX-7 คือเอนจินการเทรดประสิทธิภาพสูงที่ออกแบบมาสำหรับตลาด Binance Perpetual Futures โดยเฉพาะ ทำงานด้วยสถาปัตยกรรมแบบ 5 เอนจินอิสระที่ประมวลผลขนานกันเพื่อวิเคราะห์โครงสร้างตลาดและตัดสินใจภายในเวลาไม่กี่มิลลิวินาที
+    `VORTEX-7 คือเอนจินการเทรดประสิทธิภาพสูงที่ออกแบบมาสำหรับตลาด Binance Perpetual Futures โดยเฉพาะ ทำงานด้วยสถาปัตยกรรมแบบ 5 เอนจินอิสระที่ประมวลผลขนานกันเพื่อวิเคราะห์โครงสร้างตลาดและตัดสินใจภายในเวลาไม่กี่มิลลิวินาที
 
 ### รายละเอียดทางเทคนิคที่สำคัญ:
 1. **ระบบวิเคราะห์ 5 เอนจินอัจฉริยะ**:
@@ -336,35 +336,19 @@ export const projects: Project[] = [
    - **Regime Filter (E5)**: "สมองส่วนกลาง" ที่จำแนกสภาวะตลาด (Low/Normal/High Vol) และปรับน้ำหนักความสำคัญของแต่ละเอนจินโดยอัตโนมัติ
 2. **การจัดการความเสี่ยงขั้นสูง**: ระบบคำนวณขนาดไม้ตามความมั่นใจ (Confidence Score) และมีระบบ "Liquidation Squeeze" ที่คอยบีบระยะ SL/TP โดยอัตโนมัติเพื่อป้องกันการถูกล้างพอร์ตก่อนราคาจะถึงจุด Stop Loss
 3. **ระบบประมวลผลความเร็วสูง**: พัฒนาด้วย Python \`asyncio\` และ \`ccxt.pro\` เพื่อเชื่อมต่อ WebSocket แบบเรียลไทม์ ทำให้ระบบสามารถตอบสนองต่อตลาดได้รวดเร็วทันท่วงที
-4. **การจัดเก็บข้อมูลเชิงลึก**: เชื่อมต่อกับ Supabase เพื่อบันทึกข้อมูลการเทรดอย่างละเอียด รวมถึงค่าความหน่วงของ API (Latency) และประสิทธิภาพของแต่ละกลยุทธ์เพื่อการพัฒนาอย่างต่อเนื่อง`,
-    ),
-    image: "/images/project/Vortex7.png",
-    images: [
-      {
-        url: "/images/project/Vortex7.png",
-        caption: "VORTEX-7 Dashboard & Multi-Engine Signal Processing",
-      },
-    ],
-    link: "",
-    github: "https://github.com/aphsx/TradingShortTerm",
-    tags: createLocalizedText(
-      [
-        "Python",
-        "Asyncio",
-        "CCXT",
-        "Algorithmic Trading",
-        "Market Microstructure",
-        "Supabase",
-      ],
-      [
-        "Python",
-        "Asyncio",
-        "CCXT",
-        "การเทรดอัลกอริทึม",
-        "โครงสร้างจุลภาคตลาด",
-        "การจัดการความเสี่ยงอัจฉริยะ",
-      ],
-    ),
-    category: "works",
-  },
+4. **การจัดเก็บข้อมูลเชิงลึก**: เชื่อมต่อกับ Supabase เพื่อบันทึกข้อมูลการเทรดอย่างละเอียด รวมถึงค่าความหน่วงของ API (Latency) และประสิทธิภาพของแต่ละกลยุทธ์เพื่อการพัฒนาอย่างต่อเนื่อง`
+  ),
+  image: '/images/project/Futures Scalping Engine.png',
+  images: [
+    { url: '/images/project/Futures Scalping Engine', caption: 'VORTEX-7 Dashboard & Multi-Engine Signal Processing' },
+  ],
+  link: '',
+  github: 'https://github.com/aphsx/TradingShortTerm',
+  tags: createLocalizedText(
+    ['Python', 'Asyncio', 'CCXT', 'Algorithmic Trading', 'Market Microstructure', 'Supabase'],
+    ['Python', 'Asyncio', 'CCXT', 'การเทรดอัลกอริทึม', 'โครงสร้างจุลภาคตลาด', 'การจัดการความเสี่ยงอัจฉริยะ']
+  ),
+  category: 'works'
+}
+
 ];
