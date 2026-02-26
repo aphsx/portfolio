@@ -41,7 +41,7 @@ export const skillCategoriesSeed: SkillCategory[] = [
             { id: 'skill-nextjs', name: 'Next.js', color: 'bg-gradient-to-br from-teal-700 to-cyan-800', icon: SiNextdotjs, category: 'Languages & Frameworks', isActive: true, order: 8 },
             { id: 'skill-express', name: 'Express', color: 'bg-gradient-to-br from-teal-600 to-cyan-700', icon: SiExpress, category: 'Languages & Frameworks', isActive: true, order: 9 },
             { id: 'skill-nodejs', name: 'Node.js', color: 'bg-gradient-to-br from-teal-400 to-cyan-500', icon: SiNodedotjs, category: 'Languages & Frameworks', isActive: true, order: 10 },
-            { id: 'skill-rust', name: 'Rust', color: 'bg-gradient-to-br from-orange-600 to-red-700', icon: SiRust, category: 'Languages & Frameworks', isActive: true, order: 11 },
+            { id: 'skill-rust', name: 'Rust', color: 'bg-gradient-to-br from-teal-500 to-cyan-600', icon: SiRust, category: 'Languages & Frameworks', isActive: true, order: 11 },
         ],
     },
     {
