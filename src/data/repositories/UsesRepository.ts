@@ -1,5 +1,5 @@
 import { UsesCategory } from '../../types'
-import { usesCategoriesSeed } from '../seed/uses'
+import { usesCategoriesSeed } from '../seed/Uses'
 
 // ---------------------------------------------------------------------------
 // UsesRepository

@@ -1,5 +1,5 @@
 import { SocialLink } from '../../types'
-import { socialLinksSeed } from '../seed/social'
+import { socialLinksSeed } from '../seed/Social'
 
 // ---------------------------------------------------------------------------
 // SocialRepository

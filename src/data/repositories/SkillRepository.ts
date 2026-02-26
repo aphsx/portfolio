@@ -1,5 +1,5 @@
 import { SkillCategory } from '../../types'
-import { skillCategoriesSeed } from '../seed/skills'
+import { skillCategoriesSeed } from '../seed/Skills'
 
 // ---------------------------------------------------------------------------
 // SkillRepository
