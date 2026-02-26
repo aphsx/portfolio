@@ -2,17 +2,15 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { MdOutlineWork } from 'react-icons/md'
 import { Section } from '../ui'
-import { projects } from '../../data'
+import { ProjectRepository } from '../../data'
 import { useLanguage } from '../../contexts'
 import { useLocalizedData } from '../../hooks'
 
 const FeaturedProjectsSection = () => {
   const { t } = useLanguage()
-  const { getLocalized, getLocalizedArray } = useLocalizedData()
+  const { getLocalized } = useLocalizedData()
 
-  const featuredProjects = projects
-    .filter((p) => p.category === 'collaborations')
-    .slice(0, 2)
+  const featuredProjects = ProjectRepository.getByCategory('collaborations').slice(0, 2)
 
   return (
     <Section
@@ -53,7 +51,7 @@ const FeaturedProjectsSection = () => {
                   {getLocalized(project.shortDescription || project.description)}
                 </p>
                 <div className="flex flex-wrap gap-1">
-                  {getLocalizedArray(project.tags)
+                  {project.tags
                     .slice(0, 3)
                     .map((tag, tagIndex) => (
                       <span

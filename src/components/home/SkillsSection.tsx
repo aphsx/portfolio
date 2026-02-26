@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion'
 import { MdElectricBolt } from 'react-icons/md'
 import { Section } from '../ui'
-import { skills } from '../../data'
+import { SkillRepository } from '../../data'
 import { useLanguage } from '../../contexts'
+import { useLocalizedData } from '../../hooks'
 
 interface SkillItemProps {
   skill: {
@@ -52,6 +53,8 @@ const SkillItem = ({ skill, index }: SkillItemProps) => (
 
 const SkillsSection = () => {
   const { t } = useLanguage()
+  const { getLocalized } = useLocalizedData()
+  const skillCategories = SkillRepository.getAll()
 
   return (
     <Section
@@ -60,26 +63,26 @@ const SkillsSection = () => {
       delay={0.5}
     >
       <div className="space-y-6 mt-4">
-        {Object.entries(skills).map(([category, items], catIndex) => (
+        {skillCategories.map((cat, catIndex) => (
           <motion.div
-            key={category}
+            key={cat.id}
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 + catIndex * 0.12 }}
           >
             <div className="flex items-center justify-between mb-2">
               <h4 className="text-sm font-semibold text-gray-900 dark:text-gray-100">
-                {category}
+                {getLocalized(cat.name)}
               </h4>
               <span className="text-xs text-gray-500 dark:text-gray-400">
-                {items.length} items
+                {cat.skills.length} items
               </span>
             </div>
 
             <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2">
-              {items.map((skill, index) => (
+              {cat.skills.map((skill, index) => (
                 <SkillItem
-                  key={skill.name}
+                  key={skill.id}
                   skill={skill}
                   index={index}
                 />
