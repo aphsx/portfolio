@@ -26,8 +26,7 @@ const Uses = () => {
             {t('uses.title')}
           </h1>
           <p className="text-gray-600 dark:text-gray-300 text-sm max-w-2xl mx-auto leading-relaxed">
-            Here's what tech I'm currently using for development, design, and daily productivity.
-            This collection represents tools and hardware that power my creative workflow.
+            {t('uses.description')}
           </p>
         </motion.div>
 

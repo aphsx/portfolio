@@ -4,7 +4,7 @@ import { getLocalizedText, getLocalizedArray as getLocalizedArrayUtil } from '..
 
 export const useLocalizedData = () => {
   const { t, i18n } = useTranslation()
-  const language = (i18n.language?.split('-')[0] || 'en') as 'en' | 'th'
+  const language = (i18n.language?.split('-')[0] || 'en') as 'en' | 'th' | 'ja'
 
   /**
    * Returns a localized string.

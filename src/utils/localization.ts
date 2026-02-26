@@ -6,7 +6,7 @@ import { LocalizedText, LocalizedStringArray } from '../types'
  */
 export const getLocalizedText = (
   text: LocalizedText | string,
-  language: 'en' | 'th'
+  language: 'en' | 'th' | 'ja'
 ): string => {
   if (typeof text === 'string') {
     return text
@@ -16,6 +16,9 @@ export const getLocalizedText = (
     const localized = text as LocalizedText
     if (language === 'th' && localized.th) {
       return localized.th
+    }
+    if (language === 'ja' && localized.ja) {
+      return localized.ja
     }
     return localized.en
   }
@@ -29,7 +32,7 @@ export const getLocalizedText = (
  */
 export const getLocalizedArray = (
   items: LocalizedStringArray | string[],
-  language: 'en' | 'th'
+  language: 'en' | 'th' | 'ja'
 ): string[] => {
   if (Array.isArray(items)) {
     return items
@@ -39,6 +42,9 @@ export const getLocalizedArray = (
     const localized = items as LocalizedStringArray
     if (language === 'th' && localized.th) {
       return localized.th
+    }
+    if (language === 'ja' && localized.ja) {
+      return localized.ja
     }
     return localized.en
   }

@@ -9,7 +9,7 @@ const LanguageWrapper = () => {
     const location = useLocation()
 
     useEffect(() => {
-        const supportedLangs = ['en', 'th']
+        const supportedLangs = ['en', 'th', 'ja']
 
         // If no lang prefix, or invalid lang prefix, redirect to detected language or default
         if (!lang || !supportedLangs.includes(lang)) {
