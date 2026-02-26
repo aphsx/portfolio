@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { HiMenu, HiX } from 'react-icons/hi'
-import { FiGithub, FiMoon, FiSun } from 'react-icons/fi'
+import { FiCheck, FiGithub, FiMoon, FiSun } from 'react-icons/fi'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTheme } from '../../contexts'
 import { useTranslation } from 'react-i18next'
@@ -122,14 +122,19 @@ const Navbar = () => {
                           <button
                             key={lang.code}
                             onClick={() => setLanguage(lang.code)}
-                            className={`w-full px-4 py-2.5 flex items-center gap-3 transition-colors text-sm
+                            className={`w-full px-4 py-2.5 flex items-center justify-between transition-colors text-sm
                               ${language === lang.code
-                                ? 'text-teal-50 bg-teal-50/50 dark:bg-teal-900/20'
+                                ? 'text-teal-600 dark:text-teal-400 bg-teal-50/30 dark:bg-teal-900/20 font-semibold'
                                 : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50'
                               }`}
                           >
-                            <span className="text-base">{lang.flag}</span>
-                            <span className="font-medium">{lang.fullName}</span>
+                            <div className="flex items-center gap-3">
+                              <span className="text-base">{lang.flag}</span>
+                              <span>{lang.fullName}</span>
+                            </div>
+                            {language === lang.code && (
+                              <FiCheck size={14} className="text-teal-500" />
+                            )}
                           </button>
                         ))}
                       </motion.div>
