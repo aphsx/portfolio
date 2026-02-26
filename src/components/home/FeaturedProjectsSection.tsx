@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom'
 import { MdOutlineWork } from 'react-icons/md'
 import { Section } from '../ui'
 import { ProjectRepository } from '../../data'
-import { useLanguage } from '../../contexts'
+import { useTranslation } from 'react-i18next'
 import { useLocalizedData } from '../../hooks'
 
 const FeaturedProjectsSection = () => {
-  const { t } = useLanguage()
-  const { getLocalized } = useLocalizedData()
+  const { t } = useTranslation()
+  const { getLocalized, language } = useLocalizedData()
 
   const featuredProjects = ProjectRepository.getByCategory('collaborations').slice(0, 2)
 
@@ -28,7 +28,7 @@ const FeaturedProjectsSection = () => {
             className="group rounded-xl overflow-hidden transition-shadow"
           >
             <Link
-              to={`/projects/${project.id}`}
+              to={`/${language}/projects/${project.id}`}
               className="flex flex-col h-full transition-colors duration-300"
             >
               {/* Project Image */}

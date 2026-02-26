@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { UsesRepository } from '../data'
-import { useLanguage } from '../contexts'
 import { useLocalizedData } from '../hooks'
 
 const Uses = () => {
-  const { t } = useLanguage()
+  const { t } = useTranslation()
   const { getLocalized } = useLocalizedData()
   const defaultImage = '/images/CSI00139.jpg'
   const usesCategories = UsesRepository.getAll()

@@ -1,11 +1,11 @@
 import { MdViewTimeline } from 'react-icons/md'
 import { Section } from '../ui'
 import { PersonalRepository } from '../../data'
-import { useLanguage } from '../../contexts'
+import { useTranslation } from 'react-i18next'
 import { useLocalizedData } from '../../hooks'
 
 const BioSection = () => {
-  const { t } = useLanguage()
+  const { t } = useTranslation()
   const { getLocalized } = useLocalizedData()
   const bioTimeline = PersonalRepository.getBioTimeline()
 

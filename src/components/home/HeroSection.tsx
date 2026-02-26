@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { PersonalRepository } from '../../data'
-import { useLanguage } from '../../contexts'
+import { useTranslation } from 'react-i18next'
 import { useLocalizedData } from '../../hooks'
 
 const HeroSection = () => {
-  const { t } = useLanguage()
+  const { t } = useTranslation()
   const { getLocalized } = useLocalizedData()
   const personalInfo = PersonalRepository.getPersonalInfo()
   const [typewriterText, setTypewriterText] = useState('')
