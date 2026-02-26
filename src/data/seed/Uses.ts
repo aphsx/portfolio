@@ -4,9 +4,16 @@ import {
     SiNotion,
     SiSpotify,
     SiDiscord,
+    SiDocker,
+    SiPostman,
+    SiGit,
+    SiWarp,
+    SiArc,
+    SiRust,
+    SiUbuntu,
 } from 'react-icons/si'
 import { MdPhoneIphone, MdChair } from 'react-icons/md'
-import { FaMicrophone, FaKeyboard, FaDesktop, FaMouse, FaHeadset } from 'react-icons/fa'
+import { FaMicrophone, FaKeyboard, FaDesktop, FaMouse, FaHeadset, FaBox, FaDatabase } from 'react-icons/fa'
 import { UsesCategory } from '../../types'
 
 // ---------------------------------------------------------------------------
@@ -78,10 +85,19 @@ export const usesCategoriesSeed: UsesCategory[] = [
         order: 2,
         items: [
             { id: 'uses-vscode', name: { en: 'VSCode' }, icon: SiVisualstudiocode, isActive: true, order: 1 },
-            { id: 'uses-figma', name: { en: 'Figma' }, icon: SiFigma, isActive: true, order: 2 },
-            { id: 'uses-notion', name: { en: 'Notion' }, icon: SiNotion, isActive: true, order: 3 },
-            { id: 'uses-spotify', name: { en: 'Spotify' }, icon: SiSpotify, isActive: true, order: 4 },
-            { id: 'uses-discord', name: { en: 'Discord' }, icon: SiDiscord, isActive: true, order: 5 },
+            { id: 'uses-docker', name: { en: 'Docker' }, icon: SiDocker, isActive: true, order: 2 },
+            { id: 'uses-rust', name: { en: 'Rust', th: 'ภาษา Rust' }, icon: SiRust, isActive: true, order: 3 },
+            { id: 'uses-cargo', name: { en: 'Cargo', th: 'Cargo (Rust PM)' }, icon: FaBox, isActive: true, order: 4 },
+            { id: 'uses-ubuntu', name: { en: 'Ubuntu (WSL/Linux)', th: 'Ubuntu (Linux)' }, icon: SiUbuntu, isActive: true, order: 5 },
+            { id: 'uses-postman', name: { en: 'Postman' }, icon: SiPostman, isActive: true, order: 6 },
+            { id: 'uses-git', name: { en: 'Git' }, icon: SiGit, isActive: true, order: 7 },
+            { id: 'uses-warp', name: { en: 'Warp Terminal' }, icon: SiWarp, isActive: true, order: 8 },
+            { id: 'uses-tableplus', name: { en: 'TablePlus' }, icon: FaDatabase, isActive: true, order: 9 },
+            { id: 'uses-arc', name: { en: 'Arc Browser' }, icon: SiArc, isActive: true, order: 10 },
+            { id: 'uses-figma', name: { en: 'Figma' }, icon: SiFigma, isActive: true, order: 11 },
+            { id: 'uses-notion', name: { en: 'Notion' }, icon: SiNotion, isActive: true, order: 12 },
+            { id: 'uses-discord', name: { en: 'Discord' }, icon: SiDiscord, isActive: true, order: 13 },
+            { id: 'uses-spotify', name: { en: 'Spotify' }, icon: SiSpotify, isActive: true, order: 14 },
         ],
     },
     {
