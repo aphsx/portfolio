@@ -8,8 +8,8 @@
 // This public API surface stays the same.
 // ============================================================
 
-export { PersonalRepository } from './repositories/personal.repository'
-export { ProjectRepository } from './repositories/project.repository'
-export { SkillRepository } from './repositories/skill.repository'
-export { SocialRepository } from './repositories/social.repository'
-export { UsesRepository } from './repositories/uses.repository'
+export { PersonalRepository } from './repositories/PersonalRepository'
+export { ProjectRepository } from './repositories/ProjectRepository'
+export { SkillRepository } from './repositories/SkillRepository'
+export { SocialRepository } from './repositories/SocialRepository'
+export { UsesRepository } from './repositories/UsesRepository'
