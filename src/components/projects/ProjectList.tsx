@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom'
 import { Project } from '../../types'
 import { useLocalizedData } from '../../hooks'
 
-interface WorkSectionProps {
+interface ProjectListProps {
   title: string
   projects: Project[]
   showDivider?: boolean
 }
 
-const WorkSection = ({ title, projects, showDivider = false }: WorkSectionProps) => {
+const ProjectList = ({ title, projects, showDivider = false }: ProjectListProps) => {
   const { getLocalized, language } = useLocalizedData()
   // กำหนด default image
   const defaultImage = '/images/CSI00138.jpg'
@@ -90,4 +90,4 @@ const WorkSection = ({ title, projects, showDivider = false }: WorkSectionProps)
   )
 }
 
-export default WorkSection
+export default ProjectList
