@@ -5,7 +5,8 @@ import {
     SiSpotify,
     SiDiscord,
 } from 'react-icons/si'
-import { MdMic, MdKeyboard, MdMonitor, MdPhoneIphone } from 'react-icons/md'
+import { MdPhoneIphone } from 'react-icons/md'
+import { FaMicrophone, FaKeyboard, FaDesktop } from 'react-icons/fa'
 import { UsesCategory } from '../../types'
 
 // ---------------------------------------------------------------------------
@@ -22,21 +23,21 @@ export const usesCategoriesSeed: UsesCategory[] = [
             {
                 id: 'uses-mic-maono',
                 name: { en: 'Maono PD200X Microphone', th: 'ไมค์ Maono PD200X' },
-                icon: MdMic,
+                icon: FaMicrophone,
                 isActive: true,
                 order: 1,
             },
             {
                 id: 'uses-keyboard-aula',
                 name: { en: 'Aula Hero 60HE Keyboard', th: 'คีย์บอร์ด Aula Hero 60HE' },
-                icon: MdKeyboard,
+                icon: FaKeyboard,
                 isActive: true,
                 order: 2,
             },
             {
                 id: 'uses-monitor-acer',
                 name: { en: 'ACER Nitro QG241Y Monitor', th: 'จอมอนิเตอร์ ACER Nitro QG241Y' },
-                icon: MdMonitor,
+                icon: FaDesktop,
                 isActive: true,
                 order: 3,
             },
