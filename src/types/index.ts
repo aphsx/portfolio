@@ -114,7 +114,8 @@ export interface SocialLink extends BaseEntity {
 
 export interface UsesTool extends BaseEntity {
   name: LocalizedText
-  image: string
+  image?: string
+  icon?: React.ComponentType<{ size?: number; className?: string }>
   description?: LocalizedText
   url?: string
 }

@@ -59,8 +59,10 @@ const Uses = () => {
                     }}
                     className="flex items-center gap-4 p-3 bg-white dark:bg-gray-800 rounded-lg border border-gray-100 dark:border-gray-700"
                   >
-                    <div className="flex-shrink-0 w-12 h-12 relative overflow-hidden rounded-lg">
-                      {item.image ? (
+                    <div className="flex-shrink-0 w-12 h-12 relative overflow-hidden rounded-lg flex items-center justify-center bg-gray-100 dark:bg-gray-700">
+                      {item.icon ? (
+                        <item.icon size={24} className="text-teal-600 dark:text-teal-400" />
+                      ) : item.image ? (
                         <img
                           src={item.image}
                           alt={getLocalized(item.name)}
@@ -70,11 +72,9 @@ const Uses = () => {
                           }}
                         />
                       ) : (
-                        <div className="w-full h-full bg-gradient-to-br from-teal-500/20 to-cyan-500/20 dark:from-teal-600/30 dark:to-cyan-600/30 flex items-center justify-center rounded-lg">
-                          <span className="text-lg font-bold text-teal-600 dark:text-teal-400">
-                            {getLocalized(item.name).charAt(0)}
-                          </span>
-                        </div>
+                        <span className="text-lg font-bold text-teal-600 dark:text-teal-400">
+                          {getLocalized(item.name).charAt(0)}
+                        </span>
                       )}
                     </div>
                     <h3 className="text-gray-900 dark:text-gray-100 font-medium">
