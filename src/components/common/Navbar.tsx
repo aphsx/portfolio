@@ -6,6 +6,12 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useTheme } from '../../contexts'
 import { useTranslation } from 'react-i18next'
 
+const languages = [
+  { code: 'en', name: 'EN', fullName: 'English', flag: '🇺🇸' },
+  { code: 'th', name: 'TH', fullName: 'ไทย', flag: '🇹🇭' },
+  { code: 'ja', name: 'JA', fullName: '日本語', flag: '🇯🇵' },
+]
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isLangOpen, setIsLangOpen] = useState(false)
@@ -14,20 +20,20 @@ const Navbar = () => {
   const navigate = useNavigate()
   const location = useLocation()
 
-  const language = i18n.language?.split('-')[0] || 'en'
+  // Normalize language code (e.g., ja-JP -> ja, ja_JP -> ja)
+  const language = (i18n.language || 'en').split(/[-_]/)[0].toLowerCase()
 
-  const languages = [
-    { code: 'en', name: 'EN', fullName: 'English', flag: '🇺🇸' },
-    { code: 'th', name: 'TH', fullName: 'ไทย', flag: '🇹🇭' },
-    { code: 'ja', name: 'JA', fullName: '日本語', flag: '🇯🇵' },
-  ]
-
-  const currentLang = languages.find(l => l.code === language) || languages[0]
+  const currentLang = languages.find(l => l.code === language) || languages.find(l => l.code === 'th') || languages[0]
 
   const setLanguage = (newLang: string) => {
     // Replace current language in URL with new language
     const pathParts = location.pathname.split('/')
-    pathParts[1] = newLang // Assuming /:lang is the first part
+    if (pathParts[1] && languages.some(l => l.code === pathParts[1])) {
+      pathParts[1] = newLang
+    } else {
+      // If first part is not a language code, prepend it
+      pathParts.splice(1, 0, newLang)
+    }
     const newPath = pathParts.join('/')
     navigate(newPath)
     setIsLangOpen(false)
@@ -118,7 +124,7 @@ const Navbar = () => {
                             onClick={() => setLanguage(lang.code)}
                             className={`w-full px-4 py-2.5 flex items-center gap-3 transition-colors text-sm
                               ${language === lang.code
-                                ? 'text-teal-500 bg-teal-50/50 dark:bg-teal-900/20'
+                                ? 'text-teal-50 bg-teal-50/50 dark:bg-teal-900/20'
                                 : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50'
                               }`}
                           >

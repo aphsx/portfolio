@@ -21,7 +21,8 @@ const LanguageWrapper = () => {
         }
 
         // Update i18n if language changed in URL
-        if (lang !== i18n.language) {
+        const currentI18nLang = (i18n.language || '').split(/[-_]/)[0].toLowerCase()
+        if (lang !== currentI18nLang) {
             i18n.changeLanguage(lang)
         }
     }, [lang, i18n, navigate, location.pathname])
