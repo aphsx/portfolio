@@ -16,21 +16,21 @@ export const projectsSeed: Project[] = [
         featured: false,
         year: 2024,
         title: {
-            en: 'Enterprise Resource Planning System',
+            en: '',
             th: 'ระบบการวางแผนจัดการการผลิต',
-            ja: '企業資源計画（ERP）システム',
+            ja: '',
         },
         description: {
-            en: 'A comprehensive ERP system for military manufacturing that handles inventory management, production scheduling, and resource allocation.',
+            en: '',
             th: 'ระบบ ERP ที่ครอบคลุมที่ออกแบบสำหรับการดำเนินงานการผลิตทางทหาร มีการจัดการสินค้าคงคลังขั้นสูงและความสามารถในการวางแผนการผลิต',
-            ja: '軍事製造向けの包括的なERPシステム。在庫管理、生産スケジューリング、リソース割り当てを処理します。',
+            ja: '',
         },
         shortDescription: {
-            en: 'Planning system for military manufacturing with inventory management and production planning.',
+            en: '',
             th: 'ระบบ ERP สำหรับการผลิตทางทหารพร้อมการจัดการสินค้าคงคลัง',
         },
         descriptionLong: {
-            en: 'A comprehensive Enterprise Resource Planning (ERP) system tailored for military manufacturing operations. The system integrates advanced inventory management, production scheduling, and resource allocation capabilities to streamline manufacturing processes and improve operational efficiency. Built with React, the project involved developing the front-end of the back-office system, implementing key functionalities such as database management, production planning functions, task insertion, and task division.',
+            en: '',
             th: 'พัฒนาระบบการวางแผนทรัพยากรองค์กรที่ซับซ้อนซึ่งปรับแต่งสำหรับการดำเนินงานการผลิตทางทหาร ระบบนี้รวมการจัดการสินค้าคงคลัง การจัดตารางการผลิต และการจัดสรรทรัพยากรสร้างด้วย React ในโปรเจคนี้ผมได้มีส่วนร่วมในการพัฒนาส่วนหน้าของระบบหลังบ้าน ยกตัวอย่างฟังชันก์ที่สำคัญ เช่น Database ฟังก์ชันการวางแผนการผลิต แทรกtask แบ่งtask',
         },
         image: '/images/IMG_2701.JPG',
@@ -49,20 +49,21 @@ export const projectsSeed: Project[] = [
         featured: false,
         year: 2024,
         title: {
-            en: 'Medical E-Learning Platform',
+            en: '',
             th: 'แพลตฟอร์มอีเลิร์นนิงทางการแพทย์',
-            ja: '医療用Eラーニングプラットフォーム',
+            ja: '',
         },
         description: {
-            en: 'An interactive e-learning platform designed for medical students specializing in radiology, featuring comprehensive case studies and assessment tools.',
+            en: '',
             th: 'แพลตฟอร์มอีเลิร์นนิงแบบโต้ตอบที่ออกแบบสำหรับนักศึกษาแพทย์ มีกรณีศึกษาที่ครอบคลุมและเครื่องมือประเมิน',
+            ja: '',
         },
         shortDescription: {
-            en: 'E-learning platform for medical radiology with interactive case studies and assessments.',
+            en: '',
             th: 'แพลตฟอร์มอีเลิร์นนิงรังสีวิทยาพร้อมกรณีศึกษาแบบโต้ตอบ',
         },
         descriptionLong: {
-            en: 'An e-learning platform for medical radiology education that provides medical students with access to real-world case studies, interactive imaging tools, and assessment modules. The platform includes DICOM image viewer integration, case-based learning modules, progress tracking, and collaboration tools.',
+            en: '',
             th: 'สร้างแพลตฟอร์มอีเลิร์นนิงที่นวัตกรรมซึ่งออกแบบเฉพาะสำหรับการศึกษา แพลตฟอร์มนี้ให้นักศึกษาแพทย์เข้าถึงไลบรารีที่ครอบคลุมของกรณีศึกษาในโลกแห่งความเป็นจริง เครื่องมือถ่ายภาพแบบโต้ตอบ และโมดูลการประเมินแบบก้าวหน้า คุณสมบัติรวมถึงการรวม DICOM image viewer โมดูลการเรียนรู้ตามกรณี การติดตามความก้าวหน้า และเครื่องมือความร่วมมือของเพื่อน',
         },
         image: '/images/project/E-Learning.png',
@@ -81,20 +82,21 @@ export const projectsSeed: Project[] = [
         featured: false,
         year: 2024,
         title: {
-            en: 'Center of Social Innovation Website',
+            en: '',
             th: 'เว็บไซต์ศูนย์นวัตกรรมเฉพาะทาง',
-            ja: '社会イノベーションセンターウェブサイト',
+            ja: '',
         },
         description: {
-            en: 'A modern, responsive website for the Center of Social Innovation Lab, showcasing research projects, events, and community impact initiatives.',
+            en: '',
             th: 'เว็บไซต์ที่ทันสมัยและตอบสนองสำหรับห้องปฏิบัติการศูนย์นวัตกรรมเฉพาะทาง แสดงโครงการวิจัย กิจกรรม และโครงการส่งผลกระทบต่อชุมชน',
+            ja: '',
         },
         shortDescription: {
-            en: 'University lab website showcasing research projects and social innovation initiatives.',
+            en: '',
             th: 'เว็บไซต์ห้องปฏิบัติการมหาวิทยาลัยแสดงโครงการวิจัย',
         },
         descriptionLong: {
-            en: 'A comprehensive website for the Center of Social Innovation (CoSI) Lab at Bangkok University. The site showcases ongoing research projects, upcoming events, and the center\'s impact on social innovation. Features include project portfolio galleries, event management system, research publication database, team member profiles, and an interactive contact system.',
+            en: '',
             th: 'ออกแบบและพัฒนาเว็บไซต์ที่ครอบคลุมสำหรับห้องปฏิบัติการศูนย์นวัตกรรมเฉพาะทาง (CoSI) ที่มหาวิทยาลัยกรุงเทพ เว็บไซต์ทำหน้าที่เป็นศูนย์กลางดิจิทัลสำหรับการแสดงโครงการวิจัยที่กำลังดำเนินอยู่ กิจกรรมที่จะเกิดขึ้น และผลกระทบของศูนย์ต่อนวัตกรรมทางสังคม คุณสมบัติรวมถึงแกลเลอรีพอร์ตโฟลิโอโครงการ ระบบการจัดการกิจกรรม ฐานข้อมูลสิ่งพิมพ์วิจัย โปรไฟล์สมาชิกทีม และระบบติดต่อแบบโต้ตอบ',
         },
         image: '/images/project/CoSI_web.png',
@@ -113,20 +115,21 @@ export const projectsSeed: Project[] = [
         featured: true,
         year: 2024,
         title: {
-            en: 'Personal Portfolio Website',
+            en: '',
             th: 'เว็บไซต์ผลงานส่วนตัว',
-            ja: '個人ポートフォリオウェブサイト',
+            ja: '',
         },
         description: {
-            en: 'A personal portfolio website to showcase projects, skills, and experience.',
+            en: '',
             th: 'เว็บไซต์ผลงานส่วนตัวเพื่อแสดงโปรเจค ทักษะ และประสบการณ์',
+            ja: '',
         },
         shortDescription: {
-            en: 'Personal portfolio website built with React and Tailwind CSS.',
+            en: '',
             th: 'เว็บไซต์ผลงานส่วนตัวสร้างด้วย React และ Tailwind CSS.',
         },
         descriptionLong: {
-            en: "A personal portfolio website designed to showcase my projects, skills, and professional experience. The site features sections for project highlights, skill sets, and contact information. Built using React and Tailwind CSS for rapid styling and responsiveness. Key functionalities include Dark mode, Language switcher.",
+            en: '',
             th: 'เว็บไซต์ผลงานส่วนตัวที่ออกแบบมาเพื่อแสดงโปรเจค ทักษะ และประสบการณ์ทางวิชาชีพของผม เว็บไซต์มีการออกแบบส่วนต่างๆ การแสดงโปรเจค ทักษะ และข้อมูลการติดต่อ สร้างขึ้นโดยใช้ React และ Tailwind CSS สำหรับการจัดแต่งอย่างรวดเร็วและการตอบสนอง ยกตัวอย่างฟังชันก์ที่สำคัญ เช่น Dark mode, Language switcher',
         },
         image: '/images/portfolio.png',
@@ -145,20 +148,21 @@ export const projectsSeed: Project[] = [
         featured: false,
         year: 2024,
         title: {
-            en: 'Tourism Website',
+            en: '',
             th: 'เว็บไซต์ท่องเที่ยว',
-            ja: '観光ウェブサイト',
+            ja: '',
         },
         description: {
-            en: 'A vibrant tourism website promoting local attractions, events, and travel guides, built with Next.js and styled with Tailwind CSS.',
+            en: '',
             th: 'เว็บไซต์ท่องเที่ยวที่มีชีวิตชีวาเพื่อส่งเสริมสถานที่ท่องเที่ยวในท้องถิ่น กิจกรรม และคู่มือการเดินทาง สร้างด้วย Next.js และจัดแต่งด้วย Tailwind CSS',
+            ja: '',
         },
         shortDescription: {
-            en: 'Tourism website built with Next.js and Tailwind CSS.',
+            en: '',
             th: 'เว็บไซต์ท่องเที่ยวสร้างด้วย Next.js และ Tailwind CSS.',
         },
         descriptionLong: {
-            en: 'A tourism website designed to promote local attractions, events, and travel guides. The site features a colorful and engaging design with sections for popular destinations, upcoming events, travel tips, and user reviews. Built using Next.js for server-side rendering and SEO optimization, along with Tailwind CSS for a responsive and visually appealing layout.',
+            en: '',
             th: 'เว็บไซต์ท่องเที่ยวที่ออกแบบมาเพื่อส่งเสริมสถานที่ท่องเที่ยวในท้องถิ่น กิจกรรม และคู่มือการเดินทาง เว็บไซต์มีการออกแบบที่มีสีสันและน่าสนใจ พร้อมส่วนต่างๆ สำหรับจุดหมายปลายทางยอดนิยม กิจกรรมที่จะเกิดขึ้น เคล็ดลับการเดินทาง และบทวิจารณ์ของผู้ใช้',
         },
         image: '/images/project/Tourism.png',
@@ -177,26 +181,21 @@ export const projectsSeed: Project[] = [
         featured: true,
         year: 2025,
         title: {
-            en: '3D Trajectory Control Computer',
+            en: '',
             th: 'ระบบคำนวณและควบคุมวิถีเคลื่อนที่แบบ 3 มิติ',
-            ja: '3D Trajectory Control Computer',
+            ja: '',
         },
         description: {
-            en: 'A high-precision modular computing system that integrates real-time environmental data, terrain analysis, and 3D visualization to provide accurate operational solutions.',
+            en: '',
             th: 'ระบบคำนวณความแม่นยำสูงสำหรับการเคลื่อนที่ของวิถี ซึ่งรวบรวมข้อมูลสภาพแวดล้อมแบบเรียลไทม์ การวิเคราะห์ภูมิประเทศ และการแสดงผล 3 มิติเพื่อกำหนดแนวทางวิถีที่แม่นยำที่สุด',
+            ja: '',
         },
         shortDescription: {
-            en: 'Advanced 3D computing system for field operations with environmental corrections and terrain mapping.',
+            en: '',
             th: 'คอมพิวเตอร์คำนวณ 3 มิติขั้นสูง พร้อมระบบแก้ค่าสภาพอากาศและแผนที่ภูมิประเทศ',
         },
         descriptionLong: {
-            en: `An advanced tactical software suite designed to modernize field operations. The system automates complex calculations by integrating data from reference tables with real-time environmental factors.
-
-### Key Technical Details:
-1. **Computational Engine**: Implemented a multi-step processing pipeline (11 steps) that calculates trajectories based on equipment types, parameters, and meteorological data (wind, air density, temperature).
-2. **3D Visualization**: Built using a custom 3D rendering engine to visualize trajectories, impact points, and terrain elevations, allowing operators to see potential obstructions and terrain impacts.
-3. **Intelligent Refinement**: Developed an adjustment system that records observed results and re-calculates solutions iteratively to close the gap between intended and actual outcomes.
-4. **Data Management**: Robust system for handling registries, databases, and session management using React hooks and Electron-based storage.`,
+            en: '',
             th: `ซอฟต์แวร์ทางเทคนิคขั้นสูงที่ออกแบบมาเพื่อยกระดับการปฏิบัติการของการเคลื่อนที่ของวิถีสนาม ระบบนี้ช่วยเปลี่ยนการคำนวณด้วยแรงงานคนให้เป็นระบบอัตโนมัติที่ซับซ้อน โดยรวมข้อมูลจากตารางอ้างอิง (Reference Tables) เข้ากับปัจจัยสภาพแวดล้อมแบบ Real-time
 
 ### รายละเอียดทางเทคนิคที่สำคัญ:
@@ -227,26 +226,21 @@ export const projectsSeed: Project[] = [
         featured: true,
         year: 2025,
         title: {
-            en: 'TradingClaw: Market Microstructure Scanner',
+            en: '',
             th: 'TradingClaw: ระบบสแกนและวิเคราะห์โครงสร้างจุลภาคดัชนีตลาด',
-            ja: 'TradingClaw: Market Microstructure Scanner',
+            ja: '',
         },
         description: {
-            en: 'A high-performance cryptocurrency scanning system built in Rust to analyze real-time Limit Order Book (LOB) and trade data for strategy validation.',
+            en: '',
             th: 'ระบบสแกนคริปโทเคอร์เรนซีประสิทธิภาพสูงที่พัฒนาด้วย Rust เพื่อวิเคราะห์ Limit Order Book (LOB) และข้อมูลการซื้อขายแบบเรียลไทม์สำหรับการทดสอบกลยุทธ์',
+            ja: '',
         },
         shortDescription: {
-            en: 'Rust-based high-frequency crypto market scanner and cross-correlation analysis engine.',
+            en: '',
             th: 'เอนจินสแกนตลาดคริปโตความถี่สูงและวิเคราะห์ความสัมพันธ์ข้ามศูนย์ซื้อขายด้วยภาษา Rust',
         },
         descriptionLong: {
-            en: `A robust and modular quantitative trading analysis system designed to validate market microstructure strategies before live execution. The system connects to major cryptocurrency exchanges via WebSockets to process high-frequency data streams.
-
-### Key Technical Details:
-1. **High-Performance Architecture**: Developed entirely in Rust using the \`tokio\` async runtime to handle massive concurrency and minimize data processing latency.
-2. **Real-time Data Pipeline**: Implemented WebSocket clients connecting to Binance and Bybit for continuous Limit Order Book (LOB) updates and aggregated trade streams.
-3. **Advanced Quantitative Signals**: Engineered highly optimized calculators for complex high-frequency trading signals, including Multi-Level Order Flow Imbalance (MLOFI), Volume Adjusted Mid Price (VAMP), and cross-exchange lead-lag correlation.
-4. **Strategy Validation Engine**: Built a Composite Opportunity Score (COS) system to dynamically evaluate, rank, and generate comprehensive reports on coin viability for execution strategies.`,
+            en: '',
             th: `ระบบวิเคราะห์การเทรดเชิงปริมาณที่มีความแม่นยำและเสถียรภาพ ออกแบบมาเพื่อตรวจสอบความถดถอยของกลยุทธ์ระดับโครงสร้างจุลภาคของตลาดก่อนการเทรดจริง ระบบถูกเชื่อมต่อกับกระดานเทรดชั้นนำผ่าน WebSockets เพื่อประมวลผลกระแสข้อมูลความถี่สูง
 
 ### รายละเอียดทางเทคนิคที่สำคัญ:
@@ -277,31 +271,21 @@ export const projectsSeed: Project[] = [
         featured: true,
         year: 2025,
         title: {
-            en: 'Trading Short Term Futures Scalping and Backtesting',
+            en: '',
             th: 'Trading Short Term Futures Scalping and Backtesting',
-            ja: '短期先物スキャルピング ＆ バックテストシステム',
+            ja: '',
         },
         description: {
-            en: 'A sophisticated multi-engine trading bot for Binance Futures, utilizing order flow, tick momentum, and sentiment analysis to execute high-probability scalping strategies.',
+            en: '',
             th: 'บอทเทรดอัจฉริยะสำหรับ Binance Futures ที่ใช้ระบบวิเคราะห์ 5 เอนจินขนานกัน ทั้งแรงซื้อขายจริง โมเมนตัม และอารมณ์ตลาด เพื่อทำกำไรในระยะสั้นอย่างแม่นยำ',
+            ja: '',
         },
         shortDescription: {
-            en: 'Multi-engine async trading system with dynamic risk management and real-time market regime filtering.',
+            en: '',
             th: 'ระบบเทรดอัตโนมัติแบบ Multi-engine พร้อมการจัดการความเสี่ยงอัจฉริยะและการกรองสภาวะตลาดแบบเรียลไทม์',
         },
         descriptionLong: {
-            en: `A high-performance trading engine designed for the high-volatility environment of Binance Perpetual Futures. It operates on a modular "5-Engine" architecture to decode market microstructure and execute trades with sub-10ms logic latency.
-
-### Key Technical Pillars:
-1. **Multi-Engine Analysis Core**:
-   - **Order Flow (E1)**: Real-time L2 imbalance and micro-price calculation.
-   - **Tick Momentum (E2)**: Aggressor-side volume and trade velocity tracking.
-   - **Technical (E3)**: Volatility-adjusted RSI, Bollinger Bands, and ATR.
-   - **Sentiment (E4)**: Contrarian analysis of Long/Short ratios and funding rates.
-   - **Regime Filter (E5)**: A global "brain" that classifies market volatility (Low to Extreme) and dynamically adjusts engine weights.
-2. **Intelligent Risk Management**: Implements dynamic position sizing based on trade confidence and ATR. It features an automated "Liquidation Squeeze" prevention system that adjusts SL/TP prices to ensure orders are executed before margin limits.
-3. **Low-Latency Pipeline**: Built with Python's \`asyncio\` and \`ccxt.pro\` for continuous WebSocket streams, ensuring the system reacts to market shifts in milliseconds.
-4. **Data Analytics Integration**: Full integration with Supabase for granular logging of every execution, including API latency, slippage, and strategy performance metrics.`,
+            en: '',
             th: `เอนจินการเทรดประสิทธิภาพสูงที่ออกแบบมาสำหรับตลาด Binance Perpetual Futures โดยเฉพาะ ทำงานด้วยสถาปัตยกรรมแบบ 5 เอนจินอิสระที่ประมวลผลขนานกันเพื่อวิเคราะห์โครงสร้างตลาดและตัดสินใจภายในเวลาไม่กี่มิลลิวินาที
 
 ### รายละเอียดทางเทคนิคที่สำคัญ:
