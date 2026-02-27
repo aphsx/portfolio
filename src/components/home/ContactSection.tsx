@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { MdEmail } from 'react-icons/md'
 import { FiUser, FiMail, FiFileText } from 'react-icons/fi'
-import { Section } from '../ui'
+import { Section, Button } from '../ui'
 import { useTranslation } from 'react-i18next'
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001'
@@ -159,8 +159,8 @@ const ContactSection = () => {
               onBlur={handleBlur}
               placeholder="You Name"
               className={`w-full pl-10 pr-3 py-2.5 bg-white dark:bg-gray-800 border rounded-md text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none transition-colors ${touched.name && errors.name
-                  ? 'border-red-500 focus:border-red-500'
-                  : 'border-gray-300 dark:border-gray-600 focus:border-teal-500'
+                ? 'border-red-500 focus:border-red-500'
+                : 'border-gray-300 dark:border-gray-600 focus:border-teal-500'
                 }`}
             />
           </div>
@@ -181,8 +181,8 @@ const ContactSection = () => {
               onBlur={handleBlur}
               placeholder="your.email@example.com"
               className={`w-full pl-10 pr-3 py-2.5 bg-white dark:bg-gray-800 border rounded-md text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none transition-colors ${touched.email && errors.email
-                  ? 'border-red-500 focus:border-red-500'
-                  : 'border-gray-300 dark:border-gray-600 focus:border-teal-500'
+                ? 'border-red-500 focus:border-red-500'
+                : 'border-gray-300 dark:border-gray-600 focus:border-teal-500'
                 }`}
             />
           </div>
@@ -203,8 +203,8 @@ const ContactSection = () => {
               onBlur={handleBlur}
               placeholder="Subject/Title"
               className={`w-full pl-10 pr-3 py-2.5 bg-white dark:bg-gray-800 border rounded-md text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none transition-colors ${touched.title && errors.title
-                  ? 'border-red-500 focus:border-red-500'
-                  : 'border-gray-300 dark:border-gray-600 focus:border-teal-500'
+                ? 'border-red-500 focus:border-red-500'
+                : 'border-gray-300 dark:border-gray-600 focus:border-teal-500'
                 }`}
             />
           </div>
@@ -222,8 +222,8 @@ const ContactSection = () => {
             onBlur={handleBlur}
             placeholder="Message"
             className={`w-full px-3 py-2.5 bg-white dark:bg-gray-800 border rounded-md text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none transition-colors resize-none ${touched.message && errors.message
-                ? 'border-red-500 focus:border-red-500'
-                : 'border-gray-300 dark:border-gray-600 focus:border-teal-500'
+              ? 'border-red-500 focus:border-red-500'
+              : 'border-gray-300 dark:border-gray-600 focus:border-teal-500'
               }`}
             rows={5}
           />
@@ -249,13 +249,14 @@ const ContactSection = () => {
         )}
 
         {/* Submit Button */}
-        <button
+        <Button
           type="submit"
           disabled={isLoading}
-          className="w-full px-4 py-2.5 bg-teal-500 hover:bg-teal-600 disabled:bg-gray-400 disabled:cursor-not-allowed text-white rounded-md text-sm font-medium transition-colors"
+          className="w-full"
+          size="lg"
         >
           {isLoading ? 'Sending...' : t('home.contact.button')}
-        </button>
+        </Button>
       </form>
     </Section>
   )

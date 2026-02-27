@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useParams, useNavigate, useLocation, Outlet } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { SITE_CONFIG } from '../../config/site'
 
 const LanguageWrapper = () => {
     const { lang } = useParams<{ lang: string }>()
@@ -9,12 +10,12 @@ const LanguageWrapper = () => {
     const location = useLocation()
 
     useEffect(() => {
-        const supportedLangs = ['en', 'th', 'ja']
+        const supportedLangs = SITE_CONFIG.supportedLanguages
 
         // If no lang prefix, or invalid lang prefix, redirect to detected language or default
-        if (!lang || !supportedLangs.includes(lang)) {
-            const detectedLang = i18n.language?.split('-')[0] || 'en'
-            const finalLang = supportedLangs.includes(detectedLang) ? detectedLang : 'en'
+        if (!lang || !supportedLangs.includes(lang as any)) {
+            const detectedLang = i18n.language?.split('-')[0] || SITE_CONFIG.defaultLanguage
+            const finalLang = supportedLangs.includes(detectedLang as any) ? detectedLang : SITE_CONFIG.defaultLanguage
             const newPath = location.pathname === '/' ? `/${finalLang}` : `/${finalLang}${location.pathname}`
             navigate(newPath, { replace: true })
             return

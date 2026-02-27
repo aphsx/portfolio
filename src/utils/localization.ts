@@ -1,4 +1,5 @@
 import { LocalizedText, LocalizedStringArray } from '../types'
+import { SupportedLanguage } from '../config/site'
 
 /**
  * Returns the localized string for the current language.
@@ -6,7 +7,7 @@ import { LocalizedText, LocalizedStringArray } from '../types'
  */
 export const getLocalizedText = (
   text: LocalizedText | string,
-  language: 'en' | 'th' | 'ja'
+  language: SupportedLanguage
 ): string => {
   if (typeof text === 'string') {
     return text
@@ -32,7 +33,7 @@ export const getLocalizedText = (
  */
 export const getLocalizedArray = (
   items: LocalizedStringArray | string[],
-  language: 'en' | 'th' | 'ja'
+  language: SupportedLanguage
 ): string[] => {
   if (Array.isArray(items)) {
     return items
