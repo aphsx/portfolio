@@ -11,15 +11,15 @@
 /* Contribution graph color scale - site green/teal theme (light / dark). */
 :root {
   --gh-level-0: #ebedf0;
-  --gh-level-1: #ccfbf1;
-  --gh-level-2: #5eead4;
+  --gh-level-1: #99f6e4;
+  --gh-level-2: #2dd4bf;
   --gh-level-3: #14b8a6;
   --gh-level-4: #0f766e;
 }
 .dark {
   --gh-level-0: #1f2937;
-  --gh-level-1: #134e4a;
-  --gh-level-2: #0f766e;
+  --gh-level-1: #115e59;
+  --gh-level-2: #0d9488;
   --gh-level-3: #14b8a6;
   --gh-level-4: #5eead4;
 }

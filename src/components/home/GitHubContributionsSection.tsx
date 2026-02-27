@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { FiGithub } from 'react-icons/fi'
 import { useTranslation } from 'react-i18next'
@@ -55,6 +55,7 @@ const GitHubContributionsSection = () => {
   const [data, setData] = useState<ContributionDay[] | null>(null)
   const [total, setTotal] = useState<number | null>(null)
   const [error, setError] = useState(false)
+  const graphScrollRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     let cancelled = false
@@ -80,6 +81,17 @@ const GitHubContributionsSection = () => {
   }, [])
 
   const weeks = useMemo(() => buildWeeks(data ?? []), [data])
+
+  useEffect(() => {
+    const scrollEl = graphScrollRef.current
+    if (!scrollEl || weeks.length === 0) return
+
+    const frame = requestAnimationFrame(() => {
+      scrollEl.scrollLeft = scrollEl.scrollWidth - scrollEl.clientWidth
+    })
+
+    return () => cancelAnimationFrame(frame)
+  }, [weeks])
 
   // One label per week column; non-empty on the week that contains the 1st.
   const monthLabels = useMemo(() => {
@@ -109,7 +121,7 @@ const GitHubContributionsSection = () => {
                 <div className="h-4 w-40 rounded bg-gray-100 animate-pulse dark:bg-gray-700" />
                 <div className="h-4 w-20 rounded bg-gray-100 animate-pulse dark:bg-gray-700" />
               </div>
-              <div className="overflow-hidden rounded-lg border border-gray-100 bg-gray-50/80 p-3 dark:border-gray-700/70 dark:bg-gray-900/30">
+              <div className="overflow-hidden p-3">
                 <div className="flex flex-wrap gap-[3px]">
                   {Array.from({ length: 371 }).map((_, i) => (
                     <div
@@ -146,7 +158,7 @@ const GitHubContributionsSection = () => {
                 </a>
               </div>
 
-              <div className="rounded-lg border border-gray-100 bg-gray-50/80 p-3 dark:border-gray-700/70 dark:bg-gray-900/30">
+              <div className="p-3">
                 <div className="flex gap-[3px]">
                   <div className="flex w-6 shrink-0 flex-col gap-[3px] pt-[14px] text-[9px] text-gray-500 dark:text-gray-400">
                     {WEEKDAYS.map((label, i) => (
@@ -159,7 +171,7 @@ const GitHubContributionsSection = () => {
                     ))}
                   </div>
 
-                  <div className="min-w-0 overflow-x-auto pb-1">
+                  <div ref={graphScrollRef} className="min-w-0 overflow-x-auto pb-1">
                     <div className="inline-flex min-w-max flex-col gap-[3px]">
                       {/* Month labels row */}
                       <div className="flex h-[11px] gap-[3px] text-[9px] text-gray-500 dark:text-gray-400">
