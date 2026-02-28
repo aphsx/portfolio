@@ -1,3 +1,4 @@
+"use client";
 import { Component, ReactNode, ErrorInfo } from 'react'
 import { motion } from 'framer-motion'
 import { HiExclamationCircle, HiArrowPath } from 'react-icons/hi2'

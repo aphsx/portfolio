@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react'
 import { useParams, useRouter, usePathname } from 'next/navigation'
 import { useTranslation } from 'react-i18next'
+import '../../i18n/config'
 import { SITE_CONFIG } from '../../config/site'
 
 const LanguageWrapper = ({ children }: { children: React.ReactNode }) => {

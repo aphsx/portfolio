@@ -4,7 +4,7 @@ import "./globals.css";
 
 const rounded = M_PLUS_Rounded_1c({
   weight: ["400", "500", "700"],
-  subsets: ["latin", "japanese"],
+  subsets: ["latin"],
   variable: "--font-rounded",
 });
 
