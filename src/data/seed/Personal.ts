@@ -13,7 +13,7 @@ export const personalInfoSeed: PersonalInfo = {
         th: 'สวัสดีครับ ผมนาย อภิสิทธิ์ ด่านเจ้าแดง',
         ja: '',
     },
-    profileImage: 'https://placehold.co/400x400/313131/FFFFFF?text=Profile',
+    profileImage: 'https://res.cloudinary.com/dw5zfbigt/image/upload/v1772253337/CSI00138Crop_c0g98s.jpg',
     email: 'aphisit.danchaodang@example.com',
 }
 

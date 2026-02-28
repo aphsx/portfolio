@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@variant dark (&:where(.dark, .dark *));
+
 
 @theme {
   --font-rounded: "M PLUS Rounded 1c", system-ui, sans-serif;
