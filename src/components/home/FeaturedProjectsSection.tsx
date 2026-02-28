@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { MdOutlineWork } from 'react-icons/md'
 import { Section, Card } from '../ui'
 import { ProjectRepository } from '../../data'
@@ -28,7 +28,7 @@ const FeaturedProjectsSection = () => {
           >
             <Card className="h-full">
               <Link
-                to={`/${language}/projects/${project.id}`}
+                href={`/${language}/projects/${project.id}`}
                 className="flex flex-col h-full"
               >
                 {/* Project Image */}

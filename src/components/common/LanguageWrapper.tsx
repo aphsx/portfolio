@@ -1,13 +1,15 @@
-import { useEffect } from 'react'
-import { useParams, useNavigate, useLocation, Outlet } from 'react-router-dom'
+"use client";
+import React, { useEffect } from 'react'
+import { useParams, useRouter, usePathname } from 'next/navigation'
 import { useTranslation } from 'react-i18next'
 import { SITE_CONFIG } from '../../config/site'
 
-const LanguageWrapper = () => {
-    const { lang } = useParams<{ lang: string }>()
+const LanguageWrapper = ({ children }: { children: React.ReactNode }) => {
+    const params = useParams()
+    const lang = params?.lang as string
     const { i18n } = useTranslation()
-    const navigate = useNavigate()
-    const location = useLocation()
+    const router = useRouter()
+    const pathname = usePathname()
 
     useEffect(() => {
         const supportedLangs = SITE_CONFIG.supportedLanguages
@@ -16,8 +18,8 @@ const LanguageWrapper = () => {
         if (!lang || !supportedLangs.includes(lang as any)) {
             const detectedLang = i18n.language?.split('-')[0] || SITE_CONFIG.defaultLanguage
             const finalLang = supportedLangs.includes(detectedLang as any) ? detectedLang : SITE_CONFIG.defaultLanguage
-            const newPath = location.pathname === '/' ? `/${finalLang}` : `/${finalLang}${location.pathname}`
-            navigate(newPath, { replace: true })
+            const newPath = pathname === '/' ? `/${finalLang}` : `/${finalLang}${pathname}`
+            router.replace(newPath)
             return
         }
 
@@ -26,9 +28,9 @@ const LanguageWrapper = () => {
         if (lang !== currentI18nLang) {
             i18n.changeLanguage(lang)
         }
-    }, [lang, i18n, navigate, location.pathname])
+    }, [lang, i18n, router, pathname])
 
-    return <Outlet />
+    return <>{children}</>
 }
 
 export default LanguageWrapper

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { Project } from '../../types'
 import { useLocalizedData } from '../../hooks'
 
@@ -46,7 +46,7 @@ const ProjectList = ({ title, projects, showDivider = false }: ProjectListProps)
               className={`flex flex-col sm:flex-row ${index % 2 === 0 ? 'sm:flex-row' : 'sm:flex-row-reverse'} gap-4 sm:gap-8`}
             >
               <Link
-                to={`/${language}/projects/${project.id}`}
+                href={`/${language}/projects/${project.id}`}
                 className="flex-1 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 rounded-xl p-4 sm:p-6 transition-colors duration-300 "
               >
                 <div className="flex-shrink-0 w-full sm:w-48 h-48 sm:h-32 relative overflow-hidden rounded-lg">
