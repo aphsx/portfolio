@@ -288,11 +288,11 @@ export const projectsSeed: Project[] = [
 3. **ระบบปรับแก้การเคลื่อนที่ (Adjustment System)**: พัฒนาระบบอัจฉริยะที่บันทึกผลลัพธ์ที่ตรวจการณ์ได้ และคำนวณวิธีแก้ซ้ำแบบวนซ้ำ (Iterative) เพื่อลดระยะห่างระหว่างแนวทางที่ตั้งใจกับผลลัพธ์จริง
 4. **การจัดการข้อมูล**: ระบบการจัดการ, ฐานข้อมูล และระบบการบันทึก/โหลดภารกิจที่แข็งแกร่งด้วย React Hooks และระบบจัดเก็บข้อมูลบน Electron`,
         },
-        image: 'https://placehold.co/800x450/313131/FFFFFF?text=3D+Trajectory',
+        image: '/images/trajectory-control-map.png',
         images: [
             {
-                url: 'https://placehold.co/800x450/313131/FFFFFF?text=3D+Trajectory',
-                caption: { en: '', th: 'การแสดงผลวิถี 3 มิติ' },
+                url: '/images/trajectory-control-map.png',
+                caption: { en: '', th: 'แผนที่ภูมิประเทศและการแสดงผล 3 มิติสำหรับคำนวณการยิง' },
                 isPrimary: true,
             },
         ],
