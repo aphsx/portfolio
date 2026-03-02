@@ -13,6 +13,8 @@ export const metadata: Metadata = {
   description: "A professional portfolio built with Next.js",
 };
 
+export const runtime = 'edge';
+
 export default function RootLayout({
   children,
 }: Readonly<{
