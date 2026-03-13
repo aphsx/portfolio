@@ -285,7 +285,7 @@ export const projectsSeed: Project[] = [
         image: 'https://placehold.co/800x450/313131/FFFFFF?text=ML+Prediction',
         images: [],
         link: '',
-        github: '',
+        github: 'https://github.com/aphsx/demo-predict',
         tags: ['Machine Learning', 'Python', 'Data Science', 'Prediction'],
     },
     {
