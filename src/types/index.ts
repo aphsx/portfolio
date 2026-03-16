@@ -41,6 +41,10 @@ export interface PersonalInfo {
 export interface BioTimelineItem extends BaseEntity {
   year: string
   event: LocalizedText
+  links?: {
+    label: LocalizedText
+    url: string
+  }[]
 }
 
 // ============================================================
