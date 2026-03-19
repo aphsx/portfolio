@@ -205,8 +205,8 @@ export const projectsSeed: Project[] = [
         featured: true,
         year: 2024,
         title: {
-            en: '',
-            th: 'เว็บไซต์ผลงานส่วนตัว',
+            en: 'Personal Portfolio',
+            th: 'พอร์ตโฟลิโอส่วนตัว',
         },
         description: {
             en: '',
@@ -220,8 +220,8 @@ export const projectsSeed: Project[] = [
             en: '',
             th: 'เว็บไซต์ผลงานส่วนตัวที่ออกแบบมาเพื่อแสดงโปรเจค ทักษะ และประสบการณ์ทางวิชาชีพของผม เว็บไซต์มีการออกแบบส่วนต่างๆ การแสดงโปรเจค ทักษะ และข้อมูลการติดต่อ สร้างขึ้นโดยใช้ React และ Tailwind CSS สำหรับการจัดแต่งอย่างรวดเร็วและการตอบสนอง ยกตัวอย่างฟังชันก์ที่สำคัญ เช่น Dark mode, Language switcher',
         },
-        image: '/projects/personal-portfolio.svg',
-        images: [{ url: '/projects/personal-portfolio.svg', isPrimary: true }],
+        image: '/images/personal-portfolio.png',
+        images: [{ url: '/images/personal-portfolio.png', isPrimary: true }],
         link: 'https://portfolio-aphsx.vercel.app/',
         github: 'https://github.com/aphsix/Portfolio',
         tags: ['React', 'TypeScript', 'Tailwind CSS', 'Responsive Design'],
