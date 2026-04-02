@@ -256,8 +256,8 @@ export const projectsSeed: Project[] = [
         },
         image: '/images/aph-blog.png',
         images: [{ url: '/images/aph-blog.png', isPrimary: true }],
-        link: '',
-        github: 'https://github.com/aphsx/aph-blog',
+        link: 'https://aph-blog.vercel.app',
+        github: '',
         tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Education'],
     },
     {
@@ -319,7 +319,7 @@ export const projectsSeed: Project[] = [
         image: '/images/ml-prediction.png',
         images: [{ url: '/images/ml-prediction.png', isPrimary: true }],
         link: '',
-        github: 'https://github.com/aphsx/demo-predict',
+        github: '',
         tags: ['Machine Learning', 'Next.js', 'Elysia.js', 'FastAPI', 'LightGBM', 'PostgreSQL'],
     },
     {
