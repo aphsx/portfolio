@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rmdir *)",
+      "Bash(npx *)",
+      "Bash(type *)",
+      "Bash(powershell *)"
+    ]
+  },
+  "$version": 3
+}
