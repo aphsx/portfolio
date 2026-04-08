@@ -28,13 +28,13 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const [theme, setTheme] = useState<Theme>(() => {
     try {
       const savedTheme = localStorage.getItem('theme') as Theme
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
 
       if (savedTheme && ['light', 'dark'].includes(savedTheme)) {
         return savedTheme
       }
 
-      return prefersDark ? 'dark' : 'light'
+      // Default theme is light (white)
+      return 'light'
     } catch {
       return 'light'
     }
@@ -63,21 +63,6 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
       root.classList.remove('dark')
     }
   }, [theme])
-
-  // Listen to system theme changes
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
-
-    const handleChange = (e: MediaQueryListEvent) => {
-      // Only update if no saved preference exists
-      if (!localStorage.getItem('theme')) {
-        handleSetTheme(e.matches ? 'dark' : 'light')
-      }
-    }
-
-    mediaQuery.addEventListener('change', handleChange)
-    return () => mediaQuery.removeEventListener('change', handleChange)
-  }, [])
 
   return (
     <ThemeContext.Provider
