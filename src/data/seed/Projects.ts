@@ -261,6 +261,37 @@ export const projectsSeed: Project[] = [
         tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Education'],
     },
     {
+        id: 'proj-billgang',
+        slug: 'billgang',
+        isActive: true,
+        order: 2,
+        category: 'collaborations',
+        status: 'in-progress',
+        featured: true,
+        year: 2026,
+        title: {
+            en: 'BillGang — Split Bill',
+            th: 'BillGang — แอปหารบิล',
+        },
+        description: {
+            en: 'A Flutter split-bill app for groups: create bills, invite friends, assign items in real time, simplify debts, and pay with PromptPay QR.',
+            th: 'แอป Flutter สำหรับหารบิลกับเพื่อน สร้างบิล เชิญสมาชิก assign รายการแบบ real-time ลดยอดโอนให้น้อยลง และจ่ายผ่าน PromptPay QR',
+        },
+        shortDescription: {
+            en: 'Real-time split bill with OCR, debt settle, and PromptPay QR.',
+            th: 'หารบิลแบบ real-time พร้อม OCR, สรุปหนี้ และ PromptPay QR',
+        },
+        descriptionLong: {
+            en: 'BillGang is a mobile split-bill app built for CS356. Groups can create a bill, add items manually or by scanning a receipt with OCR, invite friends via QR/link, and assign menu items together in real time over WebSocket. The app then simplifies who owes whom and generates a PromptPay QR for each payment.',
+            th: 'BillGang เป็นแอปมือถือสำหรับหารบิลในรายวิชา CS356 กลุ่มเพื่อนสร้างบิล เพิ่มเมนูเองหรือถ่ายใบเสร็จให้ OCR อ่านรายการ เชิญเพื่อนผ่าน QR/ลิงก์ และ assign รายการพร้อมกันแบบ real-time ผ่าน WebSocket จากนั้นระบบสรุปหนี้ให้โอนน้อยครั้งที่สุด พร้อมสร้าง PromptPay QR สำหรับชำระเงิน',
+        },
+        image: '/images/billgang.png',
+        images: [{ url: '/images/billgang.png', isPrimary: true }],
+        link: '',
+        github: 'https://github.com/TunyatapVich/cs356_billgang_project',
+        tags: ['Flutter', 'Dart', 'Elysia.js', 'PostgreSQL', 'WebSocket', 'PromptPay'],
+    },
+    {
         id: 'proj-005',
         slug: 'tourism-website',
         isActive: true,
