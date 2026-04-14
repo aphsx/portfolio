@@ -49,7 +49,7 @@ const ProjectList = ({ title, projects, showDivider = false }: ProjectListProps)
                 href={`/${language}/projects/${project.id}`}
                 className="flex-1 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 rounded-xl p-4 sm:p-6 transition-colors duration-300 "
               >
-                <div className="flex-shrink-0 w-full sm:w-48 h-48 sm:h-32 relative overflow-hidden rounded-lg">
+                <div className="flex-shrink-0 w-full sm:w-48 h-48 sm:h-32 relative overflow-hidden rounded-lg shadow-sm ring-1 ring-black/5 dark:ring-white/10 dark:shadow-black/30">
                   <img
                     src={project.image || defaultImage}
                     alt={getLocalized(project.title)}
