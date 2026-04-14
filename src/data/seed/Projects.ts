@@ -286,7 +286,16 @@ export const projectsSeed: Project[] = [
             th: 'BillGang ช่วยให้กลุ่มเพื่อนหารบิลร้านอาหารได้อย่างยุติธรรม แทนการหารยอดรวมเท่า ๆ กัน ทุกคน assign รายการอาหารให้คนที่สั่งหรือกินจริง เช่น บางคนแพ้อาหารหรือไม่ได้สั่งเมนูนั้น ก็ไม่ต้องจ่ายส่วนนั้น กลุ่มสร้างบิล เพิ่มเมนูเองหรือถ่ายใบเสร็จให้ OCR อ่าน เชิญเพื่อนผ่าน QR/ลิงก์ assign พร้อมกันแบบ real-time แล้วระบบสรุปว่าใครต้องโอนให้ใครเท่าไร พร้อมสร้าง PromptPay QR',
         },
         image: '/images/billgang.png',
-        images: [{ url: '/images/billgang.png', isPrimary: true }],
+        images: [
+            {
+                url: '/images/billgang-login.png',
+                caption: { en: 'Sign in', th: 'หน้าเข้าสู่ระบบ' },
+            },
+            {
+                url: '/images/billgang-summary.png',
+                caption: { en: 'Bill Summary', th: 'สรุปบิล' },
+            },
+        ],
         link: '',
         github: 'https://github.com/TunyatapVich/cs356_billgang_project',
         tags: ['Flutter', 'Dart', 'Elysia.js', 'PostgreSQL', 'WebSocket', 'PromptPay'],

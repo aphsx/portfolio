@@ -232,7 +232,7 @@ const ProjectDetail = () => {
                     <img
                       src={image.url}
                       alt={image.caption ? getLocalized(image.caption) : `${getLocalized(project.title)} - Image ${index + 1}`}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-full object-contain p-2 transition-transform duration-500 group-hover:scale-[1.02]"
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
