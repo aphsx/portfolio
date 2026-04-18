@@ -1,6 +1,7 @@
 export const SITE_CONFIG = {
     name: 'Aphisit Portfolio',
     url: 'https://www.aphsx.site',
+    resumeUrl: '/resume.pdf',
     supportedLanguages: ['en', 'th'] as const,
     defaultLanguage: 'th' as const,
 }

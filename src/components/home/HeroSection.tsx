@@ -1,7 +1,9 @@
 "use client";
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { FiFileText } from 'react-icons/fi'
 import { PersonalRepository } from '../../data'
+import { SITE_CONFIG } from '../../config/site'
 import { useTranslation } from 'react-i18next'
 import { useLocalizedData } from '../../hooks'
 
@@ -96,9 +98,18 @@ const HeroSection = () => {
           <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-1">
             {getLocalized(personalInfo.name)}
           </h2>
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+          <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
             {t('home.title')}
           </p>
+          <a
+            href={SITE_CONFIG.resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-lg bg-teal-500 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-teal-600"
+          >
+            <FiFileText size={16} />
+            {t('home.resume')}
+          </a>
         </div>
       </div>
     </motion.div>
