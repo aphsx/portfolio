@@ -5,7 +5,7 @@ import {
   BioSection,
   SkillsSection,
   SocialLinksSection,
-  ContactSection,
+  // ContactSection, // Uncomment to show email contact section
   FeaturedProjectsSection,
   GitHubContributionsSection,
 } from '../../components/home'
@@ -24,7 +24,8 @@ const Home = () => {
         <SkillsSection />
         <GitHubContributionsSection />
         <SocialLinksSection />
-        <ContactSection />
+        {/* Uncomment to show email contact section */}
+        {/* <ContactSection /> */}
         <FeaturedProjectsSection />
       </div>
     </div>
