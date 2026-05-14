@@ -380,20 +380,20 @@ export const projectsSeed: Project[] = [
         featured: true,
         year: 2026,
         title: {
-            en: 'ML Prediction — 1moby',
-            th: '1Moby Analytics — ระบบทำนายพฤติกรรมลูกค้า',
+            en: 'Moby Analytics — 1moby',
+            th: 'Moby Analytics — โปรเจคจบร่วม 1moby',
         },
         description: {
-            en: 'Moby Analytics is a capstone analytics platform for 1moby that imports customer Excel data and predicts churn, CLV, and future credit usage through a full web, API, and ML pipeline.',
-            th: 'Moby Analytics คือโปรเจคจบที่พัฒนาร่วมกับ 1moby สำหรับนำเข้าไฟล์ Excel ข้อมูลลูกค้า แล้วทำนายโอกาสเลิกใช้งาน CLV และการใช้เครดิตในอนาคตผ่านระบบเว็บ API และ ML pipeline',
+            en: 'Capstone project with 1moby — a web and ML platform for customer behavior analytics and predictive insights.',
+            th: 'โปรเจคจบที่พัฒนาร่วม 1moby แพลตฟอร์มเว็บและ ML สำหรับวิเคราะห์และทำนายพฤติกรรมลูกค้า',
         },
         shortDescription: {
-            en: 'Customer churn, CLV, and credit usage prediction platform for 1moby.',
-            th: 'แพลตฟอร์มทำนาย churn, CLV และการใช้เครดิตของลูกค้าสำหรับ 1moby',
+            en: 'Customer analytics and ML prediction platform.',
+            th: 'แพลตฟอร์มวิเคราะห์และทำนายพฤติกรรมลูกค้าด้วย ML',
         },
         descriptionLong: {
-            en: 'An internal analytics platform for 1moby, a B2B SaaS messaging company. The system imports fixed-schema Excel files, stores raw and cleaned datasets, trains champion models, and creates prediction runs for each customer. It combines lifecycle rules with ML models for churn probability, six-month CLV, and 30/90-day credit consumption forecasts, then exposes the results through a dashboard, REST API, and model performance views.',
-            th: 'แพลตฟอร์มวิเคราะห์ข้อมูลภายในสำหรับ 1moby ธุรกิจ B2B SaaS ด้าน SMS/Email ระบบนำเข้าไฟล์ Excel รูปแบบตายตัว เก็บข้อมูลทั้ง raw และ clean เทรน champion model และสร้าง prediction run รายลูกค้า โดยผสาน rule-based lifecycle กับโมเดล ML สำหรับทำนาย churn probability, CLV ระยะ 6 เดือน และการใช้เครดิต 30/90 วัน พร้อมแสดงผลผ่าน dashboard, REST API และหน้าติดตามประสิทธิภาพโมเดล',
+            en: 'A capstone project developed in collaboration with 1moby. The platform ingests business data, applies ML models for predictive analytics, and presents results through a web dashboard and API.',
+            th: 'โปรเจคจบที่พัฒนาร่วมกับ 1moby ระบบรับข้อมูลธุรกิจ ใช้โมเดล ML วิเคราะห์เชิงทำนาย และแสดงผลผ่าน dashboard กับ API',
         },
         image: '/images/ml-prediction.png',
         images: [{ url: '/images/ml-prediction.png', isPrimary: true }],
