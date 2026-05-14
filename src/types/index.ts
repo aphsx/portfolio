@@ -132,20 +132,23 @@ export interface UsesCategory extends BaseEntity {
 }
 
 // ============================================================
-// Timeline / Personal Updates
+// Timeline / Activity Blog
 // ============================================================
 
 export type TimelineEntryType = 'activity' | 'award' | 'participation' | 'event'
 
-export interface TimelineLink {
-  label: LocalizedText
-  url: string
-}
-
 export interface TimelineEntry extends BaseEntity {
+  slug: string
+  title: LocalizedText
+  excerpt: LocalizedText
+  content: LocalizedText
+  type: TimelineEntryType
   date: string
   dateSort: string
-  type: TimelineEntryType
-  event: LocalizedText
-  links?: TimelineLink[]
+  image?: string
+  tags?: string[]
+  links?: {
+    label: LocalizedText
+    url: string
+  }[]
 }

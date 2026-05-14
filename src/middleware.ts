@@ -17,6 +17,9 @@ function isKnownPath(segments: string[]): boolean {
   if (segments.length === 2 && segments[0] === 'projects' && segments[1].length > 0) {
     return true
   }
+  if (segments.length === 2 && segments[0] === 'timeline' && segments[1].length > 0) {
+    return true
+  }
   return false
 }
 
