@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { FiFileText } from 'react-icons/fi'
-import { PersonalRepository } from '../../data'
+import { PersonalRepository, SocialRepository } from '../../data'
 import { SITE_CONFIG } from '../../config/site'
 import { useTranslation } from 'react-i18next'
 import { useLocalizedData } from '../../hooks'
@@ -11,6 +11,7 @@ const HeroSection = () => {
   const { t } = useTranslation()
   const { getLocalized } = useLocalizedData()
   const personalInfo = PersonalRepository.getPersonalInfo()
+  const githubUrl = SocialRepository.getByPlatform('github')?.url
   const [typewriterText, setTypewriterText] = useState('')
   const targetText = t('home.greeting')
 
@@ -82,13 +83,21 @@ const HeroSection = () => {
           }}
           className="relative"
         >
-          <div className="w-32 h-32 rounded-full bg-gradient-to-br from-teal-500 to-cyan-500 p-1 transition-all duration-300 hover:scale-105 overflow-hidden border-4 border-white dark:border-gray-800 shadow-lg">
-            <img
-              src={personalInfo.profileImage}
-              alt="Profile"
-              className="w-full h-full rounded-full object-cover"
-            />
-          </div>
+          <a
+            href={githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub profile"
+            className="group block rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900"
+          >
+            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-teal-500 to-cyan-500 p-1 transition-all duration-300 group-hover:scale-105 overflow-hidden border-4 border-white dark:border-gray-800 shadow-lg">
+              <img
+                src={personalInfo.profileImage}
+                alt="Profile"
+                className="w-full h-full rounded-full object-cover"
+              />
+            </div>
+          </a>
           <div className="absolute -top-2 -right-2 text-yellow-400 animate-bounce">
             <div className="text-2xl transform rotate-12">👋</div>
           </div>
