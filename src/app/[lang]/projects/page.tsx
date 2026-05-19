@@ -1,22 +1,18 @@
 "use client";
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
-import {
-  ProjectList,
-  CertificateList,
-  CategoryHeading,
-} from '../../../components/projects'
-import { ProjectRepository, CertificateRepository } from '../../../data'
+import { ProjectList } from '../../../components/projects'
+import { ProjectRepository } from '../../../data'
 
 const PortfolioPage = () => {
   const { t } = useTranslation()
-  const certificates = CertificateRepository.getAll()
+  const certiProjects = ProjectRepository.getByCategory('certi')
   const workProjects = ProjectRepository.getByCategory('works')
   const collaborationProjects = ProjectRepository.getByCategory('collaborations')
   const oldProjects = ProjectRepository.getByCategory('old')
 
   return (
-    <motion.div
+    <div
       className="min-h-screen bg-gray-50 dark:bg-gray-900"
       style={{ paddingTop: "100px" }}
     >
@@ -35,13 +31,17 @@ const PortfolioPage = () => {
           </p>
         </motion.div>
 
-        <CategoryHeading title={t('portfolio.category.certi')} delay={0.1} />
-        <CertificateList certificates={certificates} />
+        {certiProjects.length > 0 && (
+          <ProjectList
+            title={t('portfolio.category.certi')}
+            projects={certiProjects}
+          />
+        )}
 
-        <CategoryHeading title={t('portfolio.category.works')} delay={0.2} />
         <ProjectList
           title={t('portfolio.works.main')}
           projects={workProjects}
+          showDivider={certiProjects.length > 0}
         />
 
         <ProjectList
@@ -56,7 +56,7 @@ const PortfolioPage = () => {
           showDivider={true}
         />
       </div>
-    </motion.div>
+    </div>
   )
 }
 

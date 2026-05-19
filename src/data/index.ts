@@ -9,7 +9,6 @@
 // ============================================================
 
 export { PersonalRepository } from './repositories/PersonalRepository'
-export { CertificateRepository } from './repositories/CertificateRepository'
 export { ProjectRepository } from './repositories/ProjectRepository'
 export { SkillRepository } from './repositories/SkillRepository'
 export { SocialRepository } from './repositories/SocialRepository'
