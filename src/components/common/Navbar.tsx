@@ -18,7 +18,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isLangOpen, setIsLangOpen] = useState(false)
   const { isDark, toggleTheme } = useTheme()
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const { language } = useLocalizedData()
   const navigate = useRouter();
   const pathname = usePathname();
