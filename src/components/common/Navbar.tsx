@@ -40,7 +40,7 @@ const Navbar = () => {
   }
 
   const navItems = [
-    { name: t('nav.projects'), path: `/${language}/projects` },
+    { name: t('nav.portfolio'), path: `/${language}/projects` },
     { name: t('nav.uses'), path: `/${language}/uses` },
   ]
 
