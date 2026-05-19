@@ -45,8 +45,12 @@ export interface BioTimelineItem extends BaseEntity {
 
 export interface Certificate extends BaseEntity {
   title: LocalizedText
+  description?: LocalizedText
+  descriptionLong?: LocalizedText
   issuer?: LocalizedText
   issuedAt?: string
+  image?: string
+  tags?: string[]
   fileUrl: string
 }
 

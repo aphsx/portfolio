@@ -11,4 +11,8 @@ export const CertificateRepository = {
             .filter((item) => item.isActive)
             .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
     },
+
+    getById(id: string): Certificate | undefined {
+        return certificatesSeed.find((item) => item.id === id && item.isActive)
+    },
 }
