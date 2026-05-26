@@ -1,5 +1,8 @@
 import { TimelineEntry } from '../../types'
 
+const CURSOR_BUILD_SALAYA_URL =
+    'https://cursorthailand.com/build-salaya/thank-you?referrer=luma&utm_source=luma'
+
 // ---------------------------------------------------------------------------
 // Source-of-truth for timeline / activity blog entries.
 // Add new rows here — list page and detail pages pick them up automatically.
@@ -7,52 +10,67 @@ import { TimelineEntry } from '../../types'
 
 export const timelineSeed: TimelineEntry[] = [
     {
-        id: 'timeline-cursor-2026',
-        slug: 'cursor-community-2026',
+        id: 'timeline-cursor-build-salaya-2026',
+        slug: 'cursor-build-salaya-2026',
         title: {
-            en: 'Joined the Cursor Community',
-            th: 'เข้าร่วมชุมชน Cursor',
+            en: 'Cursor Build Salaya',
+            th: 'Cursor Build Salaya',
         },
         excerpt: {
-            en: 'Started participating in Cursor events and exploring AI-assisted development workflows.',
-            th: 'เริ่มเข้าร่วมกิจกรรมของ Cursor และสำรวจการทำงานพัฒนาซอฟต์แวร์ด้วย AI',
+            en: 'Joined a Cursor hackathon in Salaya — 104 builders, 22 teams, one afternoon of AI-assisted building at Clay.',
+            th: 'เข้าร่วม Cursor hackathon ที่ศาลายา — 104 คน 22 ทีม สร้างโปรเจกต์ด้วย AI ตลอดบ่ายเดียวที่ Clay',
         },
         content: {
-            en: `## Why Cursor
+            en: `## Cursor Build Salaya
 
-I've been using **Cursor** as part of my daily development workflow — from building this portfolio to shipping features at work. The mix of a familiar editor and AI-assisted coding fits how I like to work: fast iteration, clear diffs, and staying in flow.
+On **23 August 2026**, I took part in [Cursor Build Salaya](${CURSOR_BUILD_SALAYA_URL}) — a community hackathon organised by Cursor Thailand at Clay, Salaya.
 
-## What I'm doing
+104 people showed up. 22 teams built in one afternoon. The energy in the room was intense — everyone leaning into Cursor to ship something real within a few hours.
 
-- Joining community events and sessions hosted by Cursor
-- Sharing how I use AI tools in real projects (not just demos)
-- Learning from other builders in the ecosystem
+## Highlights
 
-## What's next
+- **104 participants** and **22 teams** building live
+- Winners: Dearly · Teletubbies · June, Please
+- Judges' Picks: Lovedrop · Free Food · Team Freshers
+- Organised by Luis (Cursor Ambassador and Regional Lead, ASEAN)
 
-I'll update this post with notes, takeaways, and links as I join more activities. If you're also using Cursor — or curious about AI-native dev tools — feel free to reach out.`,
-            th: `## ทำไมถึงใช้ Cursor
+## Read more
 
-ผมใช้ **Cursor** เป็นส่วนหนึ่งของ workflow การพัฒนาประจำวัน — ตั้งแต่ทำ portfolio นี้ไปจนถึงส่งฟีเจอร์ในงานจริง การได้ editor ที่คุ้นเคยผสมกับ AI ช่วยเขียนโค้ดเข้ากับสไตล์การทำงานของผม: ลองเร็ว diff ชัด และไม่หลุดโฟกัส
+Luis shared a full thank-you note with event results, honest reflections on what worked and what didn't, and what's planned for the next Salaya event.
 
-## สิ่งที่กำลังทำ
+[Read the full post on cursorthailand.com →](${CURSOR_BUILD_SALAYA_URL})`,
+            th: `## Cursor Build Salaya
 
-- เข้าร่วมกิจกรรมและ session ที่ Cursor จัด
-- แชร์วิธีใช้ AI ในโปรเจกต์จริง (ไม่ใช่แค่ demo)
-- เรียนรู้จากคนอื่นใน ecosystem
+วันที่ **23 สิงหาคม 2026** ผมเข้าร่วม [Cursor Build Salaya](${CURSOR_BUILD_SALAYA_URL}) — hackathon จากชุมชน Cursor Thailand ที่ Clay ศาลายา
 
-## ต่อไป
+มีคนมาร่วม 104 คน 22 ทีมลงมือ build ในบ่ายเดียว พลังงานในงานสูงมาก — ทุกคนใช้ Cursor สร้างของจริงภายในไม่กี่ชั่วโมง
 
-จะอัปเดตโพสต์นี้ด้วยบันทึก สิ่งที่ได้เรียนรู้ และลิงก์ต่างๆ เมื่อเข้าร่วมกิจกรรมเพิ่ม ถ้าคุณใช้ Cursor อยู่ — หรืออยากรู้เรื่อง AI dev tools — ทักมาได้ครับ`,
+## ไฮไลท์
+
+- **104 คน** และ **22 ทีม** build สดในงาน
+- ทีมชนะ: Dearly · Teletubbies · June, Please
+- Judges' Picks: Lovedrop · Free Food · Team Freshers
+- จัดโดย Luis (Cursor Ambassador and Regional Lead, ASEAN)
+
+## อ่านเพิ่มเติม
+
+Luis เขียนบันทึกขอบคุณพร้อมผลงาน สิ่งที่ได้เรียนรู้จากงาน และแผนสำหรับ event ครั้งถัดไปที่ศาลายา
+
+[อ่านบทความเต็มที่ cursorthailand.com →](${CURSOR_BUILD_SALAYA_URL})`,
         },
-        type: 'participation',
-        date: 'Aug 2026',
-        dateSort: '2026-08-01',
-        tags: ['Cursor', 'AI', 'Community'],
+        type: 'event',
+        date: '23 Aug 2026',
+        dateSort: '2026-08-23',
+        image: '/images/cursor-build-salaya.jpg',
+        tags: ['Cursor', 'Hackathon', 'Salaya'],
         links: [
             {
-                label: { en: 'Cursor', th: 'Cursor' },
-                url: 'https://cursor.com',
+                label: { en: 'Read full post', th: 'อ่านบทความเต็ม' },
+                url: CURSOR_BUILD_SALAYA_URL,
+            },
+            {
+                label: { en: 'Cursor Thailand', th: 'Cursor Thailand' },
+                url: 'https://cursorthailand.com',
             },
         ],
         isActive: true,
