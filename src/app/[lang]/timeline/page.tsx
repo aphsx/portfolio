@@ -1,6 +1,5 @@
 "use client";
 import { motion } from 'framer-motion'
-import { MdOutlineTimeline } from 'react-icons/md'
 import { useTranslation } from 'react-i18next'
 import { TimelineList } from '../../../components/timeline'
 import { TimelineRepository } from '../../../data'
@@ -23,13 +22,6 @@ const TimelinePage = () => {
           transition={{ duration: 0.7 }}
           className="mb-12"
         >
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-teal-500/10 px-3 py-1 text-teal-600 ring-1 ring-teal-500/20 dark:text-teal-400">
-            <MdOutlineTimeline size={16} />
-            <span className="text-[11px] font-bold uppercase tracking-[0.14em]">
-              {t('timeline.title')}
-            </span>
-          </div>
-
           <h1 className="mb-3 text-2xl font-bold text-gray-900 dark:text-gray-100">
             {t('timeline.title')}
           </h1>
