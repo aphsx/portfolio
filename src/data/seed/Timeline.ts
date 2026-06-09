@@ -3,6 +3,8 @@ import { TimelineEntry } from '../../types'
 const CURSOR_BUILD_SALAYA_URL =
     'https://cursorthailand.com/build-salaya/thank-you?referrer=luma&utm_source=luma'
 
+const COSI_PEOPLE_URL = 'https://cosi.bu.ac.th/people'
+
 // ---------------------------------------------------------------------------
 // Source-of-truth for timeline / activity blog entries.
 // Add new rows here — list page and detail pages pick them up automatically.
@@ -76,5 +78,59 @@ Luis เขียนบันทึกขอบคุณพร้อมผลง
         isActive: true,
         order: 1,
         createdAt: '2026-08-23',
+    },
+    {
+        id: 'timeline-cosi-2024',
+        slug: 'cosi-2024',
+        title: {
+            en: 'Joined Center of Specialty Innovation (CoSI)',
+            th: 'เข้าร่วมศูนย์นวัตกรรมเฉพาะทาง (CoSI)',
+        },
+        excerpt: {
+            en: 'Started at CoSI, Bangkok University — a research center focused on specialty innovation and applied software projects.',
+            th: 'เริ่มเข้าร่วม CoSI มหาวิทยาลัยกรุงเทพ — ศูนย์วิจัยด้านนวัตกรรมเฉพาะทางและโปรเจกต์ซอฟต์แวร์เชิงประยุกต์',
+        },
+        content: {
+            en: `## Center of Specialty Innovation (CoSI)
+
+On **23 June 2024**, I joined [Center of Specialty Innovation (CoSI)](${COSI_PEOPLE_URL}) at Bangkok University as an intern while studying Computer Science.
+
+CoSI is where I got hands-on experience building real systems — internal tools, ERP platforms, and research projects that ship beyond the classroom.
+
+## Learn more
+
+See the CoSI team and people at Bangkok University.
+
+[View CoSI people →](${COSI_PEOPLE_URL})`,
+            th: `## ศูนย์นวัตกรรมเฉพาะทาง (CoSI)
+
+วันที่ **23 มิถุนายน 2024** ผมเข้าร่วม [ศูนย์นวัตกรรมเฉพาะทาง (CoSI)](${COSI_PEOPLE_URL}) มหาวิทยาลัยกรุงเทพในฐานะนักศึกษาฝึกงาน ขณะเรียนสาขาวิทยาการคอมพิวเตอร์
+
+CoSI เป็นที่ที่ผมได้ลงมือ build ระบบจริง — ทั้งระบบภายใน แพลตฟอร์ม ERP และโครงการวิจัยที่นำไปใช้งานได้จริง
+
+## ดูเพิ่มเติม
+
+ดูทีมและบุคลากร CoSI ได้ที่เว็บไซต์มหาวิทยาลัยกรุงเทพ
+
+[ดู CoSI people →](${COSI_PEOPLE_URL})`,
+        },
+        type: 'participation',
+        date: '23 Jun 2024',
+        dateSort: '2024-06-23',
+        image: '/images/cosi-website.png',
+        tags: ['CoSI', 'Bangkok University', 'Research'],
+        links: [
+            {
+                label: { en: 'CoSI people', th: 'CoSI people' },
+                url: COSI_PEOPLE_URL,
+            },
+            {
+                label: { en: 'CoSI website', th: 'เว็บ CoSI' },
+                url: 'https://cosi.bu.ac.th/',
+            },
+        ],
+        isActive: true,
+        order: 2,
+        createdAt: '2024-06-23',
     },
 ]
