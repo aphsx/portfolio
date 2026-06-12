@@ -146,6 +146,7 @@ export interface TimelineEntry extends BaseEntity {
   date: string
   dateSort: string
   image?: string
+  imageFit?: 'cover' | 'contain'
   tags?: string[]
   links?: {
     label: LocalizedText
