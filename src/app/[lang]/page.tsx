@@ -7,6 +7,7 @@ import {
   SocialLinksSection,
   ContactSection,
   FeaturedProjectsSection,
+  GitHubContributionsSection,
 } from '../../components/home'
 
 const Home = () => {
@@ -21,6 +22,7 @@ const Home = () => {
         <AboutWorkSection />
         <BioSection />
         <SkillsSection />
+        <GitHubContributionsSection />
         <SocialLinksSection />
         <ContactSection />
         <FeaturedProjectsSection />
