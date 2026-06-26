@@ -146,6 +146,7 @@ export interface TimelineEntry extends BaseEntity {
   date: string
   dateSort: string
   image?: string
+  images?: string[]
   imageFit?: 'cover' | 'contain'
   projectId?: string
   tags?: string[]
