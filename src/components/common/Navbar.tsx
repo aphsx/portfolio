@@ -3,27 +3,24 @@ import { useState } from 'react'
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { HiMenu, HiX } from 'react-icons/hi'
-import { FiCheck, FiGithub, FiMoon, FiSun } from 'react-icons/fi'
+import { FiGithub, FiMoon, FiSun } from 'react-icons/fi'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTheme } from '../../contexts'
 import { useTranslation } from 'react-i18next'
 import { useLocalizedData } from '../../hooks'
 
 const languages = [
-  { code: 'en', name: 'EN', fullName: 'English', flag: '🇺🇸' },
-  { code: 'th', name: 'TH', fullName: 'ไทย', flag: '🇹🇭' },
+  { code: 'th', name: 'TH' },
+  { code: 'en', name: 'EN' },
 ]
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const [isLangOpen, setIsLangOpen] = useState(false)
   const { isDark, toggleTheme } = useTheme()
   const { t } = useTranslation()
   const { language } = useLocalizedData()
   const navigate = useRouter();
   const pathname = usePathname();
-
-  const currentLang = languages.find(l => l.code === language) || languages.find(l => l.code === 'th') || languages[0]
 
   const setLanguage = (newLang: string) => {
     // Replace current language in URL with new language
@@ -36,7 +33,6 @@ const Navbar = () => {
     }
     const newPath = pathParts.join('/')
     navigate.push(newPath)
-    setIsLangOpen(false)
   }
 
   const navItems = [
@@ -88,59 +84,20 @@ const Navbar = () => {
             <div className="h-4 w-[1px] bg-gray-200 dark:bg-gray-700 mx-2" />
 
             <div className="flex items-center space-x-2">
-              <div className="relative">
-                <button
-                  onClick={() => setIsLangOpen(!isLangOpen)}
-                  className="text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors duration-200 p-2 flex items-center gap-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
-                  title="Select Language"
-                >
-                  <svg stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" height="18" width="18" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="2" y1="12" x2="22" y2="12"></line>
-                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                  </svg>
-                  <span className="text-xs font-bold uppercase tracking-wider">{currentLang.name}</span>
-                </button>
-
-                <AnimatePresence>
-                  {isLangOpen && (
-                    <>
-                      <div
-                        className="fixed inset-0 z-10"
-                        onClick={() => setIsLangOpen(false)}
-                      />
-                      <motion.div
-                        initial={{ opacity: 0, scale: 0.95, y: 10 }}
-                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                        exit={{ opacity: 0, scale: 0.95, y: 10 }}
-                        className="absolute right-0 mt-2 w-40 py-2 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700 z-20 overflow-hidden"
-                      >
-                        <div className="px-3 py-1 mb-1">
-                          <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Select Language</span>
-                        </div>
-                        {languages.map((lang) => (
-                          <button
-                            key={lang.code}
-                            onClick={() => setLanguage(lang.code)}
-                            className={`w-full px-4 py-2.5 flex items-center justify-between transition-colors text-sm
-                              ${language === lang.code
-                                ? 'text-teal-600 dark:text-teal-400 bg-teal-50/30 dark:bg-teal-900/20 font-semibold'
-                                : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50'
-                              }`}
-                          >
-                            <div className="flex items-center gap-3">
-                              <span className="text-base">{lang.flag}</span>
-                              <span>{lang.fullName}</span>
-                            </div>
-                            {language === lang.code && (
-                              <FiCheck size={14} className="text-teal-500" />
-                            )}
-                          </button>
-                        ))}
-                      </motion.div>
-                    </>
-                  )}
-                </AnimatePresence>
+              <div className="flex items-center rounded-full bg-gray-100 p-1 dark:bg-gray-800">
+                {languages.map((lang) => (
+                  <button
+                    key={lang.code}
+                    onClick={() => setLanguage(lang.code)}
+                    className={`rounded-full px-2.5 py-1 text-[11px] font-bold transition-colors ${
+                      language === lang.code
+                        ? 'bg-white text-teal-600 dark:bg-gray-700 dark:text-teal-300'
+                        : 'text-gray-500 hover:text-teal-500 dark:text-gray-400'
+                    }`}
+                  >
+                    {lang.name}
+                  </button>
+                ))}
               </div>
               <button
                 onClick={toggleTheme}
@@ -175,7 +132,7 @@ const Navbar = () => {
                 <p className="text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest pl-1">
                   Language
                 </p>
-                <div className="grid grid-cols-3 gap-2">
+                <div className="grid grid-cols-2 gap-2">
                   {languages.map((lang) => (
                     <button
                       key={lang.code}
@@ -183,14 +140,13 @@ const Navbar = () => {
                         setLanguage(lang.code)
                         setIsOpen(false)
                       }}
-                      className={`flex flex-col items-center justify-center p-3 rounded-xl border transition-all
+                      className={`flex items-center justify-center rounded-xl border px-4 py-3 transition-all
                         ${language === lang.code
                           ? 'bg-teal-50 dark:bg-teal-900/20 border-teal-200 dark:border-teal-800 text-teal-600 dark:text-teal-400'
                           : 'bg-gray-50 dark:bg-gray-800/50 border-gray-100 dark:border-gray-700 text-gray-600 dark:text-gray-400'
                         }`}
                     >
-                      <span className="text-xl mb-1">{lang.flag}</span>
-                      <span className="text-[10px] font-bold">{lang.name}</span>
+                      <span className="text-xs font-bold tracking-wider">{lang.name}</span>
                     </button>
                   ))}
                 </div>
