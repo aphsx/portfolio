@@ -201,7 +201,11 @@ const GitHubContributionsSection = () => {
                                     ? `${day.count} contributions on ${day.date}`
                                     : undefined
                                 }
-                                className="h-[11px] w-[11px] rounded-[2px] ring-1 ring-black/[0.03] dark:ring-white/[0.04]"
+                                className={`relative h-[11px] w-[11px] rounded-[2px] ring-1 ring-black/[0.03] dark:ring-white/[0.04] ${
+                                  day
+                                    ? 'cursor-pointer transition-transform duration-75 ease-out hover:z-10 hover:scale-[1.8]'
+                                    : ''
+                                }`}
                                 style={{
                                   backgroundColor: day
                                     ? `var(--gh-level-${day.level})`
