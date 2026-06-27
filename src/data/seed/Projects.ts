@@ -45,7 +45,7 @@ export const projectsSeed: Project[] = [
         order: 2,
         category: 'certi',
         status: 'completed',
-        featured: false,
+        featured: true,
         year: 2025,
         title: {
             en: 'Production Planning System Development Certificate',
