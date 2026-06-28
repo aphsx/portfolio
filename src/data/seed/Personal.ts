@@ -28,10 +28,20 @@ export const bioTimelineSeed: BioTimelineItem[] = [
         },
     },
     {
+        id: 'bio-2026-ml',
+        year: '2026',
+        isActive: true,
+        order: 2,
+        event: {
+            en: 'Completed a capstone ML prediction project in collaboration with 1moby company as part of Computer Science studies at Bangkok University.',
+            th: 'จัดทำโปรเจคจบสาขาวิชา ML Prediction ร่วมกับบริษัท 1moby เป็นส่วนหนึ่งของการศึกษาสาขาวิชาวิทยาการคอมพิวเตอร์ที่มหาวิทยาลัยกรุงเทพ',
+        },
+    },
+    {
         id: 'bio-2025',
         year: '2025 - 2026',
         isActive: true,
-        order: 2,
+        order: 3,
         event: {
             en: 'Worked as a research assistant and Software Engineer at Center of Specialty Innovation (CoSI) while studying as a junior Computer Science student at Bangkok University.',
             th: 'เป็นผู้ช่วยนักวิจัยและ Software Engineer ที่ศูนย์นวัตกรรมเฉพาะทาง Center of Specialty Innovation (CoSI) ควบคู่กับการเรียนชั้นปีที่ 3 สาขาวิชาวิทยาการคอมพิวเตอร์ที่มหาวิทยาลัยกรุงเทพ',
@@ -41,7 +51,7 @@ export const bioTimelineSeed: BioTimelineItem[] = [
         id: 'bio-2024',
         year: '2024',
         isActive: true,
-        order: 3,
+        order: 4,
         event: {
             en: 'Joined Center of Specialty Innovation (CoSI) as an intern while studying as a sophomore Computer Science student at Bangkok University.',
             th: 'เข้าร่วมเป็นนักศึกษาฝึกงานที่ Center of Specialty Innovation (CoSI) ควบคู่กับการเรียนชั้นปีที่ 2 สาขาวิชาวิทยาการคอมพิวเตอร์ที่มหาวิทยาลัยกรุงเทพ',
@@ -51,7 +61,7 @@ export const bioTimelineSeed: BioTimelineItem[] = [
         id: 'bio-2023',
         year: '2023',
         isActive: true,
-        order: 4,
+        order: 5,
         event: {
             en: 'Started the first year of Computer Science at Bangkok University.',
             th: 'เริ่มเรียนชั้นปีที่ 1 สาขาวิชาวิทยาการคอมพิวเตอร์ที่มหาวิทยาลัยกรุงเทพ',
@@ -61,7 +71,7 @@ export const bioTimelineSeed: BioTimelineItem[] = [
         id: 'bio-2018',
         year: '2018',
         isActive: true,
-        order: 5,
+        order: 6,
         event: {
             en: 'Graduated from Mattayom Wat Mai Krong Thong School (Grade 7-12).',
             th: 'จบการศึกษาระดับมัธยมศึกษาตอนปลายจากโรงเรียนมัธยมวัดใหม่กรองทอง (ม.1-6)',
@@ -71,7 +81,7 @@ export const bioTimelineSeed: BioTimelineItem[] = [
         id: 'bio-2012',
         year: '2012',
         isActive: true,
-        order: 6,
+        order: 7,
         event: {
             en: 'Graduated from Ban Thai Charoen School (Grade 1-6).',
             th: 'จบการศึกษาระดับประถมศึกษาจากโรงเรียนบ้านไทยเจริญ (ป.1-6)',

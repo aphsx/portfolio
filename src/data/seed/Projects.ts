@@ -258,6 +258,37 @@ export const projectsSeed: Project[] = [
         tags: ['Next.js', 'Tailwind CSS', 'Golang', 'JavaScript', 'Responsive Design'],
     },
     {
+        id: 'proj-ml-prediction',
+        slug: 'ml-prediction-1moby',
+        isActive: true,
+        order: 6,
+        category: 'collaborations',
+        status: 'completed',
+        featured: true,
+        year: 2026,
+        title: {
+            en: 'ML Prediction — 1moby',
+            th: 'ระบบทำนายด้วย Machine Learning — 1moby',
+        },
+        description: {
+            en: 'Capstone project developed in collaboration with 1moby company — a machine learning prediction system built as part of Computer Science studies at Bangkok University.',
+            th: 'โปรเจคจบสาขาวิชา พัฒนาร่วมกับบริษัท 1moby — ระบบทำนายด้วย Machine Learning เป็นส่วนหนึ่งของการศึกษาสาขาวิชาวิทยาการคอมพิวเตอร์ที่มหาวิทยาลัยกรุงเทพ',
+        },
+        shortDescription: {
+            en: 'ML prediction capstone project in collaboration with 1moby.',
+            th: 'โปรเจคจบ ML Prediction ร่วมกับบริษัท 1moby',
+        },
+        descriptionLong: {
+            en: 'A capstone project developed in collaboration with 1moby company as part of the Computer Science program at Bangkok University. The system applies machine learning techniques for prediction tasks, combining academic research with real-world industry requirements.',
+            th: 'โปรเจคจบสาขาวิชาที่พัฒนาร่วมกับบริษัท 1moby เป็นส่วนหนึ่งของหลักสูตรวิทยาการคอมพิวเตอร์ มหาวิทยาลัยกรุงเทพ ระบบนำเทคนิค Machine Learning มาใช้สำหรับงานทำนาย โดยผสมผสานการวิจัยเชิงวิชาการกับความต้องการของอุตสาหกรรมจริง',
+        },
+        image: 'https://placehold.co/800x450/313131/FFFFFF?text=ML+Prediction',
+        images: [],
+        link: '',
+        github: '',
+        tags: ['Machine Learning', 'Python', 'Data Science', 'Prediction'],
+    },
+    {
         id: 'proj-006',
         slug: '3d-trajectory-control',
         isActive: true,
