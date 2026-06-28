@@ -26,6 +26,15 @@ export const bioTimelineSeed: BioTimelineItem[] = [
             en: 'Working as a Software Engineer at AUGUST TEN DIGITAL DEVELOPMENT COMPANY LIMITED while continuing Computer Science studies at Bangkok University, including summer coursework.',
             th: 'Software Engineer ที่ AUGUST TEN DIGITAL DEVELOPMENT COMPANY LIMITED ควบคู่กับการเรียนสาขาวิชาวิทยาการคอมพิวเตอร์ที่มหาวิทยาลัยกรุงเทพ รวมถึงการเรียนภาคฤดูร้อน',
         },
+        links: [
+            {
+                label: {
+                    en: 'AUGUST TEN DIGITAL DEVELOPMENT COMPANY LIMITED',
+                    th: 'AUGUST TEN DIGITAL DEVELOPMENT COMPANY LIMITED',
+                },
+                url: 'https://data.creden.co/company/general/0105561153705',
+            },
+        ],
     },
     {
         id: 'bio-2026-ml',
@@ -33,9 +42,19 @@ export const bioTimelineSeed: BioTimelineItem[] = [
         isActive: true,
         order: 2,
         event: {
-            en: 'Completed a capstone ML prediction project in collaboration with 1moby company as part of Computer Science studies at Bangkok University.',
-            th: 'จัดทำโปรเจคจบสาขาวิชา ML Prediction ร่วมกับบริษัท 1moby เป็นส่วนหนึ่งของการศึกษาสาขาวิชาวิทยาการคอมพิวเตอร์ที่มหาวิทยาลัยกรุงเทพ',
+            en: 'Completed a capstone project with 1moby called Moby Analytics, a web platform and ML system for predicting customer behavior.',
+            th: 'ทำโปรเจคจบร่วมกับบริษัท 1moby ชื่อ Moby Analytics เป็นเว็บ และระบบ ML สำหรับทำนายพฤติกรรมลูกค้า',
         },
+        links: [
+            {
+                label: { en: 'Moby Analytics', th: 'Moby Analytics' },
+                url: 'https://github.com/aphsx/demo-predict',
+            },
+            {
+                label: { en: '1moby', th: '1moby' },
+                url: 'https://www.1moby.com/',
+            },
+        ],
     },
     {
         id: 'bio-2025',
@@ -46,6 +65,15 @@ export const bioTimelineSeed: BioTimelineItem[] = [
             en: 'Worked as a research assistant and Software Engineer at Center of Specialty Innovation (CoSI) while studying as a junior Computer Science student at Bangkok University.',
             th: 'เป็นผู้ช่วยนักวิจัยและ Software Engineer ที่ศูนย์นวัตกรรมเฉพาะทาง Center of Specialty Innovation (CoSI) ควบคู่กับการเรียนชั้นปีที่ 3 สาขาวิชาวิทยาการคอมพิวเตอร์ที่มหาวิทยาลัยกรุงเทพ',
         },
+        links: [
+            {
+                label: {
+                    en: 'Center of Specialty Innovation (CoSI)',
+                    th: 'Center of Specialty Innovation (CoSI)',
+                },
+                url: 'https://cosi.bu.ac.th/',
+            },
+        ],
     },
     {
         id: 'bio-2024',
@@ -56,6 +84,15 @@ export const bioTimelineSeed: BioTimelineItem[] = [
             en: 'Joined Center of Specialty Innovation (CoSI) as an intern while studying as a sophomore Computer Science student at Bangkok University.',
             th: 'เข้าร่วมเป็นนักศึกษาฝึกงานที่ Center of Specialty Innovation (CoSI) ควบคู่กับการเรียนชั้นปีที่ 2 สาขาวิชาวิทยาการคอมพิวเตอร์ที่มหาวิทยาลัยกรุงเทพ',
         },
+        links: [
+            {
+                label: {
+                    en: 'Center of Specialty Innovation (CoSI)',
+                    th: 'Center of Specialty Innovation (CoSI)',
+                },
+                url: 'https://cosi.bu.ac.th/',
+            },
+        ],
     },
     {
         id: 'bio-2023',
