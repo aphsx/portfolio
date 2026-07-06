@@ -49,12 +49,12 @@ const TimelineDetailPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900" style={{ paddingTop: '100px' }}>
-      <div className="max-w-2xl mx-auto px-6 pb-20">
+      <div className="max-w-2xl mx-auto px-4 pb-16 sm:px-5">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-8"
+          className="mb-5"
         >
           <Link
             href={`/${language}/timeline`}
@@ -65,70 +65,76 @@ const TimelineDetailPage = () => {
           </Link>
         </motion.div>
 
-        <motion.header
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.05, duration: 0.5 }}
-          className="mb-8"
-        >
-          <div className="mb-4 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm">
-            <time className="font-semibold text-teal-500">{entry.date}</time>
-            <span className="text-gray-300 dark:text-gray-600">·</span>
-            <span className={`${typeBadgeClass} ${typeBadgeStyles[entry.type]}`}>
-              {t(`timeline.type.${entry.type}`)}
-            </span>
-          </div>
-
-          <h1 className="mb-4 text-3xl font-bold leading-tight text-gray-900 dark:text-gray-100 md:text-4xl">
-            {getLocalized(entry.title)}
-          </h1>
-
-          <p className="text-base leading-relaxed text-gray-600 dark:text-gray-400 md:text-lg">
-            {getLocalized(entry.excerpt)}
-          </p>
-
-          {entry.tags && entry.tags.length > 0 && (
-            <div className="mt-5 flex flex-wrap gap-2">
-              {entry.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full bg-teal-500/10 px-3 py-1 text-xs font-medium text-teal-700 dark:text-teal-300"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          )}
-        </motion.header>
-
         {heroImage && (
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.5 }}
-            className="mb-10"
+            transition={{ delay: 0.05, duration: 0.5 }}
+            className="relative mb-5 overflow-hidden rounded-xl ring-1 ring-black/[0.04] dark:ring-white/10"
           >
-            {renderImage(heroImage, getLocalized(entry.title))}
+            <img
+              src={heroImage}
+              alt={getLocalized(entry.title)}
+              className={`aspect-[16/9] w-full ${
+                entry.imageFit === 'contain'
+                  ? 'object-contain bg-gray-100 dark:bg-gray-900'
+                  : 'object-cover'
+              }`}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 flex flex-wrap items-center gap-2 p-3">
+              <time className="rounded-full bg-white/90 px-2.5 py-1 text-[11px] font-semibold tracking-wide text-gray-800 backdrop-blur-sm dark:bg-gray-900/90 dark:text-gray-100">
+                {entry.date}
+              </time>
+              <span className={`${typeBadgeClass} bg-white/90 backdrop-blur-sm dark:bg-gray-900/90 ${typeBadgeStyles[entry.type]}`}>
+                {t(`timeline.type.${entry.type}`)}
+              </span>
+            </div>
           </motion.div>
         )}
+
+        <motion.header
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.08, duration: 0.5 }}
+          className="mb-5"
+        >
+          {!heroImage && (
+            <div className="mb-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
+              <time className="font-semibold text-teal-500">{entry.date}</time>
+              <span className="text-gray-300 dark:text-gray-600">·</span>
+              <span className={`${typeBadgeClass} ${typeBadgeStyles[entry.type]}`}>
+                {t(`timeline.type.${entry.type}`)}
+              </span>
+            </div>
+          )}
+
+          <h1 className="mb-2 text-xl font-bold leading-snug text-gray-900 dark:text-gray-100 sm:text-2xl">
+            {getLocalized(entry.title)}
+          </h1>
+
+          <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
+            {getLocalized(entry.excerpt)}
+          </p>
+        </motion.header>
 
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.15, duration: 0.5 }}
-          className="mb-12"
+          transition={{ delay: 0.1, duration: 0.5 }}
+          className="mb-8"
         >
-          <MarkdownRenderer content={getLocalized(entry.content)} />
+          <MarkdownRenderer content={getLocalized(entry.content)} className="timeline-markdown" />
         </motion.div>
 
         {galleryImages.length > 0 && (
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.18, duration: 0.5 }}
-            className="mb-12"
+            transition={{ delay: 0.12, duration: 0.5 }}
+            className="mb-8"
           >
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.14em] text-gray-400 dark:text-gray-500">
+            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.12em] text-gray-400 dark:text-gray-500">
               {language === 'th' ? 'รูปเพิ่มเติม' : 'More photos'}
             </p>
             {galleryImages.length === 1 ? (
@@ -154,7 +160,7 @@ const TimelineDetailPage = () => {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="space-y-3 border-t border-gray-200 pt-8 dark:border-gray-700"
+            className="space-y-3 border-t border-gray-200 pt-6 dark:border-gray-700"
           >
             <p className="text-xs font-bold uppercase tracking-[0.14em] text-gray-400 dark:text-gray-500">
               {language === 'th' ? 'ลิงก์ที่เกี่ยวข้อง' : 'Related links'}

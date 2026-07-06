@@ -116,4 +116,27 @@
   .markdown-content a {
     @apply text-teal-500 hover:text-teal-600 underline transition-colors;
   }
+
+  .timeline-markdown h1,
+  .timeline-markdown h2,
+  .timeline-markdown h3 {
+    @apply mt-4 mb-2;
+  }
+
+  .timeline-markdown h1 { @apply text-xl; }
+  .timeline-markdown h2 { @apply text-lg; }
+  .timeline-markdown h3 { @apply text-base; }
+
+  .timeline-markdown p {
+    @apply mb-3 text-sm leading-relaxed;
+  }
+
+  .timeline-markdown ul,
+  .timeline-markdown ol {
+    @apply mb-3 ml-5 text-sm;
+  }
+
+  .timeline-markdown li {
+    @apply mb-1 pl-0.5;
+  }
 }
