@@ -20,21 +20,21 @@ export const projectsSeed: Project[] = [
             th: 'NTU Hackathon: Innovating Functional Recovery',
         },
         description: {
-            en: 'Certificate of participation from NTU Hackathon: Innovating Functional Recovery at Nanyang Technological University (NTU), Singapore.',
-            th: 'ใบประกาศนียบัตรจาก NTU Hackathon: Innovating Functional Recovery ณ Nanyang Technological University (NTU)',
+            en: 'Certificate of participation from NTU Hackathon: Innovating Functional Recovery at KMUTT (Bang Mod), Bangkok.',
+            th: 'ใบประกาศนียบัตรจาก NTU Hackathon: Innovating Functional Recovery ณ มจธ. บางมด กรุงเทพฯ',
         },
         shortDescription: {
-            en: 'Certificate of participation from NTU’s Innovating Functional Recovery hackathon.',
-            th: 'ใบประกาศนียบัตรจาก hackathon Innovating Functional Recovery ของ NTU',
+            en: 'Certificate from NTU’s Innovating Functional Recovery hackathon at KMUTT.',
+            th: 'ใบประกาศจาก hackathon Innovating Functional Recovery ของ NTU ที่ มจธ.',
         },
         descriptionLong: {
-            en: 'Awarded for participation in NTU Hackathon: Innovating Functional Recovery — a stroke rehabilitation hackathon hosted by Nanyang Technological University (NTU), Singapore (May 2026).',
-            th: 'ได้รับใบประกาศนียบัตรจากการเข้าร่วม NTU Hackathon: Innovating Functional Recovery — hackathon ด้านการฟื้นฟูผู้ป่วยโรคหลอดเลือดสมอง จัดโดย Nanyang Technological University (NTU) ประเทศสิงคโปร์ (พฤษภาคม 2026)',
+            en: 'Awarded for participation in NTU Hackathon: Innovating Functional Recovery — a stroke rehabilitation hackathon organized by NTU Singapore, held 2–3 May 2026 at the College of Management and Innovation, King Mongkut\'s University of Technology Thonburi (KMUTT), Bang Mod campus.',
+            th: 'ได้รับใบประกาศนียบัตรจากการเข้าร่วม NTU Hackathon: Innovating Functional Recovery — hackathon ด้านการฟื้นฟูผู้ป่วย stroke จัดโดย NTU สิงคโปร์ วันที่ 2–3 พฤษภาคม 2026 ณ บัณฑิตวิทยาลัยการจัดการและนวัตกรรม มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี (มจธ.) วิทยาเขตบางมด',
         },
         image: '/certificates/certi-hkt-ntu-thumb.jpg',
         galleryLayout: 'photos',
         images: [
-            { url: '/images/ntu-hackathon-workspace.jpg' },
+            { url: '/images/ntu-hackathon-workspace-hero.jpg' },
             { url: '/images/ntu-hackathon-prototype.jpg' },
             { url: '/images/ntu-hackathon-team.jpg' },
             { url: '/images/ntu-hackathon-opening.jpg' },
@@ -43,7 +43,7 @@ export const projectsSeed: Project[] = [
         link: '',
         github: '',
         fileUrl: '/certificates/certi-hkt-ntu.pdf',
-        tags: ['NTU', 'Hackathon', '2026'],
+        tags: ['NTU', 'Hackathon', 'KMUTT'],
     },
     {
         id: 'cert-production-planning-system',
