@@ -30,8 +30,22 @@ const TimelineDetailPage = () => {
 
   const primaryLink = entry.links?.[0]
   const otherLinks = entry.links?.slice(1) ?? []
+  const heroImage = entry.image
+  const galleryImages = entry.images ?? []
 
-  const galleryImages = entry.images?.length ? entry.images : entry.image ? [entry.image] : []
+  const renderImage = (url: string, alt: string, aspectClass = 'aspect-[4/3] w-full sm:aspect-[16/10]') => (
+    <div className="overflow-hidden rounded-xl ring-1 ring-black/[0.04] dark:ring-white/10">
+      <img
+        src={url}
+        alt={alt}
+        className={`${aspectClass} ${
+          entry.imageFit === 'contain'
+            ? 'object-contain bg-gray-100 dark:bg-gray-900'
+            : 'object-cover'
+        }`}
+      />
+    </div>
+  )
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900" style={{ paddingTop: '100px' }}>
@@ -87,45 +101,14 @@ const TimelineDetailPage = () => {
           )}
         </motion.header>
 
-        {galleryImages.length > 0 && (
+        {heroImage && (
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.5 }}
             className="mb-10"
           >
-            {galleryImages.length === 1 ? (
-              <div className="overflow-hidden rounded-xl ring-1 ring-black/[0.04] dark:ring-white/10">
-                <img
-                  src={galleryImages[0]}
-                  alt={getLocalized(entry.title)}
-                  className={`aspect-[4/3] w-full sm:aspect-[16/10] ${
-                    entry.imageFit === 'contain'
-                      ? 'object-contain bg-gray-100 dark:bg-gray-900'
-                      : 'object-cover'
-                  }`}
-                />
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                {galleryImages.map((url, index) => (
-                  <div
-                    key={url}
-                    className={`overflow-hidden rounded-xl ring-1 ring-black/[0.04] dark:ring-white/10 ${
-                      index === 0 ? 'sm:col-span-2' : ''
-                    }`}
-                  >
-                    <img
-                      src={url}
-                      alt={`${getLocalized(entry.title)} ${index + 1}`}
-                      className={`w-full object-cover ${
-                        index === 0 ? 'aspect-[16/9]' : 'aspect-[4/3]'
-                      }`}
-                    />
-                  </div>
-                ))}
-              </div>
-            )}
+            {renderImage(heroImage, getLocalized(entry.title))}
           </motion.div>
         )}
 
@@ -137,6 +120,34 @@ const TimelineDetailPage = () => {
         >
           <MarkdownRenderer content={getLocalized(entry.content)} />
         </motion.div>
+
+        {galleryImages.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.18, duration: 0.5 }}
+            className="mb-12"
+          >
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.14em] text-gray-400 dark:text-gray-500">
+              {language === 'th' ? 'รูปเพิ่มเติม' : 'More photos'}
+            </p>
+            {galleryImages.length === 1 ? (
+              renderImage(galleryImages[0], `${getLocalized(entry.title)} 2`)
+            ) : (
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                {galleryImages.map((url, index) => (
+                  <div key={url} className={index === 0 ? 'sm:col-span-2' : ''}>
+                    {renderImage(
+                      url,
+                      `${getLocalized(entry.title)} ${index + 2}`,
+                      index === 0 ? 'aspect-[16/9] w-full' : 'aspect-[4/3] w-full',
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+          </motion.div>
+        )}
 
         {(entry.projectId || primaryLink || otherLinks.length > 0) && (
           <motion.aside

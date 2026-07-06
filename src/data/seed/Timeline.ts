@@ -8,10 +8,11 @@ const COSI_PEOPLE_URL = 'https://cosi.bu.ac.th/people'
 const NTU_HACKATHON_IMAGES = [
     '/images/ntu-hackathon-opening.jpg',
     '/images/ntu-hackathon-venue.jpg',
-    '/images/ntu-hackathon-workspace.jpg',
     '/images/ntu-hackathon-prototype.jpg',
     '/images/ntu-hackathon-team.jpg',
 ]
+
+const NTU_HACKATHON_HERO = '/images/ntu-hackathon-workspace-hero.jpg'
 
 // ---------------------------------------------------------------------------
 // Source-of-truth for timeline / activity blog entries.
@@ -125,7 +126,7 @@ The certificate PDF and more details are on the project page.`,
         type: 'event',
         date: 'May 2026',
         dateSort: '2026-05-01',
-        image: NTU_HACKATHON_IMAGES[0],
+        image: NTU_HACKATHON_HERO,
         images: NTU_HACKATHON_IMAGES,
         projectId: 'cert-hkt-ntu',
         tags: ['NTU', 'Hackathon', 'Singapore'],
