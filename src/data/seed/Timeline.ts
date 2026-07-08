@@ -23,6 +23,15 @@ const WAT_AMERICA_IMAGES = [
     '/images/wat-america-clock-in.jpg',
 ]
 
+const KAIT_AI_RACE_URL = 'https://www.kait.jp/news/post_273.html'
+
+const BU_KAIT_AI_RACE_HERO = '/images/bu-kait-ai-race-track.jpg'
+const BU_KAIT_AI_RACE_IMAGES = [
+    '/images/bu-kait-ai-race-award.jpg',
+    '/images/bu-kait-ai-race-group.jpg',
+    '/images/bu-kait-ai-race-overview.jpg',
+]
+
 // ---------------------------------------------------------------------------
 // Source-of-truth for timeline / activity blog entries.
 // Add new rows here — list page and detail pages pick them up automatically.
@@ -207,6 +216,65 @@ CoSI เป็นที่ที่ผมได้ลงมือ build ระ�
         isActive: true,
         order: 4,
         createdAt: '2024-06-23',
+    },
+    {
+        id: 'timeline-bu-kait-ai-race-2025',
+        slug: 'bu-kait-ai-racing-car-2025',
+        title: {
+            en: 'BU × KAIT — AI Racing Car',
+            th: 'BU × KAIT — AI Racing Car',
+        },
+        excerpt: {
+            en: '1st GRCC Racer GP Autonomous AI Car Race at Bangkok University — built self-driving AI and raced mini cars with KAIT.',
+            th: '1st GRCC Racer GP Autonomous AI Car Race ที่มหาวิทยาลัยกรุงเทพ — สร้าง AI ขับรถอัตโนมัติและแข่งรถจิ๋วร่วมกับ KAIT',
+        },
+        content: {
+            en: `## BU × KAIT — AI Racing Car
+
+On **6 March 2025**, Bangkok University and **Kanagawa Institute of Technology (KAIT)** hosted the **1st GRCC Racer GP Autonomous AI Car Race (2025)** — part of the **Joint International Workshop on AI Engineering and Technology**.
+
+Teams built their own **self-driving AI** for mini autonomous racing cars, then competed on track at Bangkok University in collaboration with **CoSI**.
+
+Received the **Best Safety Award** at the event.
+
+## Event
+
+Organized by BU and KAIT, led by Professor Toshihiro Wakita (KAIT). The race was live-streamed and brought together students programming and racing autonomous mini cars on a dedicated track.
+
+[Read KAIT event announcement →](${KAIT_AI_RACE_URL})`,
+            th: `## BU × KAIT — AI Racing Car
+
+วันที่ **6 มีนาคม 2025** มหาวิทยาลัยกรุงเทพ ร่วมกับ **Kanagawa Institute of Technology (KAIT)** จัด **1st GRCC Racer GP Autonomous AI Car Race (2025)** ภายใต้ **Joint International Workshop on AI Engineering and Technology**
+
+ทีมต่างๆ สร้าง **AI ขับรถอัตโนมัติ** สำหรับรถแข่งจิ๋ว แล้วลงแข่งบนลู่ที่มหาวิทยาลัยกรุงเทพ ร่วมกับ **CoSI**
+
+ได้รับรางวัล **Best Safety Award** ในงาน
+
+## งาน
+
+จัดโดย BU และ KAIT นำโดย Professor Toshihiro Wakita (KAIT) มีการถ่ายทอดสด และนิสิตลงมือ program AI แล้วแข่งรถ autonomous บนลู่เฉพาะ
+
+[อ่านประกาศงานจาก KAIT →](${KAIT_AI_RACE_URL})`,
+        },
+        type: 'award',
+        date: '6 Mar 2025',
+        dateSort: '2025-03-06',
+        image: BU_KAIT_AI_RACE_HERO,
+        images: BU_KAIT_AI_RACE_IMAGES,
+        tags: ['BU', 'KAIT', 'AI'],
+        links: [
+            {
+                label: { en: 'KAIT event news', th: 'ข่าวงานจาก KAIT' },
+                url: KAIT_AI_RACE_URL,
+            },
+            {
+                label: { en: 'CoSI', th: 'CoSI' },
+                url: 'https://cosi.bu.ac.th/',
+            },
+        ],
+        isActive: true,
+        order: 3,
+        createdAt: '2025-03-06',
     },
     {
         id: 'timeline-wat-america-2025',
