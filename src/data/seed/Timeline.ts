@@ -14,6 +14,15 @@ const NTU_HACKATHON_IMAGES = [
 
 const NTU_HACKATHON_HERO = '/images/ntu-hackathon-workspace-hero.jpg'
 
+const WAT_AMERICA_HERO = '/images/wat-america-passport.jpg'
+const WAT_AMERICA_IMAGES = [
+    '/images/wat-america-luggage.jpg',
+    '/images/wat-america-street.jpg',
+    '/images/wat-america-kitchen.jpg',
+    '/images/wat-america-kitchen-break.jpg',
+    '/images/wat-america-clock-in.jpg',
+]
+
 // ---------------------------------------------------------------------------
 // Source-of-truth for timeline / activity blog entries.
 // Add new rows here — list page and detail pages pick them up automatically.
@@ -198,5 +207,50 @@ CoSI เป็นที่ที่ผมได้ลงมือ build ระ�
         isActive: true,
         order: 4,
         createdAt: '2024-06-23',
+    },
+    {
+        id: 'timeline-wat-america-2025',
+        slug: 'work-and-travel-america-2025',
+        title: {
+            en: 'Work and Travel America',
+            th: 'Work and Travel America',
+        },
+        excerpt: {
+            en: 'Language training in the U.S. (16 May – 8 Aug 2025) — then work, travel, and everyday life abroad.',
+            th: 'ฝึกภาษาที่อเมริกา (16 พ.ค. – 8 ส.ค. 2025) — ตามด้วยทำงาน เที่ยว และชีวิตประจำวันต่างประเทศ',
+        },
+        content: {
+            en: `## Work and Travel America
+
+Joined the **Work and Travel** program in the United States — starting with **language training from 16 May to 8 August 2025** before moving into work and travel.
+
+## Language training
+
+Spent the summer building English in an immersive setting — classes, daily conversation, and getting used to life in America before starting work.
+
+## Work & daily life
+
+After training, worked shifts at a food-service job — clocking in, kitchen prep, and the rhythm of a real workplace abroad. Photos below are from travel, work, and in-between moments during the program.`,
+            th: `## Work and Travel America
+
+เข้าร่วมโครงการ **Work and Travel** ในสหรัฐอเมริกา — เริ่มจาก **ฝึกภาษา 16 พฤษภาคม – 8 สิงหาคม 2025** ก่อนลงมือทำงานและเที่ยวต่อ
+
+## ช่วงฝึกภาษา
+
+ใช้ช่วงฝึกภาษาทั้งซัมเมอร์ในอเมริกา — เรียน คุยประจำวัน และปรับตัวกับชีวิตต่างประเทศก่อนเริ่มงานจริง
+
+## งาน & ชีวิตประจำวัน
+
+หลังจบช่วงฝึกภาษา ลงมือทำงานในร้านอาหาร — ลงเวลา เตรียมครัว และเรียนรู้จังหวะการทำงานจริงในอเมริกา รูปด้านล่างจากช่วงเที่ยว ทำงาน และช่วงระหว่างทางในโครงการ`,
+        },
+        type: 'participation',
+        date: '16 May – 8 Aug 2025',
+        dateSort: '2025-05-16',
+        image: WAT_AMERICA_HERO,
+        images: WAT_AMERICA_IMAGES,
+        tags: ['Work and Travel', 'USA', 'English'],
+        isActive: true,
+        order: 2,
+        createdAt: '2025-05-16',
     },
 ]
