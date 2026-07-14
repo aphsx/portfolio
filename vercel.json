@@ -1,0 +1,34 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/th",
+      "permanent": true
+    },
+    {
+      "source": "/projects",
+      "destination": "/th",
+      "permanent": false
+    },
+    {
+      "source": "/projects/:path*",
+      "destination": "/th",
+      "permanent": false
+    },
+    {
+      "source": "/timeline",
+      "destination": "/th",
+      "permanent": false
+    },
+    {
+      "source": "/timeline/:path*",
+      "destination": "/th",
+      "permanent": false
+    },
+    {
+      "source": "/uses",
+      "destination": "/th",
+      "permanent": false
+    }
+  ]
+}

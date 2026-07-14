@@ -1,7 +1,12 @@
-import { redirect } from 'next/navigation';
+'use client'
 
-export const runtime = 'edge';
+import { useEffect } from 'react'
+import { SITE_CONFIG } from '../config/site'
 
 export default function RootPage() {
-    redirect('/th');
+  useEffect(() => {
+    window.location.replace(`/${SITE_CONFIG.defaultLanguage}`)
+  }, [])
+
+  return null
 }
