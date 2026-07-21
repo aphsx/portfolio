@@ -298,8 +298,8 @@ export const projectsSeed: Project[] = [
         featured: true,
         year: 2025,
         title: {
-            en: '',
-            th: 'ระบบคำนวณและควบคุมวิถีเคลื่อนที่แบบ 3 มิติ',
+            en: 'Howitzer Fire Control System',
+            th: 'ระบบอำนวยการยิงโฮวิตเซอร์',
         },
         description: {
             en: '',
@@ -319,11 +319,11 @@ export const projectsSeed: Project[] = [
 3. **ระบบปรับแก้การเคลื่อนที่ (Adjustment System)**: พัฒนาระบบอัจฉริยะที่บันทึกผลลัพธ์ที่ตรวจการณ์ได้ และคำนวณวิธีแก้ซ้ำแบบวนซ้ำ (Iterative) เพื่อลดระยะห่างระหว่างแนวทางที่ตั้งใจกับผลลัพธ์จริง
 4. **การจัดการข้อมูล**: ระบบการจัดการ, ฐานข้อมูล และระบบการบันทึก/โหลดภารกิจที่แข็งแกร่งด้วย React Hooks และระบบจัดเก็บข้อมูลบน Electron`,
         },
-        image: '/images/trajectory-control-map.png',
+        image: '/images/howitzer-fire-control.png',
         images: [
             {
-                url: '/images/trajectory-control-map.png',
-                caption: { en: '', th: 'แผนที่ภูมิประเทศและการแสดงผล 3 มิติสำหรับคำนวณการยิง' },
+                url: '/images/howitzer-fire-control.png',
+                caption: { en: '', th: 'ระบบอำนวยการยิงโฮวิตเซอร์' },
                 isPrimary: true,
             },
         ],
