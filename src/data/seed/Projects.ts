@@ -222,7 +222,7 @@ export const projectsSeed: Project[] = [
         },
         image: '/images/personal-portfolio.png',
         images: [{ url: '/images/personal-portfolio.png', isPrimary: true }],
-        link: 'https://portfolio-aphsx.vercel.app/',
+        link: 'https://www.aphsx.site/th',
         github: 'https://github.com/aphsix/Portfolio',
         tags: ['React', 'TypeScript', 'Tailwind CSS', 'Responsive Design'],
     },
@@ -302,22 +302,16 @@ export const projectsSeed: Project[] = [
             th: 'ระบบอำนวยการยิงโฮวิตเซอร์',
         },
         description: {
-            en: '',
-            th: 'ระบบคำนวณความแม่นยำสูงสำหรับการเคลื่อนที่ของวิถี ซึ่งรวบรวมข้อมูลสภาพแวดล้อมแบบเรียลไทม์ การวิเคราะห์ภูมิประเทศ และการแสดงผล 3 มิติเพื่อกำหนดแนวทางวิถีที่แม่นยำที่สุด',
+            en: 'A system that computes howitzer firing tables — range, elevation, deflection, and corrections for weather and ammunition — to produce fire control data for accurate indirect fire.',
+            th: 'ระบบคำนวณตารางยิง (Firing Table) ของปืนใหญ่โฮวิตเซอร์ เพื่อหาค่าระยะ มุมเงย มุมเล็ง และค่าแก้จากสภาพอากาศกับกระสุน สำหรับใช้เป็นข้อมูลอำนวยการยิง',
         },
         shortDescription: {
-            en: '',
-            th: 'คอมพิวเตอร์คำนวณ 3 มิติขั้นสูง พร้อมระบบแก้ค่าสภาพอากาศและแผนที่ภูมิประเทศ',
+            en: 'Howitzer firing-table computation for fire control data.',
+            th: 'ระบบคำนวณตารางยิงโฮวิตเซอร์สำหรับข้อมูลอำนวยการยิง',
         },
         descriptionLong: {
-            en: '',
-            th: `ซอฟต์แวร์ทางเทคนิคขั้นสูงที่ออกแบบมาเพื่อยกระดับการปฏิบัติการของการเคลื่อนที่ของวิถีสนาม ระบบนี้ช่วยเปลี่ยนการคำนวณด้วยแรงงานคนให้เป็นระบบอัตโนมัติที่ซับซ้อน โดยรวมข้อมูลจากตารางอ้างอิง (Reference Tables) เข้ากับปัจจัยสภาพแวดล้อมแบบ Real-time
-
-### รายละเอียดทางเทคนิคที่สำคัญ:
-1. **กลไกการคำนวณ (Computational Engine)**: พัฒนาระบบประมวลผล 11 ขั้นตอน (Step-by-step pipeline) ที่คำนวณวิถีตามประเภท, น้ำหนัก และข้อมูลอุตุนิยมวิทยา (ลม, ความหนาแน่นอากาศ, อุณหภูมิ)
-2. **การแสดงผล 3 มิติ**: สร้างเอนจินการแสดงผลแบบ 3 มิติเพื่อจำลองวิถี จุดตก และความสูงต่ำของภูมิประเทศ ช่วยให้ผู้ปฏิบัติงานเห็นภาพสิ่งกีดขวางและผลกระทบของภูมิประเทศ
-3. **ระบบปรับแก้การเคลื่อนที่ (Adjustment System)**: พัฒนาระบบอัจฉริยะที่บันทึกผลลัพธ์ที่ตรวจการณ์ได้ และคำนวณวิธีแก้ซ้ำแบบวนซ้ำ (Iterative) เพื่อลดระยะห่างระหว่างแนวทางที่ตั้งใจกับผลลัพธ์จริง
-4. **การจัดการข้อมูล**: ระบบการจัดการ, ฐานข้อมูล และระบบการบันทึก/โหลดภารกิจที่แข็งแกร่งด้วย React Hooks และระบบจัดเก็บข้อมูลบน Electron`,
+            en: `Software that automates howitzer firing-table calculation for technical fire control. Instead of looking up printed tabular firing tables by hand, the system computes range–elevation relationships and applies corrections for nonstandard conditions such as wind, air density, temperature, and projectile weight.`,
+            th: `ซอฟต์แวร์คำนวณตารางยิง (Firing Table) สำหรับอำนวยการยิงโฮวิตเซอร์ แทนการเปิดตารางยิงแบบกระดาษด้วยมือ ระบบคำนวณความสัมพันธ์ระหว่างระยะกับมุมเงย และปรับแก้ค่าจากสภาพที่ไม่เป็นมาตรฐาน เช่น ลม ความหนาแน่นอากาศ อุณหภูมิ และน้ำหนักกระสุน`,
         },
         image: '/images/howitzer-fire-control.png',
         images: [

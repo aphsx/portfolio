@@ -1,6 +1,6 @@
 export const SITE_CONFIG = {
     name: 'Aphisit Portfolio',
-    url: 'https://portfolio-aphsx.vercel.app',
+    url: 'https://www.aphsx.site',
     supportedLanguages: ['en', 'th'] as const,
     defaultLanguage: 'th' as const,
 }
