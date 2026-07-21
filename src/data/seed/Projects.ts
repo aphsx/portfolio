@@ -189,8 +189,11 @@ export const projectsSeed: Project[] = [
             en: '',
             th: 'ออกแบบและพัฒนาเว็บไซต์ที่ครอบคลุมสำหรับห้องปฏิบัติการศูนย์นวัตกรรมเฉพาะทาง (CoSI) ที่มหาวิทยาลัยกรุงเทพ เว็บไซต์ทำหน้าที่เป็นศูนย์กลางดิจิทัลสำหรับการแสดงโครงการวิจัยที่กำลังดำเนินอยู่ กิจกรรมที่จะเกิดขึ้น และผลกระทบของศูนย์ต่อนวัตกรรมทางสังคม คุณสมบัติรวมถึงแกลเลอรีพอร์ตโฟลิโอโครงการ ระบบการจัดการกิจกรรม ฐานข้อมูลสิ่งพิมพ์วิจัย โปรไฟล์สมาชิกทีม และระบบติดต่อแบบโต้ตอบ',
         },
-        image: 'https://placehold.co/800x450/313131/FFFFFF?text=CoSI+Web',
-        images: [],
+        image: '/images/cosi-website.png',
+        images: [
+            { url: '/images/cosi-website.png', isPrimary: true },
+            { url: '/images/cosi-website-2.png' },
+        ],
         link: 'https://cosi.bu.ac.th',
         github: '',
         tags: ['React', 'TypeScript', 'Tailwind CSS', 'Responsive Design'],
