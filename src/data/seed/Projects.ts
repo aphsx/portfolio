@@ -189,8 +189,11 @@ export const projectsSeed: Project[] = [
             en: '',
             th: 'ออกแบบและพัฒนาเว็บไซต์ที่ครอบคลุมสำหรับห้องปฏิบัติการศูนย์นวัตกรรมเฉพาะทาง (CoSI) ที่มหาวิทยาลัยกรุงเทพ เว็บไซต์ทำหน้าที่เป็นศูนย์กลางดิจิทัลสำหรับการแสดงโครงการวิจัยที่กำลังดำเนินอยู่ กิจกรรมที่จะเกิดขึ้น และผลกระทบของศูนย์ต่อนวัตกรรมทางสังคม คุณสมบัติรวมถึงแกลเลอรีพอร์ตโฟลิโอโครงการ ระบบการจัดการกิจกรรม ฐานข้อมูลสิ่งพิมพ์วิจัย โปรไฟล์สมาชิกทีม และระบบติดต่อแบบโต้ตอบ',
         },
-        image: 'https://placehold.co/800x450/313131/FFFFFF?text=CoSI+Web',
-        images: [],
+        image: '/images/cosi-website.png',
+        images: [
+            { url: '/images/cosi-website.png', isPrimary: true },
+            { url: '/images/cosi-website-2.png' },
+        ],
         link: 'https://cosi.bu.ac.th',
         github: '',
         tags: ['React', 'TypeScript', 'Tailwind CSS', 'Responsive Design'],
@@ -205,8 +208,8 @@ export const projectsSeed: Project[] = [
         featured: true,
         year: 2024,
         title: {
-            en: '',
-            th: 'เว็บไซต์ผลงานส่วนตัว',
+            en: 'Personal Portfolio',
+            th: 'พอร์ตโฟลิโอส่วนตัว',
         },
         description: {
             en: '',
@@ -220,9 +223,9 @@ export const projectsSeed: Project[] = [
             en: '',
             th: 'เว็บไซต์ผลงานส่วนตัวที่ออกแบบมาเพื่อแสดงโปรเจค ทักษะ และประสบการณ์ทางวิชาชีพของผม เว็บไซต์มีการออกแบบส่วนต่างๆ การแสดงโปรเจค ทักษะ และข้อมูลการติดต่อ สร้างขึ้นโดยใช้ React และ Tailwind CSS สำหรับการจัดแต่งอย่างรวดเร็วและการตอบสนอง ยกตัวอย่างฟังชันก์ที่สำคัญ เช่น Dark mode, Language switcher',
         },
-        image: '/projects/personal-portfolio.svg',
-        images: [{ url: '/projects/personal-portfolio.svg', isPrimary: true }],
-        link: 'https://portfolio-aphsx.vercel.app/',
+        image: '/images/personal-portfolio.png',
+        images: [{ url: '/images/personal-portfolio.png', isPrimary: true }],
+        link: 'https://www.aphsx.site/th',
         github: 'https://github.com/aphsix/Portfolio',
         tags: ['React', 'TypeScript', 'Tailwind CSS', 'Responsive Design'],
     },
@@ -282,8 +285,8 @@ export const projectsSeed: Project[] = [
             en: 'An internal analytics platform for 1moby, a B2B SaaS messaging company. The system imports fixed-schema Excel files, stores raw and cleaned datasets, trains champion models, and creates prediction runs for each customer. It combines lifecycle rules with ML models for churn probability, six-month CLV, and 30/90-day credit consumption forecasts, then exposes the results through a dashboard, REST API, and model performance views.',
             th: 'แพลตฟอร์มวิเคราะห์ข้อมูลภายในสำหรับ 1moby ธุรกิจ B2B SaaS ด้าน SMS/Email ระบบนำเข้าไฟล์ Excel รูปแบบตายตัว เก็บข้อมูลทั้ง raw และ clean เทรน champion model และสร้าง prediction run รายลูกค้า โดยผสาน rule-based lifecycle กับโมเดล ML สำหรับทำนาย churn probability, CLV ระยะ 6 เดือน และการใช้เครดิต 30/90 วัน พร้อมแสดงผลผ่าน dashboard, REST API และหน้าติดตามประสิทธิภาพโมเดล',
         },
-        image: '/projects/ml-prediction.svg',
-        images: [{ url: '/projects/ml-prediction.svg', isPrimary: true }],
+        image: '/images/ml-prediction.png',
+        images: [{ url: '/images/ml-prediction.png', isPrimary: true }],
         link: '',
         github: 'https://github.com/aphsx/demo-predict',
         tags: ['Machine Learning', 'Next.js', 'Elysia.js', 'FastAPI', 'LightGBM', 'PostgreSQL'],
@@ -298,32 +301,26 @@ export const projectsSeed: Project[] = [
         featured: true,
         year: 2025,
         title: {
-            en: '',
-            th: 'ระบบคำนวณและควบคุมวิถีเคลื่อนที่แบบ 3 มิติ',
+            en: 'Howitzer Fire Control System',
+            th: 'ระบบอำนวยการยิงโฮวิตเซอร์',
         },
         description: {
-            en: '',
-            th: 'ระบบคำนวณความแม่นยำสูงสำหรับการเคลื่อนที่ของวิถี ซึ่งรวบรวมข้อมูลสภาพแวดล้อมแบบเรียลไทม์ การวิเคราะห์ภูมิประเทศ และการแสดงผล 3 มิติเพื่อกำหนดแนวทางวิถีที่แม่นยำที่สุด',
+            en: 'A system that computes howitzer firing tables — range, elevation, deflection, and corrections for weather and ammunition — to produce fire control data for accurate indirect fire.',
+            th: 'ระบบคำนวณตารางยิง (Firing Table) ของปืนใหญ่โฮวิตเซอร์ เพื่อหาค่าระยะ มุมเงย มุมเล็ง และค่าแก้จากสภาพอากาศกับกระสุน สำหรับใช้เป็นข้อมูลอำนวยการยิง',
         },
         shortDescription: {
-            en: '',
-            th: 'คอมพิวเตอร์คำนวณ 3 มิติขั้นสูง พร้อมระบบแก้ค่าสภาพอากาศและแผนที่ภูมิประเทศ',
+            en: 'Howitzer firing-table computation for fire control data.',
+            th: 'ระบบคำนวณตารางยิงโฮวิตเซอร์สำหรับข้อมูลอำนวยการยิง',
         },
         descriptionLong: {
-            en: '',
-            th: `ซอฟต์แวร์ทางเทคนิคขั้นสูงที่ออกแบบมาเพื่อยกระดับการปฏิบัติการของการเคลื่อนที่ของวิถีสนาม ระบบนี้ช่วยเปลี่ยนการคำนวณด้วยแรงงานคนให้เป็นระบบอัตโนมัติที่ซับซ้อน โดยรวมข้อมูลจากตารางอ้างอิง (Reference Tables) เข้ากับปัจจัยสภาพแวดล้อมแบบ Real-time
-
-### รายละเอียดทางเทคนิคที่สำคัญ:
-1. **กลไกการคำนวณ (Computational Engine)**: พัฒนาระบบประมวลผล 11 ขั้นตอน (Step-by-step pipeline) ที่คำนวณวิถีตามประเภท, น้ำหนัก และข้อมูลอุตุนิยมวิทยา (ลม, ความหนาแน่นอากาศ, อุณหภูมิ)
-2. **การแสดงผล 3 มิติ**: สร้างเอนจินการแสดงผลแบบ 3 มิติเพื่อจำลองวิถี จุดตก และความสูงต่ำของภูมิประเทศ ช่วยให้ผู้ปฏิบัติงานเห็นภาพสิ่งกีดขวางและผลกระทบของภูมิประเทศ
-3. **ระบบปรับแก้การเคลื่อนที่ (Adjustment System)**: พัฒนาระบบอัจฉริยะที่บันทึกผลลัพธ์ที่ตรวจการณ์ได้ และคำนวณวิธีแก้ซ้ำแบบวนซ้ำ (Iterative) เพื่อลดระยะห่างระหว่างแนวทางที่ตั้งใจกับผลลัพธ์จริง
-4. **การจัดการข้อมูล**: ระบบการจัดการ, ฐานข้อมูล และระบบการบันทึก/โหลดภารกิจที่แข็งแกร่งด้วย React Hooks และระบบจัดเก็บข้อมูลบน Electron`,
+            en: `Software that automates howitzer firing-table calculation for technical fire control. Instead of looking up printed tabular firing tables by hand, the system computes range–elevation relationships and applies corrections for nonstandard conditions such as wind, air density, temperature, and projectile weight.`,
+            th: `ซอฟต์แวร์คำนวณตารางยิง (Firing Table) สำหรับอำนวยการยิงโฮวิตเซอร์ แทนการเปิดตารางยิงแบบกระดาษด้วยมือ ระบบคำนวณความสัมพันธ์ระหว่างระยะกับมุมเงย และปรับแก้ค่าจากสภาพที่ไม่เป็นมาตรฐาน เช่น ลม ความหนาแน่นอากาศ อุณหภูมิ และน้ำหนักกระสุน`,
         },
-        image: '/images/trajectory-control-map.png',
+        image: '/images/howitzer-fire-control.png',
         images: [
             {
-                url: '/images/trajectory-control-map.png',
-                caption: { en: '', th: 'แผนที่ภูมิประเทศและการแสดงผล 3 มิติสำหรับคำนวณการยิง' },
+                url: '/images/howitzer-fire-control.png',
+                caption: { en: '', th: 'ระบบอำนวยการยิงโฮวิตเซอร์' },
                 isPrimary: true,
             },
         ],
