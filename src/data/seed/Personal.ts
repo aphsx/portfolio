@@ -47,10 +47,6 @@ export const bioTimelineSeed: BioTimelineItem[] = [
         },
         links: [
             {
-                label: { en: 'Moby Analytics', th: 'Moby Analytics' },
-                url: 'https://github.com/aphsx/demo-predict',
-            },
-            {
                 label: { en: '1moby', th: '1moby' },
                 url: 'https://www.1moby.com/',
             },
