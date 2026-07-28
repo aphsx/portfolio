@@ -274,16 +274,16 @@ export const projectsSeed: Project[] = [
             th: 'BillGang — แอปหารบิล',
         },
         description: {
-            en: 'A Flutter split-bill app for groups: create bills, invite friends, assign items in real time, simplify debts, and pay with PromptPay QR.',
-            th: 'แอป Flutter สำหรับหารบิลกับเพื่อน สร้างบิล เชิญสมาชิก assign รายการแบบ real-time ลดยอดโอนให้น้อยลง และจ่ายผ่าน PromptPay QR',
+            en: 'A split-bill app that charges each person only for what they ordered or ate — not an equal split — then settles debts with PromptPay QR.',
+            th: 'แอปหารบิลที่คิดเงินตามรายการที่แต่ละคนสั่งหรือกินจริง ไม่ปันเท่ากันทุกคน เช่น คนที่ไม่กินเมนูนี้ก็ไม่ต้องจ่ายส่วนนั้น พร้อมสรุปหนี้และ PromptPay QR',
         },
         shortDescription: {
-            en: 'Real-time split bill with OCR, debt settle, and PromptPay QR.',
-            th: 'หารบิลแบบ real-time พร้อม OCR, สรุปหนี้ และ PromptPay QR',
+            en: 'Fair split by item: pay only for what you ate.',
+            th: 'หารตามจริง — จ่ายเฉพาะเมนูที่ตัวเองสั่ง/กิน',
         },
         descriptionLong: {
-            en: 'BillGang is a mobile split-bill app built for CS356. Groups can create a bill, add items manually or by scanning a receipt with OCR, invite friends via QR/link, and assign menu items together in real time over WebSocket. The app then simplifies who owes whom and generates a PromptPay QR for each payment.',
-            th: 'BillGang เป็นแอปมือถือสำหรับหารบิลในรายวิชา CS356 กลุ่มเพื่อนสร้างบิล เพิ่มเมนูเองหรือถ่ายใบเสร็จให้ OCR อ่านรายการ เชิญเพื่อนผ่าน QR/ลิงก์ และ assign รายการพร้อมกันแบบ real-time ผ่าน WebSocket จากนั้นระบบสรุปหนี้ให้โอนน้อยครั้งที่สุด พร้อมสร้าง PromptPay QR สำหรับชำระเงิน',
+            en: 'BillGang helps groups split restaurant bills fairly. Instead of dividing the total equally, friends assign each menu item to the people who ordered or ate it — so someone who skipped a dish does not pay for it. Groups can create a bill, add items by hand or scan a receipt with OCR, invite others via QR/link, assign items together in real time, simplify who owes whom, and pay with PromptPay QR.',
+            th: 'BillGang ช่วยให้กลุ่มเพื่อนหารบิลร้านอาหารได้อย่างยุติธรรม แทนการหารยอดรวมเท่า ๆ กัน ทุกคน assign รายการอาหารให้คนที่สั่งหรือกินจริง เช่น บางคนแพ้อาหารหรือไม่ได้สั่งเมนูนั้น ก็ไม่ต้องจ่ายส่วนนั้น กลุ่มสร้างบิล เพิ่มเมนูเองหรือถ่ายใบเสร็จให้ OCR อ่าน เชิญเพื่อนผ่าน QR/ลิงก์ assign พร้อมกันแบบ real-time แล้วระบบสรุปว่าใครต้องโอนให้ใครเท่าไร พร้อมสร้าง PromptPay QR',
         },
         image: '/images/billgang.png',
         images: [{ url: '/images/billgang.png', isPrimary: true }],
