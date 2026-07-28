@@ -3,9 +3,10 @@ import { useState } from 'react'
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { HiMenu, HiX } from 'react-icons/hi'
-import { FiGithub, FiMoon, FiSun } from 'react-icons/fi'
+import { FiFileText, FiGithub, FiMoon, FiSun } from 'react-icons/fi'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTheme } from '../../contexts'
+import { SITE_CONFIG } from '../../config/site'
 import { useTranslation } from 'react-i18next'
 import { useLocalizedData } from '../../hooks'
 
@@ -70,6 +71,15 @@ const Navbar = () => {
                   {item.name}
                 </Link>
               ))}
+              <a
+                href={SITE_CONFIG.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors duration-200"
+              >
+                <FiFileText size={16} />
+                <span className="text-sm">{t('nav.resume')}</span>
+              </a>
               <a
                 href="https://github.com/aphsx"
                 target="_blank"
@@ -165,7 +175,17 @@ const Navbar = () => {
                 </Link>
               ))}
               <a
-                href="https://github.com"
+                href={SITE_CONFIG.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors duration-200"
+                onClick={() => setIsOpen(false)}
+              >
+                <FiFileText size={20} />
+                <span className="text-sm font-medium">{t('nav.resume')}</span>
+              </a>
+              <a
+                href="https://github.com/aphsx"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors duration-200"
