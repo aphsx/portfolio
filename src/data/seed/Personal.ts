@@ -23,8 +23,8 @@ export const bioTimelineSeed: BioTimelineItem[] = [
         isActive: true,
         order: 1,
         event: {
-            en: 'Working as a Software Engineer at AUGUST TEN DIGITAL DEVELOPMENT COMPANY LIMITED while continuing Computer Science studies at Bangkok University, including summer coursework.',
-            th: 'Software Engineer ที่ AUGUST TEN DIGITAL DEVELOPMENT COMPANY LIMITED ควบคู่กับการเรียนสาขาวิชาวิทยาการคอมพิวเตอร์ที่มหาวิทยาลัยกรุงเทพ รวมถึงการเรียนภาคฤดูร้อน',
+            en: 'Working as a Software Engineer at AUGUST TEN DIGITAL DEVELOPMENT COMPANY LIMITED while studying as a senior Computer Science student at Bangkok University.',
+            th: 'Software Engineer ที่ AUGUST TEN DIGITAL DEVELOPMENT COMPANY LIMITED ควบคู่กับการเรียนชั้นปีที่ 4 สาขาวิชาวิทยาการคอมพิวเตอร์ที่มหาวิทยาลัยกรุงเทพ',
         },
         links: [
             {
