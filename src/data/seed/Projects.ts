@@ -103,6 +103,38 @@ export const projectsSeed: Project[] = [
         tags: ['CoSI', 'Software Development', '2025'],
     },
     {
+        id: 'cert-bu-kait',
+        slug: 'bu-kait-certificate',
+        isActive: true,
+        order: 4,
+        category: 'certi',
+        status: 'completed',
+        featured: false,
+        year: 2023,
+        title: {
+            en: 'BU × KAIT Certificate',
+            th: 'ใบประกาศนียบัตร BU × KAIT',
+        },
+        description: {
+            en: 'Certificate from Bangkok University in collaboration with Kanagawa Institute of Technology (KAIT).',
+            th: 'ใบประกาศนียบัตรจากมหาวิทยาลัยกรุงเทพ ร่วมกับ Kanagawa Institute of Technology (KAIT)',
+        },
+        shortDescription: {
+            en: 'Certificate from BU in collaboration with KAIT.',
+            th: 'ใบประกาศนียบัตรจาก BU ร่วมกับ KAIT',
+        },
+        descriptionLong: {
+            en: 'Awarded by Bangkok University in collaboration with Kanagawa Institute of Technology (KAIT), issued in 2023.',
+            th: 'ได้รับจากมหาวิทยาลัยกรุงเทพ ร่วมกับ Kanagawa Institute of Technology (KAIT) ปี 2023',
+        },
+        image: '/certificates/certi-bu-kait-thumb.png',
+        images: [],
+        link: '',
+        github: '',
+        fileUrl: '/certificates/certi-bu-kait.pdf',
+        tags: ['Bangkok University', 'KAIT', '2023'],
+    },
+    {
         id: 'proj-001',
         slug: 'enterprise-resource-planning',
         isActive: true,
