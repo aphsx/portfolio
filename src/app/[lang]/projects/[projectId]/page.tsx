@@ -188,6 +188,33 @@ const ProjectDetail = () => {
           />
         </motion.div>
 
+        {project.galleryLayout === 'photos' && project.images && project.images.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.75, duration: 0.6 }}
+            className="mb-16"
+          >
+            <div className="columns-2 gap-3">
+              {project.images.map((image, index) => (
+                <button
+                  key={image.url}
+                  type="button"
+                  className="mb-3 block w-full break-inside-avoid overflow-hidden rounded-lg cursor-zoom-in"
+                  onClick={() => setSelectedImage(image.url)}
+                >
+                  <img
+                    src={image.url}
+                    alt={`${getLocalized(project.title)} - ${index + 1}`}
+                    className="w-full h-auto"
+                    loading="lazy"
+                  />
+                </button>
+              ))}
+            </div>
+          </motion.div>
+        )}
+
         {project.fileUrl && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -208,8 +235,7 @@ const ProjectDetail = () => {
           </motion.div>
         )}
 
-        {/* Additional Images Gallery */}
-        {project.images && project.images.length > 0 && (
+        {project.galleryLayout !== 'photos' && project.images && project.images.length > 0 && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -222,7 +248,7 @@ const ProjectDetail = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {project.images.map((image, index) => (
                 <div
-                  key={index}
+                  key={image.url}
                   className="flex flex-col gap-3"
                 >
                   <div

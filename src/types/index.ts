@@ -68,6 +68,7 @@ export interface Project extends BaseEntity {
   descriptionLong?: LocalizedText
   image: string
   images?: ProjectImage[]
+  galleryLayout?: 'grid' | 'photos'
   link?: string
   github?: string
   fileUrl?: string
