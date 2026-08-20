@@ -1,11 +1,10 @@
 "use client";
 import { useParams, useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { HiArrowLeft, HiExternalLink, HiX } from "react-icons/hi";
+import { HiArrowLeft, HiChevronLeft, HiChevronRight, HiExternalLink, HiX } from "react-icons/hi";
 import { FiGithub } from "react-icons/fi";
 import Link from "next/link";
-import { useState } from "react";
 import { ProjectRepository } from "../../../../data";
 import { useTranslation } from 'react-i18next';
 import { useLocalizedData } from '../../../../hooks';
@@ -15,16 +14,46 @@ const ProjectDetail = () => {
   const { projectId } = useParams();
   const { t } = useTranslation();
   const { getLocalized, language } = useLocalizedData();
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [lightbox, setLightbox] = useState<{ images: string[]; index: number } | null>(null);
+  const touchStartX = useRef(0);
 
   const project = ProjectRepository.getById((projectId as string) ?? '');
   const router = useRouter();
+  const galleryImages = project?.images?.map((image) => image.url) ?? [];
+  const lightboxImage = lightbox ? lightbox.images[lightbox.index] : null;
+  const canNavigate = (lightbox?.images.length ?? 0) > 1;
+
+  const openLightbox = (images: string[], url: string) => {
+    const index = images.indexOf(url);
+    setLightbox({ images, index: index < 0 ? 0 : index });
+  };
+
+  const goLightbox = (delta: number) => {
+    setLightbox((current) => {
+      if (!current || current.images.length < 2) return current;
+      const next = (current.index + delta + current.images.length) % current.images.length;
+      return { ...current, index: next };
+    });
+  };
 
   useEffect(() => {
     if (!project) {
       router.replace(`/${language}/projects`);
     }
   }, [project, router, language]);
+
+  useEffect(() => {
+    if (!lightbox) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setLightbox(null);
+      if (event.key === 'ArrowLeft') goLightbox(-1);
+      if (event.key === 'ArrowRight') goLightbox(1);
+    };
+
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [lightbox]);
 
   if (!project) {
     return null;
@@ -75,7 +104,7 @@ const ProjectDetail = () => {
         >
           <div
             className="aspect-video rounded-lg overflow-hidden bg-white dark:bg-gray-800 cursor-zoom-in group relative"
-            onClick={() => setSelectedImage(project.image)}
+            onClick={() => openLightbox([project.image], project.image)}
           >
             <img
               src={project.image}
@@ -197,12 +226,12 @@ const ProjectDetail = () => {
           >
             <div className="columns-2 gap-3">
               {project.images.map((image, index) => (
-                <button
-                  key={image.url}
-                  type="button"
-                  className="mb-3 block w-full break-inside-avoid overflow-hidden rounded-lg cursor-zoom-in"
-                  onClick={() => setSelectedImage(image.url)}
-                >
+                  <button
+                    key={image.url}
+                    type="button"
+                    className="mb-3 block w-full break-inside-avoid overflow-hidden rounded-lg bg-transparent p-0 border-0 cursor-zoom-in"
+                    onClick={() => openLightbox(galleryImages, image.url)}
+                  >
                   <img
                     src={image.url}
                     alt={`${getLocalized(project.title)} - ${index + 1}`}
@@ -253,7 +282,7 @@ const ProjectDetail = () => {
                 >
                   <div
                     className="aspect-video rounded-lg overflow-hidden bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-800 shadow-sm cursor-zoom-in group relative"
-                    onClick={() => setSelectedImage(image.url)}
+                    onClick={() => openLightbox(galleryImages, image.url)}
                   >
                     <img
                       src={image.url}
@@ -275,37 +304,77 @@ const ProjectDetail = () => {
         )}
       </div>
 
-      {/* Image Lightbox Modal */}
       <AnimatePresence>
-        {selectedImage && (
+        {lightboxImage && lightbox && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 md:p-10 cursor-zoom-out"
-            onClick={() => setSelectedImage(null)}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 md:p-10"
+            onClick={() => setLightbox(null)}
           >
             <motion.button
-              className="absolute top-6 right-6 text-white/70 hover:text-white p-2 bg-white/10 rounded-full backdrop-blur-md border border-white/20 transition-all hover:scale-110"
+              type="button"
+              className="absolute top-6 right-6 z-10 text-white/70 hover:text-white p-2 bg-white/10 rounded-full backdrop-blur-md border border-white/20 transition-all hover:scale-110"
               whileHover={{ rotate: 90 }}
-              onClick={() => setSelectedImage(null)}
+              onClick={() => setLightbox(null)}
             >
               <HiX size={24} />
             </motion.button>
+
+            {canNavigate && (
+              <>
+                <button
+                  type="button"
+                  aria-label="Previous image"
+                  className="absolute left-3 md:left-6 z-10 text-white/80 hover:text-white p-2 bg-white/10 rounded-full backdrop-blur-md border border-white/20"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    goLightbox(-1);
+                  }}
+                >
+                  <HiChevronLeft size={28} />
+                </button>
+                <button
+                  type="button"
+                  aria-label="Next image"
+                  className="absolute right-3 md:right-6 z-10 text-white/80 hover:text-white p-2 bg-white/10 rounded-full backdrop-blur-md border border-white/20"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    goLightbox(1);
+                  }}
+                >
+                  <HiChevronRight size={28} />
+                </button>
+              </>
+            )}
 
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative max-w-5xl w-full max-h-[90vh] flex items-center justify-center"
-              onClick={(e) => e.stopPropagation()}
+              className="relative max-w-5xl w-full max-h-[90vh] flex flex-col items-center justify-center gap-3"
+              onClick={(event) => event.stopPropagation()}
+              onTouchStart={(event) => {
+                touchStartX.current = event.changedTouches[0].clientX;
+              }}
+              onTouchEnd={(event) => {
+                const delta = event.changedTouches[0].clientX - touchStartX.current;
+                if (Math.abs(delta) < 40) return;
+                goLightbox(delta > 0 ? -1 : 1);
+              }}
             >
               <img
-                src={selectedImage}
+                src={lightboxImage}
                 alt="Enlarged project view"
-                className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
+                className="max-w-full max-h-[82vh] object-contain rounded-lg shadow-2xl"
               />
+              {canNavigate && (
+                <p className="text-white/70 text-sm">
+                  {lightbox.index + 1} / {lightbox.images.length}
+                </p>
+              )}
             </motion.div>
           </motion.div>
         )}
