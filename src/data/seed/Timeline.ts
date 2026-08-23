@@ -314,6 +314,10 @@ Received the **Best Safety Award** at the event.
 
 Organized by BU and KAIT, led by Professor Toshihiro Wakita (KAIT). The race was live-streamed and brought together students programming and racing autonomous mini cars on a dedicated track.
 
+## Portfolio
+
+Certificate PDF and photos are on the project page.
+
 [Read KAIT event announcement →](${KAIT_AI_RACE_URL})`,
             th: `## BU × KAIT — AI Racing Car
 
@@ -327,6 +331,10 @@ Organized by BU and KAIT, led by Professor Toshihiro Wakita (KAIT). The race was
 
 จัดโดย BU และ KAIT นำโดย Professor Toshihiro Wakita (KAIT) มีการถ่ายทอดสด และนิสิตลงมือ program AI แล้วแข่งรถ autonomous บนลู่เฉพาะ
 
+## Portfolio
+
+ไฟล์ใบประกาศและรูป อยู่ในหน้าโปรเจกต์
+
 [อ่านประกาศงานจาก KAIT →](${KAIT_AI_RACE_URL})`,
         },
         type: 'award',
@@ -334,11 +342,16 @@ Organized by BU and KAIT, led by Professor Toshihiro Wakita (KAIT). The race was
         dateSort: '2025-03-06',
         image: BU_KAIT_AI_RACE_HERO,
         images: BU_KAIT_AI_RACE_IMAGES,
+        projectId: 'cert-bu-kait',
         tags: ['BU', 'KAIT', 'AI'],
         links: [
             {
                 label: { en: 'KAIT event news', th: 'ข่าวงานจาก KAIT' },
                 url: KAIT_AI_RACE_URL,
+            },
+            {
+                label: { en: 'Certificate PDF', th: 'ไฟล์ใบประกาศ' },
+                url: '/certificates/certi-bu-kait.pdf',
             },
             {
                 label: { en: 'CoSI', th: 'CoSI' },
