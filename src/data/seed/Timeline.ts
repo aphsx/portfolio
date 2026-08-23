@@ -96,40 +96,40 @@ Luis เขียนบันทึกขอบคุณพร้อมผลง
             th: 'NTU Hackathon: Innovating Functional Recovery',
         },
         excerpt: {
-            en: 'Joined NTU Singapore’s hackathon on stroke rehabilitation — building prototypes with technology and game design on campus.',
-            th: 'เข้าร่วม hackathon ของ NTU สิงคโปร์ เรื่องฟื้นฟูผู้ป่วยโรคหลอดเลือดสมอง — ลงมือ build prototype ด้วยเทคโนโลยีและ game design ในมหาวิทยาลัย',
+            en: 'Joined NTU Singapore’s hackathon on stroke rehabilitation — 2 days of prototyping at KMUTT (Bang Mod), Thonburi.',
+            th: 'เข้าร่วม hackathon ของ NTU สิงคโปร์ เรื่องฟื้นฟูผู้ป่วย stroke — ลงมือ build prototype 2 วัน ที่ มจธ. บางมด ธนบุรี',
         },
         content: {
             en: `## NTU Hackathon: Innovating Functional Recovery
 
-In **May 2026**, I took part in **NTU Hackathon: Innovating Functional Recovery** at **Nanyang Technological University (NTU)**, Singapore.
+On **2–3 May 2026**, I took part in **NTU Hackathon: Innovating Functional Recovery** at the **College of Management and Innovation, King Mongkut's University of Technology Thonburi (KMUTT)** — Bang Mod campus, Thonburi, Bangkok.
 
-The event focused on **stroke patient rehabilitation** through innovative technology and game design — teams worked on prototypes that encourage safe, engaging physical movement and recovery exercises.
+Organized by **Nanyang Technological University (NTU) Singapore** with Thai partners, the hackathon focused on **stroke patient rehabilitation** through technology and game design. Teams worked on prototypes that encourage safe, engaging physical movement and recovery exercises.
 
-Received a **Certificate of Participation** from NTU in recognition of participation, creativity, and contribution to the event. Photos below are from the hackathon sessions on campus.
+Received a **Certificate of Participation** from NTU. Photos below are from the hackathon sessions at KMUTT.
 
 ## Portfolio
 
 The certificate PDF and more details are on the project page.`,
             th: `## NTU Hackathon: Innovating Functional Recovery
 
-ใน **พฤษภาคม 2026** ผมเข้าร่วม **NTU Hackathon: Innovating Functional Recovery** ที่ **Nanyang Technological University (NTU)** ประเทศสิงคโปร์
+วันที่ **2–3 พฤษภาคม 2026** ผมเข้าร่วม **NTU Hackathon: Innovating Functional Recovery** ณ **บัณฑิตวิทยาลัยการจัดการและนวัตกรรม มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี (มจธ.)** วิทยาเขตบางมด ธนบุรี กรุงเทพฯ
 
-งานเน้น **การฟื้นฟูผู้ป่วยโรคหลอดเลือดสมอง** ด้วยเทคโนโลยีและ game design — ทีมต่างๆ ลงมือทำ prototype ที่ช่วยกระตุ้นการเคลื่อนไหวและแบบฝึกหัดฟื้นฟูอย่างปลอดภัยและน่าสนใจ
+จัดโดย **Nanyang Technological University (NTU) สิงคโปร์** ร่วมกับภาคีเครือข่ายในประเทศไทย งานเน้น **การฟื้นฟูผู้ป่วยโรคหลอดเลือดสมอง (stroke)** ด้วยเทคโนโลยีและ game design — ทีมต่างๆ ลงมือทำ prototype ที่ช่วยกระตุ้นการเคลื่อนไหวและแบบฝึกหัดฟื้นฟูอย่างปลอดภัยและน่าสนใจ
 
-ได้รับ **ใบประกาศนียบัตร (Certificate of Participation)** จาก NTU เพื่อยกย่องการเข้าร่วม ความคิดสร้างสรรค์ และการมีส่วนร่วมในงาน รูปด้านล่างจากช่วง hackathon ในมหาวิทยาลัย
+ได้รับ **ใบประกาศนียบัตร (Certificate of Participation)** จาก NTU รูปด้านล่างจากช่วง hackathon ที่ มจธ.
 
 ## Portfolio
 
 ไฟล์ใบประกาศและรายละเอียดเพิ่มเติม อยู่ในหน้าโปรเจกต์`,
         },
         type: 'event',
-        date: 'May 2026',
-        dateSort: '2026-05-01',
+        date: '2–3 May 2026',
+        dateSort: '2026-05-02',
         image: NTU_HACKATHON_HERO,
         images: NTU_HACKATHON_IMAGES,
         projectId: 'cert-hkt-ntu',
-        tags: ['NTU', 'Hackathon', 'Singapore'],
+        tags: ['NTU', 'Hackathon', 'KMUTT'],
         links: [
             {
                 label: { en: 'Facebook photo', th: 'รูปจาก Facebook' },
@@ -142,7 +142,7 @@ The certificate PDF and more details are on the project page.`,
         ],
         isActive: true,
         order: 3,
-        createdAt: '2026-05-01',
+        createdAt: '2026-05-02',
     },
     {
         id: 'timeline-cosi-2024',
