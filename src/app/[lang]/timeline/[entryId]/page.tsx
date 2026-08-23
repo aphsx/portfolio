@@ -113,7 +113,7 @@ const TimelineDetailPage = () => {
           <MarkdownRenderer content={getLocalized(entry.content)} />
         </motion.div>
 
-        {(primaryLink || otherLinks.length > 0) && (
+        {(entry.projectId || primaryLink || otherLinks.length > 0) && (
           <motion.aside
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -123,6 +123,23 @@ const TimelineDetailPage = () => {
             <p className="text-xs font-bold uppercase tracking-[0.14em] text-gray-400 dark:text-gray-500">
               {language === 'th' ? 'ลิงก์ที่เกี่ยวข้อง' : 'Related links'}
             </p>
+
+            {entry.projectId && (
+              <Link
+                href={`/${language}/projects/${entry.projectId}`}
+                className="group flex items-center justify-between gap-4 rounded-xl border border-teal-200 bg-teal-50/80 px-5 py-4 transition-colors hover:border-teal-300 hover:bg-teal-50 dark:border-teal-800/60 dark:bg-teal-950/30 dark:hover:border-teal-700"
+              >
+                <div>
+                  <p className="font-semibold text-gray-900 dark:text-gray-100">
+                    {language === 'th' ? 'ดูใน portfolio' : 'View in portfolio'}
+                  </p>
+                  <p className="mt-0.5 truncate text-xs text-gray-500 dark:text-gray-400">
+                    /{language}/projects/{entry.projectId}
+                  </p>
+                </div>
+                <HiArrowLeft size={18} className="shrink-0 rotate-180 text-teal-600 transition-transform group-hover:translate-x-0.5 dark:text-teal-400" />
+              </Link>
+            )}
 
             {primaryLink && (
               <a
