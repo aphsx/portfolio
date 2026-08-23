@@ -24,7 +24,7 @@ const TimelineList = ({ entries }: TimelineListProps) => {
 
       <div className="space-y-10">
         {entries.map((entry, index) => {
-          const coverImage = entry.images?.[0] ?? entry.image
+          const coverImage = entry.image ?? entry.images?.[0]
 
           return (
           <motion.article
