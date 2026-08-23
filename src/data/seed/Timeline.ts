@@ -32,6 +32,14 @@ const BU_KAIT_AI_RACE_IMAGES = [
     '/images/bu-kait-ai-race-overview.jpg',
 ]
 
+const BU_CONFERENCE_COSI_URL = 'https://cosi.bu.ac.th/news/YZN791WL6vX7fs'
+
+const BU_CONFERENCE_HERO = '/images/bu-conference-cosi-cover.jpg'
+const BU_CONFERENCE_IMAGES = [
+    '/images/bu-conference-cosi-1.jpg',
+    '/images/bu-conference-cosi-2.jpg',
+]
+
 // ---------------------------------------------------------------------------
 // Source-of-truth for timeline / activity blog entries.
 // Add new rows here — list page and detail pages pick them up automatically.
@@ -105,6 +113,65 @@ Luis เขียนบันทึกขอบคุณพร้อมผลง
         isActive: true,
         order: 1,
         createdAt: '2026-08-23',
+    },
+    {
+        id: 'timeline-bu-conference-2026',
+        slug: 'bu-conference-research-2026',
+        title: {
+            en: 'BU Conference — Research Exhibition',
+            th: 'BU Conference — จัดแสดงผลงานวิจัย',
+        },
+        excerpt: {
+            en: 'Helped CoSI exhibit at the 5th BU Conference — research in science, technology, and national-defense-related innovation.',
+            th: 'ร่วม CoSI จัดแสดงในงาน BU Conference ครั้งที่ 5 — งานวิจัยด้านวิทยาศาสตร์ เทคโนโลยี และนวัตกรรมเพื่อการป้องกันประเทศ',
+        },
+        content: {
+            en: `## BU Conference — Research Exhibition
+
+On **10 July 2026**, joined **CoSI (Center of Specialty Innovation)** to help present research at the **5th BU Conference** — Bangkok University's international academic conference at **Imagine Lounge**.
+
+CoSI's booth showcased work in **science, technology, and innovation**, including research directions related to **national defense** (project details are not public).
+
+**Prof. Dr. Napaporn Leepreechanont**, Vice Rector for Academic Affairs, visited the booth and praised the research display.
+
+## Read more
+
+CoSI published a news post with photos from the event.
+
+[View on cosi.bu.ac.th →](${BU_CONFERENCE_COSI_URL})`,
+            th: `## BU Conference — จัดแสดงผลงานวิจัย
+
+วันที่ **10 กรกฎาคม 2569** ร่วมกับ **CoSI (ศูนย์นวัตกรรมเฉพาะทาง)** ช่วยจัดแสดงผลงานวิจัยใน **BU Conference ครั้งที่ 5** — งานประชุมวิชาการนานาชาติของมหาวิทยาลัยกรุงเทพ ณ **ห้อง Imagine Lounge**
+
+บูธ CoSI นำเสนองานด้าน **วิทยาศาสตร์ เทคโนโลยี และนวัตกรรม** รวมถึงงานวิจัยที่เกี่ยวข้องกับ **การป้องกันประเทศ** (รายละเอียดโครงการไม่เปิดเผย)
+
+**รศ.ดร.นพพร ลีปรีชานนท์** รองอธิการบดีฝ่ายวิชาการ เข้าเยี่ยมชมบูธและชื่นชมการจัดแสดงผลงานวิจัย
+
+## อ่านเพิ่มเติม
+
+CoSI ลงข่าวพร้อมรูปจากงานไว้ที่เว็บไซต์
+
+[ดูที่ cosi.bu.ac.th →](${BU_CONFERENCE_COSI_URL})`,
+        },
+        type: 'participation',
+        date: '10 Jul 2026',
+        dateSort: '2026-07-10',
+        image: BU_CONFERENCE_HERO,
+        images: BU_CONFERENCE_IMAGES,
+        tags: ['BU', 'CoSI', 'Research'],
+        links: [
+            {
+                label: { en: 'CoSI news', th: 'ข่าว CoSI' },
+                url: BU_CONFERENCE_COSI_URL,
+            },
+            {
+                label: { en: 'CoSI website', th: 'เว็บ CoSI' },
+                url: 'https://cosi.bu.ac.th/',
+            },
+        ],
+        isActive: true,
+        order: 2,
+        createdAt: '2026-07-10',
     },
     {
         id: 'timeline-cert-hkt-ntu-2026',
