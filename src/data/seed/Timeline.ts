@@ -35,10 +35,16 @@ const BU_KAIT_AI_RACE_IMAGES = [
 const BU_CONFERENCE_COSI_URL = 'https://cosi.bu.ac.th/news/YZN791WL6vX7fs'
 
 const BU_CONFERENCE_HERO = '/images/bu-conference-cosi-cover.jpg'
-const BU_CONFERENCE_IMAGES = [
+const BU_CONFERENCE_COSI_IMAGES = [
     '/images/bu-conference-cosi-1.jpg',
     '/images/bu-conference-cosi-2.jpg',
 ]
+const BU_CONFERENCE_USER_IMAGES = [
+    '/images/bu-conference-banners-hall.jpg',
+    '/images/bu-conference-artillery-uav.jpg',
+    '/images/bu-conference-antidrone.jpg',
+]
+const BU_CONFERENCE_IMAGES = [...BU_CONFERENCE_COSI_IMAGES, ...BU_CONFERENCE_USER_IMAGES]
 
 // ---------------------------------------------------------------------------
 // Source-of-truth for timeline / activity blog entries.
