@@ -70,7 +70,7 @@ const TimelineList = ({ entries }: TimelineListProps) => {
                 </div>
               )}
 
-              <div className="p-5 sm:p-6">
+              <div className="p-4 sm:p-5">
                 {!coverImage && (
                   <div className="mb-3 flex flex-wrap items-center gap-2">
                     <time className="text-xs font-semibold tracking-wide text-teal-600 dark:text-teal-400">
@@ -82,26 +82,13 @@ const TimelineList = ({ entries }: TimelineListProps) => {
                   </div>
                 )}
 
-                <h2 className="mb-2 text-xl font-bold leading-snug text-gray-900 transition-colors group-hover:text-teal-600 dark:text-gray-100 dark:group-hover:text-teal-400">
+                <h2 className="mb-1.5 text-lg font-bold leading-snug text-gray-900 transition-colors group-hover:text-teal-600 dark:text-gray-100 dark:group-hover:text-teal-400">
                   {getLocalized(entry.title)}
                 </h2>
 
-                <p className="mb-4 line-clamp-3 text-sm leading-relaxed text-gray-500 dark:text-gray-400">
+                <p className="mb-3 line-clamp-3 text-sm leading-relaxed text-gray-500 dark:text-gray-400">
                   {getLocalized(entry.excerpt)}
                 </p>
-
-                {entry.tags && entry.tags.length > 0 && (
-                  <div className="mb-4 flex flex-wrap gap-1.5">
-                    {entry.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-md bg-gray-100 px-2 py-0.5 text-[11px] font-medium text-gray-500 dark:bg-gray-700/80 dark:text-gray-300"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
 
                 <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-teal-600 transition-all group-hover:gap-2 dark:text-teal-400">
                   {t('timeline.readMore')}
