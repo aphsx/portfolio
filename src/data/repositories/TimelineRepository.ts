@@ -12,6 +12,10 @@ export const TimelineRepository = {
         return timelineSeed.find((entry) => entry.id === id && entry.isActive)
     },
 
+    getBySlug(slug: string): TimelineEntry | undefined {
+        return timelineSeed.find((entry) => entry.slug === slug && entry.isActive)
+    },
+
     getByType(type: TimelineEntryType): TimelineEntry[] {
         return TimelineRepository.getAll().filter((entry) => entry.type === type)
     },
