@@ -14,11 +14,11 @@ const NTU_HACKATHON_IMAGES = [
 
 const NTU_HACKATHON_HERO = '/images/ntu-hackathon-workspace-hero.jpg'
 
-const WAT_AMERICA_HERO = '/images/wat-america-passport.jpg'
+const WAT_AMERICA_HERO = '/images/wat-america-kitchen.jpg'
 const WAT_AMERICA_IMAGES = [
+    '/images/wat-america-passport.jpg',
     '/images/wat-america-luggage.jpg',
     '/images/wat-america-street.jpg',
-    '/images/wat-america-kitchen.jpg',
     '/images/wat-america-kitchen-break.jpg',
     '/images/wat-america-clock-in.jpg',
 ]
@@ -216,32 +216,32 @@ CoSI เป็นที่ที่ผมได้ลงมือ build ระ�
             th: 'Work and Travel America',
         },
         excerpt: {
-            en: 'Language training in the U.S. (16 May – 8 Aug 2025) — then work, travel, and everyday life abroad.',
-            th: 'ฝึกภาษาที่อเมริกา (16 พ.ค. – 8 ส.ค. 2025) — ตามด้วยทำงาน เที่ยว และชีวิตประจำวันต่างประเทศ',
+            en: 'Work and Travel in the U.S. (16 May – 8 Aug 2025) — language training, work, and life abroad.',
+            th: 'Work and Travel อเมริกา (16 พ.ค. – 8 ส.ค. 2025) — ฝึกภาษา ทำงาน และใช้ชีวิตต่างประเทศ',
         },
         content: {
             en: `## Work and Travel America
 
-Joined the **Work and Travel** program in the United States — starting with **language training from 16 May to 8 August 2025** before moving into work and travel.
+Joined the **Work and Travel** program in the United States from **16 May to 8 August 2025**.
 
-## Language training
+The program combines **language training**, **work**, and **travel** — building English in an immersive setting while working shifts and experiencing everyday life abroad.
 
-Spent the summer building English in an immersive setting — classes, daily conversation, and getting used to life in America before starting work.
+## Highlights
 
-## Work & daily life
-
-After training, worked shifts at a food-service job — clocking in, kitchen prep, and the rhythm of a real workplace abroad. Photos below are from travel, work, and in-between moments during the program.`,
+- Language classes and daily conversation as part of the program
+- Work at a food-service job — clocking in, kitchen prep, team shifts
+- Travel and moments in between — photos below from the trip`,
             th: `## Work and Travel America
 
-เข้าร่วมโครงการ **Work and Travel** ในสหรัฐอเมริกา — เริ่มจาก **ฝึกภาษา 16 พฤษภาคม – 8 สิงหาคม 2025** ก่อนลงมือทำงานและเที่ยวต่อ
+เข้าร่วมโครงการ **Work and Travel** ในสหรัฐอเมริกา **16 พฤษภาคม – 8 สิงหาคม 2025**
 
-## ช่วงฝึกภาษา
+โครงการรวม **ฝึกภาษา ทำงาน และเที่ยว** — เรียนภาษาในบรรยากาศจริง พร้อมลงมือทำงานและใช้ชีวิตต่างประเทศไปพร้อมกัน
 
-ใช้ช่วงฝึกภาษาทั้งซัมเมอร์ในอเมริกา — เรียน คุยประจำวัน และปรับตัวกับชีวิตต่างประเทศก่อนเริ่มงานจริง
+## ไฮไลท์
 
-## งาน & ชีวิตประจำวัน
-
-หลังจบช่วงฝึกภาษา ลงมือทำงานในร้านอาหาร — ลงเวลา เตรียมครัว และเรียนรู้จังหวะการทำงานจริงในอเมริกา รูปด้านล่างจากช่วงเที่ยว ทำงาน และช่วงระหว่างทางในโครงการ`,
+- ฝึกภาษา — เรียนและใช้ภาษาอังกฤษในชีวิตประจำวัน เป็นส่วนหนึ่งของโปรแกรม
+- ทำงาน — ลงมือทำงานในร้านอาหาร ลงเวลา เตรียมครัว ทำงานเป็นทีม
+- เที่ยว & ช่วงระหว่างทาง — รูปด้านล่างจากช่วงต่างๆ ในโครงการ`,
         },
         type: 'participation',
         date: '16 May – 8 Aug 2025',
