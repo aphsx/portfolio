@@ -15,17 +15,18 @@ const LanguageWrapper = ({ children }: { children: React.ReactNode }) => {
     const { i18n } = useTranslation()
     const router = useRouter()
 
-    const currentI18nLang = (i18n.language || '').split(/[-_]/)[0].toLowerCase()
-    if (isSupportedLanguage(lang) && lang !== currentI18nLang) {
-        i18n.changeLanguage(lang)
-    }
-
     useEffect(() => {
         // Invalid or missing lang → send to home in a supported language
         if (!isSupportedLanguage(lang)) {
             const detectedLang = i18n.language?.split('-')[0] || SITE_CONFIG.defaultLanguage
             const finalLang = isSupportedLanguage(detectedLang) ? detectedLang : SITE_CONFIG.defaultLanguage
             router.replace(`/${finalLang}`)
+            return
+        }
+
+        const currentI18nLang = (i18n.language || '').split(/[-_]/)[0].toLowerCase()
+        if (lang !== currentI18nLang) {
+            i18n.changeLanguage(lang)
         }
     }, [lang, i18n, router])
 
