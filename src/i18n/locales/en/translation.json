@@ -1,5 +1,6 @@
 {
     "nav.portfolio": "Projects",
+    "nav.timeline": "Timeline",
     "nav.uses": "Tools",
     "nav.posts": "Posts",
     "nav.github": "GitHub",
@@ -59,6 +60,13 @@
     "uses.design": "Design Tools",
     "uses.note.title": "Always Evolving",
     "uses.note.description": "This setup keeps evolving as I discover new technologies and workflows. I regularly evaluate new tools to stay productive and keep up with modern industry practices.",
+    "timeline.title": "Timeline",
+    "timeline.subtitle": "A running log of activities, events, awards, and things I've joined or achieved.",
+    "timeline.empty": "No updates yet.",
+    "timeline.type.activity": "Activity",
+    "timeline.type.participation": "Participation",
+    "timeline.type.award": "Award",
+    "timeline.type.event": "Event",
     "common.loading": "Loading...",
     "common.error": "Something went wrong",
     "common.retry": "Try again"

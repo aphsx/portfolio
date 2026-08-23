@@ -11,7 +11,7 @@ function isLocale(value: string): boolean {
 function isKnownPath(segments: string[]): boolean {
   // segments are after the locale, e.g. [] | ['projects'] | ['projects', 'id'] | ['uses']
   if (segments.length === 0) return true
-  if (segments.length === 1 && (segments[0] === 'projects' || segments[0] === 'uses')) {
+  if (segments.length === 1 && (segments[0] === 'projects' || segments[0] === 'uses' || segments[0] === 'timeline')) {
     return true
   }
   if (segments.length === 2 && segments[0] === 'projects' && segments[1].length > 0) {

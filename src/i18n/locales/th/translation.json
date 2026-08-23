@@ -1,5 +1,6 @@
 {
     "nav.portfolio": "ผลงาน",
+    "nav.timeline": "ไทม์ไลน์",
     "nav.uses": "เครื่องมือ",
     "nav.posts": "บทความ",
     "nav.github": "GitHub",
@@ -59,6 +60,13 @@
     "uses.design": "เครื่องมือออกแบบ",
     "uses.note.title": "พัฒนาอยู่เสมอ",
     "uses.note.description": "ชุดเครื่องมือนี้พัฒนาไปเรื่อยๆ เมื่อผมค้นพบเทคโนโลยีและวิธีการทำงานใหม่ๆ ผมประเมินเครื่องมือใหม่เป็นประจำเพื่อรักษาประสิทธิภาพที่เหมาะสมและให้ทันสมัยกับแนวปฏิบัติในอุตสาหกรรม",
+    "timeline.title": "ไทม์ไลน์",
+    "timeline.subtitle": "บันทึกกิจกรรม งานที่เข้าร่วม รางวัล และสิ่งที่ทำหรือได้รับ — อัปเดตเรื่อยๆ",
+    "timeline.empty": "ยังไม่มีรายการ",
+    "timeline.type.activity": "กิจกรรม",
+    "timeline.type.participation": "การเข้าร่วม",
+    "timeline.type.award": "รางวัล",
+    "timeline.type.event": "อีเวนต์",
     "common.loading": "กำลังโหลด...",
     "common.error": "เกิดข้อผิดพลาด",
     "common.retry": "ลองใหม่"

@@ -3,7 +3,7 @@ import { useState } from 'react'
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { HiMenu, HiX } from 'react-icons/hi'
-import { FiFileText, FiGithub, FiMoon, FiSun } from 'react-icons/fi'
+import { FiFileText, FiMoon, FiSun } from 'react-icons/fi'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTheme } from '../../contexts'
 import { SITE_CONFIG } from '../../config/site'
@@ -38,6 +38,7 @@ const Navbar = () => {
 
   const navItems = [
     { name: t('nav.portfolio'), path: `/${language}/projects` },
+    { name: t('nav.timeline'), path: `/${language}/timeline` },
     { name: t('nav.uses'), path: `/${language}/uses` },
   ]
 
@@ -79,15 +80,6 @@ const Navbar = () => {
               >
                 <FiFileText size={16} />
                 <span className="text-sm">{t('nav.resume')}</span>
-              </a>
-              <a
-                href="https://github.com/aphsx"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1 text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors duration-200"
-              >
-                <FiGithub size={16} />
-                <span className="text-sm">{t('nav.github')}</span>
               </a>
             </div>
 
@@ -183,16 +175,6 @@ const Navbar = () => {
               >
                 <FiFileText size={20} />
                 <span className="text-sm font-medium">{t('nav.resume')}</span>
-              </a>
-              <a
-                href="https://github.com/aphsx"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors duration-200"
-                onClick={() => setIsOpen(false)}
-              >
-                <FiGithub size={20} />
-                <span className="text-sm font-medium">{t('nav.github')}</span>
               </a>
             </div>
           </motion.div>

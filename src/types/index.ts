@@ -130,3 +130,22 @@ export interface UsesCategory extends BaseEntity {
   name: LocalizedText
   items: UsesTool[]
 }
+
+// ============================================================
+// Timeline / Personal Updates
+// ============================================================
+
+export type TimelineEntryType = 'activity' | 'award' | 'participation' | 'event'
+
+export interface TimelineLink {
+  label: LocalizedText
+  url: string
+}
+
+export interface TimelineEntry extends BaseEntity {
+  date: string
+  dateSort: string
+  type: TimelineEntryType
+  event: LocalizedText
+  links?: TimelineLink[]
+}
