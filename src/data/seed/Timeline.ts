@@ -5,6 +5,14 @@ const CURSOR_BUILD_SALAYA_URL =
 
 const COSI_PEOPLE_URL = 'https://cosi.bu.ac.th/people'
 
+const NTU_HACKATHON_IMAGES = [
+    '/images/ntu-hackathon-opening.jpg',
+    '/images/ntu-hackathon-venue.jpg',
+    '/images/ntu-hackathon-workspace.jpg',
+    '/images/ntu-hackathon-prototype.jpg',
+    '/images/ntu-hackathon-team.jpg',
+]
+
 // ---------------------------------------------------------------------------
 // Source-of-truth for timeline / activity blog entries.
 // Add new rows here — list page and detail pages pick them up automatically.
@@ -83,48 +91,52 @@ Luis เขียนบันทึกขอบคุณพร้อมผลง
         id: 'timeline-cert-hkt-ntu-2026',
         slug: 'cert-hkt-ntu-2026',
         title: {
-            en: 'HKT Certificate — NTU',
-            th: 'ใบประกาศนียบัตร HKT — NTU',
+            en: 'HKT Program — NTU',
+            th: 'โปรแกรม HKT — NTU',
         },
         excerpt: {
-            en: 'Certificate of participation from the HKT program at Nanyang Technological University (NTU), Singapore.',
-            th: 'ใบประกาศนียบัตรจากการเข้าร่วมโปรแกรม HKT ณ Nanyang Technological University (NTU) ประเทศสิงคโปร์',
+            en: 'Joined the HKT program at Nanyang Technological University (NTU), Singapore — hackathon sessions, building, and hands-on innovation.',
+            th: 'เข้าร่วมโปรแกรม HKT ที่ Nanyang Technological University (NTU) ประเทศสิงคโปร์ — hackathon ลงมือ build และทำนวัตกรรมจริง',
         },
         content: {
             en: `## HKT at NTU
 
-Received a certificate of participation from the **HKT program** hosted by **Nanyang Technological University (NTU)**, Singapore.
+Joined the **HKT program** hosted by **Nanyang Technological University (NTU)**, Singapore — working through hackathon sessions, prototyping, and team collaboration on campus.
 
-The program included hands-on work around innovation and building — with photos and notes from the hackathon sessions at NTU.
+Received a certificate of participation after the program. Photos below are from the NTU sessions.
 
 ## Portfolio
 
-More details, gallery photos, and the certificate PDF are on the project page.`,
+More details and the certificate PDF are on the project page.`,
             th: `## HKT ที่ NTU
 
-ได้รับใบประกาศนียบัตรจากการเข้าร่วม **โปรแกรม HKT** จัดโดย **Nanyang Technological University (NTU)** ประเทศสิงคโปร์
+เข้าร่วม **โปรแกรม HKT** จัดโดย **Nanyang Technological University (NTU)** ประเทศสิงคโปร์ — ลงมือ hackathon build prototype และทำงานเป็นทีมในมหาวิทยาลัย
 
-โปรแกรมมีกิจกรรมลงมือทำจริงด้านนวัตกรรมและการ build — พร้อมรูปจาก hackathon ที่ NTU
+ได้รับใบประกาศนียบัตรหลังจบโปรแกรม รูปด้านล่างจากช่วงงานที่ NTU
 
 ## Portfolio
 
-รายละเอียด แกลเลอรี และไฟล์ใบประกาศ อยู่ในหน้าโปรเจกต์`,
+รายละเอียดและไฟล์ใบประกาศ อยู่ในหน้าโปรเจกต์`,
         },
-        type: 'award',
+        type: 'event',
         date: '2026',
         dateSort: '2026-03-01',
-        image: '/certificates/certi-hkt-ntu-thumb.jpg',
-        imageFit: 'contain',
+        image: NTU_HACKATHON_IMAGES[0],
+        images: NTU_HACKATHON_IMAGES,
         projectId: 'cert-hkt-ntu',
         tags: ['NTU', 'HKT', 'Singapore'],
         links: [
+            {
+                label: { en: 'Facebook photo', th: 'รูปจาก Facebook' },
+                url: 'https://www.facebook.com/photo?fbid=1575652114567458&set=a.385741086891906',
+            },
             {
                 label: { en: 'Certificate PDF', th: 'ไฟล์ใบประกาศ' },
                 url: '/certificates/certi-hkt-ntu.pdf',
             },
         ],
         isActive: true,
-        order: 2,
+        order: 3,
         createdAt: '2026-03-01',
     },
     {
@@ -179,7 +191,7 @@ CoSI เป็นที่ที่ผมได้ลงมือ build ระ�
             },
         ],
         isActive: true,
-        order: 3,
+        order: 4,
         createdAt: '2024-06-23',
     },
 ]
