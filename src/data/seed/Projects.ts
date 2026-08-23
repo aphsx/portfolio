@@ -16,20 +16,20 @@ export const projectsSeed: Project[] = [
         featured: false,
         year: 2026,
         title: {
-            en: 'HKT Certificate — NTU',
-            th: 'ใบประกาศนียบัตร HKT — NTU',
+            en: 'NTU Hackathon: Innovating Functional Recovery',
+            th: 'NTU Hackathon: Innovating Functional Recovery',
         },
         description: {
-            en: 'Certificate of participation from the HKT program at Nanyang Technological University (NTU).',
-            th: 'ใบประกาศนียบัตรจากโปรแกรม HKT ณ Nanyang Technological University (NTU)',
+            en: 'Certificate of participation from NTU Hackathon: Innovating Functional Recovery at Nanyang Technological University (NTU), Singapore.',
+            th: 'ใบประกาศนียบัตรจาก NTU Hackathon: Innovating Functional Recovery ณ Nanyang Technological University (NTU)',
         },
         shortDescription: {
-            en: 'Certificate of participation from the HKT program at NTU.',
-            th: 'ใบประกาศนียบัตรจากโปรแกรม HKT ณ NTU',
+            en: 'Certificate of participation from NTU’s Innovating Functional Recovery hackathon.',
+            th: 'ใบประกาศนียบัตรจาก hackathon Innovating Functional Recovery ของ NTU',
         },
         descriptionLong: {
-            en: 'Awarded for participation in the HKT program hosted by Nanyang Technological University (NTU), Singapore.',
-            th: 'ได้รับใบประกาศนียบัตรจากการเข้าร่วมโปรแกรม HKT จัดโดย Nanyang Technological University (NTU) ประเทศสิงคโปร์',
+            en: 'Awarded for participation in NTU Hackathon: Innovating Functional Recovery — a stroke rehabilitation hackathon hosted by Nanyang Technological University (NTU), Singapore (May 2026).',
+            th: 'ได้รับใบประกาศนียบัตรจากการเข้าร่วม NTU Hackathon: Innovating Functional Recovery — hackathon ด้านการฟื้นฟูผู้ป่วยโรคหลอดเลือดสมอง จัดโดย Nanyang Technological University (NTU) ประเทศสิงคโปร์ (พฤษภาคม 2026)',
         },
         image: '/certificates/certi-hkt-ntu-thumb.jpg',
         galleryLayout: 'photos',
@@ -43,7 +43,7 @@ export const projectsSeed: Project[] = [
         link: '',
         github: '',
         fileUrl: '/certificates/certi-hkt-ntu.pdf',
-        tags: ['NTU', 'HKT', '2026'],
+        tags: ['NTU', 'Hackathon', '2026'],
     },
     {
         id: 'cert-production-planning-system',

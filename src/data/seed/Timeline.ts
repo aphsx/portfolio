@@ -91,40 +91,44 @@ Luis เขียนบันทึกขอบคุณพร้อมผลง
         id: 'timeline-cert-hkt-ntu-2026',
         slug: 'cert-hkt-ntu-2026',
         title: {
-            en: 'HKT Program — NTU',
-            th: 'โปรแกรม HKT — NTU',
+            en: 'NTU Hackathon: Innovating Functional Recovery',
+            th: 'NTU Hackathon: Innovating Functional Recovery',
         },
         excerpt: {
-            en: 'Joined the HKT program at Nanyang Technological University (NTU), Singapore — hackathon sessions, building, and hands-on innovation.',
-            th: 'เข้าร่วมโปรแกรม HKT ที่ Nanyang Technological University (NTU) ประเทศสิงคโปร์ — hackathon ลงมือ build และทำนวัตกรรมจริง',
+            en: 'Joined NTU Singapore’s hackathon on stroke rehabilitation — building prototypes with technology and game design on campus.',
+            th: 'เข้าร่วม hackathon ของ NTU สิงคโปร์ เรื่องฟื้นฟูผู้ป่วยโรคหลอดเลือดสมอง — ลงมือ build prototype ด้วยเทคโนโลยีและ game design ในมหาวิทยาลัย',
         },
         content: {
-            en: `## HKT at NTU
+            en: `## NTU Hackathon: Innovating Functional Recovery
 
-Joined the **HKT program** hosted by **Nanyang Technological University (NTU)**, Singapore — working through hackathon sessions, prototyping, and team collaboration on campus.
+In **May 2026**, I took part in **NTU Hackathon: Innovating Functional Recovery** at **Nanyang Technological University (NTU)**, Singapore.
 
-Received a certificate of participation after the program. Photos below are from the NTU sessions.
+The event focused on **stroke patient rehabilitation** through innovative technology and game design — teams worked on prototypes that encourage safe, engaging physical movement and recovery exercises.
 
-## Portfolio
-
-More details and the certificate PDF are on the project page.`,
-            th: `## HKT ที่ NTU
-
-เข้าร่วม **โปรแกรม HKT** จัดโดย **Nanyang Technological University (NTU)** ประเทศสิงคโปร์ — ลงมือ hackathon build prototype และทำงานเป็นทีมในมหาวิทยาลัย
-
-ได้รับใบประกาศนียบัตรหลังจบโปรแกรม รูปด้านล่างจากช่วงงานที่ NTU
+Received a **Certificate of Participation** from NTU in recognition of participation, creativity, and contribution to the event. Photos below are from the hackathon sessions on campus.
 
 ## Portfolio
 
-รายละเอียดและไฟล์ใบประกาศ อยู่ในหน้าโปรเจกต์`,
+The certificate PDF and more details are on the project page.`,
+            th: `## NTU Hackathon: Innovating Functional Recovery
+
+ใน **พฤษภาคม 2026** ผมเข้าร่วม **NTU Hackathon: Innovating Functional Recovery** ที่ **Nanyang Technological University (NTU)** ประเทศสิงคโปร์
+
+งานเน้น **การฟื้นฟูผู้ป่วยโรคหลอดเลือดสมอง** ด้วยเทคโนโลยีและ game design — ทีมต่างๆ ลงมือทำ prototype ที่ช่วยกระตุ้นการเคลื่อนไหวและแบบฝึกหัดฟื้นฟูอย่างปลอดภัยและน่าสนใจ
+
+ได้รับ **ใบประกาศนียบัตร (Certificate of Participation)** จาก NTU เพื่อยกย่องการเข้าร่วม ความคิดสร้างสรรค์ และการมีส่วนร่วมในงาน รูปด้านล่างจากช่วง hackathon ในมหาวิทยาลัย
+
+## Portfolio
+
+ไฟล์ใบประกาศและรายละเอียดเพิ่มเติม อยู่ในหน้าโปรเจกต์`,
         },
         type: 'event',
-        date: '2026',
-        dateSort: '2026-03-01',
+        date: 'May 2026',
+        dateSort: '2026-05-01',
         image: NTU_HACKATHON_IMAGES[0],
         images: NTU_HACKATHON_IMAGES,
         projectId: 'cert-hkt-ntu',
-        tags: ['NTU', 'HKT', 'Singapore'],
+        tags: ['NTU', 'Hackathon', 'Singapore'],
         links: [
             {
                 label: { en: 'Facebook photo', th: 'รูปจาก Facebook' },
@@ -137,7 +141,7 @@ More details and the certificate PDF are on the project page.`,
         ],
         isActive: true,
         order: 3,
-        createdAt: '2026-03-01',
+        createdAt: '2026-05-01',
     },
     {
         id: 'timeline-cosi-2024',
