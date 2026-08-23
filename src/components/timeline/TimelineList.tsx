@@ -15,8 +15,6 @@ const TimelineList = ({ entries }: TimelineListProps) => {
   const { t } = useTranslation()
   const defaultImage = '/images/CSI00138.jpg'
 
-  const coverImage = entry.images?.[0] ?? entry.image
-
   return (
     <div className="relative">
       <div
@@ -25,7 +23,10 @@ const TimelineList = ({ entries }: TimelineListProps) => {
       />
 
       <div className="space-y-10">
-        {entries.map((entry, index) => (
+        {entries.map((entry, index) => {
+          const coverImage = entry.images?.[0] ?? entry.image
+
+          return (
           <motion.article
             key={entry.id}
             initial={{ opacity: 0, y: 24 }}
@@ -109,7 +110,8 @@ const TimelineList = ({ entries }: TimelineListProps) => {
               </div>
             </Link>
           </motion.article>
-        ))}
+          )
+        })}
       </div>
     </div>
   )
