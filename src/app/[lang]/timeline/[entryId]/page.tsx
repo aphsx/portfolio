@@ -95,7 +95,11 @@ const TimelineDetailPage = () => {
             <img
               src={entry.image}
               alt={getLocalized(entry.title)}
-              className="aspect-[4/3] w-full object-cover sm:aspect-[16/10]"
+              className={`aspect-[4/3] w-full sm:aspect-[16/10] ${
+                entry.imageFit === 'contain'
+                  ? 'object-contain bg-gray-100 dark:bg-gray-900'
+                  : 'object-cover'
+              }`}
             />
           </motion.div>
         )}

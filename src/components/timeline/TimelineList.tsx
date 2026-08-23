@@ -45,7 +45,11 @@ const TimelineList = ({ entries }: TimelineListProps) => {
                   <img
                     src={entry.image}
                     alt={getLocalized(entry.title)}
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    className={`h-full w-full ${
+                      entry.imageFit === 'contain'
+                        ? 'object-contain'
+                        : 'object-cover transition-transform duration-700 group-hover:scale-[1.03]'
+                    }`}
                     loading="lazy"
                     onError={(e) => {
                       e.currentTarget.src = defaultImage
