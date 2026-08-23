@@ -1,5 +1,5 @@
 import { FiGithub } from 'react-icons/fi'
-import { FaInstagram } from 'react-icons/fa'
+import { FaInstagram, FaLinkedin } from 'react-icons/fa'
 import { SocialLink } from '../../types'
 
 // ---------------------------------------------------------------------------
@@ -18,6 +18,16 @@ export const socialLinksSeed: SocialLink[] = [
         order: 1,
     },
     {
+        id: 'social-linkedin',
+        platform: 'linkedin',
+        name: 'LinkedIn',
+        icon: FaLinkedin,
+        url: 'https://www.linkedin.com/in/aphisit-danchaodang-108037358/',
+        handle: 'aphisit-danchaodang',
+        isActive: true,
+        order: 2,
+    },
+    {
         id: 'social-instagram',
         platform: 'instagram',
         name: 'Instagram',
@@ -25,7 +35,7 @@ export const socialLinksSeed: SocialLink[] = [
         url: 'https://www.instagram.com/_aphsx/',
         handle: '@_aphsx',
         isActive: true,
-        order: 2,
+        order: 3,
     },
     {
         id: 'social-portfolio',
@@ -35,6 +45,6 @@ export const socialLinksSeed: SocialLink[] = [
         url: 'https://aphsx-portfolio.pages.dev/en',
         handle: 'https://aphsx-portfolio.pages.dev/en',
         isActive: true,
-        order: 3,
+        order: 4,
     },
 ]
