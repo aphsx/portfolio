@@ -25,7 +25,7 @@ export type SceneTheme = {
 export const sceneThemes: Record<"light" | "dark", SceneTheme> = {
   light: {
     desk: "#c9956a",
-    deskLeg: "#8f6340",
+    deskLeg: "#f4f4f5",
     bezel: "#18181b",
     stand: "#3f3f46",
     keyboard: "#27272a",
@@ -39,7 +39,7 @@ export const sceneThemes: Record<"light" | "dark", SceneTheme> = {
   },
   dark: {
     desk: "#3d2e22",
-    deskLeg: "#1f1712",
+    deskLeg: "#e4e4e7",
     bezel: "#09090b",
     stand: "#27272a",
     keyboard: "#18181b",

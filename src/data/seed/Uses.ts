@@ -93,7 +93,7 @@ export const usesCategoriesSeed: UsesCategory[] = [
             },
             {
                 id: 'uses-macbook',
-                name: { en: 'MacBook', th: 'MacBook' },
+                name: { en: 'MacBook Air M5', th: 'MacBook Air M5' },
                 icon: SiApple,
                 isActive: true,
                 order: 10,
