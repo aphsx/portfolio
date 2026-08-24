@@ -35,7 +35,7 @@ export default function DeskSetup3D({ isDark, labels }: DeskSetup3DProps) {
       <DeskSelectionProvider labels={labels} selected={selected} onSelect={handleSelect}>
         <Canvas
           shadows
-          camera={{ position: [0, 1.1, 2.05], fov: 42 }}
+          camera={{ position: [0, 1.04, 1.52], fov: 42 }}
           gl={{ antialias: true, alpha: true }}
           dpr={[1, 1.5]}
           onPointerMissed={() => setSelected(null)}

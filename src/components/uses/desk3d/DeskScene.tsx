@@ -304,8 +304,8 @@ export default function DeskScene({ isDark }: { isDark: boolean }) {
 
       <OrbitControls
         enablePan={false}
-        minDistance={1.2}
-        maxDistance={3.2}
+        minDistance={1.05}
+        maxDistance={2.8}
         minPolarAngle={Math.PI / 6}
         maxPolarAngle={Math.PI / 2.1}
         target={[0, mainScreenY, monitorZ]}
