@@ -1,16 +1,21 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { useMemo } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "../../contexts/theme/ThemeProvider";
 import { useLocalizedData } from "../../hooks";
 import { UsesRepository } from "../../data";
 import { DESK_DEPTH_CM, DESK_WIDTH_CM } from "./desk3d/constants";
+import type { DeskObjectLabels } from "./desk3d/selection";
 
-const MONITOR_IDS = {
+const ITEM_IDS = {
   portrait: "uses-monitor-acer",
   landscape: "uses-monitor-lenovo-27q10",
+  keyboard: "uses-keyboard-aula",
+  mouse: "uses-mouse-atk-air9",
+  macbook: "uses-macbook",
 } as const;
 
 const DeskSetup3D = dynamic(() => import("./DeskSetup3D"), {
@@ -28,17 +33,23 @@ const DeskSetup = () => {
   const { getLocalized } = useLocalizedData();
   const workstation = UsesRepository.getCategoryById("uses-cat-workstation");
 
-  const portraitName =
-    workstation?.items.find((item) => item.id === MONITOR_IDS.portrait)?.name;
-  const landscapeName =
-    workstation?.items.find((item) => item.id === MONITOR_IDS.landscape)?.name;
+  const labels = useMemo<DeskObjectLabels>(() => {
+    const name = (id: string) => {
+      const item = workstation?.items.find((entry) => entry.id === id);
+      return item ? getLocalized(item.name) : "";
+    };
 
-  if (!portraitName || !landscapeName) return null;
+    return {
+      desk: t("uses.deskSetup.deskLabel", { width: DESK_WIDTH_CM, depth: DESK_DEPTH_CM }),
+      "monitor-portrait": name(ITEM_IDS.portrait),
+      "monitor-main": name(ITEM_IDS.landscape),
+      keyboard: name(ITEM_IDS.keyboard),
+      mouse: name(ITEM_IDS.mouse),
+      macbook: name(ITEM_IDS.macbook),
+    };
+  }, [t, getLocalized, workstation]);
 
-  const monitors = [
-    { name: getLocalized(portraitName), tag: t("uses.deskSetup.portrait") },
-    { name: getLocalized(landscapeName), tag: t("uses.deskSetup.landscape") },
-  ];
+  if (!labels["monitor-portrait"] || !labels["monitor-main"]) return null;
 
   return (
     <motion.div
@@ -48,29 +59,7 @@ const DeskSetup = () => {
       className="mb-8"
       aria-label={t("uses.deskSetup.ariaLabel")}
     >
-      <div className="mb-4 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-        <p className="text-xs text-gray-500 dark:text-gray-400">
-          {t("uses.deskSetup.description", {
-            width: DESK_WIDTH_CM,
-            depth: DESK_DEPTH_CM,
-          })}
-        </p>
-        <span className="text-[10px] tracking-wide text-gray-400 uppercase dark:text-gray-500">
-          {t("uses.deskSetup.dragHint")}
-        </span>
-      </div>
-
-      <DeskSetup3D isDark={isDark} />
-
-      <div className="mt-3 flex flex-wrap justify-center gap-x-6 gap-y-1">
-        {monitors.map((item) => (
-          <p key={item.tag} className="text-[11px] text-gray-600 dark:text-gray-300 sm:text-xs">
-            <span className="font-medium text-teal-600 dark:text-teal-400">{item.tag}</span>
-            <span className="mx-1.5 text-gray-300 dark:text-gray-600">·</span>
-            {item.name}
-          </p>
-        ))}
-      </div>
+      <DeskSetup3D isDark={isDark} labels={labels} />
     </motion.div>
   );
 };

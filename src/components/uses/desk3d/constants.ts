@@ -6,6 +6,8 @@ export const DESK_W = DESK_WIDTH_CM / 100;
 export const DESK_D = DESK_DEPTH_CM / 100;
 export const DESK_TOP_Y = 0.74;
 export const DESK_TOP_T = 0.035;
+/** Top surface of the desk — items sit on this Y */
+export const DESK_SURFACE_Y = DESK_TOP_Y + DESK_TOP_T / 2;
 
 export type SceneTheme = {
   desk: string;
