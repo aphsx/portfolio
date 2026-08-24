@@ -5,11 +5,13 @@ import { sceneThemes, DESK_D, DESK_TOP_T, DESK_TOP_Y, DESK_W } from "./constants
 
 function Monitor({
   position,
+  rotation = [0, 0, 0],
   size,
   theme,
   screenColor,
 }: {
   position: [number, number, number];
+  rotation?: [number, number, number];
   size: [number, number, number];
   theme: (typeof sceneThemes)["light"];
   screenColor: string;
@@ -20,31 +22,36 @@ function Monitor({
   const neckH = 0.1;
   const baseW = w * 0.32;
   const baseH = 0.012;
+  const pivotY = h / 2 + neckH + baseH;
 
   return (
     <group position={position}>
-      <mesh castShadow receiveShadow>
-        <boxGeometry args={[w, h, d]} />
-        <meshStandardMaterial color={theme.bezel} roughness={0.35} metalness={0.15} />
-      </mesh>
-      <mesh position={[0, 0, d / 2 + 0.001]}>
-        <boxGeometry args={[w - bezel * 2, h - bezel * 2, 0.004]} />
-        <meshStandardMaterial
-          color={screenColor}
-          emissive={screenColor}
-          emissiveIntensity={0.35}
-          roughness={0.2}
-          metalness={0.1}
-        />
-      </mesh>
-      <mesh position={[0, -h / 2 - neckH / 2, 0]} castShadow>
-        <boxGeometry args={[neckW, neckH, d * 0.6]} />
-        <meshStandardMaterial color={theme.stand} roughness={0.5} />
-      </mesh>
-      <mesh position={[0, -h / 2 - neckH - baseH / 2, 0]} castShadow receiveShadow>
-        <boxGeometry args={[baseW, baseH, d * 1.4]} />
-        <meshStandardMaterial color={theme.stand} roughness={0.5} />
-      </mesh>
+      <group rotation={rotation}>
+        <group position={[0, pivotY, 0]}>
+          <mesh castShadow receiveShadow>
+            <boxGeometry args={[w, h, d]} />
+            <meshStandardMaterial color={theme.bezel} roughness={0.35} metalness={0.15} />
+          </mesh>
+          <mesh position={[0, 0, d / 2 + 0.001]}>
+            <boxGeometry args={[w - bezel * 2, h - bezel * 2, 0.004]} />
+            <meshStandardMaterial
+              color={screenColor}
+              emissive={screenColor}
+              emissiveIntensity={0.35}
+              roughness={0.2}
+              metalness={0.1}
+            />
+          </mesh>
+          <mesh position={[0, -h / 2 - neckH / 2, 0]} castShadow>
+            <boxGeometry args={[neckW, neckH, d * 0.6]} />
+            <meshStandardMaterial color={theme.stand} roughness={0.5} />
+          </mesh>
+          <mesh position={[0, -h / 2 - neckH - baseH / 2, 0]} castShadow receiveShadow>
+            <boxGeometry args={[baseW, baseH, d * 1.4]} />
+            <meshStandardMaterial color={theme.stand} roughness={0.5} />
+          </mesh>
+        </group>
+      </group>
     </group>
   );
 }
@@ -90,26 +97,34 @@ function Desk({ theme }: { theme: (typeof sceneThemes)["light"] }) {
 
 function Workstation({ theme }: { theme: (typeof sceneThemes)["light"] }) {
   const surfaceY = DESK_TOP_Y + DESK_TOP_T / 2;
+  const monitorZ = -0.11;
+  const mainMonitorX = 0;
+  const mainW = 0.6;
+  const portraitW = 0.28;
+  const gap = 0.015;
+  const portraitX = mainMonitorX - mainW / 2 - gap - portraitW / 2;
 
   return (
     <group>
       <Desk theme={theme} />
 
       <Monitor
-        position={[-0.52, surfaceY + 0.31, -0.1]}
-        size={[0.28, 0.5, 0.035]}
+        position={[portraitX, surfaceY, monitorZ]}
+        rotation={[0, 0.32, 0]}
+        size={[portraitW, 0.5, 0.035]}
         theme={theme}
         screenColor={theme.screenPortrait}
       />
 
       <Monitor
-        position={[0.18, surfaceY + 0.24, -0.14]}
-        size={[0.6, 0.34, 0.035]}
+        position={[mainMonitorX, surfaceY, monitorZ]}
+        rotation={[0, 0, 0]}
+        size={[mainW, 0.34, 0.035]}
         theme={theme}
         screenColor={theme.screenLandscape}
       />
 
-      <mesh position={[0.12, surfaceY + 0.012, 0.12]} castShadow receiveShadow>
+      <mesh position={[0, surfaceY + 0.012, 0.12]} castShadow receiveShadow>
         <boxGeometry args={[0.42, 0.024, 0.14]} />
         <meshStandardMaterial color={theme.keyboard} roughness={0.55} metalness={0.1} />
       </mesh>
@@ -124,10 +139,12 @@ function Workstation({ theme }: { theme: (typeof sceneThemes)["light"] }) {
 
 export default function DeskScene({ isDark }: { isDark: boolean }) {
   const theme = isDark ? sceneThemes.dark : sceneThemes.light;
+  const surfaceY = DESK_TOP_Y + DESK_TOP_T / 2;
+  const monitorZ = -0.11;
+  const mainScreenY = surfaceY + 0.34 / 2 + 0.1 + 0.012;
 
   return (
     <>
-      <color attach="background" args={[theme.bg]} />
       <ambientLight intensity={isDark ? 0.35 : 0.55} />
       <directionalLight
         position={[2, 4, 3]}
@@ -160,7 +177,7 @@ export default function DeskScene({ isDark }: { isDark: boolean }) {
         maxDistance={3.2}
         minPolarAngle={Math.PI / 6}
         maxPolarAngle={Math.PI / 2.1}
-        target={[0, 0.85, 0]}
+        target={[0, mainScreenY, monitorZ]}
       />
     </>
   );

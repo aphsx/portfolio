@@ -19,11 +19,11 @@ function CanvasLoader() {
 
 export default function DeskSetup3D({ isDark }: DeskSetup3DProps) {
   return (
-    <div className="relative mx-auto h-[280px] w-full max-w-2xl overflow-hidden rounded-xl sm:h-[320px]">
+    <div className="relative h-[280px] w-full sm:h-[320px]">
       <Canvas
         shadows
-        camera={{ position: [0, 1.15, 2.1], fov: 42 }}
-        gl={{ antialias: true, alpha: false }}
+        camera={{ position: [0, 1.1, 2.05], fov: 42 }}
+        gl={{ antialias: true, alpha: true }}
         dpr={[1, 1.5]}
       >
         <Suspense fallback={<CanvasLoader />}>

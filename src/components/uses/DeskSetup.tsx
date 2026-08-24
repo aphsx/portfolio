@@ -16,11 +16,8 @@ const MONITOR_IDS = {
 const DeskSetup3D = dynamic(() => import("./DeskSetup3D"), {
   ssr: false,
   loading: () => (
-    <div className="mx-auto flex h-[280px] w-full max-w-2xl items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-900 sm:h-[320px]">
-      <div className="flex flex-col items-center gap-3">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-teal-500 border-t-transparent" />
-        <span className="text-xs text-gray-500 dark:text-gray-400">Loading 3D…</span>
-      </div>
+    <div className="flex h-[280px] w-full items-center justify-center sm:h-[320px]">
+      <div className="h-7 w-7 animate-spin rounded-full border-2 border-teal-500 border-t-transparent" />
     </div>
   ),
 });
@@ -38,55 +35,41 @@ const DeskSetup = () => {
 
   if (!portraitName || !landscapeName) return null;
 
+  const monitors = [
+    { name: getLocalized(portraitName), tag: t("uses.deskSetup.portrait") },
+    { name: getLocalized(landscapeName), tag: t("uses.deskSetup.landscape") },
+  ];
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 16 }}
+      initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="mb-8 overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800"
+      transition={{ duration: 0.5 }}
+      className="mb-8"
+      aria-label={t("uses.deskSetup.ariaLabel")}
     >
-      <div className="flex items-start justify-between gap-3 border-b border-gray-100 px-4 py-3 dark:border-gray-700">
-        <div>
-          <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100">
-            {t("uses.deskSetup.title")}
-          </h3>
-          <p className="mt-0.5 text-xs text-gray-500 dark:text-gray-400">
-            {t("uses.deskSetup.description", {
-              width: DESK_WIDTH_CM,
-              depth: DESK_DEPTH_CM,
-            })}
-          </p>
-        </div>
-        <span className="shrink-0 rounded-full bg-teal-50 px-2 py-0.5 text-[10px] font-semibold text-teal-700 dark:bg-teal-950/50 dark:text-teal-300">
-          {DESK_WIDTH_CM}×{DESK_DEPTH_CM}
+      <div className="mb-4 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+        <p className="text-xs text-gray-500 dark:text-gray-400">
+          {t("uses.deskSetup.description", {
+            width: DESK_WIDTH_CM,
+            depth: DESK_DEPTH_CM,
+          })}
+        </p>
+        <span className="text-[10px] tracking-wide text-gray-400 uppercase dark:text-gray-500">
+          {t("uses.deskSetup.dragHint")}
         </span>
       </div>
 
-      <div
-        className="relative px-2 py-6 sm:px-4 sm:py-8"
-        aria-label={t("uses.deskSetup.ariaLabel")}
-      >
-        <p className="mb-3 text-center text-[10px] font-medium tracking-wider text-gray-400 uppercase dark:text-gray-500">
-          {t("uses.deskSetup.dragHint")}
-        </p>
+      <DeskSetup3D isDark={isDark} />
 
-        <DeskSetup3D isDark={isDark} />
-
-        <div className="mx-auto mt-4 grid max-w-xl grid-cols-2 gap-3 px-2 sm:gap-5">
-          {[
-            { name: getLocalized(portraitName), tag: t("uses.deskSetup.portrait") },
-            { name: getLocalized(landscapeName), tag: t("uses.deskSetup.landscape") },
-          ].map((item) => (
-            <div key={item.tag} className="text-center">
-              <p className="text-[11px] font-semibold leading-tight text-gray-800 dark:text-gray-100 sm:text-xs">
-                {item.name}
-              </p>
-              <p className="mt-0.5 text-[10px] uppercase tracking-wider text-teal-600 dark:text-teal-400">
-                {item.tag}
-              </p>
-            </div>
-          ))}
-        </div>
+      <div className="mt-3 flex flex-wrap justify-center gap-x-6 gap-y-1">
+        {monitors.map((item) => (
+          <p key={item.tag} className="text-[11px] text-gray-600 dark:text-gray-300 sm:text-xs">
+            <span className="font-medium text-teal-600 dark:text-teal-400">{item.tag}</span>
+            <span className="mx-1.5 text-gray-300 dark:text-gray-600">·</span>
+            {item.name}
+          </p>
+        ))}
       </div>
     </motion.div>
   );
