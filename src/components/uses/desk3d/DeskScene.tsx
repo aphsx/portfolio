@@ -51,15 +51,12 @@ function Monitor({
 
 function Desk({ theme }: { theme: (typeof sceneThemes)["light"] }) {
   const legH = DESK_TOP_Y;
-  const legW = 0.05;
-  const legInset = 0.06;
-
-  const legs: [number, number][] = [
-    [-DESK_W / 2 + legInset, -DESK_D / 2 + legInset],
-    [DESK_W / 2 - legInset, -DESK_D / 2 + legInset],
-    [-DESK_W / 2 + legInset, DESK_D / 2 - legInset],
-    [DESK_W / 2 - legInset, DESK_D / 2 - legInset],
-  ];
+  const columnW = 0.055;
+  const columnD = 0.07;
+  const footH = 0.028;
+  const footD = DESK_D * 0.52;
+  const legX = DESK_W / 2 - 0.1;
+  const frameMetal = { roughness: 0.45, metalness: 0.55 };
 
   return (
     <group>
@@ -67,11 +64,25 @@ function Desk({ theme }: { theme: (typeof sceneThemes)["light"] }) {
         <boxGeometry args={[DESK_W, DESK_TOP_T, DESK_D]} />
         <meshStandardMaterial color={theme.desk} roughness={0.75} metalness={0.05} />
       </mesh>
-      {legs.map(([x, z], i) => (
-        <mesh key={i} position={[x, legH / 2, z]} castShadow>
-          <boxGeometry args={[legW, legH, legW]} />
-          <meshStandardMaterial color={theme.deskLeg} roughness={0.85} />
-        </mesh>
+
+      {/* crossbar — electric desk frame */}
+      <mesh position={[0, legH - 0.06, -0.02]} castShadow>
+        <boxGeometry args={[DESK_W - 0.18, 0.028, 0.038]} />
+        <meshStandardMaterial color={theme.deskLeg} {...frameMetal} />
+      </mesh>
+
+      {/* 2 legs — one per side */}
+      {([-legX, legX] as const).map((x) => (
+        <group key={x}>
+          <mesh position={[x, legH / 2, 0]} castShadow>
+            <boxGeometry args={[columnW, legH, columnD]} />
+            <meshStandardMaterial color={theme.deskLeg} {...frameMetal} />
+          </mesh>
+          <mesh position={[x, footH / 2, 0]} castShadow receiveShadow>
+            <boxGeometry args={[columnW + 0.01, footH, footD]} />
+            <meshStandardMaterial color={theme.deskLeg} {...frameMetal} />
+          </mesh>
+        </group>
       ))}
     </group>
   );
