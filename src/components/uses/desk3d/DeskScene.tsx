@@ -1,6 +1,6 @@
 "use client";
 
-import { ContactShadows, Environment, OrbitControls, RoundedBox } from "@react-three/drei";
+import { ContactShadows, OrbitControls, RoundedBox } from "@react-three/drei";
 import { sceneThemes, DESK_D, DESK_SURFACE_Y, DESK_TOP_T, DESK_TOP_Y, DESK_W } from "./constants";
 import { ClickableItem } from "./selection";
 
@@ -276,14 +276,19 @@ export default function DeskScene({ isDark }: { isDark: boolean }) {
 
   return (
     <>
-      <ambientLight intensity={isDark ? 0.35 : 0.55} />
+      <ambientLight intensity={isDark ? 0.5 : 0.7} />
       <directionalLight
         position={[2, 4, 3]}
-        intensity={isDark ? 0.9 : 1.2}
+        intensity={isDark ? 1.05 : 1.35}
         castShadow
         shadow-mapSize={[1024, 1024]}
       />
-      <directionalLight position={[-2, 2, -1]} intensity={0.25} />
+      <directionalLight position={[-2, 2, -1]} intensity={0.4} />
+      <hemisphereLight
+        color={isDark ? "#94a3b8" : "#ffffff"}
+        groundColor={theme.floor}
+        intensity={isDark ? 0.35 : 0.45}
+      />
 
       <Workstation theme={theme} />
 
@@ -299,8 +304,6 @@ export default function DeskScene({ isDark }: { isDark: boolean }) {
         blur={2.5}
         far={2}
       />
-
-      <Environment preset={isDark ? "city" : "apartment"} />
 
       <OrbitControls
         enablePan={false}
