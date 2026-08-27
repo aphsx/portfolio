@@ -14,6 +14,8 @@ export type SceneTheme = {
   stand: string;
   keyboard: string;
   mouse: string;
+  macbook: string;
+  macbookScreen: string;
   screenPortrait: string;
   screenLandscape: string;
   floor: string;
@@ -28,6 +30,8 @@ export const sceneThemes: Record<"light" | "dark", SceneTheme> = {
     stand: "#3f3f46",
     keyboard: "#27272a",
     mouse: "#27272a",
+    macbook: "#86868b",
+    macbookScreen: "#0891b2",
     screenPortrait: "#14b8a6",
     screenLandscape: "#2dd4bf",
     floor: "#e5e7eb",
@@ -40,6 +44,8 @@ export const sceneThemes: Record<"light" | "dark", SceneTheme> = {
     stand: "#27272a",
     keyboard: "#18181b",
     mouse: "#18181b",
+    macbook: "#6e6e73",
+    macbookScreen: "#0d9488",
     screenPortrait: "#0d9488",
     screenLandscape: "#14b8a6",
     floor: "#1f2937",

@@ -10,6 +10,7 @@ import {
     SiArc,
     SiRust,
     SiUbuntu,
+    SiApple,
 } from 'react-icons/si'
 import { VscVscode } from 'react-icons/vsc'
 import { MdPhoneIphone, MdChair } from 'react-icons/md'
@@ -89,6 +90,13 @@ export const usesCategoriesSeed: UsesCategory[] = [
                 icon: MdChair,
                 isActive: true,
                 order: 9,
+            },
+            {
+                id: 'uses-macbook',
+                name: { en: 'MacBook', th: 'MacBook' },
+                icon: SiApple,
+                isActive: true,
+                order: 10,
             },
         ],
     },

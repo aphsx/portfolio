@@ -56,8 +56,38 @@ function Monitor({
   );
 }
 
+function MacBook({
+  position,
+  rotation = [0, 0, 0],
+  theme,
+}: {
+  position: [number, number, number];
+  rotation?: [number, number, number];
+  theme: (typeof sceneThemes)["light"];
+}) {
+  const w = 0.3;
+  const d = 0.21;
+  const h = 0.016;
+  const body = { roughness: 0.35, metalness: 0.65 };
+
+  return (
+    <group position={position} rotation={rotation}>
+      <mesh position={[0, h / 2, 0]} castShadow receiveShadow>
+        <boxGeometry args={[w, h, d]} />
+        <meshStandardMaterial color={theme.macbook} {...body} />
+      </mesh>
+      <mesh position={[0, h + 0.0004, -0.012]} receiveShadow>
+        <boxGeometry args={[w - 0.008, 0.0008, d * 0.52]} />
+        <meshStandardMaterial color="#5c5c62" roughness={0.4} metalness={0.5} />
+      </mesh>
+    </group>
+  );
+}
+
 function Desk({ theme }: { theme: (typeof sceneThemes)["light"] }) {
-  const legH = DESK_TOP_Y;
+  const topCenterY = DESK_TOP_Y - DESK_TOP_T / 2;
+  const undersideY = DESK_TOP_Y - DESK_TOP_T;
+  const columnH = undersideY - 0.002;
   const columnW = 0.055;
   const columnD = 0.07;
   const footH = 0.028;
@@ -67,22 +97,22 @@ function Desk({ theme }: { theme: (typeof sceneThemes)["light"] }) {
 
   return (
     <group>
-      <mesh position={[0, DESK_TOP_Y - DESK_TOP_T / 2, 0]} castShadow receiveShadow>
+      <mesh position={[0, topCenterY, 0]} castShadow receiveShadow>
         <boxGeometry args={[DESK_W, DESK_TOP_T, DESK_D]} />
         <meshStandardMaterial color={theme.desk} roughness={0.75} metalness={0.05} />
       </mesh>
 
-      {/* crossbar — electric desk frame */}
-      <mesh position={[0, legH - 0.06, -0.02]} castShadow>
+      {/* crossbar sits just under the desktop */}
+      <mesh position={[0, undersideY - 0.02, -0.02]} castShadow>
         <boxGeometry args={[DESK_W - 0.18, 0.028, 0.038]} />
         <meshStandardMaterial color={theme.deskLeg} {...frameMetal} />
       </mesh>
 
-      {/* 2 legs — one per side */}
+      {/* 2 legs — stop at the underside, not through the top */}
       {([-legX, legX] as const).map((x) => (
         <group key={x}>
-          <mesh position={[x, legH / 2, 0]} castShadow>
-            <boxGeometry args={[columnW, legH, columnD]} />
+          <mesh position={[x, columnH / 2, 0]} castShadow>
+            <boxGeometry args={[columnW, columnH, columnD]} />
             <meshStandardMaterial color={theme.deskLeg} {...frameMetal} />
           </mesh>
           <mesh position={[x, footH / 2, 0]} castShadow receiveShadow>
@@ -103,6 +133,7 @@ function Workstation({ theme }: { theme: (typeof sceneThemes)["light"] }) {
   const portraitW = 0.28;
   const gap = 0.015;
   const portraitX = mainMonitorX - mainW / 2 - gap - portraitW / 2;
+  const macPos: [number, number, number] = [-0.58, surfaceY, 0.08];
 
   return (
     <group>
@@ -133,6 +164,8 @@ function Workstation({ theme }: { theme: (typeof sceneThemes)["light"] }) {
         <boxGeometry args={[0.065, 0.028, 0.095]} />
         <meshStandardMaterial color={theme.mouse} roughness={0.45} metalness={0.15} />
       </mesh>
+
+      <MacBook position={macPos} rotation={[0, 0.28, 0]} theme={theme} />
     </group>
   );
 }
