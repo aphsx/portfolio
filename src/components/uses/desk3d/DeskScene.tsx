@@ -1,7 +1,8 @@
 "use client";
 
 import { ContactShadows, Environment, OrbitControls, RoundedBox } from "@react-three/drei";
-import { sceneThemes, DESK_D, DESK_TOP_T, DESK_TOP_Y, DESK_W } from "./constants";
+import { sceneThemes, DESK_D, DESK_SURFACE_Y, DESK_TOP_T, DESK_TOP_Y, DESK_W } from "./constants";
+import { ClickableItem } from "./selection";
 
 const metal = { roughness: 0.28, metalness: 0.72 };
 const plastic = { roughness: 0.48, metalness: 0.12 };
@@ -195,46 +196,83 @@ function Desk({ theme }: { theme: (typeof sceneThemes)["light"] }) {
 }
 
 function Workstation({ theme }: { theme: (typeof sceneThemes)["light"] }) {
-  const surfaceY = DESK_TOP_Y + DESK_TOP_T / 2;
   const monitorZ = -0.11;
   const mainMonitorX = 0;
   const mainW = 0.6;
   const portraitW = 0.28;
   const gap = 0.015;
   const portraitX = mainMonitorX - mainW / 2 - gap - portraitW / 2;
+  const monitorHitboxY = 0.28;
 
   return (
     <group>
-      <Desk theme={theme} />
+      <ClickableItem
+        id="desk"
+        hitbox={[DESK_W, DESK_TOP_Y, DESK_D]}
+        hitboxOffset={[0, DESK_TOP_Y / 2, 0]}
+      >
+        <Desk theme={theme} />
+      </ClickableItem>
 
-      <Monitor
-        position={[portraitX, surfaceY, monitorZ]}
-        rotation={[0, 0.32, 0]}
-        size={[portraitW, 0.5, 0.028]}
-        theme={theme}
-      />
+      <ClickableItem
+        id="monitor-portrait"
+        hitbox={[portraitW, 0.55, 0.1]}
+        hitboxOffset={[0, monitorHitboxY, 0]}
+        position={[portraitX, DESK_SURFACE_Y, monitorZ]}
+      >
+        <Monitor
+          position={[0, 0, 0]}
+          rotation={[0, 0.32, 0]}
+          size={[portraitW, 0.5, 0.028]}
+          theme={theme}
+        />
+      </ClickableItem>
 
-      <Monitor
-        position={[mainMonitorX, surfaceY, monitorZ]}
-        rotation={[0, 0, 0]}
-        size={[mainW, 0.34, 0.028]}
-        theme={theme}
-      />
+      <ClickableItem
+        id="monitor-main"
+        hitbox={[mainW, 0.45, 0.1]}
+        hitboxOffset={[0, monitorHitboxY, 0]}
+        position={[mainMonitorX, DESK_SURFACE_Y, monitorZ]}
+      >
+        <Monitor
+          position={[0, 0, 0]}
+          rotation={[0, 0, 0]}
+          size={[mainW, 0.34, 0.028]}
+          theme={theme}
+        />
+      </ClickableItem>
 
-      <Keyboard position={[0, surfaceY + 0.002, 0.12]} theme={theme} />
+      <ClickableItem
+        id="keyboard"
+        hitbox={[0.42, 0.05, 0.16]}
+        position={[0, DESK_SURFACE_Y + 0.012, 0.12]}
+      >
+        <Keyboard position={[0, 0, 0]} theme={theme} />
+      </ClickableItem>
 
-      <Mouse position={[0.52, surfaceY + 0.004, 0.1]} rotation={[0, -0.3, 0]} theme={theme} />
+      <ClickableItem
+        id="mouse"
+        hitbox={[0.08, 0.05, 0.12]}
+        position={[0.52, DESK_SURFACE_Y + 0.013, 0.1]}
+      >
+        <Mouse position={[0, 0, 0]} rotation={[0, -0.3, 0]} theme={theme} />
+      </ClickableItem>
 
-      <MacBook position={[-0.58, surfaceY, 0.08]} rotation={[0, 0.28, 0]} theme={theme} />
+      <ClickableItem
+        id="macbook"
+        hitbox={[0.32, 0.02, 0.24]}
+        position={[-0.58, DESK_SURFACE_Y, 0.08]}
+      >
+        <MacBook position={[0, 0, 0]} rotation={[0, 0.28, 0]} theme={theme} />
+      </ClickableItem>
     </group>
   );
 }
 
 export default function DeskScene({ isDark }: { isDark: boolean }) {
   const theme = isDark ? sceneThemes.dark : sceneThemes.light;
-  const surfaceY = DESK_TOP_Y + DESK_TOP_T / 2;
   const monitorZ = -0.11;
-  const mainScreenY = surfaceY + 0.34 / 2 + 0.1 + 0.012;
+  const mainScreenY = DESK_SURFACE_Y + 0.34 / 2 + 0.1 + 0.012;
 
   return (
     <>
