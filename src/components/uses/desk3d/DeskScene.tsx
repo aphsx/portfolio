@@ -1,55 +1,53 @@
 "use client";
 
-import { ContactShadows, Environment, OrbitControls } from "@react-three/drei";
+import { ContactShadows, Environment, OrbitControls, RoundedBox } from "@react-three/drei";
 import { sceneThemes, DESK_D, DESK_TOP_T, DESK_TOP_Y, DESK_W } from "./constants";
+
+const metal = { roughness: 0.28, metalness: 0.72 };
+const plastic = { roughness: 0.48, metalness: 0.12 };
 
 function Monitor({
   position,
   rotation = [0, 0, 0],
   size,
   theme,
-  screenColor,
 }: {
   position: [number, number, number];
   rotation?: [number, number, number];
   size: [number, number, number];
   theme: (typeof sceneThemes)["light"];
-  screenColor: string;
 }) {
   const [w, h, d] = size;
-  const bezel = 0.018;
-  const neckW = w * 0.12;
-  const neckH = 0.1;
-  const baseW = w * 0.32;
-  const baseH = 0.012;
+  const neckW = Math.max(w * 0.055, 0.022);
+  const neckH = 0.095;
+  const baseW = w * 0.28;
+  const baseD = d * 1.6;
+  const baseH = 0.011;
   const pivotY = h / 2 + neckH + baseH;
 
   return (
     <group position={position}>
       <group rotation={rotation}>
         <group position={[0, pivotY, 0]}>
-          <mesh castShadow receiveShadow>
-            <boxGeometry args={[w, h, d]} />
-            <meshStandardMaterial color={theme.bezel} roughness={0.35} metalness={0.15} />
+          <RoundedBox args={[w, h, d]} radius={0.004} smoothness={4} castShadow receiveShadow>
+            <meshStandardMaterial color={theme.bezel} {...plastic} />
+          </RoundedBox>
+
+          <mesh position={[0, -h / 2 - neckH / 2, -0.006]} castShadow>
+            <boxGeometry args={[neckW, neckH, 0.016]} />
+            <meshStandardMaterial color={theme.stand} {...metal} />
           </mesh>
-          <mesh position={[0, 0, d / 2 + 0.001]}>
-            <boxGeometry args={[w - bezel * 2, h - bezel * 2, 0.004]} />
-            <meshStandardMaterial
-              color={screenColor}
-              emissive={screenColor}
-              emissiveIntensity={0.35}
-              roughness={0.2}
-              metalness={0.1}
-            />
-          </mesh>
-          <mesh position={[0, -h / 2 - neckH / 2, 0]} castShadow>
-            <boxGeometry args={[neckW, neckH, d * 0.6]} />
-            <meshStandardMaterial color={theme.stand} roughness={0.5} />
-          </mesh>
-          <mesh position={[0, -h / 2 - neckH - baseH / 2, 0]} castShadow receiveShadow>
-            <boxGeometry args={[baseW, baseH, d * 1.4]} />
-            <meshStandardMaterial color={theme.stand} roughness={0.5} />
-          </mesh>
+
+          <RoundedBox
+            args={[baseW, baseH, baseD]}
+            radius={0.003}
+            smoothness={3}
+            position={[0, -h / 2 - neckH - baseH / 2, 0.004]}
+            castShadow
+            receiveShadow
+          >
+            <meshStandardMaterial color={theme.stand} {...metal} />
+          </RoundedBox>
         </group>
       </group>
     </group>
@@ -65,20 +63,93 @@ function MacBook({
   rotation?: [number, number, number];
   theme: (typeof sceneThemes)["light"];
 }) {
-  const w = 0.3;
-  const d = 0.21;
-  const h = 0.016;
-  const body = { roughness: 0.35, metalness: 0.65 };
+  const w = 0.304;
+  const d = 0.214;
+  const baseH = 0.009;
+  const lidH = 0.007;
 
   return (
     <group position={position} rotation={rotation}>
-      <mesh position={[0, h / 2, 0]} castShadow receiveShadow>
-        <boxGeometry args={[w, h, d]} />
-        <meshStandardMaterial color={theme.macbook} {...body} />
+      <RoundedBox args={[w, baseH, d]} radius={0.0035} smoothness={4} position={[0, baseH / 2, 0.004]} castShadow receiveShadow>
+        <meshStandardMaterial color={theme.macbook} {...metal} />
+      </RoundedBox>
+
+      <RoundedBox args={[w - 0.003, lidH, d - 0.004]} radius={0.003} smoothness={4} position={[0, baseH + lidH / 2, 0]} castShadow>
+        <meshStandardMaterial color={theme.macbook} {...metal} />
+      </RoundedBox>
+
+      <mesh position={[0, baseH + lidH + 0.0003, -0.004]} rotation={[-0.06, 0, 0]}>
+        <boxGeometry args={[w - 0.018, 0.0006, d * 0.48]} />
+        <meshStandardMaterial color="#48484d" roughness={0.35} metalness={0.55} />
       </mesh>
-      <mesh position={[0, h + 0.0004, -0.012]} receiveShadow>
-        <boxGeometry args={[w - 0.008, 0.0008, d * 0.52]} />
-        <meshStandardMaterial color="#5c5c62" roughness={0.4} metalness={0.5} />
+
+      <mesh position={[0, baseH + lidH + 0.0005, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+        <circleGeometry args={[0.006, 24]} />
+        <meshStandardMaterial color="#b0b0b5" roughness={0.3} metalness={0.8} />
+      </mesh>
+    </group>
+  );
+}
+
+function Keyboard({ position, theme }: { position: [number, number, number]; theme: (typeof sceneThemes)["light"] }) {
+  const w = 0.42;
+  const d = 0.14;
+  const h = 0.022;
+  const cols = 14;
+  const rows = 4;
+
+  return (
+    <group position={position} rotation={[-0.04, 0, 0]}>
+      <RoundedBox args={[w, h, d]} radius={0.004} smoothness={3} castShadow receiveShadow>
+        <meshStandardMaterial color={theme.keyboard} {...plastic} />
+      </RoundedBox>
+
+      {Array.from({ length: rows }).map((_, row) =>
+        Array.from({ length: cols }).map((_, col) => {
+          const kw = (w - 0.04) / cols - 0.004;
+          const kh = 0.012;
+          const kd = 0.012;
+          const x = -w / 2 + 0.022 + col * (kw + 0.004) + kw / 2;
+          const z = -d / 2 + 0.022 + row * (kh + 0.005) + kh / 2;
+          return (
+            <RoundedBox
+              key={`${row}-${col}`}
+              args={[kw, kd, kh]}
+              radius={0.001}
+              smoothness={2}
+              position={[x, h / 2 + kd / 2 + 0.001, z]}
+            >
+              <meshStandardMaterial color="#3f3f46" roughness={0.65} metalness={0.08} />
+            </RoundedBox>
+          );
+        }),
+      )}
+    </group>
+  );
+}
+
+function Mouse({
+  position,
+  rotation = [0, 0, 0],
+  theme,
+}: {
+  position: [number, number, number];
+  rotation?: [number, number, number];
+  theme: (typeof sceneThemes)["light"];
+}) {
+  return (
+    <group position={position} rotation={rotation}>
+      <RoundedBox args={[0.068, 0.026, 0.098]} radius={0.014} smoothness={5} castShadow receiveShadow>
+        <meshStandardMaterial color={theme.mouse} {...plastic} />
+      </RoundedBox>
+
+      <RoundedBox args={[0.064, 0.008, 0.042]} radius={0.006} smoothness={3} position={[0, 0.014, -0.024]}>
+        <meshStandardMaterial color="#1f1f23" roughness={0.55} metalness={0.1} />
+      </RoundedBox>
+
+      <mesh position={[0, 0.016, -0.018]} rotation={[Math.PI / 2, 0, 0]} castShadow>
+        <cylinderGeometry args={[0.0035, 0.0035, 0.014, 12]} />
+        <meshStandardMaterial color="#52525b" roughness={0.4} metalness={0.35} />
       </mesh>
     </group>
   );
@@ -102,13 +173,11 @@ function Desk({ theme }: { theme: (typeof sceneThemes)["light"] }) {
         <meshStandardMaterial color={theme.desk} roughness={0.75} metalness={0.05} />
       </mesh>
 
-      {/* crossbar sits just under the desktop */}
       <mesh position={[0, undersideY - 0.02, -0.02]} castShadow>
         <boxGeometry args={[DESK_W - 0.18, 0.028, 0.038]} />
         <meshStandardMaterial color={theme.deskLeg} {...frameMetal} />
       </mesh>
 
-      {/* 2 legs — stop at the underside, not through the top */}
       {([-legX, legX] as const).map((x) => (
         <group key={x}>
           <mesh position={[x, columnH / 2, 0]} castShadow>
@@ -133,7 +202,6 @@ function Workstation({ theme }: { theme: (typeof sceneThemes)["light"] }) {
   const portraitW = 0.28;
   const gap = 0.015;
   const portraitX = mainMonitorX - mainW / 2 - gap - portraitW / 2;
-  const macPos: [number, number, number] = [-0.58, surfaceY, 0.08];
 
   return (
     <group>
@@ -142,30 +210,22 @@ function Workstation({ theme }: { theme: (typeof sceneThemes)["light"] }) {
       <Monitor
         position={[portraitX, surfaceY, monitorZ]}
         rotation={[0, 0.32, 0]}
-        size={[portraitW, 0.5, 0.035]}
+        size={[portraitW, 0.5, 0.028]}
         theme={theme}
-        screenColor={theme.screenPortrait}
       />
 
       <Monitor
         position={[mainMonitorX, surfaceY, monitorZ]}
         rotation={[0, 0, 0]}
-        size={[mainW, 0.34, 0.035]}
+        size={[mainW, 0.34, 0.028]}
         theme={theme}
-        screenColor={theme.screenLandscape}
       />
 
-      <mesh position={[0, surfaceY + 0.012, 0.12]} castShadow receiveShadow>
-        <boxGeometry args={[0.42, 0.024, 0.14]} />
-        <meshStandardMaterial color={theme.keyboard} roughness={0.55} metalness={0.1} />
-      </mesh>
+      <Keyboard position={[0, surfaceY + 0.002, 0.12]} theme={theme} />
 
-      <mesh position={[0.52, surfaceY + 0.016, 0.1]} castShadow receiveShadow rotation={[0, -0.3, 0]}>
-        <boxGeometry args={[0.065, 0.028, 0.095]} />
-        <meshStandardMaterial color={theme.mouse} roughness={0.45} metalness={0.15} />
-      </mesh>
+      <Mouse position={[0.52, surfaceY + 0.004, 0.1]} rotation={[0, -0.3, 0]} theme={theme} />
 
-      <MacBook position={macPos} rotation={[0, 0.28, 0]} theme={theme} />
+      <MacBook position={[-0.58, surfaceY, 0.08]} rotation={[0, 0.28, 0]} theme={theme} />
     </group>
   );
 }
