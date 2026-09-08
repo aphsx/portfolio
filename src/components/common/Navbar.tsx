@@ -9,6 +9,7 @@ import { useTheme } from '../../contexts'
 import { SITE_CONFIG } from '../../config/site'
 import { useTranslation } from 'react-i18next'
 import { useLocalizedData } from '../../hooks'
+import { prefetchDeskSetup3D } from '../uses/prefetchDeskSetup3D'
 
 const languages = [
   { code: 'th', name: 'TH' },
@@ -64,6 +65,12 @@ const Navbar = () => {
                 <Link
                   key={item.name}
                   href={item.path}
+                  onMouseEnter={() => {
+                    if (item.path.endsWith("/uses")) prefetchDeskSetup3D();
+                  }}
+                  onFocus={() => {
+                    if (item.path.endsWith("/uses")) prefetchDeskSetup3D();
+                  }}
                   className={`text-sm font-medium transition-colors duration-200 ${isActive(item.path)
                     ? 'text-teal-500'
                     : 'text-gray-700 dark:text-gray-300 hover:text-teal-500'
@@ -157,7 +164,10 @@ const Navbar = () => {
                 <Link
                   key={item.name}
                   href={item.path}
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => {
+                    if (item.path.endsWith("/uses")) prefetchDeskSetup3D();
+                    setIsOpen(false);
+                  }}
                   className={`block text-sm font-medium transition-colors duration-200 ${isActive(item.path)
                     ? 'text-teal-500'
                     : 'text-gray-700 dark:text-gray-300 hover:text-teal-500'
