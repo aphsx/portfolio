@@ -13,7 +13,7 @@ import {
     SiApple,
 } from 'react-icons/si'
 import { VscVscode } from 'react-icons/vsc'
-import { MdPhoneIphone, MdChair } from 'react-icons/md'
+import { MdPhoneIphone, MdChair, MdVideocam } from 'react-icons/md'
 import { FaMicrophone, FaKeyboard, FaDesktop, FaMouse, FaHeadset, FaBox, FaDatabase } from 'react-icons/fa'
 import { UsesCategory } from '../../types'
 
@@ -134,6 +134,13 @@ export const usesCategoriesSeed: UsesCategory[] = [
                 icon: MdPhoneIphone,
                 isActive: true,
                 order: 1,
+            },
+            {
+                id: 'uses-osmo-action-6',
+                name: { en: 'DJI Osmo Action 6', th: 'DJI Osmo Action 6' },
+                icon: MdVideocam,
+                isActive: true,
+                order: 2,
             },
         ],
     },
