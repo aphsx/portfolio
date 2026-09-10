@@ -3,7 +3,6 @@ import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { UsesRepository } from '../../../data'
 import { useLocalizedData } from '../../../hooks'
-import { DeskSetup } from '../../../components/uses'
 
 const Uses = () => {
   const { t } = useTranslation()
@@ -48,7 +47,6 @@ const Uses = () => {
                 </h2>
               </div>
 
-              {section.id === 'uses-cat-workstation' && <DeskSetup />}
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {section.items.map((item, itemIndex) => (
