@@ -13,18 +13,18 @@ export const personalInfoSeed: PersonalInfo = {
         th: 'สวัสดีครับ ผมนาย อภิสิทธิ์ ด่านเจ้าแดง',
     },
     profileImage: 'https://res.cloudinary.com/dw5zfbigt/image/upload/v1772253337/CSI00138Crop_c0g98s.jpg',
-    email: 'aphisit.danchaodang@example.com',
+    email: 'aphisitdanc.work@gmail.com',
 }
 
 export const bioTimelineSeed: BioTimelineItem[] = [
     {
         id: 'bio-2026',
-        year: '2026 - Present',
+        year: 'May 2026 - Aug 2026',
         isActive: true,
         order: 1,
         event: {
-            en: 'Working as a Software Engineer at AUGUST TEN DIGITAL DEVELOPMENT COMPANY LIMITED while studying as a senior Computer Science student at Bangkok University.',
-            th: 'Software Engineer ที่ AUGUST TEN DIGITAL DEVELOPMENT COMPANY LIMITED ควบคู่กับการเรียนชั้นปีที่ 4 สาขาวิชาวิทยาการคอมพิวเตอร์ที่มหาวิทยาลัยกรุงเทพ',
+            en: 'Worked as a Fullstack Developer (Contract) at AUGUST TEN DIGITAL DEVELOPMENT COMPANY LIMITED, developing the TPA Insurance - Claims Core System.',
+            th: 'Fullstack Developer (Contract) ที่ AUGUST TEN DIGITAL DEVELOPMENT COMPANY LIMITED ร่วมพัฒนาระบบ TPA Insurance - Claims Core System',
         },
         links: [
             {
