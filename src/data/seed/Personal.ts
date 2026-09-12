@@ -58,8 +58,8 @@ export const bioTimelineSeed: BioTimelineItem[] = [
         isActive: true,
         order: 3,
         event: {
-            en: 'Worked as a research assistant and Software Engineer at Center of Specialty Innovation (CoSI) while studying as a junior Computer Science student at Bangkok University.',
-            th: 'เป็นผู้ช่วยนักวิจัยและ Software Engineer ที่ศูนย์นวัตกรรมเฉพาะทาง Center of Specialty Innovation (CoSI) ควบคู่กับการเรียนชั้นปีที่ 3 สาขาวิชาวิทยาการคอมพิวเตอร์ที่มหาวิทยาลัยกรุงเทพ',
+            en: 'Worked as a Research Assistant and Software Engineer at Center of Specialty Innovation (CoSI) while in my 3rd year of study.',
+            th: 'เป็นผู้ช่วยนักวิจัยและ Software Engineer ที่ศูนย์นวัตกรรมเฉพาะทาง Center of Specialty Innovation (CoSI) ควบคู่กับการเรียนชั้นปีที่ 3',
         },
         links: [
             {
@@ -77,8 +77,8 @@ export const bioTimelineSeed: BioTimelineItem[] = [
         isActive: true,
         order: 4,
         event: {
-            en: 'Joined Center of Specialty Innovation (CoSI) as an intern while studying as a sophomore Computer Science student at Bangkok University.',
-            th: 'เข้าร่วมเป็นนักศึกษาฝึกงานที่ Center of Specialty Innovation (CoSI) ควบคู่กับการเรียนชั้นปีที่ 2 สาขาวิชาวิทยาการคอมพิวเตอร์ที่มหาวิทยาลัยกรุงเทพ',
+            en: 'Joined Center of Specialty Innovation (CoSI) as an intern while in my 2nd year of study.',
+            th: 'เข้าร่วมเป็นนักศึกษาฝึกงานที่ Center of Specialty Innovation (CoSI) ควบคู่กับการเรียนชั้นปีที่ 2',
         },
         links: [
             {

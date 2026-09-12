@@ -20,7 +20,7 @@
     "home.github.less": "น้อย",
     "home.github.more": "มาก",
     "home.work": "ประสบการณ์ทำงาน",
-    "home.work.description": "เคยร่วมงานในตำแหน่ง Fullstack Developer (Contract) ที่ AUGUST TEN DIGITAL DEVELOPMENT พัฒนาระบบ TPA Insurance - Claims Core System ด้วยสถาปัตยกรรม Microservices (Go และ Next.js) พร้อมทำ Primary/Replica read-write splitting และระบบ Business Validation ที่ซับซ้อน ก่อนหน้านี้เป็น Research Assistant ในตำแหน่ง Software Engineer ที่ศูนย์นวัตกรรมเฉพาะทาง Center of Specialty Innovation (CoSI) ได้ร่วมพัฒนาและส่งมอบหลายโครงการ ทั้งระบบภายในองค์กร แพลตฟอร์ม ERP และโครงการวิจัยอื่นๆ ที่นำไปใช้งานจริง",
+    "home.work.description": "Software Engineer ที่มีประสบการณ์ระดับ Production กว่า 2+ ปีในการพัฒนาและส่งมอบแพลตฟอร์มแบบ End-to-End เชี่ยวชาญการออกแบบสถาปัตยกรรม Backend และส่วนต่อประสานที่ตอบสนองรวดเร็ว มีผลงานจริงทั้งการพัฒนาระบบแกนกลางประกันภัย (TPA Claims) ที่ August Ten และการส่งมอบแพลตฟอร์ม ERP ตลอดจนระบบงานวิจัยร่วมกับศูนย์ CoSI",
     "home.portfolio": "ผลงานของผม",
     "home.bio": "ประวัติ",
     "home.web": "บนเว็บ",
