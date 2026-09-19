@@ -1,5 +1,10 @@
 import { TimelineEntry } from '../../types'
 
+const INNOVESTX_LINKEDIN_URL =
+    'https://www.linkedin.com/posts/innovestx_innovestx-innovestxopenhouse2026-innovestxuniversityroadshow2026-activity-7505206879120334848-XY2N'
+const INNOVESTX_WEBSITE_URL = 'https://www.innovestx.co.th'
+const INNOVESTX_HERO = '/images/innovestx-open-house-2026.jpg'
+
 const CURSOR_BUILD_SALAYA_URL =
     'https://cursorthailand.com/build-salaya/thank-you?referrer=luma&utm_source=luma'
 
@@ -52,6 +57,87 @@ const BU_CONFERENCE_IMAGES = [...BU_CONFERENCE_COSI_IMAGES, ...BU_CONFERENCE_USE
 // ---------------------------------------------------------------------------
 
 export const timelineSeed: TimelineEntry[] = [
+    {
+        id: 'timeline-innovestx-roadshow-2026',
+        slug: 'innovestx-university-roadshow-2026',
+        title: {
+            en: 'InnovestX University Roadshow 2026',
+            th: 'InnovestX University Roadshow 2026',
+        },
+        excerpt: {
+            en: 'Participated in InnovestX University Roadshow 2026 (Open House: Career & Investment Experience) at SCB Academy — Career Sessions, Mock Interviews with HR, and Investment Lab for GenZ.',
+            th: 'เข้าร่วมงาน InnovestX University Roadshow 2026 (Open House: Career & Investment Experience) ที่ SCB Academy — สัมผัสประสบการณ์ Career Session, Mock Interview กับ HR และ Investment Lab for GenZ',
+        },
+        content: {
+            en: `## InnovestX University Roadshow 2026: Your Future, Empowered
+
+On **18 September 2026**, I attended the **InnovestX University Roadshow 2026** (Open House: Career & Investment Experience) held at **SCB Academy, 18th Floor (SCB Park Plaza East)**, organized by **InnovestX** (a subsidiary of SCBX Group).
+
+The event brought together university students to explore career paths and financial technology through hands-on activities, professional insights, and networking.
+
+## Key Sessions & Highlights
+
+- **Career Session**:
+  - Practical resume advice directly tailored to what HR looks for in finance and tech
+  - Mock Interview with real HR professionals and personalized feedback
+  - Skill recommendations and career path opportunities in FinTech and investment
+- **Investment Lab for GenZ**:
+  - Hands-on workshop designed to make investing approachable and applicable in real life
+  - Insights into investment analysis, modern financial platforms, and digital assets
+- **Networking & Culture**:
+  - Connected with professionals from InnovestX to learn about company culture and technology in financial services
+  - Learned about upcoming opportunities for the **2027 Internship Program**
+
+## Read more
+
+Check out the official event announcement and updates on LinkedIn.
+
+[View the post on LinkedIn →](${INNOVESTX_LINKEDIN_URL})`,
+            th: `## InnovestX University Roadshow 2026: Your Future, Empowered
+
+วันที่ **18 กันยายน 2569** ผมได้เข้าร่วมงาน **InnovestX University Roadshow 2026** (Open House: Career & Investment Experience) ณ **SCB Academy ชั้น 18 (SCB Park Plaza East)** จัดโดย **InnovestX** (บริษัทในกลุ่ม SCBX)
+
+งานนี้จัดขึ้นเพื่อเปิดประสบการณ์ให้นิสิตนักศึกษาทั้งเรื่องการเตรียมตัวสู่สายงานอาชีพและมุมมองด้านการเงินการลงทุนในยุคดิจิทัลจบในวันเดียว
+
+## ไฮไลท์และกิจกรรมในงาน
+
+- **Career Session**:
+  - แนะนำการทำ Resume แบบที่ถูกใจ HR ในสายการเงินและเทคโนโลยี
+  - Mock Interview จำลองการสัมภาษณ์งานจริงกับ HR ตัวจริง พร้อมคำแนะนำเพื่อพัฒนาตนเอง
+  - แชร์ทักษะสำคัญและแนะนำโอกาสการทำงานในสาย FinTech และ Investment
+- **Investment Lab for GenZ**:
+  - Workshop เสริมความเข้าใจเรื่องการลงทุนแบบเข้าใจง่าย สนุก และนำไปปรับใช้ได้จริง
+  - เจาะลึกมุมมองตลาดทุน เทคโนโลยีแพลตฟอร์มการลงทุน และสินทรัพย์ดิจิทัล
+- **Networking & วัฒนธรรมองค์กร**:
+  - พูดคุยแลกเปลี่ยนกับทีมงาน InnovestX สัมผัสบรรยากาศการทำงานแบบมืออาชีพในกลุ่ม SCBX
+  - รับฟังข้อมูลและโอกาสสำหรับโครงการรับนักศึกษาฝึกงาน **2027 Internship Program**
+
+## อ่านเพิ่มเติม
+
+ดูรายละเอียดและโพสต์ประชาสัมพันธ์อย่างเป็นทางการได้ที่ LinkedIn
+
+[ดูโพสต์บน LinkedIn →](${INNOVESTX_LINKEDIN_URL})`,
+        },
+        type: 'participation',
+        date: '18 Sep 2026',
+        dateSort: '2026-09-18',
+        image: INNOVESTX_HERO,
+        imageFit: 'contain',
+        tags: ['InnovestX', 'SCBX', 'FinTech', 'Career', 'Investment'],
+        links: [
+            {
+                label: { en: 'LinkedIn Post', th: 'โพสต์บน LinkedIn' },
+                url: INNOVESTX_LINKEDIN_URL,
+            },
+            {
+                label: { en: 'InnovestX Website', th: 'เว็บไซต์ InnovestX' },
+                url: INNOVESTX_WEBSITE_URL,
+            },
+        ],
+        isActive: true,
+        order: 1,
+        createdAt: '2026-09-18',
+    },
     {
         id: 'timeline-cursor-build-salaya-2026',
         slug: 'cursor-build-salaya-2026',
