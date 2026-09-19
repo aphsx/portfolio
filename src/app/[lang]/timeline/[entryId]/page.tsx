@@ -156,27 +156,26 @@ const TimelineDetailPage = () => {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.12, duration: 0.5 }}
-            className="mb-8"
+            className="mb-12"
           >
             <h3 className="mb-4 text-base font-semibold text-gray-900 dark:text-gray-100 sm:text-lg">
               {language === 'th' ? 'รูปเพิ่มเติม' : 'More photos'}
             </h3>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="columns-2 gap-3">
               {galleryImages.map((url, index) => (
-                <div key={url} className="flex flex-col gap-2">
-                  <div
-                    className="aspect-video rounded-lg overflow-hidden bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-800 shadow-sm cursor-zoom-in group relative"
-                    onClick={() => openLightbox(allImages, url)}
-                  >
-                    <img
-                      src={url}
-                      alt={`${getLocalized(entry.title)} - ${index + 1}`}
-                      className="w-full h-full object-contain p-2 transition-transform duration-500 group-hover:scale-[1.02]"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/10" />
-                  </div>
-                </div>
+                <button
+                  key={url}
+                  type="button"
+                  className="mb-3 block w-full break-inside-avoid overflow-hidden rounded-lg bg-transparent p-0 border-0 cursor-zoom-in"
+                  onClick={() => openLightbox(allImages, url)}
+                >
+                  <img
+                    src={url}
+                    alt={`${getLocalized(entry.title)} - ${index + 1}`}
+                    className="w-full h-auto rounded-lg"
+                    loading="lazy"
+                  />
+                </button>
               ))}
             </div>
           </motion.div>
