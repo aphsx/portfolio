@@ -3,7 +3,14 @@ import { TimelineEntry } from '../../types'
 const INNOVESTX_LINKEDIN_URL =
     'https://www.linkedin.com/posts/innovestx_innovestx-innovestxopenhouse2026-innovestxuniversityroadshow2026-activity-7505206879120334848-XY2N'
 const INNOVESTX_WEBSITE_URL = 'https://www.innovestx.co.th'
-const INNOVESTX_HERO = '/images/innovestx-open-house-2026.jpg'
+const INNOVESTX_HERO = '/images/innovestx-stage-backdrop.jpg'
+const INNOVESTX_IMAGES = [
+    '/images/innovestx-badge.jpg',
+    '/images/innovestx-internship-presentation.jpg',
+    '/images/innovestx-checkin-screen.jpg',
+    '/images/innovestx-venue-scb-park.jpg',
+    '/images/innovestx-open-house-2026.jpg',
+]
 
 const CURSOR_BUILD_SALAYA_URL =
     'https://cursorthailand.com/build-salaya/thank-you?referrer=luma&utm_source=luma'
