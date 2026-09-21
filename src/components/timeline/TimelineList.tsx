@@ -19,7 +19,7 @@ const getImagePositionClass = (pos?: 'top' | 'center' | 'bottom') => {
   return 'object-center'
 }
 
-const TimelineList = ({ entries, layout = 'timeline' }: TimelineListProps) => {
+const TimelineList = ({ entries, layout = 'grid' }: TimelineListProps) => {
   const { getLocalized, language } = useLocalizedData()
   const { t } = useTranslation()
   const defaultImage = '/images/CSI00138.jpg'

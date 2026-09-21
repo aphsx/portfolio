@@ -33,7 +33,7 @@ const TimelinePage = () => {
   const { language } = useLocalizedData()
   const entries = TimelineRepository.getAll()
 
-  const [layout, setLayout] = useState<TimelineLayout>('timeline')
+  const [layout, setLayout] = useState<TimelineLayout>('grid')
 
   useEffect(() => {
     try {
