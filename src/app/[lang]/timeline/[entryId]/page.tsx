@@ -4,11 +4,35 @@ import Link from 'next/link'
 import { useParams, useRouter } from 'next/navigation'
 import { AnimatePresence, motion } from 'framer-motion'
 import { HiArrowLeft, HiChevronLeft, HiChevronRight, HiExternalLink, HiX } from 'react-icons/hi'
+import { Columns2, Columns3, Rows3 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import MarkdownRenderer from '../../../../components/common/MarkdownRenderer'
 import { typeBadgeClass, typeBadgeStyles } from '../../../../components/timeline/timelineStyles'
 import { TimelineRepository } from '../../../../data'
 import { useLocalizedData } from '../../../../hooks'
+
+type GalleryLayout = 'single' | 'columns-2' | 'columns-3'
+
+const LAYOUT_OPTIONS = [
+  {
+    id: 'single' as const,
+    name: { en: 'Feed', th: 'แนวตั้ง' },
+    label: { en: '1 photo per row (vertical feed)', th: '1 รูปต่อแถว (แนวตั้งขนาดใหญ่)' },
+    icon: Rows3,
+  },
+  {
+    id: 'columns-2' as const,
+    name: { en: '2 Cols', th: '2 คอลัมน์' },
+    label: { en: '2 columns (masonry)', th: '2 คอลัมน์ (Masonry)' },
+    icon: Columns2,
+  },
+  {
+    id: 'columns-3' as const,
+    name: { en: '3 Cols', th: '3 คอลัมน์' },
+    label: { en: '3 columns (compact grid)', th: '3 คอลัมน์ (หลายกล่องในแถว)' },
+    icon: Columns3,
+  },
+]
 
 const TimelineDetailPage = () => {
   const { entryId } = useParams()
@@ -17,7 +41,28 @@ const TimelineDetailPage = () => {
   const { getLocalized, language } = useLocalizedData()
 
   const [lightbox, setLightbox] = useState<{ images: string[]; index: number } | null>(null)
+  const [galleryLayout, setGalleryLayout] = useState<GalleryLayout>('columns-2')
   const touchStartX = useRef(0)
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('portfolio_gallery_layout') as GalleryLayout
+      if (saved === 'single' || saved === 'columns-2' || saved === 'columns-3') {
+        setGalleryLayout(saved)
+      }
+    } catch {
+      // Ignore localStorage availability issues
+    }
+  }, [])
+
+  const handleLayoutChange = (layout: GalleryLayout) => {
+    setGalleryLayout(layout)
+    try {
+      localStorage.setItem('portfolio_gallery_layout', layout)
+    } catch {
+      // Ignore
+    }
+  }
 
   const entry = TimelineRepository.getById((entryId as string) ?? '')
 
@@ -158,26 +203,110 @@ const TimelineDetailPage = () => {
             transition={{ delay: 0.12, duration: 0.5 }}
             className="mb-12"
           >
-            <h3 className="mb-4 text-base font-semibold text-gray-900 dark:text-gray-100 sm:text-lg">
-              {language === 'th' ? 'รูปเพิ่มเติม' : 'More photos'}
-            </h3>
-            <div className="columns-2 gap-3">
-              {galleryImages.map((url, index) => (
-                <button
-                  key={url}
-                  type="button"
-                  className="mb-3 block w-full break-inside-avoid overflow-hidden rounded-lg bg-transparent p-0 border-0 cursor-zoom-in"
-                  onClick={() => openLightbox(allImages, url)}
-                >
-                  <img
-                    src={url}
-                    alt={`${getLocalized(entry.title)} - ${index + 1}`}
-                    className="w-full h-auto rounded-lg"
-                    loading="lazy"
-                  />
-                </button>
-              ))}
+            <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+              <div className="flex items-center gap-2">
+                <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100 sm:text-lg">
+                  {language === 'th' ? 'รูปเพิ่มเติม' : 'More photos'}
+                </h3>
+                <span className="rounded-full bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-600 dark:bg-gray-800 dark:text-gray-400">
+                  {galleryImages.length}
+                </span>
+              </div>
+
+              {/* Layout switcher */}
+              <div className="flex items-center rounded-lg bg-gray-100/90 p-1 ring-1 ring-black/5 dark:bg-gray-800/80 dark:ring-white/10">
+                {LAYOUT_OPTIONS.map((opt) => {
+                  const isActive = galleryLayout === opt.id
+                  const Icon = opt.icon
+                  return (
+                    <button
+                      key={opt.id}
+                      type="button"
+                      onClick={() => handleLayoutChange(opt.id)}
+                      title={opt.label[language === 'th' ? 'th' : 'en']}
+                      aria-label={opt.label[language === 'th' ? 'th' : 'en']}
+                      className={`relative flex items-center gap-1.5 rounded-md px-2.5 py-1 text-xs font-medium transition-colors ${
+                        isActive
+                          ? 'text-gray-900 dark:text-white'
+                          : 'text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200'
+                      }`}
+                    >
+                      {isActive && (
+                        <motion.span
+                          layoutId="activeGalleryLayout"
+                          className="absolute inset-0 rounded-md bg-white shadow-xs dark:bg-gray-700"
+                          transition={{ type: 'spring', bounce: 0.15, duration: 0.35 }}
+                        />
+                      )}
+                      <span className="relative z-10 flex items-center gap-1">
+                        <Icon size={14} className="shrink-0" />
+                        <span className="hidden sm:inline">{opt.name[language === 'th' ? 'th' : 'en']}</span>
+                      </span>
+                    </button>
+                  )
+                })}
+              </div>
             </div>
+
+            {galleryLayout === 'single' && (
+              <div className="flex flex-col gap-4">
+                {galleryImages.map((url, index) => (
+                  <button
+                    key={url}
+                    type="button"
+                    className="group relative block w-full overflow-hidden rounded-xl border border-black/5 bg-gray-100 p-0 cursor-zoom-in dark:border-white/10 dark:bg-gray-800/60"
+                    onClick={() => openLightbox(allImages, url)}
+                  >
+                    <img
+                      src={url}
+                      alt={`${getLocalized(entry.title)} - ${index + 1}`}
+                      className="w-full h-auto rounded-xl transition-transform duration-300 group-hover:scale-[1.01]"
+                      loading="lazy"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
+
+            {galleryLayout === 'columns-2' && (
+              <div className="columns-2 gap-3">
+                {galleryImages.map((url, index) => (
+                  <button
+                    key={url}
+                    type="button"
+                    className="group mb-3 block w-full break-inside-avoid overflow-hidden rounded-lg bg-transparent p-0 border-0 cursor-zoom-in"
+                    onClick={() => openLightbox(allImages, url)}
+                  >
+                    <img
+                      src={url}
+                      alt={`${getLocalized(entry.title)} - ${index + 1}`}
+                      className="w-full h-auto rounded-lg transition-transform duration-300 group-hover:scale-[1.02]"
+                      loading="lazy"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
+
+            {galleryLayout === 'columns-3' && (
+              <div className="columns-2 sm:columns-3 gap-2.5">
+                {galleryImages.map((url, index) => (
+                  <button
+                    key={url}
+                    type="button"
+                    className="group mb-2.5 block w-full break-inside-avoid overflow-hidden rounded-lg bg-transparent p-0 border-0 cursor-zoom-in"
+                    onClick={() => openLightbox(allImages, url)}
+                  >
+                    <img
+                      src={url}
+                      alt={`${getLocalized(entry.title)} - ${index + 1}`}
+                      className="w-full h-auto rounded-lg transition-transform duration-300 group-hover:scale-[1.03]"
+                      loading="lazy"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
           </motion.div>
         )}
 
