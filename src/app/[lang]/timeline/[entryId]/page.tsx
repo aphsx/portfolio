@@ -144,6 +144,12 @@ const TimelineDetailPage = () => {
               src={heroImage}
               alt={getLocalized(entry.title)}
               className={`aspect-[16/9] w-full ${
+                entry.imagePosition === 'top'
+                  ? 'object-top'
+                  : entry.imagePosition === 'bottom'
+                  ? 'object-bottom'
+                  : 'object-center'
+              } ${
                 entry.imageFit === 'contain'
                   ? 'object-contain bg-gray-100 dark:bg-gray-900'
                   : 'object-cover'
