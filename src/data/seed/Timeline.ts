@@ -5,6 +5,7 @@ const INNOVESTX_LINKEDIN_URL =
 const INNOVESTX_WEBSITE_URL = 'https://www.innovestx.co.th'
 const INNOVESTX_HERO = '/images/innovestx-open-house-experience.jpg'
 const INNOVESTX_IMAGES = [
+    '/images/innovestx-open-house-experience.jpg',
     '/images/innovestx-group-photo.jpg',
     '/images/innovestx-career-workshop.jpg',
     '/images/innovestx-portfolio-allocation.jpg',
@@ -135,7 +136,7 @@ Check out the official event announcement and updates on LinkedIn.
         date: '18 Sep 2026',
         dateSort: '2026-09-18',
         image: INNOVESTX_HERO,
-        images: [INNOVESTX_HERO, ...INNOVESTX_IMAGES],
+        images: INNOVESTX_IMAGES,
         tags: ['InnovestX', 'SCBX', 'FinTech', 'Career', 'Investment'],
         links: [
             {
