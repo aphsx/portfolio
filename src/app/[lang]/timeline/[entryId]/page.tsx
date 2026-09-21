@@ -25,7 +25,7 @@ const TimelineDetailPage = () => {
   const allImages = Array.from(
     new Set([heroImage, ...(entry?.images ?? [])].filter(Boolean))
   ) as string[]
-  const galleryImages = (entry?.images ?? []).filter((img) => img !== heroImage)
+  const galleryImages = entry?.images ?? []
 
   const lightboxImage = lightbox ? lightbox.images[lightbox.index] : null
   const canNavigate = (lightbox?.images.length ?? 0) > 1
