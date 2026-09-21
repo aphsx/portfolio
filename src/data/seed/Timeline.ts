@@ -1,10 +1,11 @@
 import { TimelineEntry } from '../../types'
 
 const INNOVESTX_LINKEDIN_URL =
-    'https://www.linkedin.com/posts/innovestx_innovestx-innovestxopenhouse2026-innovestxuniversityroadshow2026-activity-7505206879120334848-XY2N'
+    'https://www.linkedin.com/posts/innovestx_innovestxopenhouse-futuretalent-lifeatinnovestx-activity-7507665342878388224-E4lJ'
 const INNOVESTX_WEBSITE_URL = 'https://www.innovestx.co.th'
-const INNOVESTX_HERO = '/images/innovestx-stage-backdrop.jpg'
+const INNOVESTX_HERO = '/images/innovestx-open-house-experience.jpg'
 const INNOVESTX_IMAGES = [
+    '/images/innovestx-stage-backdrop.jpg',
     '/images/innovestx-badge.jpg',
     '/images/innovestx-internship-presentation.jpg',
     '/images/innovestx-checkin-screen.jpg',
