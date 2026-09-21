@@ -62,30 +62,24 @@ const TimelinePage = () => {
     >
       <div className="max-w-2xl mx-auto px-6 pb-16">
         <motion.header
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="mb-10"
+          transition={{ duration: 0.5 }}
+          className="mb-8 sm:mb-10"
         >
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-            <div>
-              <h1 className="mb-2 text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100">
-                {t('timeline.title')}
-              </h1>
-              <p className="max-w-lg text-sm leading-relaxed text-gray-500 dark:text-gray-400">
-                {t('timeline.subtitle')}
-              </p>
-
-              {entries.length > 0 && (
-                <p className="mt-3 text-xs font-medium text-gray-400 dark:text-gray-500">
-                  {entries.length} {language === 'th' ? 'รายการ' : entries.length === 1 ? 'entry' : 'entries'}
-                </p>
-              )}
-            </div>
+          {/* แถวบน: ชื่อหัวข้อ Timeline คู่กับปุ่มเลือก Layout */}
+          <div className="flex items-center justify-between gap-4">
+            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
+              {t('timeline.title')}
+            </h1>
 
             {/* Layout switcher: icon-only */}
             {entries.length > 0 && (
-              <div className="flex items-center self-start sm:self-auto rounded-xl bg-gray-100/90 p-1 ring-1 ring-black/5 dark:bg-gray-800/80 dark:ring-white/10">
+              <div
+                role="group"
+                aria-label="Timeline layout"
+                className="flex items-center rounded-xl bg-gray-100/90 p-1 ring-1 ring-black/5 dark:bg-gray-800/80 dark:ring-white/10"
+              >
                 {LAYOUT_OPTIONS.map((opt) => {
                   const isActive = layout === opt.id
                   const Icon = opt.icon
@@ -116,6 +110,11 @@ const TimelinePage = () => {
               </div>
             )}
           </div>
+
+          {/* คำอธิบายใต้หัวข้อ */}
+          <p className="mt-2 text-sm leading-relaxed text-gray-500 dark:text-gray-400">
+            {t('timeline.subtitle')}
+          </p>
         </motion.header>
 
         {entries.length > 0 ? (
