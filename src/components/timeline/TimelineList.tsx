@@ -13,10 +13,12 @@ interface TimelineListProps {
   layout?: TimelineLayout
 }
 
-const getImagePositionClass = (pos?: 'top' | 'center' | 'bottom') => {
-  if (pos === 'top') return 'object-top'
-  if (pos === 'bottom') return 'object-bottom'
-  return 'object-center'
+const getImagePositionStyle = (pos?: string) => {
+  if (!pos) return undefined
+  if (pos === 'top') return { objectPosition: 'top' }
+  if (pos === 'bottom') return { objectPosition: 'bottom' }
+  if (pos === 'center') return { objectPosition: 'center' }
+  return { objectPosition: pos }
 }
 
 const TimelineList = ({ entries, layout = 'grid' }: TimelineListProps) => {
@@ -30,7 +32,7 @@ const TimelineList = ({ entries, layout = 'grid' }: TimelineListProps) => {
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {entries.map((entry, index) => {
           const coverImage = entry.image ?? entry.images?.[0]
-          const posClass = getImagePositionClass(entry.imagePosition)
+          const posStyle = getImagePositionStyle(entry.imagePosition)
 
           return (
             <motion.article
@@ -49,7 +51,8 @@ const TimelineList = ({ entries, layout = 'grid' }: TimelineListProps) => {
                   <img
                     src={coverImage || defaultImage}
                     alt={getLocalized(entry.title)}
-                    className={`h-full w-full object-cover ${posClass} transition-transform duration-500 group-hover:scale-[1.03]`}
+                    style={posStyle}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                     loading="lazy"
                     onError={(e) => {
                       e.currentTarget.src = defaultImage
@@ -99,7 +102,7 @@ const TimelineList = ({ entries, layout = 'grid' }: TimelineListProps) => {
       <div className="flex flex-col gap-3.5">
         {entries.map((entry, index) => {
           const coverImage = entry.image ?? entry.images?.[0]
-          const posClass = getImagePositionClass(entry.imagePosition)
+          const posStyle = getImagePositionStyle(entry.imagePosition)
 
           return (
             <motion.article
@@ -117,7 +120,8 @@ const TimelineList = ({ entries, layout = 'grid' }: TimelineListProps) => {
                   <img
                     src={coverImage || defaultImage}
                     alt={getLocalized(entry.title)}
-                    className={`h-full w-full object-cover ${posClass} transition-transform duration-500 group-hover:scale-[1.04]`}
+                    style={posStyle}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                     loading="lazy"
                     onError={(e) => {
                       e.currentTarget.src = defaultImage
@@ -177,7 +181,7 @@ const TimelineList = ({ entries, layout = 'grid' }: TimelineListProps) => {
       <div className="space-y-8">
         {entries.map((entry, index) => {
           const coverImage = entry.image ?? entry.images?.[0]
-          const posClass = getImagePositionClass(entry.imagePosition)
+          const posStyle = getImagePositionStyle(entry.imagePosition)
 
           return (
             <motion.article
@@ -201,7 +205,8 @@ const TimelineList = ({ entries, layout = 'grid' }: TimelineListProps) => {
                   <img
                     src={coverImage || defaultImage}
                     alt={getLocalized(entry.title)}
-                    className={`h-full w-full object-cover ${posClass} transition-transform duration-700 group-hover:scale-[1.03]`}
+                    style={posStyle}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                     loading="lazy"
                     onError={(e) => {
                       e.currentTarget.src = defaultImage

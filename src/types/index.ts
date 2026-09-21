@@ -148,7 +148,7 @@ export interface TimelineEntry extends BaseEntity {
   image?: string
   images?: string[]
   imageFit?: 'cover' | 'contain'
-  imagePosition?: 'top' | 'center' | 'bottom'
+  imagePosition?: string
   projectId?: string
   tags?: string[]
   links?: {
