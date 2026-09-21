@@ -131,7 +131,6 @@ Check out the official event announcement and updates on LinkedIn.
         dateSort: '2026-09-18',
         image: INNOVESTX_HERO,
         images: [INNOVESTX_HERO, ...INNOVESTX_IMAGES],
-        imageFit: 'contain',
         tags: ['InnovestX', 'SCBX', 'FinTech', 'Career', 'Investment'],
         links: [
             {
