@@ -83,7 +83,7 @@ const TimelinePage = () => {
               )}
             </div>
 
-            {/* Layout switcher */}
+            {/* Layout switcher: icon-only */}
             {entries.length > 0 && (
               <div className="flex items-center self-start sm:self-auto rounded-xl bg-gray-100/90 p-1 ring-1 ring-black/5 dark:bg-gray-800/80 dark:ring-white/10">
                 {LAYOUT_OPTIONS.map((opt) => {
@@ -96,10 +96,10 @@ const TimelinePage = () => {
                       onClick={() => handleLayoutChange(opt.id)}
                       title={opt.label[language === 'th' ? 'th' : 'en']}
                       aria-label={opt.label[language === 'th' ? 'th' : 'en']}
-                      className={`relative flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
+                      className={`relative flex h-8 w-8 items-center justify-center rounded-lg transition-colors ${
                         isActive
                           ? 'text-gray-900 dark:text-white'
-                          : 'text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200'
+                          : 'text-gray-400 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'
                       }`}
                     >
                       {isActive && (
@@ -109,10 +109,7 @@ const TimelinePage = () => {
                           transition={{ type: 'spring', bounce: 0.15, duration: 0.35 }}
                         />
                       )}
-                      <span className="relative z-10 flex items-center gap-1.5">
-                        <Icon size={14} className="shrink-0" />
-                        <span>{opt.name[language === 'th' ? 'th' : 'en']}</span>
-                      </span>
+                      <Icon size={16} className="relative z-10 shrink-0" />
                     </button>
                   )
                 })}

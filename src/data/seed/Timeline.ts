@@ -374,7 +374,6 @@ CoSI เป็นที่ที่ผมได้ลงมือ build ระ�
         date: '23 Jun 2024',
         dateSort: '2024-06-23',
         image: '/images/cosi-aphisit.jpg',
-        imageFit: 'contain',
         tags: ['CoSI', 'Bangkok University', 'Research'],
         links: [
             {

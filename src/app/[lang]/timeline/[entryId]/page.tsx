@@ -225,10 +225,10 @@ const TimelineDetailPage = () => {
                       onClick={() => handleLayoutChange(opt.id)}
                       title={opt.label[language === 'th' ? 'th' : 'en']}
                       aria-label={opt.label[language === 'th' ? 'th' : 'en']}
-                      className={`relative flex items-center gap-1.5 rounded-md px-2.5 py-1 text-xs font-medium transition-colors ${
+                      className={`relative flex h-7 w-7 items-center justify-center rounded-md text-xs font-medium transition-colors ${
                         isActive
                           ? 'text-gray-900 dark:text-white'
-                          : 'text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200'
+                          : 'text-gray-400 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'
                       }`}
                     >
                       {isActive && (
@@ -238,10 +238,7 @@ const TimelineDetailPage = () => {
                           transition={{ type: 'spring', bounce: 0.15, duration: 0.35 }}
                         />
                       )}
-                      <span className="relative z-10 flex items-center gap-1">
-                        <Icon size={14} className="shrink-0" />
-                        <span className="hidden sm:inline">{opt.name[language === 'th' ? 'th' : 'en']}</span>
-                      </span>
+                      <Icon size={15} className="relative z-10 shrink-0" />
                     </button>
                   )
                 })}
@@ -257,52 +254,58 @@ const TimelineDetailPage = () => {
                     className="group relative block w-full overflow-hidden rounded-xl border border-black/5 bg-gray-100 p-0 cursor-zoom-in dark:border-white/10 dark:bg-gray-800/60"
                     onClick={() => openLightbox(allImages, url)}
                   >
-                    <img
-                      src={url}
-                      alt={`${getLocalized(entry.title)} - ${index + 1}`}
-                      className="w-full h-auto rounded-xl transition-transform duration-300 group-hover:scale-[1.01]"
-                      loading="lazy"
-                    />
+                    <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-100 dark:bg-gray-900">
+                      <img
+                        src={url}
+                        alt={`${getLocalized(entry.title)} - ${index + 1}`}
+                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                        loading="lazy"
+                      />
+                    </div>
                   </button>
                 ))}
               </div>
             )}
 
             {galleryLayout === 'columns-2' && (
-              <div className="columns-2 gap-3">
+              <div className="grid grid-cols-2 gap-3">
                 {galleryImages.map((url, index) => (
                   <button
                     key={url}
                     type="button"
-                    className="group mb-3 block w-full break-inside-avoid overflow-hidden rounded-lg bg-transparent p-0 border-0 cursor-zoom-in"
+                    className="group block w-full overflow-hidden rounded-lg border border-black/5 bg-gray-100 p-0 cursor-zoom-in dark:border-white/10 dark:bg-gray-800/60"
                     onClick={() => openLightbox(allImages, url)}
                   >
-                    <img
-                      src={url}
-                      alt={`${getLocalized(entry.title)} - ${index + 1}`}
-                      className="w-full h-auto rounded-lg transition-transform duration-300 group-hover:scale-[1.02]"
-                      loading="lazy"
-                    />
+                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-100 dark:bg-gray-900">
+                      <img
+                        src={url}
+                        alt={`${getLocalized(entry.title)} - ${index + 1}`}
+                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                        loading="lazy"
+                      />
+                    </div>
                   </button>
                 ))}
               </div>
             )}
 
             {galleryLayout === 'columns-3' && (
-              <div className="columns-2 sm:columns-3 gap-2.5">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
                 {galleryImages.map((url, index) => (
                   <button
                     key={url}
                     type="button"
-                    className="group mb-2.5 block w-full break-inside-avoid overflow-hidden rounded-lg bg-transparent p-0 border-0 cursor-zoom-in"
+                    className="group block w-full overflow-hidden rounded-lg border border-black/5 bg-gray-100 p-0 cursor-zoom-in dark:border-white/10 dark:bg-gray-800/60"
                     onClick={() => openLightbox(allImages, url)}
                   >
-                    <img
-                      src={url}
-                      alt={`${getLocalized(entry.title)} - ${index + 1}`}
-                      className="w-full h-auto rounded-lg transition-transform duration-300 group-hover:scale-[1.03]"
-                      loading="lazy"
-                    />
+                    <div className="relative aspect-square w-full overflow-hidden bg-gray-100 dark:bg-gray-900">
+                      <img
+                        src={url}
+                        alt={`${getLocalized(entry.title)} - ${index + 1}`}
+                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]"
+                        loading="lazy"
+                      />
+                    </div>
                   </button>
                 ))}
               </div>
