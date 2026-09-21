@@ -5,6 +5,11 @@ const INNOVESTX_LINKEDIN_URL =
 const INNOVESTX_WEBSITE_URL = 'https://www.innovestx.co.th'
 const INNOVESTX_HERO = '/images/innovestx-open-house-experience.jpg'
 const INNOVESTX_IMAGES = [
+    '/images/innovestx-group-photo.jpg',
+    '/images/innovestx-career-workshop.jpg',
+    '/images/innovestx-portfolio-allocation.jpg',
+    '/images/innovestx-speakers-activity.jpg',
+    '/images/innovestx-scbx-ecosystem.jpg',
     '/images/innovestx-stage-backdrop.jpg',
     '/images/innovestx-badge.jpg',
     '/images/innovestx-internship-presentation.jpg',
