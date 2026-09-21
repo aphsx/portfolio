@@ -102,10 +102,10 @@ const TimelineList = ({ entries, layout = 'timeline' }: TimelineListProps) => {
             >
               <Link
                 href={`/${language}/timeline/${entry.id}`}
-                className="group flex flex-row overflow-hidden rounded-xl bg-white shadow-xs ring-1 ring-black/[0.04] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:ring-teal-500/20 dark:bg-gray-800/80 dark:ring-white/10 dark:hover:ring-teal-500/30"
+                className="group flex flex-row h-[136px] sm:h-[156px] overflow-hidden rounded-xl bg-white shadow-xs ring-1 ring-black/[0.04] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:ring-teal-500/20 dark:bg-gray-800/80 dark:ring-white/10 dark:hover:ring-teal-500/30"
               >
-                {/* รูปภาพ Thumbnail ซ้ายมือ เต็มความสูงการ์ด */}
-                <div className="relative w-32 sm:w-44 shrink-0 overflow-hidden bg-gray-100 dark:bg-gray-900 self-stretch">
+                {/* ล็อคขนาดรูปภาพ Thumbnail ซ้ายมือ ให้กว้างและสูงเท่ากันเป๊ะ 100% ทุกใบ */}
+                <div className="relative w-36 sm:w-52 h-full shrink-0 overflow-hidden bg-gray-100 dark:bg-gray-900">
                   <img
                     src={coverImage || defaultImage}
                     alt={getLocalized(entry.title)}
@@ -123,7 +123,7 @@ const TimelineList = ({ entries, layout = 'timeline' }: TimelineListProps) => {
                   </div>
                 </div>
 
-                <div className="flex flex-1 flex-col justify-between p-3 sm:p-4 min-w-0">
+                <div className="flex flex-1 flex-col justify-between p-3 sm:p-3.5 min-w-0 h-full">
                   <div>
                     <div className="mb-1 hidden sm:flex flex-wrap items-center gap-1.5">
                       <time className="rounded-full bg-gray-100 px-2.5 py-0.5 text-[10px] font-semibold text-gray-700 dark:bg-gray-700/70 dark:text-gray-300">
@@ -143,7 +143,7 @@ const TimelineList = ({ entries, layout = 'timeline' }: TimelineListProps) => {
                     </p>
                   </div>
 
-                  <div className="mt-2.5 flex items-center justify-between pt-0.5">
+                  <div className="flex items-center justify-between pt-1">
                     <span className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-semibold text-teal-600 transition-all group-hover:gap-1.5 dark:text-teal-400">
                       {t('timeline.readMore')}
                       <HiArrowRight size={12} className="transition-transform group-hover:translate-x-0.5" />
