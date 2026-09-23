@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
-import { GitCommitVertical, LayoutGrid, List } from 'lucide-react'
+import { GitCommitVertical, Grid2x2, Rows3 } from 'lucide-react'
 import { TimelineList, TimelineLayout } from '../../../components/timeline'
 import { TimelineRepository } from '../../../data'
 import { useLocalizedData } from '../../../hooks'
@@ -18,13 +18,13 @@ const LAYOUT_OPTIONS = [
     id: 'grid' as const,
     name: { en: 'Grid', th: 'หลายกล่อง' },
     label: { en: 'Multi-column cards grid', th: 'หลายกล่องในแถว (Grid)' },
-    icon: LayoutGrid,
+    icon: Grid2x2,
   },
   {
     id: 'rows' as const,
     name: { en: 'Rows', th: 'แบบแถว' },
     label: { en: 'Horizontal row list', th: 'รายการแบบแถว' },
-    icon: List,
+    icon: Rows3,
   },
 ]
 
@@ -67,18 +67,22 @@ const TimelinePage = () => {
           transition={{ duration: 0.5 }}
           className="mb-8 sm:mb-10"
         >
-          {/* แถวบน: ชื่อหัวข้อ Timeline คู่กับปุ่มเลือก Layout */}
-          <div className="flex items-center justify-between gap-4">
-            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
-              {t('timeline.title')}
-            </h1>
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 sm:gap-6">
+            <div className="space-y-1.5 max-w-md sm:max-w-lg">
+              <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
+                {t('timeline.title')}
+              </h1>
+              <p className="text-sm leading-relaxed text-gray-500 dark:text-gray-400">
+                {t('timeline.subtitle')}
+              </p>
+            </div>
 
             {/* Layout switcher: icon-only */}
             {entries.length > 0 && (
               <div
                 role="group"
                 aria-label="Timeline layout"
-                className="flex items-center rounded-xl bg-gray-100/90 p-1 ring-1 ring-black/5 dark:bg-gray-800/80 dark:ring-white/10"
+                className="flex items-center self-start sm:self-end rounded-xl bg-gray-100/90 p-1 ring-1 ring-black/5 dark:bg-gray-800/80 dark:ring-white/10 shrink-0"
               >
                 {LAYOUT_OPTIONS.map((opt) => {
                   const isActive = layout === opt.id
@@ -110,11 +114,6 @@ const TimelinePage = () => {
               </div>
             )}
           </div>
-
-          {/* คำอธิบายใต้หัวข้อ */}
-          <p className="mt-2 text-sm leading-relaxed text-gray-500 dark:text-gray-400">
-            {t('timeline.subtitle')}
-          </p>
         </motion.header>
 
         {entries.length > 0 ? (
