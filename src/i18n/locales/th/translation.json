@@ -34,6 +34,8 @@
     "portfolio.works.main": "ผลงานหลัก",
     "portfolio.works.collaborations": "งานร่วมมือ",
     "portfolio.works.old": "คลังเก่า",
+    "portfolio.filter.all": "ทั้งหมด",
+    "portfolio.viewProject": "ดูรายละเอียด",
     "project.back": "กลับไปยังผลงาน",
     "project.visit": "เยี่ยมชมผลงาน",
     "project.code": "ดูซอร์สโค้ด",

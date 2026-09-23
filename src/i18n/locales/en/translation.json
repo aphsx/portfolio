@@ -34,6 +34,8 @@
     "portfolio.works.main": "Main Works",
     "portfolio.works.collaborations": "Collaborations",
     "portfolio.works.old": "Archive",
+    "portfolio.filter.all": "All",
+    "portfolio.viewProject": "View Project",
     "project.back": "Back to projects",
     "project.visit": "Visit project",
     "project.code": "View source code",

@@ -1,92 +1,191 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { HiArrowRight } from 'react-icons/hi'
 import { Project } from '../../types'
 import { useLocalizedData } from '../../hooks'
+import { useTranslation } from 'react-i18next'
+
+export type ProjectLayout = 'rows' | 'grid'
 
 interface ProjectListProps {
-  title: string
+  title?: string
   projects: Project[]
+  layout?: ProjectLayout
   showDivider?: boolean
 }
 
-const ProjectList = ({ title, projects, showDivider = false }: ProjectListProps) => {
+const ProjectList = ({ title, projects, layout = 'rows' }: ProjectListProps) => {
   const { getLocalized, language } = useLocalizedData()
-  // กำหนด default image
+  const { t } = useTranslation()
   const defaultImage = '/images/CSI00138.jpg'
 
+  if (projects.length === 0) return null
+
   return (
-    <>
-      {showDivider && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="my-8"
-        >
-          {/* <hr className="border-gray-300 dark:border-gray-700 mb-6" /> */}
-        </motion.div>
+    <motion.section
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="mb-12 last:mb-0"
+    >
+      {/* Section Title & Count Badge */}
+      {title && (
+        <div className="flex items-center gap-2 mb-5">
+          <h2 className="text-lg sm:text-xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
+            {title}
+          </h2>
+          <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400">
+            {projects.length}
+          </span>
+        </div>
       )}
 
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.6 }}
-        className="mb-10"
-      >
-        <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-6">
-          {title}
-        </h3>
-
-        <div className="space-y-6 sm:space-y-12">
+      {/* 1. Rows layout (แบบเดิมเป็นหลัก - แถวแนวนอน จัดวางสวยงาม สัดส่วนเท่ากัน) */}
+      {layout === 'rows' ? (
+        <div className="space-y-4">
           {projects.map((project, index) => (
             <motion.article
               key={project.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 + index * 0.1, duration: 0.6 }}
-              className={`flex flex-col sm:flex-row ${index % 2 === 0 ? 'sm:flex-row' : 'sm:flex-row-reverse'} gap-4 sm:gap-8`}
+              transition={{ delay: 0.04 + index * 0.03, duration: 0.4, ease: 'easeOut' }}
             >
               <Link
                 href={`/${language}/projects/${project.id}`}
-                className="flex-1 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 rounded-xl p-4 sm:p-6 transition-colors duration-300 "
+                className="group flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 rounded-2xl p-3 sm:p-4 bg-white/70 dark:bg-gray-800/50 shadow-xs ring-1 ring-black/[0.04] dark:ring-white/10 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white dark:hover:bg-gray-800 hover:shadow-md hover:ring-teal-500/20 dark:hover:ring-teal-500/30"
               >
-                <div className="flex-shrink-0 w-full sm:w-48 h-48 sm:h-32 relative overflow-hidden rounded-lg shadow-sm ring-1 ring-black/5 dark:ring-white/10 dark:shadow-black/30">
+                {/* Thumbnail: Fixed 16:10 aspect ratio */}
+                <div className="relative w-full sm:w-48 sm:h-32 h-44 shrink-0 overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-900 ring-1 ring-black/5 dark:ring-white/10">
                   <img
                     src={project.image || defaultImage}
                     alt={getLocalized(project.title)}
-                    className="w-full h-full object-cover"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                     loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.src = defaultImage
+                    }}
                   />
+                  {project.year && (
+                    <div className="absolute top-2 left-2">
+                      <span className="rounded-full bg-white/90 px-2 py-0.5 text-[10px] font-semibold text-gray-800 backdrop-blur-sm dark:bg-gray-900/90 dark:text-gray-100 shadow-xs">
+                        {project.year}
+                      </span>
+                    </div>
+                  )}
                 </div>
 
-                <div className="flex-1 text-left w-full">
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-slate-100 mb-1 ">
-                    {getLocalized(project.title)}
-                  </h3>
-                  <p className="text-gray-600 dark:text-slate-300 text-sm leading-relaxed mb-2">
-                    {getLocalized(project.shortDescription || project.description)}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.slice(0, 3).map((tag, tagIndex) => (
-                      <span
-                        key={tagIndex}
-                        className="px-2 py-1 bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 text-xs rounded-full"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                    {project.tags.length > 3 && (
-                      <span className="px-2 py-1 bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-slate-300 text-xs rounded-full">
-                        +{project.tags.length - 3} more
-                      </span>
-                    )}
+                {/* Info */}
+                <div className="flex flex-1 flex-col justify-between w-full min-w-0">
+                  <div>
+                    <h3 className="line-clamp-1 text-base sm:text-lg font-bold text-gray-900 transition-colors group-hover:text-teal-600 dark:text-gray-100 dark:group-hover:text-teal-400">
+                      {getLocalized(project.title)}
+                    </h3>
+                    <p className="mt-1 line-clamp-2 text-xs sm:text-sm leading-relaxed text-gray-500 dark:text-gray-400">
+                      {getLocalized(project.shortDescription || project.description)}
+                    </p>
+                  </div>
+
+                  <div className="mt-3 flex items-center justify-between pt-1">
+                    <div className="flex flex-wrap items-center gap-1.5">
+                      {project.tags.slice(0, 3).map((tag, tagIndex) => (
+                        <span
+                          key={tagIndex}
+                          className="rounded-md bg-gray-100 px-2 py-0.5 text-[11px] font-medium text-gray-600 dark:bg-gray-700/60 dark:text-gray-300"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                      {project.tags.length > 3 && (
+                        <span className="text-[11px] text-gray-400 dark:text-gray-500">
+                          +{project.tags.length - 3}
+                        </span>
+                      )}
+                    </div>
+
+                    <span className="inline-flex items-center gap-1 text-xs font-semibold text-teal-600 transition-all group-hover:gap-1.5 dark:text-teal-400 shrink-0">
+                      {t('portfolio.viewProject')}
+                      <HiArrowRight size={13} className="transition-transform group-hover:translate-x-0.5" />
+                    </span>
                   </div>
                 </div>
               </Link>
             </motion.article>
           ))}
         </div>
-      </motion.section>
-    </>
+      ) : (
+        /* 2. Grid layout (หลายกล่องในแถว - 2 คอลัมน์) */
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {projects.map((project, index) => (
+            <motion.article
+              key={project.id}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.04 + index * 0.03, duration: 0.4, ease: 'easeOut' }}
+              className="flex h-full"
+            >
+              <Link
+                href={`/${language}/projects/${project.id}`}
+                className="group flex w-full flex-col overflow-hidden rounded-xl bg-white shadow-xs ring-1 ring-black/[0.04] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:ring-teal-500/20 dark:bg-gray-800/80 dark:ring-white/10 dark:hover:ring-teal-500/30"
+              >
+                <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden bg-gray-100 dark:bg-gray-900">
+                  <img
+                    src={project.image || defaultImage}
+                    alt={getLocalized(project.title)}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.src = defaultImage
+                    }}
+                  />
+                  {project.year && (
+                    <div className="absolute top-2 left-2">
+                      <span className="rounded-full bg-white/90 px-2 py-0.5 text-[10px] font-semibold text-gray-800 backdrop-blur-sm dark:bg-gray-900/90 dark:text-gray-100 shadow-xs">
+                        {project.year}
+                      </span>
+                    </div>
+                  )}
+                </div>
+
+                <div className="flex flex-1 flex-col justify-between p-3.5 sm:p-4">
+                  <div>
+                    <h3 className="line-clamp-1 text-sm font-bold leading-snug text-gray-900 transition-colors group-hover:text-teal-600 dark:text-gray-100 dark:group-hover:text-teal-400">
+                      {getLocalized(project.title)}
+                    </h3>
+
+                    <p className="mt-1.5 line-clamp-2 text-xs leading-relaxed text-gray-500 dark:text-gray-400">
+                      {getLocalized(project.shortDescription || project.description)}
+                    </p>
+                  </div>
+
+                  <div className="mt-3.5 flex items-center justify-between pt-0.5">
+                    <div className="flex flex-wrap items-center gap-1">
+                      {project.tags.slice(0, 2).map((tag, tagIndex) => (
+                        <span
+                          key={tagIndex}
+                          className="rounded-md bg-gray-100 px-1.5 py-0.5 text-[10px] font-medium text-gray-600 dark:bg-gray-700/60 dark:text-gray-300"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                      {project.tags.length > 2 && (
+                        <span className="text-[10px] text-gray-400 dark:text-gray-500">
+                          +{project.tags.length - 2}
+                        </span>
+                      )}
+                    </div>
+
+                    <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-teal-600 transition-all group-hover:gap-1.5 dark:text-teal-400 shrink-0">
+                      {t('portfolio.viewProject')}
+                      <HiArrowRight size={12} className="transition-transform group-hover:translate-x-0.5" />
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            </motion.article>
+          ))}
+        </div>
+      )}
+    </motion.section>
   )
 }
 
