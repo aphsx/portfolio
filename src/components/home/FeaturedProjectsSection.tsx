@@ -39,11 +39,7 @@ const FeaturedProjectsSection = () => {
                   <img
                     src={project.image}
                     alt={getLocalized(project.title)}
-                    className={`h-full w-full transition-transform duration-500 group-hover:scale-[1.02] ${
-                      project.category === 'certi'
-                        ? 'object-contain p-2'
-                        : 'object-cover'
-                    }`}
+                    className="h-full w-full object-cover"
                     loading="lazy"
                   />
                 </div>
