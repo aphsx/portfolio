@@ -44,7 +44,7 @@ const TimelineList = ({ entries, layout = 'grid' }: TimelineListProps) => {
             >
               <Link
                 href={`/${language}/timeline/${entry.id}`}
-                className="group flex w-full flex-col overflow-hidden rounded-xl bg-white shadow-xs ring-1 ring-black/[0.04] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:ring-teal-500/20 dark:bg-gray-800/80 dark:ring-white/10 dark:hover:ring-teal-500/30"
+                className="group flex w-full flex-col overflow-hidden rounded-xl bg-white shadow-xs ring-1 ring-black/[0.04] dark:bg-gray-800/80 dark:ring-white/10"
               >
                 {/* ล็อคขนาดรูปภาพ 16:10 ให้เท่ากันทุกใบ */}
                 <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden bg-gray-100 dark:bg-gray-900">
@@ -52,7 +52,7 @@ const TimelineList = ({ entries, layout = 'grid' }: TimelineListProps) => {
                     src={coverImage || defaultImage}
                     alt={getLocalized(entry.title)}
                     style={posStyle}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    className="h-full w-full object-cover"
                     loading="lazy"
                     onError={(e) => {
                       e.currentTarget.src = defaultImage
@@ -113,7 +113,7 @@ const TimelineList = ({ entries, layout = 'grid' }: TimelineListProps) => {
             >
               <Link
                 href={`/${language}/timeline/${entry.id}`}
-                className="group flex flex-row h-[136px] sm:h-[156px] overflow-hidden rounded-xl bg-white shadow-xs ring-1 ring-black/[0.04] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:ring-teal-500/20 dark:bg-gray-800/80 dark:ring-white/10 dark:hover:ring-teal-500/30"
+                className="group flex flex-row h-[136px] sm:h-[156px] overflow-hidden rounded-xl bg-white shadow-xs ring-1 ring-black/[0.04] dark:bg-gray-800/80 dark:ring-white/10"
               >
                 {/* ล็อคขนาดรูปภาพ Thumbnail ซ้ายมือ ให้กว้างและสูงเท่ากันเป๊ะ 100% ทุกใบ */}
                 <div className="relative w-36 sm:w-52 h-full shrink-0 overflow-hidden bg-gray-100 dark:bg-gray-900">
@@ -121,7 +121,7 @@ const TimelineList = ({ entries, layout = 'grid' }: TimelineListProps) => {
                     src={coverImage || defaultImage}
                     alt={getLocalized(entry.title)}
                     style={posStyle}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                    className="h-full w-full object-cover"
                     loading="lazy"
                     onError={(e) => {
                       e.currentTarget.src = defaultImage
@@ -198,7 +198,7 @@ const TimelineList = ({ entries, layout = 'grid' }: TimelineListProps) => {
 
               <Link
                 href={`/${language}/timeline/${entry.id}`}
-                className="group block overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/[0.04] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:ring-teal-500/20 dark:bg-gray-800/80 dark:ring-white/10 dark:hover:ring-teal-500/30"
+                className="group block overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/[0.04] dark:bg-gray-800/80 dark:ring-white/10"
               >
                 {/* ล็อคขนาดรูป 16:9 เต็มความกว้างการ์ด เท่ากันทุกใบ */}
                 <div className="relative aspect-[16/9] w-full overflow-hidden bg-gray-100 dark:bg-gray-900">
@@ -206,7 +206,7 @@ const TimelineList = ({ entries, layout = 'grid' }: TimelineListProps) => {
                     src={coverImage || defaultImage}
                     alt={getLocalized(entry.title)}
                     style={posStyle}
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    className="h-full w-full object-cover"
                     loading="lazy"
                     onError={(e) => {
                       e.currentTarget.src = defaultImage
