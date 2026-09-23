@@ -52,7 +52,7 @@ const ProjectList = ({ title, projects, layout = 'rows' }: ProjectListProps) => 
             >
               <Link
                 href={`/${language}/projects/${project.id}`}
-                className="group flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 rounded-2xl p-3 sm:p-4 bg-white/70 dark:bg-gray-800/50 shadow-xs ring-1 ring-black/[0.04] dark:ring-white/10 transition-colors duration-300 hover:bg-white dark:hover:bg-gray-800"
+                className="group flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 rounded-2xl p-3 sm:p-4 bg-white dark:bg-gray-800/80 shadow-xs ring-1 ring-black/[0.04] dark:ring-white/10"
               >
                 {/* Thumbnail: Fixed 16:10 aspect ratio */}
                 <div className="relative w-full sm:w-48 sm:h-32 h-44 shrink-0 overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-900 ring-1 ring-black/5 dark:ring-white/10">
