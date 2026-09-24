@@ -4,6 +4,8 @@ import { LanguageWrapper } from '../../components/common'
 import MainLayout from '../../layouts/MainLayout'
 import { SITE_CONFIG } from '../../config/site'
 
+export const dynamicParams = false
+
 export function generateStaticParams() {
   return SITE_CONFIG.supportedLanguages.map((lang) => ({ lang }))
 }

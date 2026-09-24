@@ -5,13 +5,11 @@ import {
   BioSection,
   SkillsSection,
   SocialLinksSection,
-  // ContactSection, // Uncomment to show email contact section
   FeaturedProjectsSection,
   GitHubContributionsSection,
 } from '../../components/home'
 
 const Home = () => {
-
   return (
     <div
       className="min-h-screen bg-gray-50 dark:bg-gray-900"
@@ -24,8 +22,6 @@ const Home = () => {
         <SkillsSection />
         <GitHubContributionsSection />
         <SocialLinksSection />
-        {/* Uncomment to show email contact section */}
-        {/* <ContactSection /> */}
         <FeaturedProjectsSection />
       </div>
     </div>
