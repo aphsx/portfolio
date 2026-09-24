@@ -40,22 +40,22 @@ const ProjectList = ({ title, projects, layout = 'rows' }: ProjectListProps) => 
         </div>
       )}
 
-      {/* 1. Rows layout (แบบเดิมเป็นหลัก - แถวแนวนอน จัดวางสวยงาม สัดส่วนเท่ากัน) */}
+      {/* 1. Rows layout (ขนาดกล่องเท่ากันทุกใบ ไม่มี padding/margin รอบรูป จัดวางเนื้อหาแบบเดิม) */}
       {layout === 'rows' ? (
-        <div className="space-y-4">
+        <div className="flex flex-col gap-3.5">
           {projects.map((project, index) => (
             <motion.article
               key={project.id}
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.04 + index * 0.03, duration: 0.4, ease: 'easeOut' }}
+              transition={{ delay: 0.03 + index * 0.03, duration: 0.35, ease: 'easeOut' }}
             >
               <Link
                 href={`/${language}/projects/${project.id}`}
-                className="group flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 rounded-2xl p-3 sm:p-4 bg-white dark:bg-gray-800/80 shadow-xs ring-1 ring-black/[0.04] dark:ring-white/10"
+                className="group flex flex-row h-[136px] sm:h-[156px] overflow-hidden rounded-xl bg-white shadow-xs ring-1 ring-black/[0.04] dark:bg-gray-800/80 dark:ring-white/10"
               >
-                {/* Thumbnail: Fixed 16:10 aspect ratio */}
-                <div className="relative w-full sm:w-48 sm:h-32 h-44 shrink-0 overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-900 ring-1 ring-black/5 dark:ring-white/10">
+                {/* Thumbnail: ขนาดเท่ากันทุกใบ ไร้ขอบ margin/padding กั้น */}
+                <div className="relative w-36 sm:w-52 h-full shrink-0 overflow-hidden bg-gray-100 dark:bg-gray-900">
                   <img
                     src={project.image || defaultImage}
                     alt={getLocalized(project.title)}
@@ -74,8 +74,8 @@ const ProjectList = ({ title, projects, layout = 'rows' }: ProjectListProps) => 
                   )}
                 </div>
 
-                {/* Info */}
-                <div className="flex flex-1 flex-col justify-between w-full min-w-0">
+                {/* Info: จัดเรียงตำแหน่ง year / title / tag แบบเดิม */}
+                <div className="flex flex-1 flex-col justify-between p-3 sm:p-4 min-w-0 h-full">
                   <div>
                     <h3 className="line-clamp-1 text-base sm:text-lg font-bold text-gray-900 transition-colors group-hover:text-teal-600 dark:text-gray-100 dark:group-hover:text-teal-400">
                       {getLocalized(project.title)}
@@ -85,7 +85,7 @@ const ProjectList = ({ title, projects, layout = 'rows' }: ProjectListProps) => 
                     </p>
                   </div>
 
-                  <div className="mt-3 flex items-center justify-between pt-1">
+                  <div className="flex items-center justify-between pt-1">
                     <div className="flex flex-wrap items-center gap-1.5">
                       {project.tags.slice(0, 3).map((tag, tagIndex) => (
                         <span
