@@ -29,7 +29,7 @@ const TimelineList = ({ entries, layout = 'grid' }: TimelineListProps) => {
   // 1. Grid layout (หลายกล่องในแถว - ขนาดเท่ากันทุกใบเป๊ะ)
   if (layout === 'grid') {
     return (
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <div className="grid grid-cols-2 gap-3 sm:gap-4">
         {entries.map((entry, index) => {
           const coverImage = entry.image ?? entry.images?.[0]
           const posStyle = getImagePositionStyle(entry.imagePosition)
@@ -59,32 +59,32 @@ const TimelineList = ({ entries, layout = 'grid' }: TimelineListProps) => {
                     }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 flex flex-wrap items-center gap-1.5 p-2.5">
-                    <time className="rounded-full bg-white/90 px-2 py-0.5 text-[10px] font-semibold tracking-wide text-gray-800 backdrop-blur-sm dark:bg-gray-900/90 dark:text-gray-100">
+                  <div className="absolute bottom-0 left-0 right-0 flex flex-wrap items-center gap-1 sm:gap-1.5 p-1.5 sm:p-2.5">
+                    <time className="rounded-full bg-white/90 px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[10px] font-semibold tracking-wide text-gray-800 backdrop-blur-sm dark:bg-gray-900/90 dark:text-gray-100">
                       {entry.date}
                     </time>
-                    <span className={`${typeBadgeClass} text-[10px] bg-white/90 backdrop-blur-sm dark:bg-gray-900/90 ${typeBadgeStyles[entry.type]}`}>
+                    <span className={`${typeBadgeClass} text-[9px] sm:text-[10px] bg-white/90 backdrop-blur-sm dark:bg-gray-900/90 ${typeBadgeStyles[entry.type]}`}>
                       {t(`timeline.type.${entry.type}`)}
                     </span>
                   </div>
                 </div>
 
                 {/* เนื้อหาด้านล่าง: line-clamp-2 ตามด้วย ... และไม่มีเส้นคั่น */}
-                <div className="flex flex-1 flex-col justify-between p-3.5 sm:p-4">
+                <div className="flex flex-1 flex-col justify-between p-2.5 sm:p-4">
                   <div>
-                    <h2 className="line-clamp-2 text-sm font-bold leading-snug text-gray-900 transition-colors group-hover:text-teal-600 dark:text-gray-100 dark:group-hover:text-teal-400">
+                    <h2 className="line-clamp-2 text-xs sm:text-sm font-bold leading-snug text-gray-900 transition-colors group-hover:text-teal-600 dark:text-gray-100 dark:group-hover:text-teal-400">
                       {getLocalized(entry.title)}
                     </h2>
 
-                    <p className="mt-1.5 line-clamp-2 text-xs leading-relaxed text-gray-500 dark:text-gray-400">
+                    <p className="mt-1 line-clamp-2 text-[11px] sm:text-xs leading-relaxed text-gray-500 dark:text-gray-400">
                       {getLocalized(entry.excerpt)}
                     </p>
                   </div>
 
-                  <div className="mt-3 flex items-center justify-between pt-0.5">
-                    <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-teal-600 transition-all group-hover:gap-1.5 dark:text-teal-400">
+                  <div className="mt-2.5 sm:mt-3 flex items-center justify-between pt-0.5">
+                    <span className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-semibold text-teal-600 transition-all group-hover:gap-1.5 dark:text-teal-400">
                       {t('timeline.readMore')}
-                      <HiArrowRight size={12} className="transition-transform group-hover:translate-x-0.5" />
+                      <HiArrowRight size={11} className="transition-transform group-hover:translate-x-0.5" />
                     </span>
                   </div>
                 </div>
