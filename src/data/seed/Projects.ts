@@ -127,12 +127,12 @@ export const projectsSeed: Project[] = [
             th: 'ใบประกาศนียบัตรและรางวัล Best Safety Award จาก 1st GRCC Racer GP Autonomous AI Car Race — BU × KAIT 6 มีนาคม 2025',
         },
         shortDescription: {
-            en: 'Best Safety Award — BU × KAIT autonomous AI car race.',
-            th: 'รางวัล Best Safety Award — งานแข่งรถ AI BU × KAIT',
+            en: 'AI parameter tuning and model optimization for autonomous racing cars — Best Safety Award.',
+            th: 'ปรับจูน Parameter และเทรน AI สำหรับรถแข่งอัตโนมัติ — ได้รับรางวัล Best Safety Award',
         },
         descriptionLong: {
-            en: 'Participated in the 1st GRCC Racer GP Autonomous AI Car Race (2025) at Bangkok University — a BU × Kanagawa Institute of Technology (KAIT) event. Built self-driving AI for mini racing cars and received the Best Safety Award. Certificate issued by Bangkok University in collaboration with KAIT.',
-            th: 'เข้าร่วม 1st GRCC Racer GP Autonomous AI Car Race (2025) ที่มหาวิทยาลัยกรุงเทพ — งาน BU × Kanagawa Institute of Technology (KAIT) สร้าง AI ขับรถอัตโนมัติสำหรับรถแข่งจิ๋ว และได้รับรางวัล Best Safety Award ได้รับใบประกาศนียบัตรจากมหาวิทยาลัยกรุงเทพ ร่วมกับ KAIT',
+            en: 'Participated in the 1st GRCC Racer GP Autonomous AI Car Race (2025) organized by Bangkok University and Kanagawa Institute of Technology (KAIT). Worked on fine-tuning and parameter optimization for KAIT’s autonomous racing car platform to achieve optimal track stability and safety, winning the Best Safety Award.',
+            th: 'เข้าร่วมการแข่งขัน 1st GRCC Racer GP Autonomous AI Car Race (2025) ที่มหาวิทยาลัยกรุงเทพ ร่วมกับ Kanagawa Institute of Technology (KAIT) โดยนำรถแข่งอัตโนมัติที่ทาง KAIT พัฒนาไว้มาเทรนโมเดลและปรับแต่ง Parameter การขับขี่ให้มีเสถียรภาพ ปลอดภัย และวิ่งบนลู่ได้ดีที่สุด จนได้รับรางวัล Best Safety Award',
         },
         image: '/certificates/certi-bu-kait-thumb.png',
         galleryLayout: 'photos',

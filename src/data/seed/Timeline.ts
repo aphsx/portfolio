@@ -398,38 +398,38 @@ CoSI เป็นที่ที่ผมได้ลงมือ build ระ�
             th: 'BU × KAIT — AI Racing Car',
         },
         excerpt: {
-            en: '1st GRCC Racer GP Autonomous AI Car Race at Bangkok University — built self-driving AI and raced mini cars with KAIT.',
-            th: '1st GRCC Racer GP Autonomous AI Car Race ที่มหาวิทยาลัยกรุงเทพ — สร้าง AI ขับรถอัตโนมัติและแข่งรถจิ๋วร่วมกับ KAIT',
+            en: '1st GRCC Racer GP Autonomous AI Car Race at Bangkok University — AI parameter tuning and model optimization on KAIT mini racing cars.',
+            th: '1st GRCC Racer GP Autonomous AI Car Race ที่มหาวิทยาลัยกรุงเทพ — เทรนและปรับแต่ง Parameter AI บนรถแข่งของ KAIT',
         },
         content: {
             en: `## BU × KAIT — AI Racing Car
 
-On **6 March 2025**, Bangkok University and **Kanagawa Institute of Technology (KAIT)** hosted the **1st GRCC Racer GP Autonomous AI Car Race (2025)** — part of the **Joint International Workshop on AI Engineering and Technology**.
+On **6 March 2025**, Bangkok University and **Kanagawa Institute of Technology (KAIT)** hosted the **1st GRCC Racer GP Autonomous AI Car Race (2025)** under the **Joint International Workshop on AI Engineering and Technology**.
 
-Teams built their own **self-driving AI** for mini autonomous racing cars, then competed on track at Bangkok University in collaboration with **CoSI**.
+In this competition, participants worked with autonomous mini racing cars developed by KAIT. The core responsibility was to train the AI model and fine-tune driving parameters — optimizing steering, speed, and track navigation for maximum stability and performance.
 
-Received the **Best Safety Award** at the event.
+Thanks to a safe, highly stable driving setup throughout the race, the team was awarded the **Best Safety Award**.
 
 ## Event
 
-Organized by BU and KAIT, led by Professor Toshihiro Wakita (KAIT). The race was live-streamed and brought together students programming and racing autonomous mini cars on a dedicated track.
+Organized by BU and KAIT, led by Professor Toshihiro Wakita (KAIT). The race was live-streamed with students testing, tuning, and racing autonomous cars on the official track.
 
 ## Portfolio
 
-Certificate PDF and photos are on the project page.
+Certificate PDF and photos are available on the project page.
 
 [Read KAIT event announcement →](${KAIT_AI_RACE_URL})`,
             th: `## BU × KAIT — AI Racing Car
 
-วันที่ **6 มีนาคม 2025** มหาวิทยาลัยกรุงเทพ ร่วมกับ **Kanagawa Institute of Technology (KAIT)** จัด **1st GRCC Racer GP Autonomous AI Car Race (2025)** ภายใต้ **Joint International Workshop on AI Engineering and Technology**
+วันที่ **6 มีนาคม 2025** มหาวิทยาลัยกรุงเทพ ร่วมกับ **Kanagawa Institute of Technology (KAIT)** จัดการแข่งขัน **1st GRCC Racer GP Autonomous AI Car Race (2025)** ภายใต้ **Joint International Workshop on AI Engineering and Technology**
 
-ทีมต่างๆ สร้าง **AI ขับรถอัตโนมัติ** สำหรับรถแข่งจิ๋ว แล้วลงแข่งบนลู่ที่มหาวิทยาลัยกรุงเทพ ร่วมกับ **CoSI**
+ในการแข่งขันนี้ เป็นการนำรถแข่งอัตโนมัติที่ทาง KAIT พัฒนาไว้แล้ว มาเทรนโมเดลเพิ่มเติมและปรับแต่งค่า Parameter การควบคุม (เช่น วงเลี้ยว ความเร็ว และการทรงตัวบนลู่) เพื่อให้รถวิ่งได้อย่างเสถียรและมีประสิทธิภาพที่สุด
 
-ได้รับรางวัล **Best Safety Award** ในงาน
+จากการปรับจูนที่เน้นความนิ่งและความแม่นยำตลอดการแข่งขัน ทำให้ทีมได้รับรางวัล **Best Safety Award** ในงานนี้
 
 ## งาน
 
-จัดโดย BU และ KAIT นำโดย Professor Toshihiro Wakita (KAIT) มีการถ่ายทอดสด และนิสิตลงมือ program AI แล้วแข่งรถ autonomous บนลู่เฉพาะ
+จัดโดย BU และ KAIT นำโดย Professor Toshihiro Wakita (KAIT) มีการถ่ายทอดสด และให้นักศึกษาได้ร่วมทดสอบ ปรับแต่ง และลงแข่งรถ AI บนลู่จริง
 
 ## Portfolio
 
