@@ -113,8 +113,8 @@ const ProjectList = ({ title, projects, layout = 'rows' }: ProjectListProps) => 
           ))}
         </div>
       ) : (
-        /* 2. Grid layout (หลายกล่องในแถว - 2 คอลัมน์) */
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        /* 2. Grid layout (หลายกล่องในแถว - 2 คอลัมน์ทุกหน้าจอ) */
+        <div className="grid grid-cols-2 gap-3 sm:gap-4">
           {projects.map((project, index) => (
             <motion.article
               key={project.id}
@@ -138,45 +138,45 @@ const ProjectList = ({ title, projects, layout = 'rows' }: ProjectListProps) => 
                     }}
                   />
                   {project.year && (
-                    <div className="absolute top-2 left-2">
-                      <span className="rounded-full bg-white/90 px-2 py-0.5 text-[10px] font-semibold text-gray-800 backdrop-blur-sm dark:bg-gray-900/90 dark:text-gray-100 shadow-xs">
+                    <div className="absolute top-1.5 left-1.5 sm:top-2 sm:left-2">
+                      <span className="rounded-full bg-white/90 px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[10px] font-semibold text-gray-800 backdrop-blur-sm dark:bg-gray-900/90 dark:text-gray-100 shadow-xs">
                         {project.year}
                       </span>
                     </div>
                   )}
                 </div>
 
-                <div className="flex flex-1 flex-col justify-between p-3.5 sm:p-4">
+                <div className="flex flex-1 flex-col justify-between p-2.5 sm:p-4">
                   <div>
-                    <h3 className="line-clamp-1 text-sm font-bold leading-snug text-gray-900 transition-colors group-hover:text-teal-600 dark:text-gray-100 dark:group-hover:text-teal-400">
+                    <h3 className="line-clamp-1 text-xs sm:text-sm font-bold leading-snug text-gray-900 transition-colors group-hover:text-teal-600 dark:text-gray-100 dark:group-hover:text-teal-400">
                       {getLocalized(project.title)}
                     </h3>
 
-                    <p className="mt-1.5 line-clamp-2 text-xs leading-relaxed text-gray-500 dark:text-gray-400">
+                    <p className="mt-1 line-clamp-2 text-[11px] sm:text-xs leading-relaxed text-gray-500 dark:text-gray-400">
                       {getLocalized(project.shortDescription || project.description)}
                     </p>
                   </div>
 
-                  <div className="mt-3.5 flex items-center justify-between pt-0.5">
+                  <div className="mt-2.5 sm:mt-3.5 flex flex-wrap items-center justify-between gap-1 pt-0.5">
                     <div className="flex flex-wrap items-center gap-1">
                       {project.tags.slice(0, 2).map((tag, tagIndex) => (
                         <span
                           key={tagIndex}
-                          className="rounded-md bg-gray-100 px-1.5 py-0.5 text-[10px] font-medium text-gray-600 dark:bg-gray-700/60 dark:text-gray-300"
+                          className="rounded-md bg-gray-100 px-1 sm:px-1.5 py-0.5 text-[9px] sm:text-[10px] font-medium text-gray-600 dark:bg-gray-700/60 dark:text-gray-300"
                         >
                           {tag}
                         </span>
                       ))}
                       {project.tags.length > 2 && (
-                        <span className="text-[10px] text-gray-400 dark:text-gray-500">
+                        <span className="text-[9px] sm:text-[10px] text-gray-400 dark:text-gray-500">
                           +{project.tags.length - 2}
                         </span>
                       )}
                     </div>
 
-                    <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-teal-600 transition-all group-hover:gap-1.5 dark:text-teal-400 shrink-0">
+                    <span className="inline-flex items-center gap-0.5 sm:gap-1 text-[10px] sm:text-[11px] font-semibold text-teal-600 transition-all group-hover:gap-1.5 dark:text-teal-400 shrink-0">
                       {t('portfolio.viewProject')}
-                      <HiArrowRight size={12} className="transition-transform group-hover:translate-x-0.5" />
+                      <HiArrowRight size={11} className="transition-transform group-hover:translate-x-0.5" />
                     </span>
                   </div>
                 </div>
