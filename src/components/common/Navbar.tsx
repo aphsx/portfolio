@@ -110,13 +110,24 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors"
-          >
-            {isOpen ? <HiX size={24} /> : <HiMenu size={24} />}
-          </button>
+          {/* Mobile Controls (Theme Toggle & Menu Button) */}
+          <div className="flex items-center gap-1 md:hidden">
+            <button
+              onClick={toggleTheme}
+              aria-label="Toggle theme"
+              className="p-2 rounded-xl text-gray-700 dark:text-gray-300 hover:text-teal-500 hover:bg-gray-200/60 dark:hover:bg-gray-800/60 transition-colors"
+            >
+              {isDark ? <FiSun size={19} /> : <FiMoon size={19} />}
+            </button>
+
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle menu"
+              className="p-2 rounded-xl text-gray-700 dark:text-gray-300 hover:text-teal-500 hover:bg-gray-200/60 dark:hover:bg-gray-800/60 transition-colors"
+            >
+              {isOpen ? <HiX size={22} /> : <HiMenu size={22} />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -127,14 +138,58 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden backdrop-blur-md bg-white/90 dark:bg-gray-900/90 border-b border-gray-200 dark:border-gray-700"
+            transition={{ duration: 0.25, ease: 'easeInOut' }}
+            className="md:hidden overflow-hidden border-b border-gray-200/80 dark:border-gray-800/80 bg-gray-50/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg"
           >
-            <div className="px-4 py-4 space-y-4">
-              <div className="space-y-2">
-                <p className="text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest pl-1">
-                  Language
-                </p>
-                <div className="grid grid-cols-2 gap-2">
+            <div className="max-w-2xl mx-auto px-6 py-4 space-y-3">
+              {/* Navigation Links */}
+              <div className="space-y-1">
+                {navItems.map((item) => {
+                  const active = isActive(item.path)
+                  return (
+                    <Link
+                      key={item.name}
+                      href={item.path}
+                      onClick={() => setIsOpen(false)}
+                      className={`flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all ${
+                        active
+                          ? 'bg-teal-50 text-teal-600 dark:bg-teal-900/25 dark:text-teal-400 font-semibold'
+                          : 'text-gray-700 dark:text-gray-300 hover:bg-gray-200/60 dark:hover:bg-gray-800/60 hover:text-teal-500'
+                      }`}
+                    >
+                      <span>{item.name}</span>
+                      {active && (
+                        <span className="w-1.5 h-1.5 rounded-full bg-teal-500" />
+                      )}
+                    </Link>
+                  )
+                })}
+
+                {/* Resume Link */}
+                <a
+                  href={SITE_CONFIG.resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200/60 dark:hover:bg-gray-800/60 hover:text-teal-500 transition-all"
+                >
+                  <span>{t('nav.resume')}</span>
+                  <span className="text-[10px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider">
+                    PDF
+                  </span>
+                </a>
+              </div>
+
+              {/* Divider */}
+              <div className="h-px bg-gray-200/80 dark:bg-gray-800" />
+
+              {/* Bottom Controls Row: Language Switcher */}
+              <div className="flex items-center justify-between pt-1">
+                <span className="text-xs font-medium text-gray-500 dark:text-gray-400">
+                  {language === 'th' ? 'ภาษา / Language' : 'Language'}
+                </span>
+
+                <div className="flex items-center rounded-full bg-gray-200/70 p-1 dark:bg-gray-800 ring-1 ring-black/5 dark:ring-white/5">
                   {languages.map((lang) => (
                     <button
                       key={lang.code}
@@ -142,42 +197,17 @@ const Navbar = () => {
                         setLanguage(lang.code)
                         setIsOpen(false)
                       }}
-                      className={`flex items-center justify-center rounded-xl border px-4 py-3 transition-all
-                        ${language === lang.code
-                          ? 'bg-teal-50 dark:bg-teal-900/20 border-teal-200 dark:border-teal-800 text-teal-600 dark:text-teal-400'
-                          : 'bg-gray-50 dark:bg-gray-800/50 border-gray-100 dark:border-gray-700 text-gray-600 dark:text-gray-400'
-                        }`}
+                      className={`rounded-full px-3 py-1 text-xs font-bold transition-all ${
+                        language === lang.code
+                          ? 'bg-white text-teal-600 shadow-xs dark:bg-gray-700 dark:text-teal-300'
+                          : 'text-gray-500 hover:text-teal-500 dark:text-gray-400'
+                      }`}
                     >
-                      <span className="text-xs font-bold tracking-wider">{lang.name}</span>
+                      {lang.name}
                     </button>
                   ))}
                 </div>
               </div>
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.path}
-                  onClick={() => {
-                    setIsOpen(false);
-                  }}
-                  className={`block text-sm font-medium transition-colors duration-200 ${isActive(item.path)
-                    ? 'text-teal-500'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-teal-500'
-                    }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              <a
-                href={SITE_CONFIG.resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors duration-200"
-                onClick={() => setIsOpen(false)}
-              >
-                <FiFileText size={20} />
-                <span className="text-sm font-medium">{t('nav.resume')}</span>
-              </a>
             </div>
           </motion.div>
         )}
