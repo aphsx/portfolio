@@ -188,20 +188,20 @@ export const projectsSeed: Project[] = [
         featured: false,
         year: 2024,
         title: {
-            en: '',
+            en: 'Medical E-Learning Platform',
             th: 'แพลตฟอร์มอีเลิร์นนิงทางการแพทย์',
         },
         description: {
-            en: '',
-            th: 'แพลตฟอร์มอีเลิร์นนิงแบบโต้ตอบที่ออกแบบสำหรับนักศึกษาแพทย์ มีกรณีศึกษาที่ครอบคลุมและเครื่องมือประเมิน',
+            en: 'Interactive e-learning platform designed for medical students with case studies.',
+            th: 'แพลตฟอร์มอีเลิร์นนิงที่ออกแบบสำหรับนักศึกษาแพทย์ พร้อมกรณีศึกษาและระบบการเรียนรู้',
         },
         shortDescription: {
-            en: '',
-            th: 'แพลตฟอร์มอีเลิร์นนิงรังสีวิทยาพร้อมกรณีศึกษาแบบโต้ตอบ',
+            en: 'Medical e-learning platform with interactive case studies.',
+            th: 'แพลตฟอร์มอีเลิร์นนิงทางการแพทย์พร้อมกรณีศึกษาแบบโต้ตอบ',
         },
         descriptionLong: {
-            en: '',
-            th: 'สร้างแพลตฟอร์มอีเลิร์นนิงที่นวัตกรรมซึ่งออกแบบเฉพาะสำหรับการศึกษา แพลตฟอร์มนี้ให้นักศึกษาแพทย์เข้าถึงไลบรารีที่ครอบคลุมของกรณีศึกษาในโลกแห่งความเป็นจริง เครื่องมือถ่ายภาพแบบโต้ตอบ และโมดูลการประเมินแบบก้าวหน้า คุณสมบัติรวมถึงการรวม DICOM image viewer โมดูลการเรียนรู้ตามกรณี การติดตามความก้าวหน้า และเครื่องมือความร่วมมือของเพื่อน',
+            en: 'An e-learning platform designed for medical education, helping students access study cases, interactive lessons, and progress tracking.',
+            th: 'พัฒนาแพลตฟอร์มอีเลิร์นนิงสำหรับการศึกษาทางการแพทย์ เพื่อช่วยให้นักศึกษาแพทย์เข้าถึงบทเรียนและกรณีศึกษาได้อย่างสะดวก พร้อมระบบติดตามความก้าวหน้าในการเรียนรู้',
         },
         image: 'https://placehold.co/800x450/313131/FFFFFF?text=E-Learning',
         images: [],
