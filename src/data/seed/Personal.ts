@@ -19,7 +19,7 @@ export const personalInfoSeed: PersonalInfo = {
 export const bioTimelineSeed: BioTimelineItem[] = [
     {
         id: 'bio-2026',
-        year: 'May 2026 - Aug 2026',
+        year: 'Apr 2026 - Aug 2026',
         isActive: true,
         order: 1,
         event: {
