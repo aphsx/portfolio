@@ -444,4 +444,92 @@ export const projectsSeed: Project[] = [
         github: '',
         tags: ['React', 'TypeScript', 'Electron', '3D Graphics', 'Data Analytics', 'Mathematical Modeling'],
     },
+    {
+        id: 'proj-simple-bank',
+        slug: 'simple-bank',
+        isActive: true,
+        order: 7,
+        category: 'works',
+        status: 'in-progress',
+        featured: true,
+        year: 2026,
+        title: {
+            en: 'Simple Bank — Core Banking & Transfer Engine',
+            th: 'Simple Bank — ระบบจัดการธุรกรรมและการโอนเงินจำลอง',
+        },
+        description: {
+            en: 'A backend banking web service developed in Go and PostgreSQL to master core backend engineering: ACID database transactions, concurrency deadlock prevention, double-entry ledger bookkeeping, and PASETO token authentication.',
+            th: 'โปรเจกต์ Backend จำลองระบบธุรกรรมธนาคาร พัฒนาด้วย Go (Golang) และ PostgreSQL เพื่อฝึกฝนทักษะ Backend เชิงลึก: การจัดการ Database Transaction แบบ ACID, การแก้ปัญหา Deadlock เมื่อมีคำสั่งโอนเงินพร้อมกัน (Concurrency), ระบบบัญชีคู่ (Double-entry Ledger) และความปลอดภัยด้วย PASETO Token',
+        },
+        shortDescription: {
+            en: 'A high-concurrency banking engine in Go and PostgreSQL, focusing on ACID transactions, deadlock prevention, and PASETO security.',
+            th: 'ระบบจำลองธุรกรรมธนาคารด้วย Go และ PostgreSQL โฟกัสเรื่อง ACID Transactions, Deadlock Prevention และความปลอดภัยด้วย PASETO',
+        },
+        descriptionLong: {
+            en: `Simple Bank is a backend engineering project built from scratch with Go (Golang) and PostgreSQL. It was designed as an intensive deep-dive to master core backend concepts, database reliability, and financial-grade system design.
+
+### 🎯 Key Learning Focus & Engineering Practices
+
+1. **ACID Transactions & Deadlock Prevention**:
+   - Implemented money transfer operations inside strict database transactions to guarantee atomicity and consistency.
+   - Solved tricky concurrency deadlocks during concurrent bidirectional transfers between accounts (e.g., Account A sending to B while Account B sends to A simultaneously) by enforcing **consistent lock ordering** (always locking the lower account ID first).
+
+2. **Double-Entry Bookkeeping & Audit Trail**:
+   - Designed ledger tables (\`transfers\` and \`entries\`) following double-entry bookkeeping principles. Every balance change produces immutable debit and credit entries rather than raw balance overwrites.
+
+3. **Modern Token Authentication (PASETO)**:
+   - Implemented PASETO (Platform-Agnostic Security Tokens) with symmetric encryption (v2.local), providing stronger cryptographic security and eliminating common JWT attack vectors.
+   - Added password hashing with \`bcrypt\` and Gin authorization middleware to enforce strict account ownership.
+
+4. **Layered Architecture & Strict Validation**:
+   - Structured the project into clean layers: HTTP/API Handlers, Store/DB Transaction layer, Token Maker, and Utilities.
+   - Built custom request binding validators for currency verification (\`USD\`, \`EUR\`, \`CAD\`).
+
+5. **Automated Testing & Concurrency Verification**:
+   - Wrote comprehensive unit tests and concurrency tests using Go testing and \`testify\`, firing concurrent goroutines to verify that account balances remain mathematically correct under heavy race conditions.
+
+6. **DevOps & Tooling**:
+   - Managed local PostgreSQL instances via Docker and Docker Compose.
+   - Automated schema migrations with \`golang-migrate\` and unified developer workflows with a clean \`Makefile\`.`,
+            th: `Simple Bank เป็นโปรเจกต์ Backend Engineering ที่สร้างขึ้นด้วยภาษา Go (Golang) และ PostgreSQL โดยมีเป้าหมายหลักคือการฝึกฝนและทำความเข้าใจแก่นของการพัฒนาระบบ Backend ระดับ Production โดยเฉพาะระบบการเงินที่มีความอ่อนไหวสูงเรื่องความถูกต้องของข้อมูล (Data Consistency) และการรองรับคำสั่งพร้อมกันจำนวนมาก (High Concurrency)
+
+### 🎯 เป้าหมายในการฝึกฝนและสิ่งที่ได้ลงมือทำจริง
+
+1. **การจัดการ ACID Transactions และแก้ปัญหา Deadlock**:
+   - ออกแบบระบบโอนเงินผ่าน Database Transaction เพื่อให้แน่ใจว่าเงินถูกตัดและเพิ่มพร้อมกันอย่างถูกต้อง (Atomicity)
+   - แก้ปัญหา **Cycle Deadlock** จากการโอนเงินสวนทางกันพร้อมกัน (เช่น บัญชี 1 โอนให้ 2 ในขณะที่บัญชี 2 โอนให้ 1 พร้อมกัน) ด้วยเทคนิค **Strict Consistent Lock Ordering** โดยจัดลำดับให้ Transaction เข้าไปล็อก Row ของ Account ID ที่น้อยกว่าก่อนเสมอ ไม่ว่าจะโอนไปทิศทางไหน
+
+2. **ระบบบัญชีคู่ (Double-Entry Bookkeeping Ledger)**:
+   - บันทึกการเคลื่อนไหวของเงินลงในตาราง \`transfers\` และ \`entries\` ตามหลักการทางบัญชี ทุกยอดเงินเข้า-ออกมีประวัติที่ตรวจสอบย้อนหลังได้ (Audit Trail) โดยไม่มีการแก้ไขหรือลบยอดเงินเดิมโดยตรง
+
+3. **ความปลอดภัยและการยืนยันตัวตนด้วย PASETO**:
+   - เลือกใช้ **PASETO (Platform-Agnostic Security Tokens)** ที่ใช้ Symmetric Encryption (v2.local) ซึ่งมีความปลอดภัยสูงและลดช่องโหว่เมื่อเทียบกับ JWT ทั่วไป
+   - เข้ารหัสรหัสผ่านด้วย \`bcrypt\` และสร้าง Custom Auth Middleware ตรวจสอบสิทธิ์เจ้าของบัญชีอย่างรัดกุม
+
+4. **สถาปัตยกรรมโค้ดและการตรวจสอบข้อมูล (Clean Architecture & Validation)**:
+   - จัดโครงสร้างโค้ดแบบแยกเลเยอร์ชัดเจน: API Router/Handler, DB Store/Transaction, Token Maker และ Util
+   - สร้าง Custom Validator สำหรับตรวจสอบความถูกต้องของรหัสสกุลเงิน (Currency Validation เช่น USD, EUR, CAD) ในระดับ Request Payload
+
+5. **การทดสอบความถูกต้องและ Concurrency Test**:
+   - เขียน Unit Test และ Concurrency Test ด้วย Go \`testing\` + \`testify\` โดยยิงคำสั่งโอนเงินคู่ขนานผ่าน Goroutines หลายรายการพร้อมกัน เพื่อพิสูจน์ว่ายอดเงินคงเหลือถูกต้อง 100% และไม่มี Race Condition
+
+6. **DevOps & Database Migrations**:
+   - รัน PostgreSQL ใน Container ด้วย Docker Compose
+   - จัดการ Version ของ Database Schema ด้วย \`golang-migrate\` และรวมคำสั่งอำนวยความสะดวกไว้ใน \`Makefile\``,
+        },
+        image: '/images/simple-bank.png',
+        images: [
+            {
+                url: '/images/simple-bank.png',
+                caption: {
+                    en: 'Simple Bank Architecture & Fintech System Overview',
+                    th: 'ภาพรวมระบบและสถาปัตยกรรมของ Simple Bank',
+                },
+                isPrimary: true,
+            },
+        ],
+        link: '',
+        github: 'https://github.com/aphsx/simplebank',
+        tags: ['Go', 'PostgreSQL', 'Docker', 'Gin', 'PASETO', 'RESTful API', 'ACID Transactions', 'Concurrency'],
+    },
 ]
