@@ -522,10 +522,31 @@ export const projectsSeed: Project[] = [
             {
                 url: '/images/simple-bank.png',
                 caption: {
-                    en: 'Simple Bank Codebase: API Routing, Middleware, and Deadlock / Concurrency Test Results',
-                    th: 'โค้ดและโครงสร้างของ Simple Bank: การจัดการ API Routing, Middleware และผลการรัน Concurrency & Deadlock Tests',
+                    en: 'Simple Bank Codebase & Test Execution in VS Code',
+                    th: 'โครงสร้างโค้ดและการทดสอบระบบ Simple Bank บน VS Code',
                 },
                 isPrimary: true,
+            },
+            {
+                url: '/images/simple-bank-test-concurrency.png',
+                caption: {
+                    en: 'Concurrency Money Transfer Test: Validating concurrent balance updates & double-entry ledger without race conditions',
+                    th: 'การทดสอบการโอนเงินคู่ขนาน (TestTransferTx): ตรวจสอบยอดเงินคงเหลือและการบันทึกบัญชีคู่ โดยไม่มีปัญหา Race Condition',
+                },
+            },
+            {
+                url: '/images/simple-bank-test-deadlock.png',
+                caption: {
+                    en: 'Deadlock Prevention Test: Executing 10 concurrent bidirectional transfers with zero cycle deadlocks',
+                    th: 'การทดสอบป้องกัน Deadlock (TestTransferTxDeadlock): จำลอง 10 ธุรกรรมโอนเงินสวนทางกันพร้อมกัน ผ่านฉลุย 100%',
+                },
+            },
+            {
+                url: '/images/simple-bank-test-all.png',
+                caption: {
+                    en: 'Full Test Suite Execution: Accounts, Transfers, Deadlock Prevention, and Password Hashing (100% Pass)',
+                    th: 'ผลการรันชุดทดสอบทั้งหมด (Full Test Suite): ครอบคลุมการจัดการบัญชี, การโอนเงิน, Deadlock Prevention และ Bcrypt Hashing (ผ่าน 100%)',
+                },
             },
         ],
         link: '',
