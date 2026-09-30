@@ -522,8 +522,8 @@ export const projectsSeed: Project[] = [
             {
                 url: '/images/simple-bank.png',
                 caption: {
-                    en: 'Simple Bank Architecture & Fintech System Overview',
-                    th: 'ภาพรวมระบบและสถาปัตยกรรมของ Simple Bank',
+                    en: 'Simple Bank Codebase: API Routing, Middleware, and Deadlock / Concurrency Test Results',
+                    th: 'โค้ดและโครงสร้างของ Simple Bank: การจัดการ API Routing, Middleware และผลการรัน Concurrency & Deadlock Tests',
                 },
                 isPrimary: true,
             },
