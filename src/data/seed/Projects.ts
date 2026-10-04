@@ -182,6 +182,13 @@ export const projectsSeed: Project[] = [
                 },
                 isPrimary: true,
             },
+            {
+                url: '/images/dona-agritech-mobile.png',
+                caption: {
+                    en: 'DONA Smart Farming Mobile App (Field Management & AI Analysis)',
+                    th: 'แอปพลิเคชันมือถือ DONA (ระบบแผนการปลูก, จัดการแปลงนา, และวิเคราะห์โรคพืช)',
+                },
+            },
         ],
         link: 'https://www.donaagritech.com',
         github: '',
