@@ -286,7 +286,7 @@ export const projectsSeed: Project[] = [
     {
         id: 'proj-004',
         slug: 'personal-portfolio',
-        isActive: true,
+        isActive: false,
         order: 4,
         category: 'works',
         status: 'completed',
@@ -452,7 +452,7 @@ export const projectsSeed: Project[] = [
         slug: '3d-trajectory-control',
         isActive: true,
         order: 6,
-        category: 'works',
+        category: 'collaborations',
         status: 'completed',
         featured: true,
         year: 2025,
