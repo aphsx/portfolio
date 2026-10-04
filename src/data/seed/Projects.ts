@@ -148,10 +148,50 @@ export const projectsSeed: Project[] = [
         tags: ['BU', 'KAIT', 'AI'],
     },
     {
+        id: 'proj-dona-agritech',
+        slug: 'dona-agritech',
+        isActive: true,
+        order: 1,
+        category: 'collaborations',
+        status: 'completed',
+        featured: true,
+        year: 2026,
+        title: {
+            en: 'DONA Agritech Startup',
+            th: 'DONA Agritech — เทคโนโลยีการเกษตรดิจิทัลและ AI',
+        },
+        description: {
+            en: 'A digital agriculture startup combining AI, IoT, and satellite data analytics to empower Thai farmers, lower costs, and increase crop yields.',
+            th: 'สตาร์ทอัพเทคโนโลยีการเกษตร (Agritech) ผสานพลัง AI วิเคราะห์โรคพืช ข้อมูลดาวเทียม และระบบบริหารแปลงเกษตรอัจฉริยะ เพื่อช่วยลดต้นทุนและเพิ่มผลผลิตให้เกษตรกรไทย',
+        },
+        shortDescription: {
+            en: 'AI & data platform for smart agriculture and Thai farmers.',
+            th: 'แพลตฟอร์มบริหารแปลงเกษตรและวิเคราะห์โรคข้าวด้วย AI เพื่อเกษตรกรไทย',
+        },
+        descriptionLong: {
+            en: 'DONA is a Thai agritech startup developing AI solutions, satellite/multispectral vegetation analytics, and IoT platforms to transform traditional farming into sustainable digital agriculture. Key capabilities include digital field registration and boundary mapping, multi-field lifecycle and cost management, hyper-local weather forecasting, and deep-learning-based rice disease diagnosis from leaf imagery.',
+            th: 'DONA Agritech Startup เป็นสตาร์ทอัพเทคโนโลยีการเกษตรที่พัฒนาโซลูชัน AI แพลตฟอร์มข้อมูล และระบบ IoT เพื่อขับเคลื่อนภาคการเกษตรไทยสู่ดิจิทัลอย่างยั่งยืน ระบบประกอบด้วยการลงทะเบียนและกำหนดขอบเขตแปลงดิจิทัล, การบริหารจัดการแปลงและต้นทุน-ผลผลิต, การพยากรณ์สภาพอากาศเฉพาะจุด (Hyper-local Weather) รวมถึงระบบ AI วิเคราะห์และตรวจจับโรคใบข้าวจากภาพถ่าย เพื่อให้คำแนะนำการดูแลรักษาแปลงได้อย่างทันท่วงที',
+        },
+        image: '/images/dona-agritech.png',
+        images: [
+            {
+                url: '/images/dona-agritech.png',
+                caption: {
+                    en: 'DONA Agritech Platform & Website',
+                    th: 'หน้าเว็บไซต์และแพลตฟอร์ม DONA Agritech',
+                },
+                isPrimary: true,
+            },
+        ],
+        link: 'https://www.donaagritech.com',
+        github: '',
+        tags: ['AI & Deep Learning', 'Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Smart Farming', 'IoT & Data Platform'],
+    },
+    {
         id: 'proj-001',
         slug: 'enterprise-resource-planning',
         isActive: true,
-        order: 1,
+        order: 2,
         category: 'collaborations',
         status: 'completed',
         featured: false,
