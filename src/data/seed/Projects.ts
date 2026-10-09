@@ -257,10 +257,58 @@ export const projectsSeed: Project[] = [
         tags: ['React', 'Node.js', 'Golang', 'Educational Technology'],
     },
     {
+        id: 'proj-billgang',
+        slug: 'billgang',
+        isActive: true,
+        order: 2,
+        category: 'collaborations',
+        status: 'completed',
+        featured: true,
+        year: 2026,
+        title: {
+            en: 'BillGang — Split Bill',
+            th: 'BillGang — แอปหารบิล',
+        },
+        description: {
+            en: 'A split-bill mobile app featuring OCR & AI receipt scanning and PromptPay QR settlement (the link is a live Web Demo for easy testing, built primarily as a Flutter mobile app).',
+            th: 'แอปหารบิลที่คิดเงินตามรายการที่สั่งหรือกินจริง พร้อมระบบสแกนใบเสร็จ OCR/AI และ PromptPay QR (ลิงก์เป็น Web Demo เพื่อให้ทดลองเล่นได้ง่าย โดยตัวโปรเจกต์หลักเป็น Mobile App พัฒนาด้วย Flutter)',
+        },
+        shortDescription: {
+            en: 'Fair split by item: pay only for what you ate (Web Demo available).',
+            th: 'หารตามจริง — จ่ายเฉพาะเมนูที่ตัวเองสั่ง/กิน (มี Web Demo)',
+        },
+        descriptionLong: {
+            en: 'BillGang helps groups split restaurant bills fairly. Instead of dividing the total equally, friends assign each menu item to the people who ordered or ate it — so someone who skipped a dish does not pay for it. Groups can create a bill, add items by hand or scan a receipt with OCR & AI, invite others via QR/link, assign items together in real time, simplify who owes whom, and pay with PromptPay QR.\n\n*(Note: The link https://billgang.click is a live Web Demo deployed for convenient testing and demonstration, while the core project was designed and developed as a mobile app with Flutter).*',
+            th: 'BillGang ช่วยให้กลุ่มเพื่อนหารบิลร้านอาหารได้อย่างยุติธรรม แทนการหารยอดรวมเท่า ๆ กัน ทุกคน assign รายการอาหารให้คนที่สั่งหรือกินจริง เช่น บางคนแพ้อาหารหรือไม่ได้สั่งเมนูนั้น ก็ไม่ต้องจ่ายส่วนนั้น กลุ่มสร้างบิล เพิ่มเมนูเองหรือถ่ายใบเสร็จให้ OCR/AI อ่าน เชิญเพื่อนผ่าน QR/ลิงก์ assign พร้อมกันแบบ real-time แล้วระบบสรุปว่าใครต้องโอนให้ใครเท่าไร พร้อมสร้าง PromptPay QR\n\n*(หมายเหตุ: ลิงก์ https://billgang.click เป็นตัว Web Demo ที่ deploy ขึ้นเว็บเพื่อให้ทดลองใช้งานและเดโมระบบได้ง่ายและสะดวก โดยตัวโปรเจกต์หลักพัฒนาเป็น Mobile App ด้วย Flutter)*',
+        },
+        image: '/images/billgang.png',
+        images: [
+            {
+                url: '/images/billgang.png',
+                caption: {
+                    en: 'BillGang — Receipt OCR & Split Bill Overview',
+                    th: 'BillGang — ภาพรวมระบบสแกนใบเสร็จ OCR และการหารบิล',
+                },
+                isPrimary: true,
+            },
+            {
+                url: '/images/billgang-login.png',
+                caption: { en: 'Sign in', th: 'หน้าเข้าสู่ระบบ' },
+            },
+            {
+                url: '/images/billgang-summary.png',
+                caption: { en: 'Bill Summary', th: 'สรุปบิล' },
+            },
+        ],
+        link: 'https://billgang.click',
+        github: 'https://github.com/TunyatapVich/cs356_billgang_project',
+        tags: ['Flutter', 'Dart', 'Elysia.js', 'Bun', 'Neon DB', 'Cloudflare R2', 'PostgreSQL', 'WebSocket', 'PromptPay', 'OCR & AI'],
+    },
+    {
         id: 'proj-003',
         slug: 'cosi-website',
         isActive: true,
-        order: 2,
+        order: 3,
         category: 'collaborations',
         status: 'completed',
         featured: false,
@@ -353,46 +401,6 @@ export const projectsSeed: Project[] = [
         tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Education'],
     },
     {
-        id: 'proj-billgang',
-        slug: 'billgang',
-        isActive: true,
-        order: 4,
-        category: 'collaborations',
-        status: 'completed',
-        featured: true,
-        year: 2026,
-        title: {
-            en: 'BillGang — Split Bill',
-            th: 'BillGang — แอปหารบิล',
-        },
-        description: {
-            en: 'A split-bill mobile app featuring OCR & AI receipt scanning and PromptPay QR settlement (the link is a live Web Demo for easy testing, built primarily as a Flutter mobile app).',
-            th: 'แอปหารบิลที่คิดเงินตามรายการที่สั่งหรือกินจริง พร้อมระบบสแกนใบเสร็จ OCR/AI และ PromptPay QR (ลิงก์เป็น Web Demo เพื่อให้ทดลองเล่นได้ง่าย โดยตัวโปรเจกต์หลักเป็น Mobile App พัฒนาด้วย Flutter)',
-        },
-        shortDescription: {
-            en: 'Fair split by item: pay only for what you ate (Web Demo available).',
-            th: 'หารตามจริง — จ่ายเฉพาะเมนูที่ตัวเองสั่ง/กิน (มี Web Demo)',
-        },
-        descriptionLong: {
-            en: 'BillGang helps groups split restaurant bills fairly. Instead of dividing the total equally, friends assign each menu item to the people who ordered or ate it — so someone who skipped a dish does not pay for it. Groups can create a bill, add items by hand or scan a receipt with OCR & AI, invite others via QR/link, assign items together in real time, simplify who owes whom, and pay with PromptPay QR.\n\n*(Note: The link https://billgang.click is a live Web Demo deployed for convenient testing and demonstration, while the core project was designed and developed as a mobile app with Flutter).*',
-            th: 'BillGang ช่วยให้กลุ่มเพื่อนหารบิลร้านอาหารได้อย่างยุติธรรม แทนการหารยอดรวมเท่า ๆ กัน ทุกคน assign รายการอาหารให้คนที่สั่งหรือกินจริง เช่น บางคนแพ้อาหารหรือไม่ได้สั่งเมนูนั้น ก็ไม่ต้องจ่ายส่วนนั้น กลุ่มสร้างบิล เพิ่มเมนูเองหรือถ่ายใบเสร็จให้ OCR/AI อ่าน เชิญเพื่อนผ่าน QR/ลิงก์ assign พร้อมกันแบบ real-time แล้วระบบสรุปว่าใครต้องโอนให้ใครเท่าไร พร้อมสร้าง PromptPay QR\n\n*(หมายเหตุ: ลิงก์ https://billgang.click เป็นตัว Web Demo ที่ deploy ขึ้นเว็บเพื่อให้ทดลองใช้งานและเดโมระบบได้ง่ายและสะดวก โดยตัวโปรเจกต์หลักพัฒนาเป็น Mobile App ด้วย Flutter)*',
-        },
-        image: '/images/billgang.png',
-        images: [
-            {
-                url: '/images/billgang-login.png',
-                caption: { en: 'Sign in', th: 'หน้าเข้าสู่ระบบ' },
-            },
-            {
-                url: '/images/billgang-summary.png',
-                caption: { en: 'Bill Summary', th: 'สรุปบิล' },
-            },
-        ],
-        link: 'https://billgang.click',
-        github: 'https://github.com/TunyatapVich/cs356_billgang_project',
-        tags: ['Flutter', 'Dart', 'Elysia.js', 'Bun', 'Neon DB', 'Cloudflare R2', 'PostgreSQL', 'WebSocket', 'PromptPay', 'OCR & AI'],
-    },
-    {
         id: 'proj-005',
         slug: 'tourism-website',
         isActive: true,
@@ -458,7 +466,7 @@ export const projectsSeed: Project[] = [
         id: 'proj-006',
         slug: '3d-trajectory-control',
         isActive: true,
-        order: 3,
+        order: 4,
         category: 'collaborations',
         status: 'completed',
         featured: true,
