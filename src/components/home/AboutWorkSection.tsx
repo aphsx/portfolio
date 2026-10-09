@@ -1,4 +1,4 @@
-import { MdOutlineWork } from 'react-icons/md'
+import { MdPerson } from 'react-icons/md'
 import { Section } from '../ui'
 import { useTranslation } from 'react-i18next'
 
@@ -8,7 +8,7 @@ const AboutWorkSection = () => {
   return (
     <Section
       title={t('home.work')}
-      icon={<MdOutlineWork />}
+      icon={<MdPerson />}
       delay={0.2}
     >
       <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm">

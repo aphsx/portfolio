@@ -1,4 +1,4 @@
-import { MdViewTimeline } from 'react-icons/md'
+import { MdSegment } from 'react-icons/md'
 import { Section } from '../ui'
 import { PersonalRepository } from '../../data'
 import { useTranslation } from 'react-i18next'
@@ -13,7 +13,7 @@ const BioSection = () => {
   return (
     <Section
       title={t('home.bio')}
-      icon={<MdViewTimeline />}
+      icon={<MdSegment />}
       delay={0.3}
     >
       <div className="space-y-2">
