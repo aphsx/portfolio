@@ -12,7 +12,7 @@ const FeaturedProjectsSection = () => {
   const { getLocalized, language } = useLocalizedData()
 
   const featuredProjects = ProjectRepository.getFeatured()
-    .filter((project) => !project.image.includes('placehold.co'))
+    .filter((project) => project.category !== 'certi' && !project.image.includes('placehold.co'))
     .slice(0, 2)
 
   return (

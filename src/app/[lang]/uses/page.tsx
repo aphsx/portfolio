@@ -12,24 +12,26 @@ const Uses = () => {
 
   return (
     <div
-      className="min-h-screen bg-gray-50 dark:bg-gray-900"
+      className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors"
       style={{ paddingTop: '100px' }}
     >
-      <div className="max-w-3xl mx-auto px-6">
+      <div className="max-w-2xl mx-auto px-6 pb-16">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
+        <motion.header
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-12"
+          transition={{ duration: 0.5 }}
+          className="mb-8 sm:mb-12"
         >
-          <h1 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-3">
-            {t('uses.title')}
-          </h1>
-          <p className="text-gray-600 dark:text-gray-300 text-sm max-w-2xl mx-auto leading-relaxed">
-            {t('uses.description')}
-          </p>
-        </motion.div>
+          <div className="space-y-1.5 max-w-md sm:max-w-lg">
+            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
+              {t('uses.title')}
+            </h1>
+            <p className="text-sm leading-relaxed text-gray-500 dark:text-gray-400">
+              {t('uses.subtitle') || t('uses.description')}
+            </p>
+          </div>
+        </motion.header>
 
         {/* Uses Sections */}
         <div className="space-y-8">
@@ -48,7 +50,7 @@ const Uses = () => {
               </div>
 
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 {section.items.map((item, itemIndex) => (
                   <motion.div
                     key={item.id}
