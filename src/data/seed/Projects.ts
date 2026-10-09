@@ -600,4 +600,63 @@ export const projectsSeed: Project[] = [
         github: 'https://github.com/aphsx/simplebank',
         tags: ['Go', 'PostgreSQL', 'Docker', 'Gin', 'PASETO', 'RESTful API', 'ACID Transactions', 'Concurrency'],
     },
+    {
+        id: 'proj-better-deal',
+        slug: 'better-deal',
+        isActive: true,
+        order: 3,
+        category: 'collaborations',
+        status: 'completed',
+        featured: true,
+        year: 2026,
+        title: {
+            en: 'Better Deal — Unit Price Comparison',
+            th: 'Better Deal — เว็บคำนวณเปรียบเทียบความคุ้มค่า',
+        },
+        description: {
+            en: 'A responsive pastel web app that calculates and compares unit prices between two items to determine the most cost-effective deal.',
+            th: 'เว็บแอปเปรียบเทียบราคาสินค้า 2 ชิ้น เพื่อหาว่าอันไหนคุ้มค่าและประหยัดกว่ากัน ออกแบบสไตล์มินิมอลพาสเทล พร้อมคำนวณราคาต่อหน่วยและส่วนต่างอัตโนมัติ',
+        },
+        shortDescription: {
+            en: 'Unit price comparison web app to determine the better deal instantly.',
+            th: 'เว็บแอปคำนวณเปรียบเทียบราคาต่อหน่วย ชิ้นไหนคุ้มและประหยัดกว่ากัน',
+        },
+        descriptionLong: {
+            en: `Better Deal is a lightweight, responsive web application built to help consumers make smarter and more economical buying decisions by comparing two items side by side.
+
+### 🎯 Key Features & Capabilities
+1. **Real-time Unit Price Calculation**:
+   - Calculates the cost per unit (per gram, ml, or piece) on the fly as values are entered.
+2. **Visual Value Comparison**:
+   - Automatically highlights the more cost-effective product with an animated crown badge (👑 คุ้มกว่า).
+   - Computes exact monetary savings and percentage difference between the two choices.
+3. **Clean Pastel UI / UX**:
+   - Designed with an approachable, minimal pastel palette (Pink vs. Sky Blue) styled using Tailwind CSS and custom typography (Fredoka & Itim).`,
+            th: `Better Deal เป็นเว็บแอปพลิเคชันคำนวณความคุ้มค่าที่พัฒนาขึ้นเพื่อช่วยให้ผู้บริโภคสามารถเปรียบเทียบราคาสินค้า 2 ชิ้นได้อย่างสะดวกรวดเร็ว ช่วยตัดสินใจเลือกซื้อสินค้าที่คุ้มค่าและประหยัดเงินได้มากที่สุด
+
+### 🎯 ฟีเจอร์หลักและการพัฒนา
+1. **คำนวณราคาต่อหน่วยแบบ Real-time**:
+   - คำนวณราคาต่อหน่วย (บาทต่อกรัม, มล., หรือชิ้น) ให้อัตโนมัติทันทีที่กรอกราคาและปริมาณ
+2. **ระบบวิเคราะห์เปรียบเทียบความคุ้มค่า**:
+   - แสดงป้ายมงกุฎ (👑 คุ้มกว่า) ให้สินค้าที่คุ้มค่ากว่าทันที
+   - คำนวณส่วนต่างราคาต่อหน่วยและเปอร์เซ็นต์ที่ประหยัดได้ พร้อมปุ่มล้างข้อมูลที่สะดวก
+3. **ดีไซน์มินิมอลพาสเทล (Pastel UI)**:
+   - ออกแบบโทนสีน่ารัก สบายตา ฝั่งชมพูพาสเทล vs ฟ้าพาสเทล ด้วย Tailwind CSS และฟอนต์ Fredoka กับ Itim รองรับการแสดงผล Responsive ทั้งบนสมาร์ทโฟนและเดสก์ท็อป`,
+        },
+        image: '/images/better-deal.png',
+        images: [
+            {
+                url: '/images/better-deal.png',
+                caption: {
+                    en: 'Better Deal — Real-time Unit Price Comparison Calculator Interface',
+                    th: 'หน้าจอคำนวณเปรียบเทียบราคาต่อหน่วย Better Deal พร้อมระบบคำนวณความคุ้มค่าแบบ Real-time',
+                },
+                isPrimary: true,
+            },
+        ],
+        link: '',
+        github: 'https://github.com/aphsx/better-deal-calc',
+        tags: ['JavaScript', 'Tailwind CSS', 'HTML5', 'CSS3', 'Web Development'],
+    },
 ]
+
