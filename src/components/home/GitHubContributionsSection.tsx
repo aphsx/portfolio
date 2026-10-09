@@ -109,56 +109,55 @@ const GitHubContributionsSection = () => {
 
   return (
     <Section title={t('home.github')} icon={<FiGithub />} delay={0.55}>
-      <div>
-        <div className="w-full overflow-hidden rounded-xl bg-white/90 p-4 shadow-sm dark:bg-gray-800/80">
-          {error ? (
-            <p className="text-sm text-gray-500 dark:text-gray-400 py-6 text-center">
-              {t('common.error')}
-            </p>
-          ) : !data ? (
-            <div className="space-y-4">
-              <div className="flex items-center justify-between gap-4">
-                <div className="h-4 w-40 rounded bg-gray-100 animate-pulse dark:bg-gray-700" />
-                <div className="h-4 w-20 rounded bg-gray-100 animate-pulse dark:bg-gray-700" />
-              </div>
-              <div className="overflow-hidden p-3">
-                <div className="flex flex-wrap gap-[3px]">
-                  {Array.from({ length: 371 }).map((_, i) => (
-                    <div
-                      key={i}
-                      className="h-[11px] w-[11px] animate-pulse rounded-[2px] bg-gray-100 dark:bg-gray-700"
-                    />
-                  ))}
-                </div>
+      <div className="w-full -mt-3.5">
+        {error ? (
+          <p className="text-sm text-gray-500 dark:text-gray-400 py-4 text-center">
+            {t('common.error')}
+          </p>
+        ) : !data ? (
+          <div className="space-y-3">
+            <div className="flex items-center justify-between gap-4">
+              <div className="h-4 w-40 rounded bg-gray-100 animate-pulse dark:bg-gray-700" />
+              <div className="h-4 w-20 rounded bg-gray-100 animate-pulse dark:bg-gray-700" />
+            </div>
+            <div className="overflow-hidden py-1">
+              <div className="flex flex-wrap gap-[3px]">
+                {Array.from({ length: 371 }).map((_, i) => (
+                  <div
+                    key={i}
+                    className="h-[11px] w-[11px] animate-pulse rounded-[2px] bg-gray-100 dark:bg-gray-700"
+                  />
+                ))}
               </div>
             </div>
-          ) : (
-            <>
-              <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
-                <div className="text-sm text-gray-600 dark:text-gray-300">
-                  {total !== null ? (
-                    <>
-                      <span className="font-semibold text-teal-600 dark:text-teal-400">
-                        {total.toLocaleString()}
-                      </span>{' '}
-                      {t('home.github.count')}
-                    </>
-                  ) : (
-                    t('home.github')
-                  )}
-                </div>
-                <a
-                  href={`https://github.com/${GITHUB_USERNAME}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-medium text-teal-600 transition-colors hover:text-teal-500 dark:text-teal-400"
-                >
-                  <FiGithub size={14} />
-                  @{GITHUB_USERNAME}
-                </a>
+          </div>
+        ) : (
+          <>
+            <div className="mb-1.5 flex flex-wrap items-center justify-between gap-2">
+              <div className="text-sm text-gray-600 dark:text-gray-300">
+                {total !== null ? (
+                  <>
+                    <span className="font-semibold text-teal-600 dark:text-teal-400">
+                      {total.toLocaleString()}
+                    </span>{' '}
+                    {t('home.github.count')}
+                  </>
+                ) : (
+                  t('home.github')
+                )}
               </div>
+              <a
+                href={`https://github.com/${GITHUB_USERNAME}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-medium text-teal-600 transition-colors hover:text-teal-500 dark:text-teal-400"
+              >
+                <FiGithub size={14} />
+                @{GITHUB_USERNAME}
+              </a>
+            </div>
 
-              <div className="p-3">
+            <div className="py-0">
                 <div className="flex gap-[3px]">
                   <div className="flex w-6 shrink-0 flex-col gap-[3px] pt-[14px] text-[9px] text-gray-500 dark:text-gray-400">
                     {WEEKDAYS.map((label, i) => (
@@ -171,7 +170,7 @@ const GitHubContributionsSection = () => {
                     ))}
                   </div>
 
-                  <div ref={graphScrollRef} className="min-w-0 overflow-x-auto pb-1">
+                  <div ref={graphScrollRef} className="min-w-0 overflow-x-auto pb-0">
                     <div className="inline-flex min-w-max flex-col gap-[3px]">
                       {/* Month labels row */}
                       <div className="flex h-[11px] gap-[3px] text-[9px] text-gray-500 dark:text-gray-400">
@@ -221,7 +220,7 @@ const GitHubContributionsSection = () => {
                 </div>
               </div>
 
-              <div className="mt-3 flex items-center justify-end gap-1.5 text-[11px] text-gray-500 dark:text-gray-400">
+              <div className="mt-1.5 flex items-center justify-end gap-1.5 text-[11px] text-gray-500 dark:text-gray-400">
                 <span className="mr-1">{t('home.github.less')}</span>
                 {[0, 1, 2, 3, 4].map((lvl) => (
                   <span
@@ -235,7 +234,6 @@ const GitHubContributionsSection = () => {
             </>
           )}
         </div>
-      </div>
     </Section>
   )
 }

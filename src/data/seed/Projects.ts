@@ -654,7 +654,7 @@ export const projectsSeed: Project[] = [
                 isPrimary: true,
             },
         ],
-        link: '',
+        link: 'https://deal-sooty.vercel.app/',
         github: 'https://github.com/aphsx/better-deal-calc',
         tags: ['JavaScript', 'Tailwind CSS', 'HTML5', 'CSS3', 'Web Development'],
     },
