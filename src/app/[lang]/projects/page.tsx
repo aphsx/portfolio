@@ -116,17 +116,9 @@ const PortfolioPage = () => {
           </div>
         </motion.header>
 
-        {/* หมวดหมู่โปรเจกต์ตามโครงสร้างเดิมทั้งหมด */}
+        {/* หมวดหมู่โปรเจกต์: แสดงผลงานมาก่อน แล้วตามด้วยเกียรติบัตร */}
         {totalCount > 0 ? (
           <div className="space-y-4">
-            {certiProjects.length > 0 && (
-              <ProjectList
-                title={t('portfolio.category.certi')}
-                projects={certiProjects}
-                layout={layout}
-              />
-            )}
-
             {workProjects.length > 0 && (
               <ProjectList
                 title={t('portfolio.works.main')}
@@ -139,6 +131,14 @@ const PortfolioPage = () => {
               <ProjectList
                 title={t('portfolio.works.collaborations')}
                 projects={collaborationProjects}
+                layout={layout}
+              />
+            )}
+
+            {certiProjects.length > 0 && (
+              <ProjectList
+                title={t('portfolio.category.certi')}
+                projects={certiProjects}
                 layout={layout}
               />
             )}
