@@ -371,6 +371,7 @@ export const projectsSeed: Project[] = [
         images: [{ url: '/images/personal-portfolio.png', isPrimary: true }],
         link: 'https://www.aphsx.site/th',
         github: 'https://github.com/aphsix/Portfolio',
+        tags: ['React', 'TypeScript', 'Tailwind CSS', 'Responsive Design'],
     },
     {
         id: 'proj-005',
