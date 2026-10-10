@@ -549,4 +549,35 @@ The program combines **language training**, **work**, and **travel** — buildin
         order: 2,
         createdAt: '2025-05-16',
     },
+    {
+        id: 'timeline-grad-high-school-2023',
+        slug: 'high-school-graduation',
+        title: {
+            en: 'Graduated High School',
+            th: 'จบการศึกษาระดับมัธยมศึกษา',
+        },
+        excerpt: {
+            en: 'Graduated from Mattayom Wat Mai Krong Thong School (Grade 7–12).',
+            th: 'จบการศึกษาระดับมัธยมศึกษาตอนปลายจากโรงเรียนมัธยมวัดใหม่กรองทอง (ม.1–6)',
+        },
+        content: {
+            en: `## Graduated High School
+
+Graduated from **Mattayom Wat Mai Krong Thong School** (Grade 7–12). A memorable chapter with great teachers, friends, and formative experiences before moving on to study Computer Science at Bangkok University.`,
+            th: `## จบการศึกษาระดับมัธยมศึกษา
+
+สำเร็จการศึกษาระดับมัธยมศึกษาตอนปลายจาก **โรงเรียนมัธยมวัดใหม่กรองทอง** (ม.1–6) ช่วงเวลาและความทรงจำดี ๆ ร่วมกับคุณครูและเพื่อน ๆ ก่อนก้าวเข้าสู่การเรียนต่อในระดับปริญญาตรี สาขาวิทยาการคอมพิวเตอร์ มหาวิทยาลัยกรุงเทพ`,
+        },
+        type: 'event',
+        date: '2023',
+        dateSort: '2023-03-31',
+        image: '/images/high-school-graduation.jpg',
+        imagePosition: 'center 30%',
+        images: ['/images/high-school-graduation.jpg'],
+        tags: ['High School', 'Graduation', 'Education'],
+        links: [],
+        isActive: true,
+        order: 1,
+        createdAt: '2023-03-31',
+    },
 ]
