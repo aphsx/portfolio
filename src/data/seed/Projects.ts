@@ -137,6 +137,7 @@ export const projectsSeed: Project[] = [
         image: '/certificates/certi-bu-kait-thumb.png',
         galleryLayout: 'photos',
         images: [
+            { url: '/images/bu-kait-ai-race-cover.jpg', isPrimary: true },
             { url: '/images/bu-kait-ai-race-award.jpg' },
             { url: '/images/bu-kait-ai-race-track.jpg' },
             { url: '/images/bu-kait-ai-race-group.jpg' },
