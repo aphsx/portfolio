@@ -65,6 +65,12 @@ const BU_CONFERENCE_USER_IMAGES = [
 ]
 const BU_CONFERENCE_IMAGES = [...BU_CONFERENCE_COSI_IMAGES, ...BU_CONFERENCE_USER_IMAGES]
 
+const BU_ESPORT_HERO = '/images/bu-esport-activity-2.png'
+const BU_ESPORT_IMAGES = [
+    '/images/bu-esport-activity-2.png',
+    '/images/bu-esport-activity-1.png',
+]
+
 // ---------------------------------------------------------------------------
 // Source-of-truth for timeline / activity blog entries.
 // Add new rows here — list page and detail pages pick them up automatically.
@@ -334,6 +340,37 @@ The certificate PDF and more details are on the project page.`,
         isActive: true,
         order: 3,
         createdAt: '2026-05-02',
+    },
+    {
+        id: 'timeline-bu-esport-2026',
+        slug: 'bu-esport-activity-2026',
+        title: {
+            en: 'Bangkok University Esports Activity',
+            th: 'ร่วมกิจกรรม E-Sports มหาวิทยาลัยกรุงเทพ',
+        },
+        excerpt: {
+            en: 'Participated in the university E-Sports event and activities on 11 March 2026.',
+            th: 'เข้าร่วมกิจกรรม E-Sports มหาวิทยาลัยกรุงเทพ เมื่อวันที่ 11 มีนาคม 2026',
+        },
+        content: {
+            en: `## Bangkok University Esports Activity
+
+On **11 March 2026**, I participated in the university **E-Sports activity**, joining fellow students and the community in competitive gaming sessions, team coordination, and event engagement.`,
+            th: `## ร่วมกิจกรรม E-Sports มหาวิทยาลัยกรุงเทพ
+
+วันที่ **11 มีนาคม 2026** ได้เข้าร่วม**กิจกรรม E-Sports** ของทางมหาวิทยาลัยกรุงเทพ ร่วมกิจกรรมกับเพื่อน ๆ และสังคมคนเล่นเกม ทั้งการแข่งขัน การทำงานร่วมกันเป็นทีม และบรรยากาศความสนุกสนานในงาน`,
+        },
+        type: 'event',
+        date: '11 Mar 2026',
+        dateSort: '2026-03-11',
+        image: BU_ESPORT_HERO,
+        imagePosition: 'center 18%',
+        images: BU_ESPORT_IMAGES,
+        tags: ['Esports', 'Bangkok University', 'Activity', 'Event'],
+        links: [],
+        isActive: true,
+        order: 4,
+        createdAt: '2026-03-11',
     },
     {
         id: 'timeline-cosi-2024',
