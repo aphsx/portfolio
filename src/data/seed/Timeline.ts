@@ -48,6 +48,9 @@ const BU_KAIT_AI_RACE_HERO = '/images/bu-kait-ai-race-cover.jpg'
 const BU_KAIT_AI_RACE_IMAGES = [
     '/images/bu-kait-ai-race-cover.jpg',
     '/images/bu-kait-ai-race-award.jpg',
+    '/images/bu-kait-ai-race-trophy-certs.jpg',
+    '/images/bu-kait-ai-race-scoreboard.jpg',
+    '/images/bu-kait-ai-race-track-view.jpg',
     '/images/bu-kait-ai-race-track.jpg',
     '/images/bu-kait-ai-race-group.jpg',
     '/images/bu-kait-ai-race-overview.jpg',
