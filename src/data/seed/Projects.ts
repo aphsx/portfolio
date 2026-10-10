@@ -138,7 +138,10 @@ export const projectsSeed: Project[] = [
         galleryLayout: 'photos',
         images: [
             { url: '/images/bu-kait-ai-race-cover.jpg', isPrimary: true },
+            { url: '/images/bu-kait-ai-race-trophy-certs.jpg' },
             { url: '/images/bu-kait-ai-race-award.jpg' },
+            { url: '/images/bu-kait-ai-race-scoreboard.jpg' },
+            { url: '/images/bu-kait-ai-race-track-view.jpg' },
             { url: '/images/bu-kait-ai-race-track.jpg' },
             { url: '/images/bu-kait-ai-race-group.jpg' },
             { url: '/images/bu-kait-ai-race-overview.jpg' },
