@@ -156,9 +156,6 @@ const TimelineDetailPage = () => {
               <time className="rounded-full bg-white/90 px-2.5 py-1 text-[11px] font-semibold tracking-wide text-gray-800 backdrop-blur-sm dark:bg-gray-900/90 dark:text-gray-100">
                 {entry.date}
               </time>
-              <span className={`${typeBadgeClass} bg-white/90 backdrop-blur-sm dark:bg-gray-900/90 ${typeBadgeStyles[entry.type]}`}>
-                {t(`timeline.type.${entry.type}`)}
-              </span>
             </div>
           </motion.div>
         )}
@@ -172,10 +169,6 @@ const TimelineDetailPage = () => {
           {!heroImage && (
             <div className="mb-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
               <time className="font-semibold text-teal-500">{entry.date}</time>
-              <span className="text-gray-300 dark:text-gray-600">·</span>
-              <span className={`${typeBadgeClass} ${typeBadgeStyles[entry.type]}`}>
-                {t(`timeline.type.${entry.type}`)}
-              </span>
             </div>
           )}
 

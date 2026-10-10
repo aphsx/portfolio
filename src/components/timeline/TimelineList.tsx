@@ -63,9 +63,6 @@ const TimelineList = ({ entries, layout = 'grid' }: TimelineListProps) => {
                     <time className="rounded-full bg-white/90 px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[10px] font-semibold tracking-wide text-gray-800 backdrop-blur-sm dark:bg-gray-900/90 dark:text-gray-100">
                       {entry.date}
                     </time>
-                    <span className={`${typeBadgeClass} text-[9px] sm:text-[10px] bg-white/90 backdrop-blur-sm dark:bg-gray-900/90 ${typeBadgeStyles[entry.type]}`}>
-                      {t(`timeline.type.${entry.type}`)}
-                    </span>
                   </div>
                 </div>
 
@@ -141,9 +138,6 @@ const TimelineList = ({ entries, layout = 'grid' }: TimelineListProps) => {
                       <time className="rounded-full bg-gray-100 px-2.5 py-0.5 text-[10px] font-semibold text-gray-700 dark:bg-gray-700/70 dark:text-gray-300">
                         {entry.date}
                       </time>
-                      <span className={`${typeBadgeClass} text-[10px] ${typeBadgeStyles[entry.type]}`}>
-                        {t(`timeline.type.${entry.type}`)}
-                      </span>
                     </div>
 
                     <h2 className="line-clamp-2 text-xs sm:text-base font-bold leading-snug text-gray-900 transition-colors group-hover:text-teal-600 dark:text-gray-100 dark:group-hover:text-teal-400">
@@ -217,9 +211,6 @@ const TimelineList = ({ entries, layout = 'grid' }: TimelineListProps) => {
                     <time className="rounded-full bg-white/90 px-2.5 py-1 text-[11px] font-semibold tracking-wide text-gray-800 backdrop-blur-sm dark:bg-gray-900/90 dark:text-gray-100">
                       {entry.date}
                     </time>
-                    <span className={`${typeBadgeClass} bg-white/90 backdrop-blur-sm dark:bg-gray-900/90 ${typeBadgeStyles[entry.type]}`}>
-                      {t(`timeline.type.${entry.type}`)}
-                    </span>
                   </div>
                 </div>
 
