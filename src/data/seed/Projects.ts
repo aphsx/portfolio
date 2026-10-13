@@ -208,19 +208,19 @@ export const projectsSeed: Project[] = [
         featured: false,
         year: 2026,
         title: {
-            en: 'DONA LINE OA — Announcements',
-            th: 'DONA LINE OA — ระบบประกาศแจ้งเตือน',
+            en: 'LINE OA — Announcements',
+            th: 'LINE OA — ระบบประกาศแจ้งเตือน',
         },
         description: {
-            en: 'A LINE Official Account for DONA that broadcasts notices to followers as text, images, or Flex cards, with a live chat preview, drafts, and scheduled sends.',
-            th: 'LINE Official Account ของ DONA สำหรับส่งประกาศถึงผู้ติดตาม ทั้งข้อความ รูป และการ์ด Flex พร้อมพรีวิวในแชท ร่าง และตั้งเวลาส่ง',
+            en: 'A LINE Official Account that broadcasts notices to followers as text, images, or Flex cards, with a live chat preview, drafts, and scheduled sends.',
+            th: 'LINE Official Account สำหรับส่งประกาศถึงผู้ติดตาม ทั้งข้อความ รูป และการ์ด Flex พร้อมพรีวิวในแชท ร่าง และตั้งเวลาส่ง',
         },
         shortDescription: {
             en: 'Broadcast notices on LINE as text, images, or Flex cards.',
             th: 'ส่งประกาศเข้า LINE ทั้งข้อความ รูป และการ์ด',
         },
         descriptionLong: {
-            en: `DONA's LINE Official Account is the channel for notices — crop updates, office hours, and anything else followers should see in chat, without opening another app.
+            en: `This LINE Official Account is the channel for notices — updates, office hours, and anything else followers should see in chat, without opening another app.
 
 Staff write the notice in an admin screen that previews the LINE bubble before it goes out. There are three shapes:
 
@@ -231,7 +231,7 @@ Staff write the notice in an admin screen that previews the LINE bubble before i
 A notice can go out immediately, stay as a draft, or wait for a scheduled time. The list tracks each one through draft, scheduled, sending, sent, cancelled, or failed, and a queued send can be cancelled before it fires.
 
 The Go API turns that form into a LINE Messaging API broadcast. Cards are Flex Messages. Images are compressed to JPEG, stored, and sent as HTTPS URLs that LINE can fetch. A worker claims due announcements and marks them sent or failed.`,
-            th: `LINE Official Account ของ DONA เป็นช่องส่งประกาศถึงผู้ติดตามในแชท ไม่ว่าจะเป็นข่าวแปลงนา เวลาทำการ หรือประกาศอื่น โดยไม่ต้องให้คนเปิดแอปเพิ่ม
+            th: `LINE Official Account เป็นช่องส่งประกาศถึงผู้ติดตามในแชท ไม่ว่าจะเป็นอัปเดต เวลาทำการ หรือประกาศอื่น โดยไม่ต้องให้คนเปิดแอปเพิ่ม
 
 ทีมงานเขียนประกาศในหน้าแอดมิน แล้วเห็นพรีวิวบับเบิลในแชทก่อนส่ง มี 3 รูปแบบ
 
@@ -263,8 +263,8 @@ The Go API turns that form into a LINE Messaging API broadcast. Cards are Flex M
             {
                 url: '/images/dona-line-oa-chat.png',
                 caption: {
-                    en: 'What followers see in the Dona LINE OA chat',
-                    th: 'ข้อความที่ผู้ติดตามเห็นในแชท LINE OA ของ Dona',
+                    en: 'What followers see in the LINE OA chat',
+                    th: 'ข้อความที่ผู้ติดตามเห็นในแชท LINE OA',
                 },
             },
         ],
