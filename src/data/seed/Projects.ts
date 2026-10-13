@@ -199,6 +199,80 @@ export const projectsSeed: Project[] = [
         tags: ['AI & Deep Learning', 'Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Smart Farming', 'IoT & Data Platform'],
     },
     {
+        id: 'proj-dona-line-oa',
+        slug: 'dona-line-oa',
+        isActive: true,
+        order: 2,
+        category: 'collaborations',
+        status: 'completed',
+        featured: false,
+        year: 2026,
+        title: {
+            en: 'DONA LINE OA — Announcements',
+            th: 'DONA LINE OA — ระบบประกาศแจ้งเตือน',
+        },
+        description: {
+            en: 'A LINE Official Account for DONA that broadcasts notices to followers as text, images, or Flex cards, with a live chat preview, drafts, and scheduled sends.',
+            th: 'LINE Official Account ของ DONA สำหรับส่งประกาศถึงผู้ติดตาม ทั้งข้อความ รูป และการ์ด Flex พร้อมพรีวิวในแชท ร่าง และตั้งเวลาส่ง',
+        },
+        shortDescription: {
+            en: 'Broadcast notices on LINE as text, images, or Flex cards.',
+            th: 'ส่งประกาศเข้า LINE ทั้งข้อความ รูป และการ์ด',
+        },
+        descriptionLong: {
+            en: `DONA's LINE Official Account is the channel for notices — crop updates, office hours, and anything else followers should see in chat, without opening another app.
+
+Staff write the notice in an admin screen that previews the LINE bubble before it goes out. There are three shapes:
+
+1. **Text** — a short chat bubble.
+2. **Image** — a square Flex bubble, standard width or full chat width, with an optional tap-through link.
+3. **Card** — a hero image, title, body, and a button that opens a link.
+
+A notice can go out immediately, stay as a draft, or wait for a scheduled time. The list tracks each one through draft, scheduled, sending, sent, cancelled, or failed, and a queued send can be cancelled before it fires.
+
+The Go API turns that form into a LINE Messaging API broadcast. Cards are Flex Messages. Images are compressed to JPEG, stored, and sent as HTTPS URLs that LINE can fetch. A worker claims due announcements and marks them sent or failed.`,
+            th: `LINE Official Account ของ DONA เป็นช่องส่งประกาศถึงผู้ติดตามในแชท ไม่ว่าจะเป็นข่าวแปลงนา เวลาทำการ หรือประกาศอื่น โดยไม่ต้องให้คนเปิดแอปเพิ่ม
+
+ทีมงานเขียนประกาศในหน้าแอดมิน แล้วเห็นพรีวิวบับเบิลในแชทก่อนส่ง มี 3 รูปแบบ
+
+1. **ข้อความ** — บับเบิลสั้นในแชท
+2. **รูป** — การ์ด Flex สี่เหลี่ยม เลือกความกว้างปกติหรือเต็มแชท กดที่รูปเพื่อเปิดลิงก์ได้
+3. **การ์ด** — รูปหัวข้อ หัวข้อ เนื้อหา และปุ่มเปิดลิงก์
+
+ส่งได้ทันที บันทึกร่าง หรือตั้งเวลาไว้ก่อน รายการประกาศไล่สถานะตั้งแต่ร่าง ตั้งเวลา กำลังส่ง ส่งแล้ว ยกเลิกคิว และส่งไม่สำเร็จ คิวที่ยังไม่ถึงเวลายกเลิกได้
+
+ฝั่ง API เขียนด้วย Go แปลงฟอร์มเป็น Flex Message แล้ว broadcast ผ่าน LINE Messaging API รูปถูกบีบอัดเป็น JPEG เก็บไว้ แล้วส่งเป็น URL แบบ https ที่ LINE ดึงได้ worker หยิบประกาศที่ถึงเวลาแล้วส่งต่อ และบันทึกว่าส่งสำเร็จหรือไม่`,
+        },
+        image: '/images/dona-line-oa-cover.png',
+        images: [
+            {
+                url: '/images/dona-line-oa-cover.png',
+                caption: {
+                    en: 'LINE chat preview of a Flex card announcement',
+                    th: 'พรีวิวแชท LINE ของประกาศแบบการ์ด Flex',
+                },
+                isPrimary: true,
+            },
+            {
+                url: '/images/dona-line-oa-composer.png',
+                caption: {
+                    en: 'Announcement composer with a live LINE card preview',
+                    th: 'หน้าเขียนประกาศ พร้อมพรีวิวการ์ดในแชท LINE',
+                },
+            },
+            {
+                url: '/images/dona-line-oa-chat.png',
+                caption: {
+                    en: 'What followers see in the Dona LINE OA chat',
+                    th: 'ข้อความที่ผู้ติดตามเห็นในแชท LINE OA ของ Dona',
+                },
+            },
+        ],
+        link: '',
+        github: '',
+        tags: ['LINE Messaging API', 'Flex Message', 'Go', 'Next.js', 'TypeScript', 'Supabase'],
+    },
+    {
         id: 'proj-001',
         slug: 'enterprise-resource-planning',
         isActive: true,
