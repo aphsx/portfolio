@@ -370,6 +370,13 @@ The Go API turns that form into a LINE Messaging API broadcast. Cards are Flex M
                 isPrimary: true,
             },
             {
+                url: '/images/billgang-signin-thermal.png',
+                caption: {
+                    en: 'Sign in — Thermal Print Edition',
+                    th: 'หน้าเข้าสู่ระบบ — สไตล์ใบเสร็จ Thermal Print',
+                },
+            },
+            {
                 url: '/images/billgang-login.png',
                 caption: { en: 'Sign in', th: 'หน้าเข้าสู่ระบบ' },
             },
