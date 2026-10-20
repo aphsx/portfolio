@@ -376,6 +376,34 @@ The Go API turns that form into a LINE Messaging API broadcast. Cards are Flex M
                     th: 'หน้าเข้าสู่ระบบ — สไตล์ใบเสร็จ Thermal Print',
                 },
             },
+            {
+                url: '/images/billgang-app-signin.png',
+                caption: {
+                    en: 'Mobile app — Sign in',
+                    th: 'แอปมือถือ — หน้าเข้าสู่ระบบ',
+                },
+            },
+            {
+                url: '/images/billgang-app-active.png',
+                caption: {
+                    en: 'Mobile app — Active bills',
+                    th: 'แอปมือถือ — บิลที่กำลังดำเนินการ',
+                },
+            },
+            {
+                url: '/images/billgang-app-completed.png',
+                caption: {
+                    en: 'Mobile app — Settled bills',
+                    th: 'แอปมือถือ — บิลที่เคลียร์ครบแล้ว',
+                },
+            },
+            {
+                url: '/images/billgang-app-receipt.png',
+                caption: {
+                    en: 'Mobile app — Bill detail & per-person summary',
+                    th: 'แอปมือถือ — รายละเอียดบิลและสรุปยอดรายบุคคล',
+                },
+            },
         ],
         link: 'https://billgang.click',
         github: 'https://github.com/TunyatapVich/cs356_billgang_project',
