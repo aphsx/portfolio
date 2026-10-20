@@ -248,58 +248,52 @@ const TimelineDetailPage = () => {
                     className="group relative block w-full overflow-hidden rounded-xl border border-black/5 bg-gray-100 p-0 cursor-zoom-in dark:border-white/10 dark:bg-gray-800/60"
                     onClick={() => openLightbox(allImages, url)}
                   >
-                    <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-100 dark:bg-gray-900">
-                      <img
-                        src={url}
-                        alt={`${getLocalized(entry.title)} - ${index + 1}`}
-                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-                        loading="lazy"
-                      />
-                    </div>
+                    <img
+                      src={url}
+                      alt={`${getLocalized(entry.title)} - ${index + 1}`}
+                      className="w-full h-auto rounded-xl transition-transform duration-300 group-hover:scale-[1.01]"
+                      loading="lazy"
+                    />
                   </button>
                 ))}
               </div>
             )}
 
             {galleryLayout === 'columns-2' && (
-              <div className="grid grid-cols-2 gap-3">
+              <div className="columns-2 gap-3">
                 {galleryImages.map((url, index) => (
                   <button
                     key={url}
                     type="button"
-                    className="group block w-full overflow-hidden rounded-lg border border-black/5 bg-gray-100 p-0 cursor-zoom-in dark:border-white/10 dark:bg-gray-800/60"
+                    className="group mb-3 block w-full break-inside-avoid overflow-hidden rounded-lg bg-transparent p-0 border-0 cursor-zoom-in"
                     onClick={() => openLightbox(allImages, url)}
                   >
-                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-100 dark:bg-gray-900">
-                      <img
-                        src={url}
-                        alt={`${getLocalized(entry.title)} - ${index + 1}`}
-                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-                        loading="lazy"
-                      />
-                    </div>
+                    <img
+                      src={url}
+                      alt={`${getLocalized(entry.title)} - ${index + 1}`}
+                      className="w-full h-auto rounded-lg transition-transform duration-300 group-hover:scale-[1.02]"
+                      loading="lazy"
+                    />
                   </button>
                 ))}
               </div>
             )}
 
             {galleryLayout === 'columns-3' && (
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+              <div className="columns-2 sm:columns-3 gap-2.5">
                 {galleryImages.map((url, index) => (
                   <button
                     key={url}
                     type="button"
-                    className="group block w-full overflow-hidden rounded-lg border border-black/5 bg-gray-100 p-0 cursor-zoom-in dark:border-white/10 dark:bg-gray-800/60"
+                    className="group mb-2.5 block w-full break-inside-avoid overflow-hidden rounded-lg bg-transparent p-0 border-0 cursor-zoom-in"
                     onClick={() => openLightbox(allImages, url)}
                   >
-                    <div className="relative aspect-square w-full overflow-hidden bg-gray-100 dark:bg-gray-900">
-                      <img
-                        src={url}
-                        alt={`${getLocalized(entry.title)} - ${index + 1}`}
-                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]"
-                        loading="lazy"
-                      />
-                    </div>
+                    <img
+                      src={url}
+                      alt={`${getLocalized(entry.title)} - ${index + 1}`}
+                      className="w-full h-auto rounded-lg transition-transform duration-300 group-hover:scale-[1.03]"
+                      loading="lazy"
+                    />
                   </button>
                 ))}
               </div>
