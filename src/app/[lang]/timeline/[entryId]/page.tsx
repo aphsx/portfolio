@@ -44,24 +44,8 @@ const TimelineDetailPage = () => {
   const [galleryLayout, setGalleryLayout] = useState<GalleryLayout>('columns-2')
   const touchStartX = useRef(0)
 
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem('portfolio_gallery_layout') as GalleryLayout
-      if (saved === 'single' || saved === 'columns-2' || saved === 'columns-3') {
-        setGalleryLayout(saved)
-      }
-    } catch {
-      // Ignore localStorage availability issues
-    }
-  }, [])
-
   const handleLayoutChange = (layout: GalleryLayout) => {
     setGalleryLayout(layout)
-    try {
-      localStorage.setItem('portfolio_gallery_layout', layout)
-    } catch {
-      // Ignore
-    }
   }
 
   const entry = TimelineRepository.getById((entryId as string) ?? '')
