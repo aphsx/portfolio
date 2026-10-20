@@ -52,10 +52,10 @@ const ProjectList = ({ title, projects, layout = 'rows' }: ProjectListProps) => 
             >
               <Link
                 href={`/${language}/projects/${project.id}`}
-                className="group flex flex-row h-28 sm:h-32 overflow-hidden rounded-xl bg-white shadow-xs ring-1 ring-black/[0.04] transition-all hover:shadow-sm dark:bg-gray-800/80 dark:ring-white/10"
+                className="group flex flex-row h-[136px] sm:h-[156px] overflow-hidden rounded-xl bg-white shadow-xs ring-1 ring-black/[0.04] transition-all hover:shadow-sm dark:bg-gray-800/80 dark:ring-white/10"
               >
                 {/* Thumbnail */}
-                <div className="relative w-32 sm:w-44 h-full shrink-0 overflow-hidden bg-gray-100 dark:bg-gray-900">
+                <div className="relative w-36 sm:w-52 h-full shrink-0 overflow-hidden bg-gray-100 dark:bg-gray-900">
                   <img
                     src={project.image || defaultImage}
                     alt={getLocalized(project.title)}
