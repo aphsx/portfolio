@@ -376,14 +376,6 @@ The Go API turns that form into a LINE Messaging API broadcast. Cards are Flex M
                     th: 'หน้าเข้าสู่ระบบ — สไตล์ใบเสร็จ Thermal Print',
                 },
             },
-            {
-                url: '/images/billgang-login.png',
-                caption: { en: 'Sign in', th: 'หน้าเข้าสู่ระบบ' },
-            },
-            {
-                url: '/images/billgang-summary.png',
-                caption: { en: 'Bill Summary', th: 'สรุปบิล' },
-            },
         ],
         link: 'https://billgang.click',
         github: 'https://github.com/TunyatapVich/cs356_billgang_project',
