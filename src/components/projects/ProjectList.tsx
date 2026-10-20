@@ -80,8 +80,8 @@ const ProjectList = ({ title, projects, layout = 'rows' }: ProjectListProps) => 
                         </span>
                       )}
                     </div>
-                    <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-gray-500 dark:text-gray-400">
-                      {getLocalized(project.shortDescription || project.description)}
+                    <p className="mt-1 line-clamp-3 sm:line-clamp-4 text-xs leading-relaxed text-gray-500 dark:text-gray-400">
+                      {getLocalized(project.description)}
                     </p>
                   </div>
 
@@ -147,7 +147,7 @@ const ProjectList = ({ title, projects, layout = 'rows' }: ProjectListProps) => 
                     </div>
 
                     <p className="mt-1 line-clamp-2 text-[11px] sm:text-xs leading-relaxed text-gray-500 dark:text-gray-400">
-                      {getLocalized(project.shortDescription || project.description)}
+                      {getLocalized(project.description)}
                     </p>
                   </div>
 
