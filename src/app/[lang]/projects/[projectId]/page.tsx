@@ -9,12 +9,34 @@ import { ProjectRepository } from "../../../../data";
 import { useTranslation } from 'react-i18next';
 import { useLocalizedData } from '../../../../hooks';
 import MarkdownRenderer from '../../../../components/common/MarkdownRenderer';
+import { Columns2, Columns3, Rows3 } from 'lucide-react';
+
+type GalleryLayout = 'single' | 'columns-2' | 'columns-3';
+
+const LAYOUT_OPTIONS = [
+  {
+    id: 'single' as const,
+    label: { en: '1 photo per row (vertical feed)', th: '1 รูปต่อแถว (แนวตั้งขนาดใหญ่)' },
+    icon: Rows3,
+  },
+  {
+    id: 'columns-2' as const,
+    label: { en: '2 columns (masonry)', th: '2 คอลัมน์ (Masonry)' },
+    icon: Columns2,
+  },
+  {
+    id: 'columns-3' as const,
+    label: { en: '3 columns (compact grid)', th: '3 คอลัมน์ (หลายกล่องในแถว)' },
+    icon: Columns3,
+  },
+];
 
 const ProjectDetail = () => {
   const { projectId } = useParams();
   const { t } = useTranslation();
   const { getLocalized, language } = useLocalizedData();
   const [lightbox, setLightbox] = useState<{ images: string[]; index: number } | null>(null);
+  const [galleryLayout, setGalleryLayout] = useState<GalleryLayout>('columns-2');
   const touchStartX = useRef(0);
 
   const project = ProjectRepository.getById((projectId as string) ?? '');
@@ -60,6 +82,117 @@ const ProjectDetail = () => {
   }
 
   const isDocument = Boolean(project.fileUrl);
+
+  const renderGallery = (delay: number) => {
+    if (!project.images || project.images.length === 0) return null;
+    const lang = language === 'th' ? 'th' : 'en';
+    const imageClass = 'w-full h-auto rounded-lg transition-transform duration-300';
+    const buttonClass =
+      'group block w-full break-inside-avoid overflow-hidden rounded-lg bg-transparent p-0 border-0 cursor-zoom-in';
+
+    const renderImage = (image: (typeof project.images)[number], index: number, hover: string, rounded: string) => (
+      <button
+        key={image.url}
+        type="button"
+        className={`${buttonClass} ${rounded}`}
+        onClick={() => openLightbox(galleryImages, image.url)}
+      >
+        <img
+          src={image.url}
+          alt={image.caption ? getLocalized(image.caption) : `${getLocalized(project.title)} - ${index + 1}`}
+          className={`${imageClass} ${hover}`}
+          loading="lazy"
+        />
+      </button>
+    );
+
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay, duration: 0.5 }}
+        className="mb-12"
+      >
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center gap-2">
+            <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100 sm:text-lg">
+              {language === 'th' ? 'รูปเพิ่มเติม' : 'More photos'}
+            </h3>
+            <span className="rounded-full bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-600 dark:bg-gray-800 dark:text-gray-400">
+              {project.images.length}
+            </span>
+          </div>
+
+          {/* Layout switcher */}
+          <div className="flex items-center rounded-lg bg-gray-100/90 p-1 ring-1 ring-black/5 dark:bg-gray-800/80 dark:ring-white/10">
+            {LAYOUT_OPTIONS.map((opt) => {
+              const isActive = galleryLayout === opt.id;
+              const Icon = opt.icon;
+              return (
+                <button
+                  key={opt.id}
+                  type="button"
+                  onClick={() => setGalleryLayout(opt.id)}
+                  title={opt.label[lang]}
+                  aria-label={opt.label[lang]}
+                  className={`relative flex h-7 w-7 items-center justify-center rounded-md text-xs font-medium transition-colors ${
+                    isActive
+                      ? 'text-gray-900 dark:text-white'
+                      : 'text-gray-400 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'
+                  }`}
+                >
+                  {isActive && (
+                    <motion.span
+                      layoutId={`activeGalleryLayout-${delay}`}
+                      className="absolute inset-0 rounded-md bg-white shadow-xs dark:bg-gray-700"
+                      transition={{ type: 'spring', bounce: 0.15, duration: 0.35 }}
+                    />
+                  )}
+                  <Icon size={15} className="relative z-10 shrink-0" />
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {galleryLayout === 'single' && (
+          <div className="flex flex-col gap-4">
+            {project.images.map((image, index) => (
+              <button
+                key={image.url}
+                type="button"
+                className="group relative block w-full overflow-hidden rounded-xl border border-black/5 bg-gray-100 p-0 cursor-zoom-in dark:border-white/10 dark:bg-gray-800/60"
+                onClick={() => openLightbox(galleryImages, image.url)}
+              >
+                <img
+                  src={image.url}
+                  alt={image.caption ? getLocalized(image.caption) : `${getLocalized(project.title)} - ${index + 1}`}
+                  className="w-full h-auto rounded-xl transition-transform duration-300 group-hover:scale-[1.01]"
+                  loading="lazy"
+                />
+              </button>
+            ))}
+          </div>
+        )}
+
+        {galleryLayout === 'columns-2' && (
+          <div className="columns-2 gap-3">
+            {project.images.map((image, index) =>
+              renderImage(image, index, 'group-hover:scale-[1.02]', 'mb-3')
+            )}
+          </div>
+        )}
+
+        {galleryLayout === 'columns-3' && (
+          <div className="columns-2 sm:columns-3 gap-2.5">
+            {project.images.map((image, index) =>
+              renderImage(image, index, 'group-hover:scale-[1.03]', 'mb-2.5')
+            )}
+          </div>
+        )}
+      </motion.div>
+    );
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900" style={{ paddingTop: "100px" }}>
@@ -217,32 +350,7 @@ const ProjectDetail = () => {
           />
         </motion.div>
 
-        {project.galleryLayout === 'photos' && project.images && project.images.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.75, duration: 0.6 }}
-            className="mb-16"
-          >
-            <div className="columns-2 gap-3">
-              {project.images.map((image, index) => (
-                  <button
-                    key={image.url}
-                    type="button"
-                    className="mb-3 block w-full break-inside-avoid overflow-hidden rounded-lg bg-transparent p-0 border-0 cursor-zoom-in"
-                    onClick={() => openLightbox(galleryImages, image.url)}
-                  >
-                  <img
-                    src={image.url}
-                    alt={`${getLocalized(project.title)} - ${index + 1}`}
-                    className="w-full h-auto"
-                    loading="lazy"
-                  />
-                </button>
-              ))}
-            </div>
-          </motion.div>
-        )}
+        {project.galleryLayout === 'photos' && renderGallery(0.75)}
 
         {project.fileUrl && (
           <motion.div
@@ -264,44 +372,7 @@ const ProjectDetail = () => {
           </motion.div>
         )}
 
-        {project.galleryLayout !== 'photos' && project.images && project.images.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.6 }}
-            className="mb-16"
-          >
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-8">
-              {t('project.gallery')}
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {project.images.map((image, index) => (
-                <div
-                  key={image.url}
-                  className="flex flex-col gap-3"
-                >
-                  <div
-                    className="aspect-video rounded-lg overflow-hidden bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-800 shadow-sm cursor-zoom-in group relative"
-                    onClick={() => openLightbox(galleryImages, image.url)}
-                  >
-                    <img
-                      src={image.url}
-                      alt={image.caption ? getLocalized(image.caption) : `${getLocalized(project.title)} - Image ${index + 1}`}
-                      className="w-full h-full object-contain p-2 transition-transform duration-500 group-hover:scale-[1.02]"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
-                  </div>
-                  {image.caption && (
-                    <p className="text-sm text-gray-500 dark:text-gray-400 font-medium px-1">
-                      {getLocalized(image.caption)}
-                    </p>
-                  )}
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        )}
+        {project.galleryLayout !== 'photos' && renderGallery(0.8)}
       </div>
 
       <AnimatePresence>
