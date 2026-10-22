@@ -162,7 +162,7 @@ export const projectsSeed: Project[] = [
         year: 2026,
         title: {
             en: 'DONA Agritech Startup',
-            th: 'DONA Agritech — เทคโนโลยีการเกษตรดิจิทัลและ AI',
+            th: 'DONA Agritech Startup — เทคโนโลยีการเกษตรดิจิทัลและ AI',
         },
         description: {
             en: 'A digital agriculture startup combining AI, IoT, and satellite data analytics to empower Thai farmers, lower costs, and increase crop yields.',
@@ -196,7 +196,7 @@ export const projectsSeed: Project[] = [
         ],
         link: 'https://www.donaagritech.com',
         github: '',
-        tags: ['AI & Deep Learning', 'Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Smart Farming', 'IoT & Data Platform'],
+        tags: ['Startup', 'AI & Deep Learning', 'Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Smart Farming', 'IoT & Data Platform'],
     },
     {
         id: 'proj-dona-line-oa',

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { Rows3, Grid2x2 } from 'lucide-react'
-import { ProjectList, ProjectLayout } from '../../../components/projects'
+import { ProjectList, ProjectLayout, ProjectBanner } from '../../../components/projects'
 import { ProjectRepository } from '../../../data'
 import { useLocalizedData } from '../../../hooks'
 
@@ -58,6 +58,7 @@ const PortfolioPage = () => {
       style={{ paddingTop: '100px' }}
     >
       <div className="max-w-2xl mx-auto px-6 pb-16">
+        <ProjectBanner projects={workProjects} />
         <motion.header
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
