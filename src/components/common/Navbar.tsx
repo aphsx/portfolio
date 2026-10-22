@@ -39,7 +39,7 @@ const Navbar = () => {
   const navItems = [
     { name: t('nav.portfolio'), path: `/${language}/projects` },
     { name: t('nav.timeline'), path: `/${language}/timeline` },
-    { name: t('nav.uses'), path: `/${language}/uses` },
+    // { name: t('nav.uses'), path: `/${language}/uses` }, // hidden for now, may be used in the future
   ]
 
   const isActive = (path: string) => pathname === path

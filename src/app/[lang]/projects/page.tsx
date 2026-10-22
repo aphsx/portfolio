@@ -24,12 +24,10 @@ const PortfolioPage = () => {
   const { t } = useTranslation()
   const { language } = useLocalizedData()
 
-  // ดึงข้อมูลโปรเจกต์แยกตามหมวดหมู่แบบเดิม
-  const certiProjects = ProjectRepository.getByCategory('certi')
+  // ดึงข้อมูลโปรเจกต์ทั้งหมด (รวมเป็นกลุ่มเดียวกัน ไม่แยกหลัก/รอง) และเกียรติบัตร
   const workProjects = ProjectRepository.getByCategory('works')
-  const collaborationProjects = ProjectRepository.getByCategory('collaborations')
-  const oldProjects = ProjectRepository.getByCategory('old')
-  const totalCount = certiProjects.length + workProjects.length + collaborationProjects.length + oldProjects.length
+  const certiProjects = ProjectRepository.getByCategory('certi')
+  const totalCount = workProjects.length + certiProjects.length
 
   // Layout แบบเดิมเป็นหลัก (rows เป็น default)
   const [layout, setLayout] = useState<ProjectLayout>('rows')
@@ -116,21 +114,12 @@ const PortfolioPage = () => {
           </div>
         </motion.header>
 
-        {/* หมวดหมู่โปรเจกต์: แสดงผลงานมาก่อน แล้วตามด้วยเกียรติบัตร */}
+        {/* แสดงผลงานทั้งหมดรวมกัน แล้วตามด้วยเกียรติบัตร */}
         {totalCount > 0 ? (
-          <div className="space-y-4">
+          <div className="space-y-10">
             {workProjects.length > 0 && (
               <ProjectList
-                title={t('portfolio.works.main')}
                 projects={workProjects}
-                layout={layout}
-              />
-            )}
-
-            {collaborationProjects.length > 0 && (
-              <ProjectList
-                title={t('portfolio.works.collaborations')}
-                projects={collaborationProjects}
                 layout={layout}
               />
             )}
@@ -139,14 +128,6 @@ const PortfolioPage = () => {
               <ProjectList
                 title={t('portfolio.category.certi')}
                 projects={certiProjects}
-                layout={layout}
-              />
-            )}
-
-            {oldProjects.length > 0 && (
-              <ProjectList
-                title={t('portfolio.works.old')}
-                projects={oldProjects}
                 layout={layout}
               />
             )}
