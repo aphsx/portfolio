@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { GitCommitVertical, Grid2x2, Rows3 } from 'lucide-react'
 import { TimelineList, TimelineLayout } from '../../../components/timeline'
+import TimelineBanner from '../../../components/timeline/TimelineBanner'
 import { TimelineRepository } from '../../../data'
 import { useLocalizedData } from '../../../hooks'
 
@@ -61,6 +62,7 @@ const TimelinePage = () => {
       style={{ paddingTop: '100px' }}
     >
       <div className="max-w-2xl mx-auto px-6 pb-16">
+        <TimelineBanner entries={entries} />
         <motion.header
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
