@@ -14,7 +14,9 @@ interface TimelineBannerProps {
 
 const TimelineBanner = ({ entries, max = 6, interval = 4000 }: TimelineBannerProps) => {
   const { getLocalized, language } = useLocalizedData()
-  const withImage = entries.filter((e) => e.image ?? e.images?.[0])
+  const withImage = entries.filter(
+    (e) => (e.image ?? e.images?.[0]) && e.id !== 'timeline-wat-america-2025'
+  )
   const isCursor = (e: TimelineEntry) => (e.image ?? '').includes('cursor-build-salaya')
   const slides = [...withImage.filter(isCursor), ...withImage.filter((e) => !isCursor(e))].slice(0, max)
   const [index, setIndex] = useState(0)

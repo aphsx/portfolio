@@ -2,19 +2,13 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
-import { GitCommitVertical, Grid2x2, Rows3 } from 'lucide-react'
+import { Grid2x2, Rows3 } from 'lucide-react'
 import { TimelineList, TimelineLayout } from '../../../components/timeline'
 import TimelineBanner from '../../../components/timeline/TimelineBanner'
 import { TimelineRepository } from '../../../data'
 import { useLocalizedData } from '../../../hooks'
 
 const LAYOUT_OPTIONS = [
-  {
-    id: 'timeline' as const,
-    name: { en: 'Timeline', th: 'แนวตั้ง' },
-    label: { en: 'Vertical timeline stream', th: 'ไทม์ไลน์แนวตั้ง' },
-    icon: GitCommitVertical,
-  },
   {
     id: 'grid' as const,
     name: { en: 'Grid', th: 'หลายกล่อง' },
@@ -39,7 +33,7 @@ const TimelinePage = () => {
   useEffect(() => {
     try {
       const saved = localStorage.getItem('portfolio_timeline_layout') as TimelineLayout
-      if (saved === 'timeline' || saved === 'grid' || saved === 'rows') {
+      if (saved === 'grid' || saved === 'rows') {
         setLayout(saved)
       }
     } catch {
