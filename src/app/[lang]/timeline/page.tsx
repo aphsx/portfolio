@@ -10,16 +10,16 @@ import { useLocalizedData } from '../../../hooks'
 
 const LAYOUT_OPTIONS = [
   {
+    id: 'rows' as const,
+    name: { en: 'Rows', th: 'แบบแถว' },
+    label: { en: 'Horizontal row list (Default)', th: 'รายการแบบแถว (ค่าเริ่มต้น)' },
+    icon: Rows3,
+  },
+  {
     id: 'grid' as const,
     name: { en: 'Grid', th: 'หลายกล่อง' },
     label: { en: 'Multi-column cards grid', th: 'หลายกล่องในแถว (Grid)' },
     icon: Grid2x2,
-  },
-  {
-    id: 'rows' as const,
-    name: { en: 'Rows', th: 'แบบแถว' },
-    label: { en: 'Horizontal row list', th: 'รายการแบบแถว' },
-    icon: Rows3,
   },
 ]
 
@@ -28,12 +28,12 @@ const TimelinePage = () => {
   const { language } = useLocalizedData()
   const entries = TimelineRepository.getAll()
 
-  const [layout, setLayout] = useState<TimelineLayout>('grid')
+  const [layout, setLayout] = useState<TimelineLayout>('rows')
 
   useEffect(() => {
     try {
       const saved = localStorage.getItem('portfolio_timeline_layout') as TimelineLayout
-      if (saved === 'grid' || saved === 'rows') {
+      if (saved === 'rows' || saved === 'grid') {
         setLayout(saved)
       }
     } catch {
