@@ -66,6 +66,7 @@ export function ImageBanner({ slides, interval = 4000 }: ImageBannerProps) {
               src={current.image}
               alt={getLocalized(current.title)}
               style={current.position ? { objectPosition: current.position } : undefined}
+              decoding="async"
               className="h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />

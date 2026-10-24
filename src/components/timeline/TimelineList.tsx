@@ -51,7 +51,9 @@ const TimelineList = ({ entries, layout = 'rows' }: TimelineListProps) => {
                     alt={getLocalized(entry.title)}
                     style={posStyle}
                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    loading="lazy"
+                    loading={index < 4 ? 'eager' : 'lazy'}
+                    decoding="async"
+                    fetchPriority={index < 2 ? 'high' : 'auto'}
                     onError={(e) => {
                       e.currentTarget.src = defaultImage
                     }}
@@ -115,7 +117,9 @@ const TimelineList = ({ entries, layout = 'rows' }: TimelineListProps) => {
                   alt={getLocalized(entry.title)}
                   style={posStyle}
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  loading="lazy"
+                  loading={index < 3 ? 'eager' : 'lazy'}
+                  decoding="async"
+                  fetchPriority={index < 1 ? 'high' : 'auto'}
                   onError={(e) => {
                     e.currentTarget.src = defaultImage
                   }}
