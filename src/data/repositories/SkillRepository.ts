@@ -1,5 +1,6 @@
-import { SkillCategory } from '../../types'
+import { SkillCategory } from '@/types'
 import { skillCategoriesSeed } from '../seed/Skills'
+import { activeSorted } from './query'
 
 // ---------------------------------------------------------------------------
 // SkillRepository
@@ -15,28 +16,9 @@ export const SkillRepository = {
      *   ORDER BY sc.order ASC, s.order ASC
      */
     getAll(): SkillCategory[] {
-        return skillCategoriesSeed
-            .filter((cat) => cat.isActive)
-            .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
-            .map((cat) => ({
-                ...cat,
-                skills: cat.skills
-                    .filter((s) => s.isActive)
-                    .sort((a, b) => (a.order ?? 0) - (b.order ?? 0)),
-            }))
-    },
-
-    /**
-     * Returns a flat list of all active skills across all categories.
-     */
-    getAllSkillsFlat() {
-        return SkillRepository.getAll().flatMap((cat) => cat.skills)
-    },
-
-    /**
-     * Returns a specific category by id.
-     */
-    getCategoryById(id: string): SkillCategory | undefined {
-        return skillCategoriesSeed.find((cat) => cat.id === id && cat.isActive)
+        return activeSorted(skillCategoriesSeed).map((cat) => ({
+            ...cat,
+            skills: activeSorted(cat.skills),
+        }))
     },
 }

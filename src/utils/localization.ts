@@ -46,24 +46,3 @@ export const getLocalizedArray = (
 
   return []
 }
-
-/**
- * Helper to build a LocalizedText object.
- */
-export const createLocalizedText = (
-  en: string,
-  th?: string
-): LocalizedText => ({
-  en,
-  ...(th && { th }),
-})
-
-export const isLocalizedText = (value: unknown): value is LocalizedText => {
-  return Boolean(
-    value &&
-    typeof value === 'object' &&
-    value !== null &&
-    'en' in value &&
-    typeof (value as LocalizedText).en === 'string'
-  )
-}

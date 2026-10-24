@@ -147,6 +147,7 @@ Check out the official event announcement and updates on LinkedIn.
         date: '18 Sep 2026',
         dateSort: '2026-09-18',
         image: INNOVESTX_HERO,
+        banner: { position: 'bottom' },
         images: INNOVESTX_IMAGES,
         tags: ['InnovestX', 'SCBX', 'FinTech', 'Career', 'Investment'],
         links: [
@@ -216,6 +217,7 @@ Luis เขียนบันทึกขอบคุณพร้อมผลง
         date: '23 Aug 2026',
         dateSort: '2026-08-23',
         image: '/images/cursor-build-salaya.jpg',
+        banner: { pinned: true },
         tags: ['Cursor', 'Hackathon', 'Salaya'],
         links: [
             {
@@ -543,6 +545,7 @@ The program combines **language training**, **work**, and **travel** — buildin
         date: '16 May – 8 Aug 2025',
         dateSort: '2025-05-16',
         image: WAT_AMERICA_HERO,
+        banner: { hidden: true },
         images: WAT_AMERICA_IMAGES,
         tags: ['Work and Travel', 'USA', 'English'],
         isActive: true,

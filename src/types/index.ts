@@ -23,6 +23,26 @@ export interface BaseEntity {
   createdAt?: string // ISO 8601 date string
 }
 
+/** Controls how an entry appears in a page's hero banner carousel. */
+export interface BannerOptions {
+  /** Exclude from the banner (e.g. placeholder or unsuitable cover image). */
+  hidden?: boolean
+  /** Show before non-pinned entries. */
+  pinned?: boolean
+  /** CSS object-position override for the banner crop only. */
+  position?: string
+}
+
+/** A single slide in an ImageBanner carousel (language-agnostic). */
+export interface BannerSlide {
+  id: string
+  /** Path without the language prefix, e.g. `/projects/proj-001`. */
+  path: string
+  image: string
+  title: LocalizedText
+  position?: string
+}
+
 // ============================================================
 // Personal Info
 // ============================================================
@@ -73,25 +93,22 @@ export interface Project extends BaseEntity {
   github?: string
   fileUrl?: string
   tags: string[]          // Plain string array — localized tags go in translations
-  tagsLocalized?: LocalizedStringArray
   category: ProjectCategory
   status?: ProjectStatus
   featured?: boolean
   year?: number
+  banner?: BannerOptions
 }
 
 // ============================================================
 // Skills
 // ============================================================
 
-export type SkillLevel = 'beginner' | 'intermediate' | 'advanced' | 'expert'
-
 export interface Skill extends BaseEntity {
   name: string
   color: string
   icon?: React.ComponentType<{ size?: number }>
   category: string
-  level?: SkillLevel
 }
 
 export interface SkillCategory extends BaseEntity {
@@ -155,4 +172,5 @@ export interface TimelineEntry extends BaseEntity {
     label: LocalizedText
     url: string
   }[]
+  banner?: BannerOptions
 }

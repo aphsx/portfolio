@@ -1,22 +1,35 @@
-import { TimelineEntry, TimelineEntryType } from '../../types'
+import { BannerSlide, TimelineEntry } from '@/types'
 import { timelineSeed } from '../seed/Timeline'
+import { activeSorted, byOrder, findActive, pickBannerItems } from './query'
+
+/** Newest first, then by `order`. */
+const byDateDesc = (a: TimelineEntry, b: TimelineEntry) =>
+    b.dateSort.localeCompare(a.dateSort) || byOrder(a, b)
+
+/** Hero image, falling back to the first gallery image. */
+export const getTimelineCover = (entry: TimelineEntry): string | undefined =>
+    entry.image ?? entry.images?.[0]
 
 export const TimelineRepository = {
     getAll(): TimelineEntry[] {
-        return timelineSeed
-            .filter((entry) => entry.isActive)
-            .sort((a, b) => b.dateSort.localeCompare(a.dateSort) || (a.order ?? 0) - (b.order ?? 0))
+        return activeSorted(timelineSeed, byDateDesc)
     },
 
     getById(id: string): TimelineEntry | undefined {
-        return timelineSeed.find((entry) => entry.id === id && entry.isActive)
+        return findActive(timelineSeed, (entry) => entry.id === id)
     },
 
-    getBySlug(slug: string): TimelineEntry | undefined {
-        return timelineSeed.find((entry) => entry.slug === slug && entry.isActive)
-    },
-
-    getByType(type: TimelineEntryType): TimelineEntry[] {
-        return TimelineRepository.getAll().filter((entry) => entry.type === type)
+    /**
+     * Slides for the timeline-page hero banner (see `TimelineEntry.banner`).
+     */
+    getBannerSlides(max = 6): BannerSlide[] {
+        const candidates = TimelineRepository.getAll().filter((e) => getTimelineCover(e))
+        return pickBannerItems(candidates, max).map((e) => ({
+            id: e.id,
+            path: `/timeline/${e.id}`,
+            image: getTimelineCover(e) as string,
+            title: e.title,
+            position: e.banner?.position ?? e.imagePosition,
+        }))
     },
 }

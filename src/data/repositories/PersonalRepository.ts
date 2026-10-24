@@ -1,5 +1,6 @@
-import { PersonalInfo, BioTimelineItem } from '../../types'
+import { PersonalInfo, BioTimelineItem } from '@/types'
 import { personalInfoSeed, bioTimelineSeed } from '../seed/Personal'
+import { activeSorted } from './query'
 
 // ---------------------------------------------------------------------------
 // PersonalRepository
@@ -23,8 +24,6 @@ export const PersonalRepository = {
      * DB equivalent: SELECT * FROM bio_timeline WHERE is_active = true ORDER BY order ASC
      */
     getBioTimeline(): BioTimelineItem[] {
-        return bioTimelineSeed
-            .filter((item) => item.isActive)
-            .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+        return activeSorted(bioTimelineSeed)
     },
 }

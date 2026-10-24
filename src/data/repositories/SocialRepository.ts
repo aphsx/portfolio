@@ -1,5 +1,6 @@
-import { SocialLink } from '../../types'
+import { SocialLink } from '@/types'
 import { socialLinksSeed } from '../seed/Social'
+import { activeSorted } from './query'
 
 // ---------------------------------------------------------------------------
 // SocialRepository
@@ -11,16 +12,6 @@ export const SocialRepository = {
      * DB equivalent: SELECT * FROM social_links WHERE is_active = true ORDER BY order ASC
      */
     getAll(): SocialLink[] {
-        return socialLinksSeed
-            .filter((link) => link.isActive)
-            .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
-    },
-
-    /**
-     * Returns a single social link by platform.
-     * DB equivalent: SELECT * FROM social_links WHERE platform = $1 LIMIT 1
-     */
-    getByPlatform(platform: SocialLink['platform']): SocialLink | undefined {
-        return socialLinksSeed.find((link) => link.platform === platform && link.isActive)
+        return activeSorted(socialLinksSeed)
     },
 }

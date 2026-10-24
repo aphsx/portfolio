@@ -1,5 +1,6 @@
-import { UsesCategory } from '../../types'
+import { UsesCategory } from '@/types'
 import { usesCategoriesSeed } from '../seed/Uses'
+import { activeSorted } from './query'
 
 // ---------------------------------------------------------------------------
 // UsesRepository
@@ -15,21 +16,9 @@ export const UsesRepository = {
      *   ORDER BY uc.order ASC, ui.order ASC
      */
     getAll(): UsesCategory[] {
-        return usesCategoriesSeed
-            .filter((cat) => cat.isActive)
-            .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
-            .map((cat) => ({
-                ...cat,
-                items: cat.items
-                    .filter((item) => item.isActive)
-                    .sort((a, b) => (a.order ?? 0) - (b.order ?? 0)),
-            }))
-    },
-
-    /**
-     * Returns a specific uses category by id.
-     */
-    getCategoryById(id: string): UsesCategory | undefined {
-        return usesCategoriesSeed.find((cat) => cat.id === id && cat.isActive)
+        return activeSorted(usesCategoriesSeed).map((cat) => ({
+            ...cat,
+            items: activeSorted(cat.items),
+        }))
     },
 }

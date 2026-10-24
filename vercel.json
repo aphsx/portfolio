@@ -6,28 +6,13 @@
       "permanent": true
     },
     {
-      "source": "/projects",
-      "destination": "/th",
+      "source": "/:section(projects|timeline|uses)",
+      "destination": "/th/:section",
       "permanent": false
     },
     {
-      "source": "/projects/:path*",
-      "destination": "/th",
-      "permanent": false
-    },
-    {
-      "source": "/timeline",
-      "destination": "/th",
-      "permanent": false
-    },
-    {
-      "source": "/timeline/:path*",
-      "destination": "/th",
-      "permanent": false
-    },
-    {
-      "source": "/uses",
-      "destination": "/th",
+      "source": "/:section(projects|timeline)/:path*",
+      "destination": "/th/:section/:path*",
       "permanent": false
     }
   ]
