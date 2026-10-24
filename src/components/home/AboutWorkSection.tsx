@@ -1,5 +1,5 @@
 import { MdPerson } from 'react-icons/md'
-import { Section } from '../ui'
+import { Section } from '@/components/ui'
 import { useTranslation } from 'react-i18next'
 
 const AboutWorkSection = () => {

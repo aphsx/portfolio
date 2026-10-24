@@ -2,10 +2,10 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { MdOutlineWork } from 'react-icons/md'
 import { HiArrowRight } from 'react-icons/hi'
-import { Section } from '../ui'
-import { ProjectRepository } from '../../data'
+import { Section } from '@/components/ui'
+import { ProjectRepository } from '@/data'
 import { useTranslation } from 'react-i18next'
-import { useLocalizedData } from '../../hooks'
+import { useLocalizedData } from '@/hooks'
 
 const FeaturedProjectsSection = () => {
   const { t } = useTranslation()
@@ -61,7 +61,7 @@ const FeaturedProjectsSection = () => {
                 </p>
 
                 <span className="inline-flex items-center gap-1.5 text-xs font-medium text-teal-600/90 transition-colors group-hover:text-teal-500 dark:text-teal-400">
-                  {language === 'th' ? 'ดูรายละเอียด' : 'View details'}
+                  {t('portfolio.viewProject')}
                   <HiArrowRight
                     className="transition-transform duration-300 group-hover:translate-x-0.5"
                     size={12}

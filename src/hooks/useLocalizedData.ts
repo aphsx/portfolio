@@ -1,14 +1,23 @@
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'next/navigation'
-import { LocalizedText, LocalizedStringArray } from '../types'
-import { getLocalizedText, getLocalizedArray as getLocalizedArrayUtil } from '../utils/localization'
+import { LocalizedText, LocalizedStringArray } from '@/types'
+import { getLocalizedText, getLocalizedArray as getLocalizedArrayUtil } from '@/utils/localization'
+import { SITE_CONFIG, SupportedLanguage } from '@/config/site'
+
+const isSupported = (lang?: string): lang is SupportedLanguage =>
+  Boolean(lang && (SITE_CONFIG.supportedLanguages as readonly string[]).includes(lang))
 
 export const useLocalizedData = () => {
   const { t, i18n } = useTranslation()
   const params = useParams()
-  const langParam = params?.lang as string
+  const langParam = params?.lang as string | undefined
 
-  const language = (langParam || i18n.language?.split('-')[0] || 'en') as 'en' | 'th'
+  const currentI18n = i18n.language?.split('-')[0]
+  const language: SupportedLanguage = isSupported(langParam)
+    ? langParam
+    : isSupported(currentI18n)
+      ? currentI18n
+      : SITE_CONFIG.defaultLanguage
 
   /**
    * Returns a localized string.
@@ -31,7 +40,7 @@ export const useLocalizedData = () => {
    */
   const getLocalizedArray = (items: LocalizedStringArray | string[]): string[] => {
     if (Array.isArray(items)) {
-      return items.map(item => getLocalized(item))
+      return items.map((item) => getLocalized(item))
     }
     return getLocalizedArrayUtil(items, language)
   }
@@ -42,4 +51,3 @@ export const useLocalizedData = () => {
     language,
   }
 }
-

@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { TimelineRepository } from '../../../../data'
+import { TimelineRepository } from '@/data'
 
 export const dynamicParams = false
 

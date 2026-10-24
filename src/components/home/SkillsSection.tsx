@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion'
 import { MdElectricBolt } from 'react-icons/md'
-import { Section } from '../ui'
-import { SkillRepository } from '../../data'
+import { Section } from '@/components/ui'
+import { SkillRepository } from '@/data'
 import { useTranslation } from 'react-i18next'
-import { useLocalizedData } from '../../hooks'
+import { useLocalizedData } from '@/hooks'
 
 interface SkillItemProps {
   skill: {

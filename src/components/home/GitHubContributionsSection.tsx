@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { FiGithub } from 'react-icons/fi'
 import { useTranslation } from 'react-i18next'
-import { Section } from '../ui'
+import { Section } from '@/components/ui'
 
 const GITHUB_USERNAME = 'aphsx'
 

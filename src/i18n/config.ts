@@ -1,18 +1,12 @@
-import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
-import LanguageDetector from 'i18next-browser-languagedetector';
+import i18n from 'i18next'
+import { initReactI18next } from 'react-i18next'
+import { SITE_CONFIG } from '@/config/site'
 
-import enTranslations from './locales/en/translation.json';
-import thTranslations from './locales/th/translation.json';
+import enTranslations from './locales/en/translation.json'
+import thTranslations from './locales/th/translation.json'
 
 i18n
-  // detect user language
-  // learn more: https://github.com/i18next/i18next-browser-languageDetector
-  .use(LanguageDetector)
-  // pass the i18n instance to react-i18next.
   .use(initReactI18next)
-  // init i18next
-  // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
     resources: {
       en: {
@@ -22,18 +16,13 @@ i18n
         translation: thTranslations,
       },
     },
-    supportedLngs: ['en', 'th'],
-    fallbackLng: 'th',
+    lng: SITE_CONFIG.defaultLanguage,
+    supportedLngs: SITE_CONFIG.supportedLanguages as unknown as string[],
+    fallbackLng: SITE_CONFIG.defaultLanguage,
     debug: false,
     interpolation: {
-      escapeValue: false, // not needed for react as it escapes by default
+      escapeValue: false,
     },
-    detection: {
-      // order and from where user language should be detected
-      order: ['localStorage', 'navigator'],
-      // keys or params to lookup language from
-      lookupLocalStorage: 'language', // Match the old context's key if it was stored in localStorage
-    }
-  });
+  })
 
-export default i18n;
+export default i18n

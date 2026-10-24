@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { ProjectRepository } from '../../../../data'
+import { ProjectRepository } from '@/data'
 
 export const dynamicParams = false
 

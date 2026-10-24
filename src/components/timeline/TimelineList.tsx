@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { HiArrowRight } from 'react-icons/hi'
-import { TimelineEntry } from '../../types'
-import { useLocalizedData } from '../../hooks'
+import { TimelineEntry } from '@/types'
+import { useLocalizedData } from '@/hooks'
 import { useTranslation } from 'react-i18next'
 
 export type TimelineLayout = 'rows' | 'grid'

@@ -7,25 +7,21 @@ import {
   SocialLinksSection,
   FeaturedProjectsSection,
   GitHubContributionsSection,
-} from '../../components/home'
+} from '@/components/home'
+import { PageContainer } from '@/components/ui'
 
 const Home = () => {
   return (
-    <div
-      className="min-h-screen bg-gray-50 dark:bg-gray-900"
-      style={{ paddingTop: '100px' }}
-    >
-      <div className="max-w-2xl mx-auto px-6">
-        <HeroSection />
-        <AboutWorkSection />
-        <BioSection />
-        <SkillsSection />
-        <GitHubContributionsSection />
-        <SocialLinksSection />
-        <FeaturedProjectsSection />
-      </div>
-    </div>
+    <PageContainer innerClassName="max-w-2xl mx-auto px-6">
+      <HeroSection />
+      <AboutWorkSection />
+      <BioSection />
+      <SkillsSection />
+      <GitHubContributionsSection />
+      <SocialLinksSection />
+      <FeaturedProjectsSection />
+    </PageContainer>
   )
-};
+}
 
-export default Home;
+export default Home

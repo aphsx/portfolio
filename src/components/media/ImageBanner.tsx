@@ -3,22 +3,16 @@ import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { TimelineEntry } from '../../types'
-import { useLocalizedData } from '../../hooks'
+import { BannerSlide } from '@/types'
+import { useLocalizedData } from '@/hooks'
 
-interface TimelineBannerProps {
-  entries: TimelineEntry[]
-  max?: number
+interface ImageBannerProps {
+  slides: BannerSlide[]
   interval?: number
 }
 
-const TimelineBanner = ({ entries, max = 6, interval = 4000 }: TimelineBannerProps) => {
+export function ImageBanner({ slides, interval = 4000 }: ImageBannerProps) {
   const { getLocalized, language } = useLocalizedData()
-  const withImage = entries.filter(
-    (e) => (e.image ?? e.images?.[0]) && e.id !== 'timeline-wat-america-2025'
-  )
-  const isCursor = (e: TimelineEntry) => (e.image ?? '').includes('cursor-build-salaya')
-  const slides = [...withImage.filter(isCursor), ...withImage.filter((e) => !isCursor(e))].slice(0, max)
   const [index, setIndex] = useState(0)
   const [paused, setPaused] = useState(false)
   const [direction, setDirection] = useState(1)
@@ -34,8 +28,7 @@ const TimelineBanner = ({ entries, max = 6, interval = 4000 }: TimelineBannerPro
 
   if (slides.length === 0) return null
 
-  const entry = slides[index]
-  const cover = (entry.image ?? entry.images?.[0]) as string
+  const current = slides[index]
 
   const goTo = (i: number) => {
     setDirection(i > index ? 1 : -1)
@@ -60,7 +53,7 @@ const TimelineBanner = ({ entries, max = 6, interval = 4000 }: TimelineBannerPro
     >
       <AnimatePresence initial={false} custom={direction} mode="popLayout">
         <motion.div
-          key={entry.id}
+          key={current.id}
           custom={direction}
           initial={{ x: direction > 0 ? '100%' : '-100%', opacity: 0.6 }}
           animate={{ x: 0, opacity: 1 }}
@@ -68,26 +61,22 @@ const TimelineBanner = ({ entries, max = 6, interval = 4000 }: TimelineBannerPro
           transition={{ duration: 0.6, ease: 'easeInOut' }}
           className="absolute inset-0"
         >
-          <Link href={`/${language}/timeline/${entry.id}`} className="block h-full w-full">
+          <Link href={`/${language}${current.path}`} className="block h-full w-full">
             <img
-              src={cover}
-              alt={getLocalized(entry.title)}
-              style={{
-                objectPosition: cover.includes('innovestx-open-house-experience')
-                  ? 'bottom'
-                  : entry.imagePosition,
-              }}
+              src={current.image}
+              alt={getLocalized(current.title)}
+              style={current.position ? { objectPosition: current.position } : undefined}
               className="h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
             <p className="absolute bottom-8 left-4 right-4 line-clamp-1 text-sm font-semibold text-white drop-shadow sm:left-6 sm:text-base">
-              {getLocalized(entry.title)}
+              {getLocalized(current.title)}
             </p>
           </Link>
         </motion.div>
       </AnimatePresence>
 
-      {/* Arrows */}
+      {/* Navigation Arrows */}
       {slides.length > 1 && (
         <>
           <button
@@ -109,22 +98,22 @@ const TimelineBanner = ({ entries, max = 6, interval = 4000 }: TimelineBannerPro
         </>
       )}
 
-      {/* Pagination dots */}
-      <div className="absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 items-center gap-1.5">
-        {slides.map((s, i) => (
-          <button
-            key={s.id}
-            type="button"
-            aria-label={`Slide ${i + 1}`}
-            onClick={() => goTo(i)}
-            className={`h-1.5 rounded-full transition-all duration-300 ${
-              i === index ? 'w-5 bg-white' : 'w-1.5 bg-white/50 hover:bg-white/80'
-            }`}
-          />
-        ))}
-      </div>
+      {/* Pagination Dots */}
+      {slides.length > 1 && (
+        <div className="absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 items-center gap-1.5">
+          {slides.map((s, i) => (
+            <button
+              key={s.id}
+              type="button"
+              aria-label={`Slide ${i + 1}`}
+              onClick={() => goTo(i)}
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                i === index ? 'w-5 bg-white' : 'w-1.5 bg-white/50 hover:bg-white/80'
+              }`}
+            />
+          ))}
+        </div>
+      )}
     </div>
   )
 }
-
-export default TimelineBanner

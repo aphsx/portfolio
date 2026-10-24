@@ -5,15 +5,10 @@ import { usePathname, useRouter } from 'next/navigation';
 import { HiMenu, HiX } from 'react-icons/hi'
 import { FiFileText, FiMoon, FiSun } from 'react-icons/fi'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useTheme } from '../../contexts'
-import { SITE_CONFIG } from '../../config/site'
+import { useTheme } from '@/contexts'
+import { SITE_CONFIG, LANGUAGES } from '@/config/site'
 import { useTranslation } from 'react-i18next'
-import { useLocalizedData } from '../../hooks'
-
-const languages = [
-  { code: 'th', name: 'TH' },
-  { code: 'en', name: 'EN' },
-]
+import { useLocalizedData } from '@/hooks'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -26,7 +21,7 @@ const Navbar = () => {
   const setLanguage = (newLang: string) => {
     // Replace current language in URL with new language
     const pathParts = pathname.split('/')
-    if (pathParts[1] && languages.some(l => l.code === pathParts[1])) {
+    if (pathParts[1] && LANGUAGES.some(l => l.code === pathParts[1])) {
       pathParts[1] = newLang
     } else {
       // If first part is not a language code, prepend it
@@ -87,7 +82,7 @@ const Navbar = () => {
 
             <div className="flex items-center space-x-2">
               <div className="flex items-center rounded-full bg-gray-100 p-1 dark:bg-gray-800">
-                {languages.map((lang) => (
+                {LANGUAGES.map((lang) => (
                   <button
                     key={lang.code}
                     onClick={() => setLanguage(lang.code)}
@@ -97,7 +92,7 @@ const Navbar = () => {
                         : 'text-gray-500 hover:text-teal-500 dark:text-gray-400'
                     }`}
                   >
-                    {lang.name}
+                    {lang.label}
                   </button>
                 ))}
               </div>
@@ -186,11 +181,11 @@ const Navbar = () => {
               {/* Bottom Controls Row: Language Switcher */}
               <div className="flex items-center justify-between pt-1">
                 <span className="text-xs font-medium text-gray-500 dark:text-gray-400">
-                  {language === 'th' ? 'ภาษา / Language' : 'Language'}
+                  {t('nav.languageLabel')}
                 </span>
 
                 <div className="flex items-center rounded-full bg-gray-200/70 p-1 dark:bg-gray-800 ring-1 ring-black/5 dark:ring-white/5">
-                  {languages.map((lang) => (
+                  {LANGUAGES.map((lang) => (
                     <button
                       key={lang.code}
                       onClick={() => {
@@ -203,7 +198,7 @@ const Navbar = () => {
                           : 'text-gray-500 hover:text-teal-500 dark:text-gray-400'
                       }`}
                     >
-                      {lang.name}
+                      {lang.label}
                     </button>
                   ))}
                 </div>

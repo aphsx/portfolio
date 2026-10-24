@@ -1,9 +1,9 @@
 import { MdSegment } from 'react-icons/md'
-import { Section } from '../ui'
-import { PersonalRepository } from '../../data'
+import { Section } from '@/components/ui'
+import { PersonalRepository } from '@/data'
 import { useTranslation } from 'react-i18next'
-import { useLocalizedData } from '../../hooks'
-import { renderLinkedText } from '../../utils'
+import { useLocalizedData } from '@/hooks'
+import { renderLinkedText } from '@/utils'
 
 const BioSection = () => {
   const { t } = useTranslation()

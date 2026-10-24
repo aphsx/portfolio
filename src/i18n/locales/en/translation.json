@@ -73,5 +73,16 @@
     "timeline.type.event": "Event",
     "common.loading": "Loading...",
     "common.error": "Something went wrong",
-    "common.retry": "Try again"
+    "common.retry": "Try again",
+    "common.morePhotos": "More photos",
+    "layout.rows": "Horizontal row list (Default)",
+    "layout.grid": "Multi-column cards grid",
+    "layout.single": "1 photo per row (vertical feed)",
+    "layout.columns2": "2 columns (masonry)",
+    "layout.columns3": "3 columns (compact grid)",
+    "portfolio.empty": "No projects found",
+    "project.clickToExpand": "Click to Expand",
+    "timeline.relatedLinks": "Related links",
+    "timeline.viewInPortfolio": "View in portfolio",
+    "nav.languageLabel": "Language"
 }

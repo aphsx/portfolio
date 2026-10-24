@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { PiGlobeBold } from 'react-icons/pi'
-import { Section } from '../ui'
-import { SocialRepository } from '../../data'
+import { Section } from '@/components/ui'
+import { SocialRepository } from '@/data'
 import { useTranslation } from 'react-i18next'
 
 const SocialLinksSection = () => {

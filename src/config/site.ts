@@ -7,3 +7,8 @@ export const SITE_CONFIG = {
 }
 
 export type SupportedLanguage = typeof SITE_CONFIG.supportedLanguages[number]
+
+export const LANGUAGES: { code: SupportedLanguage; label: string }[] = [
+    { code: 'th', label: 'TH' },
+    { code: 'en', label: 'EN' },
+]

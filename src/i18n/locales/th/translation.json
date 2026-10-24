@@ -73,5 +73,16 @@
     "timeline.type.event": "อีเวนต์",
     "common.loading": "กำลังโหลด...",
     "common.error": "เกิดข้อผิดพลาด",
-    "common.retry": "ลองใหม่"
+    "common.retry": "ลองใหม่",
+    "common.morePhotos": "รูปเพิ่มเติม",
+    "layout.rows": "รายการแบบแถว (ค่าเริ่มต้น)",
+    "layout.grid": "หลายกล่องในแถว (Grid)",
+    "layout.single": "1 รูปต่อแถว (แนวตั้งขนาดใหญ่)",
+    "layout.columns2": "2 คอลัมน์ (Masonry)",
+    "layout.columns3": "3 คอลัมน์ (หลายกล่องในแถว)",
+    "portfolio.empty": "ไม่มีรายการผลงาน",
+    "project.clickToExpand": "คลิกเพื่อขยาย",
+    "timeline.relatedLinks": "ลิงก์ที่เกี่ยวข้อง",
+    "timeline.viewInPortfolio": "ดูใน portfolio",
+    "nav.languageLabel": "ภาษา / Language"
 }

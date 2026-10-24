@@ -9,9 +9,20 @@ const rounded = M_PLUS_Rounded_1c({
 });
 
 export const metadata: Metadata = {
-  title: "Aphsx Portfolio",
-  description: "A professional portfolio built with Next.js",
+  title: "Aphisit Portfolio",
+  description: "Personal portfolio, activities, projects, and certificates.",
 };
+
+const themeScript = `
+  try {
+    var t = localStorage.getItem('theme');
+    if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  } catch (e) {}
+`;
 
 export default function RootLayout({
   children,
@@ -19,7 +30,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="th" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className={`${rounded.variable} antialiased`}>
         {children}
       </body>

@@ -2,10 +2,10 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { FiFileText } from 'react-icons/fi'
-import { PersonalRepository, SocialRepository } from '../../data'
-import { SITE_CONFIG } from '../../config/site'
+import { PersonalRepository, SocialRepository } from '@/data'
+import { SITE_CONFIG } from '@/config/site'
 import { useTranslation } from 'react-i18next'
-import { useLocalizedData } from '../../hooks'
+import { useLocalizedData } from '@/hooks'
 
 const HeroSection = () => {
   const { t } = useTranslation()

@@ -1,8 +1,8 @@
 import { ReactNode } from 'react'
-import { ThemeProvider } from '../../contexts'
-import { LanguageWrapper } from '../../components/common'
-import MainLayout from '../../layouts/MainLayout'
-import { SITE_CONFIG } from '../../config/site'
+import { ThemeProvider } from '@/contexts'
+import { LanguageWrapper } from '@/components/common'
+import MainLayout from '@/layouts/MainLayout'
+import { SITE_CONFIG } from '@/config/site'
 
 export const dynamicParams = false
 
@@ -11,17 +11,15 @@ export function generateStaticParams() {
 }
 
 export default function LangLayout({
-    children,
+  children,
 }: {
-    children: ReactNode
+  children: ReactNode
 }) {
-    return (
-        <ThemeProvider>
-            <LanguageWrapper>
-                <MainLayout>
-                    {children}
-                </MainLayout>
-            </LanguageWrapper>
-        </ThemeProvider>
-    )
+  return (
+    <ThemeProvider>
+      <LanguageWrapper>
+        <MainLayout>{children}</MainLayout>
+      </LanguageWrapper>
+    </ThemeProvider>
+  )
 }

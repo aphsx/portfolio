@@ -1,9 +1,8 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { HiArrowRight } from 'react-icons/hi'
-import { Project } from '../../types'
-import { useLocalizedData } from '../../hooks'
-import { useTranslation } from 'react-i18next'
+import { Project } from '@/types'
+import { useLocalizedData } from '@/hooks'
 
 export type ProjectLayout = 'rows' | 'grid'
 
@@ -16,7 +15,6 @@ interface ProjectListProps {
 
 const ProjectList = ({ title, projects, layout = 'rows' }: ProjectListProps) => {
   const { getLocalized, language } = useLocalizedData()
-  const { t } = useTranslation()
   const defaultImage = '/images/CSI00138.jpg'
 
   if (projects.length === 0) return null
