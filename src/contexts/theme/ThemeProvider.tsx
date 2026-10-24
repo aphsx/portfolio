@@ -6,6 +6,7 @@ export type Theme = 'light' | 'dark'
 interface ThemeContextType {
   theme: Theme
   isDark: boolean
+  mounted: boolean
   setTheme: (theme: Theme) => void
   toggleTheme: () => void
 }
@@ -25,22 +26,24 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
-  const [theme, setThemeState] = useState<Theme>(() => {
+  const [theme, setThemeState] = useState<Theme>('light')
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
     try {
-      if (typeof window !== 'undefined') {
-        const savedTheme = localStorage.getItem('theme') as Theme
-        if (savedTheme && ['light', 'dark'].includes(savedTheme)) {
-          return savedTheme
-        }
-        if (document.documentElement.classList.contains('dark')) {
-          return 'dark'
-        }
+      const savedTheme = localStorage.getItem('theme') as Theme
+      if (savedTheme && ['light', 'dark'].includes(savedTheme)) {
+        setThemeState(savedTheme)
+        return
       }
-      return 'light'
+      if (document.documentElement.classList.contains('dark')) {
+        setThemeState('dark')
+      }
     } catch {
-      return 'light'
+      // Ignore localStorage errors
     }
-  })
+  }, [])
 
   const applyTheme = useCallback((newTheme: Theme) => {
     const root = document.documentElement
@@ -68,14 +71,17 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   }, [theme, handleSetTheme])
 
   useEffect(() => {
-    applyTheme(theme)
-  }, [theme, applyTheme])
+    if (mounted) {
+      applyTheme(theme)
+    }
+  }, [theme, mounted, applyTheme])
 
   return (
     <ThemeContext.Provider
       value={{
         theme,
         isDark: theme === 'dark',
+        mounted,
         setTheme: handleSetTheme,
         toggleTheme,
       }}

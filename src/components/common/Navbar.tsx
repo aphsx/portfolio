@@ -12,7 +12,7 @@ import { useLocalizedData } from '@/hooks'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const { isDark, toggleTheme } = useTheme()
+  const { isDark, toggleTheme, mounted } = useTheme()
   const { t } = useTranslation()
   const { language } = useLocalizedData()
   const navigate = useRouter();
@@ -98,9 +98,10 @@ const Navbar = () => {
               </div>
               <button
                 onClick={toggleTheme}
+                aria-label="Toggle theme"
                 className="text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors duration-200 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
               >
-                {isDark ? <FiSun size={18} /> : <FiMoon size={18} />}
+                {mounted ? (isDark ? <FiSun size={18} /> : <FiMoon size={18} />) : <span className="inline-block w-[18px] h-[18px]" />}
               </button>
             </div>
           </div>
@@ -112,7 +113,7 @@ const Navbar = () => {
               aria-label="Toggle theme"
               className="p-2 rounded-xl text-gray-700 dark:text-gray-300 hover:text-teal-500 hover:bg-gray-200/60 dark:hover:bg-gray-800/60 transition-colors"
             >
-              {isDark ? <FiSun size={19} /> : <FiMoon size={19} />}
+              {mounted ? (isDark ? <FiSun size={19} /> : <FiMoon size={19} />) : <span className="inline-block w-[19px] h-[19px]" />}
             </button>
 
             <button
