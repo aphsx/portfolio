@@ -48,21 +48,40 @@ export function ImageGallery({
     { id: 'columns-3', label: labels.columns3, icon: Columns3 },
   ]
 
-  const renderItem = (item: GalleryImageItem, index: number, hover: string, bottomMargin: string) => (
+  const renderItem = (item: GalleryImageItem, index: number, hover: string) => (
     <button
       key={`${item.url}-${index}`}
       type="button"
-      className={`group block w-full break-inside-avoid overflow-hidden rounded-lg bg-transparent p-0 border-0 cursor-zoom-in ${bottomMargin}`}
+      className="group relative block w-full overflow-hidden rounded-lg bg-transparent p-0 border-0 cursor-zoom-in [transform:translateZ(0)]"
       onClick={() => onImageClick(item.url)}
     >
       <img
         src={item.url}
         alt={item.alt || `Photo ${index + 1}`}
-        className={`w-full h-auto rounded-lg transition-transform duration-300 ${hover}`}
+        className={`block w-full h-auto transition-transform duration-300 ${hover}`}
         loading="lazy"
       />
     </button>
   )
+
+  // Flex-based masonry (CSS `columns` is buggy in WebKit/iOS with transforms + overflow-hidden)
+  const renderMasonry = (columnCount: number, gap: string, hover: string) => {
+    const columns: { item: GalleryImageItem; index: number }[][] = Array.from(
+      { length: columnCount },
+      () => [],
+    )
+    images.forEach((item, index) => columns[index % columnCount].push({ item, index }))
+
+    return (
+      <div className={`flex items-start ${gap}`}>
+        {columns.map((col, colIndex) => (
+          <div key={colIndex} className={`flex min-w-0 flex-1 flex-col ${gap}`}>
+            {col.map(({ item, index }) => renderItem(item, index, hover))}
+          </div>
+        ))}
+      </div>
+    )
+  }
 
   return (
     <motion.div
@@ -113,21 +132,9 @@ export function ImageGallery({
         </div>
       )}
 
-      {layout === 'columns-2' && (
-        <div className="columns-2 gap-3">
-          {images.map((item, index) =>
-            renderItem(item, index, 'group-hover:scale-[1.02]', 'mb-3'),
-          )}
-        </div>
-      )}
+      {layout === 'columns-2' && renderMasonry(2, 'gap-3', 'group-hover:scale-[1.02]')}
 
-      {layout === 'columns-3' && (
-        <div className="columns-2 sm:columns-3 gap-2.5">
-          {images.map((item, index) =>
-            renderItem(item, index, 'group-hover:scale-[1.03]', 'mb-2.5'),
-          )}
-        </div>
-      )}
+      {layout === 'columns-3' && renderMasonry(3, 'gap-2', 'group-hover:scale-[1.03]')}
     </motion.div>
   )
 }

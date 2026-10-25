@@ -152,7 +152,7 @@ const TimelineDetailPage = () => {
               href={`/${language}/projects/${entry.projectId}`}
               className="group flex items-center justify-between gap-4 rounded-xl border border-teal-200 bg-teal-50/80 px-5 py-4 transition-colors hover:border-teal-300 hover:bg-teal-50 dark:border-teal-800/60 dark:bg-teal-950/30 dark:hover:border-teal-700"
             >
-              <div>
+              <div className="min-w-0">
                 <p className="font-semibold text-gray-900 dark:text-gray-100">
                   {t('timeline.viewInPortfolio')}
                 </p>
@@ -174,7 +174,7 @@ const TimelineDetailPage = () => {
               rel="noopener noreferrer"
               className="group flex items-center justify-between gap-4 rounded-xl border border-teal-200 bg-teal-50/80 px-5 py-4 transition-colors hover:border-teal-300 hover:bg-teal-50 dark:border-teal-800/60 dark:bg-teal-950/30 dark:hover:border-teal-700"
             >
-              <div>
+              <div className="min-w-0">
                 <p className="font-semibold text-gray-900 dark:text-gray-100">
                   {getLocalized(primaryLink.label)}
                 </p>
@@ -197,7 +197,7 @@ const TimelineDetailPage = () => {
               rel="noopener noreferrer"
               className="group flex items-center justify-between gap-4 rounded-xl px-1 py-2 text-sm text-gray-600 transition-colors hover:text-teal-600 dark:text-gray-400 dark:hover:text-teal-400"
             >
-              <span>{getLocalized(link.label)}</span>
+              <span className="min-w-0 break-words">{getLocalized(link.label)}</span>
               <HiExternalLink size={14} className="shrink-0 opacity-50 group-hover:opacity-100" />
             </a>
           ))}

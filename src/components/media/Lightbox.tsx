@@ -81,7 +81,7 @@ export function Lightbox({ state, onClose, onStep }: LightboxProps) {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="relative max-w-5xl w-full max-h-[90vh] flex flex-col items-center justify-center gap-3"
+            className="relative max-w-5xl w-full max-h-[90dvh] flex flex-col items-center justify-center gap-3"
             onClick={(e) => e.stopPropagation()}
             onTouchStart={(e) => {
               touchStartX.current = e.changedTouches[0].clientX
@@ -95,7 +95,7 @@ export function Lightbox({ state, onClose, onStep }: LightboxProps) {
             <img
               src={activeImage}
               alt="Enlarged view"
-              className="max-w-full max-h-[82vh] object-contain rounded-lg shadow-2xl"
+              className="max-w-full max-h-[82dvh] object-contain rounded-lg shadow-2xl"
             />
             {canNavigate && (
               <p className="text-white/70 text-sm">

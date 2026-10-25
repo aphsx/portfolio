@@ -27,6 +27,9 @@
 @layer base {
   html {
     font-family: var(--font-rounded);
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    overflow-x: clip;
   }
 
   body {
@@ -35,6 +38,7 @@
     padding: 0;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    overflow-x: clip;
   }
 
   body::-webkit-scrollbar {
@@ -75,6 +79,23 @@
   /* Global Markdown Styles */
   .markdown-content {
     @apply text-gray-700 dark:text-gray-300 leading-relaxed;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    min-width: 0;
+  }
+
+  .markdown-content img,
+  .markdown-content video,
+  .markdown-content iframe {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .markdown-content pre,
+  .markdown-content table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
   }
 
   .markdown-content h1,

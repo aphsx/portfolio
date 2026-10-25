@@ -74,7 +74,7 @@ const ProjectDetail = () => {
         transition={{ delay: 0.2, duration: 0.6 }}
         className="mb-10"
       >
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-6 break-words">
           {getLocalized(project.title)}
         </h1>
         <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
