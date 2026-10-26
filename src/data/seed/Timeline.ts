@@ -20,7 +20,7 @@ const INNOVESTX_IMAGES = [
 ]
 
 const CURSOR_BUILD_SALAYA_URL =
-    'https://cursorthailand.com/build-salaya/thank-you?referrer=luma&utm_source=luma'
+    'https://cursorthailand.com/build-salaya/thank-you'
 
 const COSI_PEOPLE_URL = 'https://cosi.bu.ac.th/people'
 

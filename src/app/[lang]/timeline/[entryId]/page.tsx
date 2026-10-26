@@ -1,9 +1,10 @@
-"use client";
+﻿"use client";
 import { useEffect } from 'react'
 import Link from 'next/link'
 import { useParams, useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
-import { HiArrowLeft, HiExternalLink } from 'react-icons/hi'
+import { HiArrowLeft } from 'react-icons/hi'
+import { FiArrowUpRight } from 'react-icons/fi'
 import { useTranslation } from 'react-i18next'
 import MarkdownRenderer from '@/components/common/MarkdownRenderer'
 import { ImageGallery, Lightbox } from '@/components/media'
@@ -47,8 +48,34 @@ const TimelineDetailPage = () => {
     columns3: t('layout.columns3'),
   }
 
-  const primaryLink = entry.links?.[0]
-  const otherLinks = entry.links?.slice(1) ?? []
+  const getHost = (url: string) => {
+    try {
+      return new URL(url).hostname.replace(/^www\./, '')
+    } catch {
+      return url
+    }
+  }
+
+  const relatedLinks = [
+    ...(entry.projectId
+      ? [
+          {
+            key: 'project',
+            href: `/${language}/projects/${entry.projectId}`,
+            label: t('timeline.viewInPortfolio'),
+            meta: 'portfolio',
+            external: false,
+          },
+        ]
+      : []),
+    ...(entry.links ?? []).map((link) => ({
+      key: link.url,
+      href: link.url,
+      label: getLocalized(link.label),
+      meta: getHost(link.url),
+      external: true,
+    })),
+  ]
 
   return (
     <PageContainer innerClassName="max-w-2xl mx-auto px-4 pb-16 sm:px-5">
@@ -136,71 +163,70 @@ const TimelineDetailPage = () => {
       />
 
       {/* Related links */}
-      {(entry.projectId || primaryLink || otherLinks.length > 0) && (
+      {relatedLinks.length > 0 && (
         <motion.aside
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
-          className="space-y-3 border-t border-gray-200 pt-6 dark:border-gray-700"
+          className="mt-4"
         >
-          <p className="text-xs font-bold uppercase tracking-[0.14em] text-gray-400 dark:text-gray-500">
+          <h2 className="mb-1 text-sm font-medium text-gray-500 dark:text-gray-400">
             {t('timeline.relatedLinks')}
-          </p>
+          </h2>
 
-          {entry.projectId && (
-            <Link
-              href={`/${language}/projects/${entry.projectId}`}
-              className="group flex items-center justify-between gap-4 rounded-xl border border-teal-200 bg-teal-50/80 px-5 py-4 transition-colors hover:border-teal-300 hover:bg-teal-50 dark:border-teal-800/60 dark:bg-teal-950/30 dark:hover:border-teal-700"
-            >
-              <div className="min-w-0">
-                <p className="font-semibold text-gray-900 dark:text-gray-100">
-                  {t('timeline.viewInPortfolio')}
-                </p>
-                <p className="mt-0.5 truncate text-xs text-gray-500 dark:text-gray-400">
-                  /{language}/projects/{entry.projectId}
-                </p>
-              </div>
-              <HiArrowLeft
-                size={18}
-                className="shrink-0 rotate-180 text-teal-600 transition-transform group-hover:translate-x-0.5 dark:text-teal-400"
-              />
-            </Link>
-          )}
+          <ul className="divide-y divide-gray-200/80 border-y border-gray-200/80 dark:divide-gray-800 dark:border-gray-800">
+            {relatedLinks.map((link) => {
+              const inner = (
+                <>
+                  {link.external ? (
+                    <img
+                      src={`https://www.google.com/s2/favicons?domain=${link.meta}&sz=64`}
+                      alt=""
+                      width={16}
+                      height={16}
+                      loading="lazy"
+                      className="h-4 w-4 shrink-0 rounded-sm"
+                      onError={(e) => {
+                        e.currentTarget.style.visibility = 'hidden'
+                      }}
+                    />
+                  ) : (
+                    <span className="flex h-4 w-4 shrink-0 items-center justify-center">
+                      <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
+                    </span>
+                  )}
+                  <span className="min-w-0 flex-1 truncate text-[15px] text-gray-800 decoration-gray-300 underline-offset-4 group-hover:underline dark:text-gray-200 dark:decoration-gray-600">
+                    {link.label}
+                  </span>
+                  <span className="hidden shrink-0 text-xs text-gray-400 sm:inline dark:text-gray-500">
+                    {link.meta}
+                  </span>
+                  <FiArrowUpRight
+                    size={15}
+                    className={`shrink-0 text-gray-400 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-gray-700 dark:group-hover:text-gray-200 ${
+                      link.external ? '' : 'rotate-45'
+                    }`}
+                  />
+                </>
+              )
 
-          {primaryLink && (
-            <a
-              href={primaryLink.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center justify-between gap-4 rounded-xl border border-teal-200 bg-teal-50/80 px-5 py-4 transition-colors hover:border-teal-300 hover:bg-teal-50 dark:border-teal-800/60 dark:bg-teal-950/30 dark:hover:border-teal-700"
-            >
-              <div className="min-w-0">
-                <p className="font-semibold text-gray-900 dark:text-gray-100">
-                  {getLocalized(primaryLink.label)}
-                </p>
-                <p className="mt-0.5 truncate text-xs text-gray-500 dark:text-gray-400">
-                  {primaryLink.url.replace(/^https?:\/\//, '')}
-                </p>
-              </div>
-              <HiExternalLink
-                size={18}
-                className="shrink-0 text-teal-600 transition-transform group-hover:translate-x-0.5 dark:text-teal-400"
-              />
-            </a>
-          )}
+              const rowClass = 'group flex items-center gap-3 py-3'
 
-          {otherLinks.map((link) => (
-            <a
-              key={link.url}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center justify-between gap-4 rounded-xl px-1 py-2 text-sm text-gray-600 transition-colors hover:text-teal-600 dark:text-gray-400 dark:hover:text-teal-400"
-            >
-              <span className="min-w-0 break-words">{getLocalized(link.label)}</span>
-              <HiExternalLink size={14} className="shrink-0 opacity-50 group-hover:opacity-100" />
-            </a>
-          ))}
+              return (
+                <li key={link.key}>
+                  {link.external ? (
+                    <a href={link.href} target="_blank" rel="noopener noreferrer" className={rowClass}>
+                      {inner}
+                    </a>
+                  ) : (
+                    <Link href={link.href} className={rowClass}>
+                      {inner}
+                    </Link>
+                  )}
+                </li>
+              )
+            })}
+          </ul>
         </motion.aside>
       )}
 
