@@ -11,6 +11,7 @@ import { useLightbox, useLocalizedData } from '@/hooks'
 import MarkdownRenderer from '@/components/common/MarkdownRenderer'
 import { ImageGallery, Lightbox } from '@/components/media'
 import { PageContainer } from '@/components/ui'
+import { CertificateDetail } from '@/components/projects/CertificateDetail'
 
 const ProjectDetail = () => {
   const { projectId } = useParams()
@@ -32,6 +33,10 @@ const ProjectDetail = () => {
 
   if (!project) {
     return null
+  }
+
+  if (project.category === 'certi') {
+    return <CertificateDetail project={project} />
   }
 
   const isDocument = Boolean(project.fileUrl)
