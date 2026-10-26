@@ -39,14 +39,25 @@ export function ImageGallery({
   },
 }: ImageGalleryProps) {
   const [layout, setLayout] = useState<GalleryLayout>(defaultLayout)
+  const [failedUrls, setFailedUrls] = useState<Set<string>>(new Set())
 
-  if (!images || images.length === 0) return null
+  const validImages = (images || []).filter((img) => !failedUrls.has(img.url))
+
+  if (validImages.length === 0) return null
 
   const layoutOptions: SegmentedOption<GalleryLayout>[] = [
     { id: 'single', label: labels.single, icon: Rows3 },
     { id: 'columns-2', label: labels.columns2, icon: Columns2 },
     { id: 'columns-3', label: labels.columns3, icon: Columns3 },
   ]
+
+  const handleImageError = (url: string) => {
+    setFailedUrls((prev) => {
+      const next = new Set(prev)
+      next.add(url)
+      return next
+    })
+  }
 
   const renderItem = (item: GalleryImageItem, index: number, hover: string) => (
     <button
@@ -60,6 +71,7 @@ export function ImageGallery({
         alt={item.alt || `Photo ${index + 1}`}
         className={`block w-full h-auto transition-transform duration-300 ${hover}`}
         loading="lazy"
+        onError={() => handleImageError(item.url)}
       />
     </button>
   )
@@ -70,7 +82,7 @@ export function ImageGallery({
       { length: columnCount },
       () => [],
     )
-    images.forEach((item, index) => columns[index % columnCount].push({ item, index }))
+    validImages.forEach((item, index) => columns[index % columnCount].push({ item, index }))
 
     return (
       <div className={`flex items-start ${gap}`}>
@@ -98,7 +110,7 @@ export function ImageGallery({
             </h3>
           )}
           <span className="rounded-full bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-600 dark:bg-gray-800 dark:text-gray-400">
-            {images.length}
+            {validImages.length}
           </span>
         </div>
 
@@ -114,7 +126,7 @@ export function ImageGallery({
 
       {layout === 'single' && (
         <div className="flex flex-col gap-4">
-          {images.map((item, index) => (
+          {validImages.map((item, index) => (
             <button
               key={`${item.url}-${index}`}
               type="button"
@@ -126,6 +138,7 @@ export function ImageGallery({
                 alt={item.alt || `Photo ${index + 1}`}
                 className="w-full h-auto rounded-xl transition-transform duration-300 group-hover:scale-[1.01]"
                 loading="lazy"
+                onError={() => handleImageError(item.url)}
               />
             </button>
           ))}
