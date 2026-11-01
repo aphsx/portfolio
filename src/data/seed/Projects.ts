@@ -649,35 +649,70 @@ The Go API turns that form into a LINE Messaging API broadcast. Cards are Flex M
    - รัน PostgreSQL ใน Container ด้วย Docker Compose
    - จัดการ Version ของ Database Schema ด้วย \`golang-migrate\` และรวมคำสั่งอำนวยความสะดวกไว้ใน \`Makefile\``,
         },
-        image: '/images/simple-bank.png',
+        image: '/images/simple-bank-docker-compose.png',
         images: [
             {
-                url: '/images/simple-bank.png',
+                url: '/images/simple-bank-docker-compose.png',
                 caption: {
-                    en: 'Simple Bank Codebase & Test Execution in VS Code',
-                    th: 'โครงสร้างโค้ดและการทดสอบระบบ Simple Bank บน VS Code',
+                    en: 'Docker Compose Deployment & Database Auto-Migration with golang-migrate',
+                    th: 'การรันบริการทั้งระบบด้วย Docker Compose พร้อมระบบ Database Migration อัตโนมัติ',
                 },
                 isPrimary: true,
             },
             {
-                url: '/images/simple-bank-test-concurrency.png',
+                url: '/images/simple-bank-transfer-api.png',
                 caption: {
-                    en: 'Concurrency Money Transfer Test: Validating concurrent balance updates & double-entry ledger without race conditions',
-                    th: 'การทดสอบการโอนเงินคู่ขนาน (TestTransferTx): ตรวจสอบยอดเงินคงเหลือและการบันทึกบัญชีคู่ โดยไม่มีปัญหา Race Condition',
+                    en: 'Money Transfer Transaction API: Atomic transfer with double-entry balance updates',
+                    th: 'API โอนเงิน (POST /transfers): ทำงานแบบ Database Transaction พร้อมบันทึกรายการบัญชีคู่',
                 },
             },
             {
-                url: '/images/simple-bank-test-deadlock.png',
+                url: '/images/simple-bank-register-api.png',
                 caption: {
-                    en: 'Deadlock Prevention Test: Executing 10 concurrent bidirectional transfers with zero cycle deadlocks',
-                    th: 'การทดสอบป้องกัน Deadlock (TestTransferTxDeadlock): จำลอง 10 ธุรกรรมโอนเงินสวนทางกันพร้อมกัน ผ่านฉลุย 100%',
+                    en: 'User Registration API: Password hashing with bcrypt & user creation',
+                    th: 'API สมัครสมาชิกผู้ใช้งาน (POST /users): แฮชรหัสผ่านด้วย bcrypt และบันทึกลงฐานข้อมูล',
                 },
             },
             {
-                url: '/images/simple-bank-test-all.png',
+                url: '/images/simple-bank-login-paseto.png',
                 caption: {
-                    en: 'Full Test Suite Execution: Accounts, Transfers, Deadlock Prevention, and Password Hashing (100% Pass)',
-                    th: 'ผลการรันชุดทดสอบทั้งหมด (Full Test Suite): ครอบคลุมการจัดการบัญชี, การโอนเงิน, Deadlock Prevention และ Bcrypt Hashing (ผ่าน 100%)',
+                    en: 'PASETO Authentication API: Login & asymmetric/symmetric token generation',
+                    th: 'API เข้าสู่ระบบ (POST /users/login): ตรวจสอบรหัสผ่านและสร้าง PASETO Token',
+                },
+            },
+            {
+                url: '/images/simple-bank-create-account-api.png',
+                caption: {
+                    en: 'Create Bank Account API: Creating authenticated user account with currency validation',
+                    th: 'API เปิดบัญชีธนาคาร (POST /accounts): ผูกกับ Token ของ User พร้อมตรวจสอบสกุลเงิน',
+                },
+            },
+            {
+                url: '/images/simple-bank-gin-server.png',
+                caption: {
+                    en: 'Gin HTTP Server Routing & Middleware Setup',
+                    th: 'การตั้งค่า Router, Handler และ Middleware ของ Gin HTTP Web Framework',
+                },
+            },
+            {
+                url: '/images/simple-bank-transfer-tx.png',
+                caption: {
+                    en: 'Concurrent Money Transfer Test (TestTransferTx): Validating ledger & balance consistency',
+                    th: 'การทดสอบจำลองคำสั่งโอนเงินคู่ขนาน (TestTransferTx): ตรวจสอบยอดเงินและความถูกต้องของระบบบัญชีคู่',
+                },
+            },
+            {
+                url: '/images/simple-bank-deadlock-test.png',
+                caption: {
+                    en: 'Deadlock Prevention Test (TestTransferTxDeadlock): Bidirectional concurrent transfers passed',
+                    th: 'การทดสอบป้องกันปัญหา Deadlock (TestTransferTxDeadlock): ทดสอบโอนเงินสวนทางกันพร้อมกัน ผ่าน 100%',
+                },
+            },
+            {
+                url: '/images/simple-bank-test-crud.png',
+                caption: {
+                    en: 'Database CRUD Unit Tests & Code Coverage',
+                    th: 'การทดสอบ Unit Test สำหรับ CRUD ฐานข้อมูล พร้อมรายงาน Test Coverage',
                 },
             },
         ],
